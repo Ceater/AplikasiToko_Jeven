@@ -1,0 +1,110 @@
+TbBarang
+- KodeBarang
+- NamaBarang
+- Stok
+- SatuanBarang
+- HargaSatuan
+
+TbStaff
+- IDStaff
+- Password
+- NamaStaff
+- Alamat
+- NoTelepon
+
+TbSupplier
+- IDSupplier
+- NamaSupplier
+- AlamatSupplier
+
+KontakSupplier
+- NoKontak
+- IDKontakSupplier
+- IDSupplier
+- NamaSales
+- TlpSales
+
+HReturJual
+- IDReturJual
+- TglReturJual
+- NoNotaJual
+- TotalPengembalianUang
+
+DReturJual
+- No
+- IDReturJual
+- KodeBarang
+- NamaBarang
+- HargaSatuan
+- Jumlah
+- Subtotal
+
+HReturBeli
+- IDReturBeli
+- TglReturBeli
+- NoNotaBeli
+- TotalpengembalianUang
+
+DReturBeli
+- No
+- IDReturBeli
+- KodeBarang
+- NamaBarang
+- HargaSatuan
+- Jumlah
+- Subtotal
+
+HJual
+- NoNotaJual
+- TglNota
+- GrandTotal
+- IDStaff
+
+DJual
+- NoDJual
+- NoNotaJual
+- KodeBarang
+- NamaBarang
+- HargaSatuan
+- Jumlah
+- Subtotal
+
+HBeli
+- NoNotaBeli
+- TglNota
+- GrandTotal
+- IDStaff
+
+DBeli
+- NoDBeli
+- NoNotaBeli
+- KodeBarang
+- NamaBarang
+- HargaSatuan
+- Jumlah
+- Subtotal
+
+HTerima
+- NoNotaTerima
+- TglNota
+- GrandTotal
+- IDStaff
+
+DTerima
+- NoDTerima
+- NoNotaTerima
+- KodeBarang
+- NamaBarang
+- HargaSatuan
+- Jumlah
+- Subtotal
+
+TbSatuan
+- KodeSatuan
+- NamaSatuan
+
+DSatuan
+- NoDSatuan
+- KodeBarang
+- KodeSatuan
+- JumlahIsiBarang

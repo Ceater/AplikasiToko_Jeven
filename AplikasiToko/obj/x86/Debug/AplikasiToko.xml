@@ -1,0 +1,526 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AplikasiToko
+</name>
+</assembly>
+<members>
+<member name="T:AplikasiToko.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AplikasiToko.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AplikasiToko.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.TbPembayaranDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.HJualDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.DetailPembayaranDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.TbPembayaranRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.HJualRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.DetailPembayaranRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.TbPembayaranRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.HJualRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaran.DetailPembayaranRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaranTableAdapters.TbPembayaranTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaranTableAdapters.HJualTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaranTableAdapters.DetailPembayaranTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaranTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPembayaranTableAdapters.TableAdapterManager.UpdateUpdatedRows(AplikasiToko.DSetPembayaran,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPembayaranTableAdapters.TableAdapterManager.UpdateInsertedRows(AplikasiToko.DSetPembayaran,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPembayaranTableAdapters.TableAdapterManager.UpdateDeletedRows(AplikasiToko.DSetPembayaran,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPembayaranTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPembayaranTableAdapters.TableAdapterManager.UpdateAll(AplikasiToko.DSetPembayaran)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaranTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPembayaranTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.DTerimaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.HTerimaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.PenerimaanDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.DTerimaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.HTerimaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.PenerimaanRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.DTerimaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.HTerimaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarang.PenerimaanRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarangTableAdapters.DTerimaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarangTableAdapters.HTerimaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarangTableAdapters.PenerimaanTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarangTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenerimaanBarangTableAdapters.TableAdapterManager.UpdateUpdatedRows(AplikasiToko.DSetPenerimaanBarang,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenerimaanBarangTableAdapters.TableAdapterManager.UpdateInsertedRows(AplikasiToko.DSetPenerimaanBarang,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenerimaanBarangTableAdapters.TableAdapterManager.UpdateDeletedRows(AplikasiToko.DSetPenerimaanBarang,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenerimaanBarangTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenerimaanBarangTableAdapters.TableAdapterManager.UpdateAll(AplikasiToko.DSetPenerimaanBarang)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarangTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenerimaanBarangTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.HJualDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.DJualDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.PenjualanDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.HJualRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.DJualRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.PenjualanRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.HJualRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.DJualRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualan.PenjualanRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualanTableAdapters.HJualTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualanTableAdapters.DJualTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualanTableAdapters.PenjualanTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualanTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenjualanTableAdapters.TableAdapterManager.UpdateUpdatedRows(AplikasiToko.DSetPenjualan,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenjualanTableAdapters.TableAdapterManager.UpdateInsertedRows(AplikasiToko.DSetPenjualan,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenjualanTableAdapters.TableAdapterManager.UpdateDeletedRows(AplikasiToko.DSetPenjualan,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenjualanTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetPenjualanTableAdapters.TableAdapterManager.UpdateAll(AplikasiToko.DSetPenjualan)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualanTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetPenjualanTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.DTerimaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.HTerimaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.HJualDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.DJualDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.PenerimaanDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.PenjualanDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.StokOpNameDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.DTerimaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.HTerimaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.HJualRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.DJualRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.PenerimaanRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.PenjualanRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.StokOpNameRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.DTerimaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.HTerimaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.HJualRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.DJualRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.PenerimaanRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.PenjualanRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpname.StokOpNameRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.DTerimaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.HTerimaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.HJualTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.DJualTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.PenerimaanTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.PenjualanTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.StokOpNameTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetStokOpnameTableAdapters.TableAdapterManager.UpdateUpdatedRows(AplikasiToko.DSetStokOpname,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetStokOpnameTableAdapters.TableAdapterManager.UpdateInsertedRows(AplikasiToko.DSetStokOpname,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetStokOpnameTableAdapters.TableAdapterManager.UpdateDeletedRows(AplikasiToko.DSetStokOpname,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetStokOpnameTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetStokOpnameTableAdapters.TableAdapterManager.UpdateAll(AplikasiToko.DSetStokOpname)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetStokOpnameTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+</members>
+</doc>

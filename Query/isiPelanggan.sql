@@ -1,0 +1,5 @@
+insert into TbPelanggan values('Johan Jusianto','Kupang Panjaan','031-5614844')
+insert into TbPelanggan values('Willy Budiman','Pandegiling','031-5674380')
+insert into TbPelanggan values('Kent Tanuwijaya','Dinoyo','08175135582')
+insert into TbPelanggan values('Marissa Clara','Dukuh Pakis','082232130065')
+insert into TbPelanggan values('Oktaviani Sherly Diaz','Pakuwon City Regency','083849492993')
