@@ -1,28 +1,29 @@
 ﻿Public Class Home
     Public hakAkses As String = ""
-    Public Menu(12) As ToolStripMenuItem
+    Public MenuStrip(12) As ToolStripMenuItem
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Timer1.Start()
         LoadDataSet()
-        Menu(0) = BarangToolStripMenuItem
-        Menu(1) = SupplierToolStripMenuItem
-        Menu(2) = StaffToolStripMenuItem
-        Menu(3) = PelangganToolStripMenuItem
-        Menu(4) = PenjualanToolStripMenuItem
-        Menu(5) = TerimaToolStripMenuItem
-        Menu(6) = PembayaranToolStripMenuItem
-        Menu(7) = StokOpnameToolStripMenuItem
-        Menu(8) = PrintUlangNotaToolStripMenuItem
-        Menu(9) = PenjualanToolStripMenuItem2
-        Menu(10) = TerimaToolStripMenuItem2
-        Menu(11) = PembayaranToolStripMenuItem
-        Dim temp(11) As String
-        For i = 0 To 10
+        MenuStrip(0) = M1
+        MenuStrip(1) = M2
+        MenuStrip(2) = M3
+        MenuStrip(3) = T1
+        MenuStrip(4) = T2
+        MenuStrip(5) = T3
+        MenuStrip(6) = T4
+        MenuStrip(7) = T5
+        MenuStrip(8) = T6
+        MenuStrip(9) = L1
+        MenuStrip(10) = L2
+        MenuStrip(11) = L3
+        MenuStrip(12) = L4
+        Dim temp(MenuStrip.Count - 1) As String
+        For i = 0 To MenuStrip.Count - 1
             temp(i) = hakAkses.Substring(i, 1)
             If temp(i) = "1" Then
-                Menu(i).Enabled = True
+                MenuStrip(i).Enabled = True
             Else
-                Menu(i).Enabled = False
+                MenuStrip(i).Enabled = False
             End If
         Next
     End Sub
@@ -38,90 +39,139 @@
         Me.Close()
     End Sub
 
-    Private Sub BarangToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BarangToolStripMenuItem.Click
-        Dim f As New Barang
-        f.MdiParent = Me
-        f.Show()
+    Private Sub BarangToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles M1.Click
+        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        Else
+            Dim f As New Barang
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
-    Private Sub SupplierToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SupplierToolStripMenuItem.Click
-        Dim f As New Supplier
-        f.MdiParent = Me
-        f.Show()
+    Private Sub StaffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles M2.Click
+        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        Else
+            Dim f As New Staff
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
-    Private Sub StaffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StaffToolStripMenuItem.Click
-        Dim f As New Staff
-        f.MdiParent = Me
-        f.Show()
+    Private Sub PenjualanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T1.Click
+        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        Else
+            Dim f As New Penjualan
+            f.MdiParent = Me
+            f.setStaff(ToolStripStatusLabel2.Text)
+            f.Show()
+        End If
     End Sub
 
-    Private Sub PenjualanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PenjualanToolStripMenuItem.Click
-        Dim f As New Penjualan
-        f.MdiParent = Me
-        f.setStaff(ToolStripStatusLabel2.Text)
-        f.Show()
+    Private Sub PelangganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles M3.Click
+        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        Else
+            Dim f As New Pelanggan
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
-    Private Sub PelangganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PelangganToolStripMenuItem.Click
-        Dim f As New Pelanggan
-        f.MdiParent = Me
-        f.Show()
+    Private Sub PembelianToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T2.Click
+        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        Else
+            Dim f As New TerimaBarang
+            f.MdiParent = Me
+            f.setStaff(ToolStripStatusLabel2.Text)
+            f.Show()
+        End If
     End Sub
 
-    Private Sub PembelianToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TerimaToolStripMenuItem.Click
-        Dim f As New TerimaBarang
-        f.MdiParent = Me
-        f.setStaff(ToolStripStatusLabel2.Text)
-        f.Show()
+    Private Sub PembayaranToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T3.Click
+        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        Else
+            Dim f As New Pembayaran
+            f.MdiParent = Me
+            f.setStaff(ToolStripStatusLabel2.Text)
+            f.Show()
+        End If
     End Sub
 
-    Private Sub PembayaranToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PembayaranToolStripMenuItem.Click
-        Dim f As New Pembayaran
-        f.MdiParent = Me
-        f.setStaff(ToolStripStatusLabel2.Text)
-        f.Show()
+    Private Sub PenjualanToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles L1.Click
+        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        Else
+            Dim f As New FormLaporanPenjualan
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
-    Private Sub CekLaporanToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        Dim f As New FormLaporan("NotaPembayaran")
-        f.LaporanNoNota = "4"
-        f.Show()
+    Private Sub PembelianToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles L2.Click
+        If Application.OpenForms().OfType(Of StokOpname).Any Then
+        Else
+            Dim f As New FormLaporanTerima
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
-    Private Sub PenjualanToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles PenjualanToolStripMenuItem2.Click
-        Dim f As New FormLaporanPenjualan
-        f.MdiParent = Me
-        f.Show()
+    Private Sub StokOpnameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T4.Click
+        If Application.OpenForms().OfType(Of StokOpname).Any Then
+        Else
+            Dim f As New StokOpname
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
-    Private Sub PembelianToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles TerimaToolStripMenuItem2.Click
-        Dim f As New FormLaporanTerima
-        f.MdiParent = Me
-        f.Show()
+    Private Sub PembayaranToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles L3.Click
+        If Application.OpenForms().OfType(Of FormLaporan).Any Then
+        Else
+            Dim f As New FormLaporan("LaporanPembayaran")
+            f.Show()
+        End If
     End Sub
 
-    Private Sub StokOpnameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StokOpnameToolStripMenuItem.Click
-        Dim f As New StokOpname
-        f.MdiParent = Me
-        f.Show()
+    Private Sub PrintUlangNotaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T5.Click
+        If Application.OpenForms().OfType(Of PrintUlangNota).Any Then
+        Else
+            Dim f As New PrintUlangNota
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
-    Private Sub PembayaranToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PembayaranToolStripMenuItem1.Click
-        Dim f As New FormLaporan("LaporanPembayaran")
-        f.Show()
+    Private Sub ReturBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T6.Click
+        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        Else
+            Dim f As New ReturTerima(ToolStripStatusLabel2.Text)
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
-    Private Sub PrintUlangNotaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintUlangNotaToolStripMenuItem.Click
-        Dim f As New PrintUlangNota
-        f.MdiParent = Me
-        f.Show()
+    Private Sub PrinterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrinterToolStripMenuItem.Click
+        If Application.OpenForms().OfType(Of Printer).Any Then
+        Else
+            Dim f As New Printer
+            f.MdiParent = Me
+            f.Show()
+        End If
+    End Sub
+
+    Private Sub ReturBarangToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles L4.Click
+        If Application.OpenForms().OfType(Of FormLaporanRetur).Any Then
+        Else
+            Dim f As New FormLaporanRetur
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 
     Sub cekStokMinimum()
         Dim DT As DataTable = DSet.Tables("DataStokMinim")
         ListBox1.Items.Clear()
         ListBox1.Items.Add("Stok Pengingat")
+        ListBox1.Items.Add("=================")
         For Each f As DataRow In DT.Rows
             ListBox1.Items.Add(f(0) & " - " & f(1))
         Next

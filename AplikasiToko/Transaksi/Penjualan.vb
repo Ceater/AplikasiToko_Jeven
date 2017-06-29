@@ -1,4 +1,7 @@
-﻿Public Class Penjualan
+﻿Imports System.Data.Sql
+Imports System.Data.SqlClient
+
+Public Class Penjualan
     Dim DTable As New DataTable
     Dim DRow As DataRow
     Dim GTotal As Integer 'Grand Total
@@ -6,6 +9,7 @@
     Dim TotJumBarang As Integer 'Total Jumlah Barang
     Dim Pembayaran As Integer
     Dim staff As String = ""
+    Dim PilihanHarga As Integer = 4
     'Variable Label
     Dim pembayarantxt1 As Label
     Dim grandtotaltxt1 As Label
@@ -50,7 +54,7 @@
                     DRow("Kode Barang") = ComboBox1.SelectedText
                     DRow("Nama Barang") = ComboBox1.SelectedValue
                     DRow("Satuan") = DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(3).ToString
-                    DRow("Harga Satuan") = FormatCurrency(DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(4).ToString)
+                    DRow("Harga Satuan") = FormatCurrency(DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(PilihanHarga).ToString)
                     DRow("Jumlah") = 1
                     DRow("Diskon %") = 0
                     DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan"))
@@ -169,13 +173,21 @@
         End If
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged, RadioButton2.CheckedChanged
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged, RadioButton2.CheckedChanged, RadioButton3.CheckedChanged
         If RadioButton1.Checked Then
             ComboBox2.Enabled = False
-        ElseIf RadioButton2.checked Then
+            TextBox2.Enabled = False
+            PilihanHarga = 4
+        ElseIf RadioButton2.Checked Then
             ComboBox2.Enabled = True
+            TextBox2.Enabled = False
+            PilihanHarga = 5
+        ElseIf RadioButton3.Checked Then
+            ComboBox2.Enabled = False
+            TextBox2.Enabled = True
+            PilihanHarga = 6
         End If
-        'ComboBox2.SelectedIndex = 0
+        clear()
     End Sub
 
     Private Sub DataGridView1_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles DataGridView1.RowsRemoved
@@ -249,10 +261,14 @@
     End Sub
 
     Sub clear()
-        DTable.Clear()
-        NotaTxt.Text = ""
-        CashRB.Checked = True
-        TextBox1.Text = "0"
-        ComboBox1.SelectedIndex = 0
+        Try
+            DTable.Clear()
+            NotaTxt.Text = ""
+            CashRB.Checked = True
+            TextBox1.Text = "0"
+            ComboBox1.SelectedIndex = 0
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

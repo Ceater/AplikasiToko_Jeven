@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
+Imports System.IO
 
 Public Class FormLaporan
     Public LaporanNoNota As String = ""
@@ -41,7 +42,7 @@ Public Class FormLaporan
                 adapt.Fill(dataset, "Penjualan")
                 rep = New NotaPenjualan
                 rep.SetDataSource(dataset)
-                rep.PrintOptions.PrinterName = "HP Deskjet 1010 series"
+                rep.PrintOptions.PrinterName = getPrinter()
                 rep.PrintToPrinter(1, False, 0, 0)
             ElseIf Jenis = "NotaPembayaran" Then
                 cmd.CommandText = "SELECT H.NoNotaJual, T.NoNotaPembayaran, H.TglNota,H.NamaPelanggan, H.GrandTotal, T.TglBayar, T.UangBayar from HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual and H.NoNotaJual=@a"
@@ -49,7 +50,7 @@ Public Class FormLaporan
                 adapt.Fill(dataset, "Detailpembayaran")
                 rep = New NotaPembayaran
                 rep.SetDataSource(dataset)
-                rep.PrintOptions.PrinterName = "HP Deskjet 1010 series"
+                rep.PrintOptions.PrinterName = getPrinter()
                 rep.PrintToPrinter(1, False, 0, 0)
             ElseIf Jenis = "LaporanPenjualan" Then
                 If mode = "1" Then
@@ -102,6 +103,26 @@ Public Class FormLaporan
                 adapt.Fill(dataset, "Detailpembayaran")
                 rep = New LaporanPembayaran
                 rep.SetDataSource(dataset)
+            ElseIf Jenis = "LaporanReturTerima" Then
+                If mode = "1" Then
+                    cmd.CommandText = "select HRT.NoNotaReturTerima, HRT.NoNotaTerima, HRT.TglReturTerima, HRT.IDStaff, DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.Jumlah from HReturTerima HRT, DReturTerima DRT where HRT.NoNotaReturTerima = DRT.NoNotaReturTerima"
+                    adapt.Fill(dataset, "ReturBarang")
+                    rep = New LaporanReturTerima
+                    rep.SetDataSource(dataset)
+                ElseIf mode = "2" Then
+                    cmd.CommandText = "select HRT.NoNotaReturTerima, HRT.NoNotaTerima, HRT.TglReturTerima, HRT.IDStaff, DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.Jumlah from HReturTerima HRT, DReturTerima DRT where HRT.NoNotaReturTerima = DRT.NoNotaReturTerima and HRT.TglReturTerima BETWEEN @tglAwal AND @tglAkhir ORDER BY HRT.TglReturTerima"
+                    cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM/dd/yyyy") & " 00:00:00")
+                    cmd.Parameters.AddWithValue("@tglakhir", tglAkhir.ToString("MM/dd/yyyy") & " 23:59:59")
+                    adapt.Fill(dataset, "ReturBarang")
+                    rep = New LaporanReturTerima
+                    rep.SetDataSource(dataset)
+                ElseIf mode = "3" Then
+                    cmd.CommandText = "select HRT.NoNotaReturTerima, HRT.NoNotaTerima, HRT.TglReturTerima, HRT.IDStaff, DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.Jumlah from HReturTerima HRT, DReturTerima DRT where HRT.NoNotaReturTerima = DRT.NoNotaReturTerima and month(HRT.TglReturTerima) = @tglawal ORDER BY HRT.TglReturTerima"
+                    cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM"))
+                    adapt.Fill(dataset, "ReturBarang")
+                    rep = New LaporanReturTerima
+                    rep.SetDataSource(dataset)
+                End If
             End If
             con.Close()
             crv.ReportSource = rep
@@ -111,7 +132,12 @@ Public Class FormLaporan
         End Try
     End Sub
 
-    Sub print()
-
-    End Sub
+    Function getPrinter()
+        Dim path As String = Directory.GetCurrentDirectory & "\printer.txt"
+        Dim x1 As String
+        Dim sr As StreamReader = New StreamReader(path)
+        x1 = sr.ReadLine()
+        sr.Dispose()
+        Return x1
+    End Function
 End Class

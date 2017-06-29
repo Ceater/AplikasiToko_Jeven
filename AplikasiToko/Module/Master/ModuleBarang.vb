@@ -15,17 +15,19 @@ Module ModuleBarang
         Return x
     End Function
 
-    Sub insertBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal Stok As Integer, ByVal KDSatuan As String, ByVal HSatuan As Integer, ByVal Spengingat As Integer)
+    Sub insertBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal Stok As Integer, ByVal KDSatuan As String, ByVal HNormal As Integer, ByVal HToko As Integer, ByVal HSales As Integer, ByVal Spengingat As Integer)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into TbBarang values(@aa,@ab,@ac,@ad,@ae,@af)", constring)
+            cmd = New SqlCommand("insert into TbBarang values(@aa,@ab,@ac,@ad,@ae,@af,@ag,@ah)", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@aa", KDBarang))
                 .Add(New SqlParameter("@ab", NMBarang))
                 .Add(New SqlParameter("@ac", Stok))
                 .Add(New SqlParameter("@ad", KDSatuan))
-                .Add(New SqlParameter("@ae", HSatuan))
-                .Add(New SqlParameter("@af", Spengingat))
+                .Add(New SqlParameter("@ae", HNormal))
+                .Add(New SqlParameter("@af", HToko))
+                .Add(New SqlParameter("@ag", HSales))
+                .Add(New SqlParameter("@ah", Spengingat))
             End With
             cmd.ExecuteNonQuery()
             cmd.Dispose()
@@ -37,16 +39,18 @@ Module ModuleBarang
         End Try
     End Sub
 
-    Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal Stok As Integer, ByVal KDSatuan As String, ByVal HSatuan As Integer, ByVal Spengingat As Integer)
+    Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal Stok As Integer, ByVal KDSatuan As String, ByVal HNormal As Integer, ByVal HToko As Integer, ByVal HSales As Integer, ByVal Spengingat As Integer)
         constring.Open()
-        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, Stok=@a3, SatuanBarang=@a4, HargaSatuan=@a5, StokPengingat=@a6 where KodeBarang=@a1", constring)
+        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, Stok=@a3, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8 where KodeBarang=@a1", constring)
         With cmd.Parameters
             .Add(New SqlParameter("@a1", KDBarang))
             .Add(New SqlParameter("@a2", NMBarang))
             .Add(New SqlParameter("@a3", Stok))
             .Add(New SqlParameter("@a4", KDSatuan))
-            .Add(New SqlParameter("@a5", HSatuan))
-            .Add(New SqlParameter("@a6", Spengingat))
+            .Add(New SqlParameter("@a5", HNormal))
+            .Add(New SqlParameter("@a6", HToko))
+            .Add(New SqlParameter("@a7", HSales))
+            .Add(New SqlParameter("@a8", Spengingat))
         End With
         cmd.ExecuteNonQuery()
         cmd.Dispose()

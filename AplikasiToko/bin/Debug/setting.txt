@@ -2,3 +2,4 @@ Developer-PC
 SQLEXPRESS
 johan
 1234
+HP Deskjet 1010 series

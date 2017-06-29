@@ -118,6 +118,11 @@
     <Compile Include="DataSet\DSetPenjualan.vb">
       <DependentUpon>DSetPenjualan.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DSetReturBarang.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSetReturBarang.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DSetStokOpname.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +135,12 @@
       <DependentUpon>FormLaporanPenjualan.vb</DependentUpon>
     </Compile>
     <Compile Include="Laporan\FormLaporanPenjualan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laporan\FormLaporanRetur.Designer.vb">
+      <DependentUpon>FormLaporanRetur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\FormLaporanRetur.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laporan\FormLaporanTerima.Designer.vb">
@@ -156,6 +167,12 @@
       <DependentUpon>LaporanPenjualan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Laporan\Rpt\LaporanReturTerima.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanReturTerima.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Laporan\Rpt\LaporanStokOpname.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,12 +189,6 @@
       <DependentUpon>Staff.vb</DependentUpon>
     </Compile>
     <Compile Include="Master\Staff.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Master\Supplier.Designer.vb">
-      <DependentUpon>Supplier.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Master\Supplier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\GlobalModule.vb" />
@@ -205,6 +216,7 @@
     <Compile Include="Module\Master\ModuleStaff.vb" />
     <Compile Include="Module\Master\ModuleSupplier.vb" />
     <Compile Include="Module\Transaksi\ModulePembayaran.vb" />
+    <Compile Include="Module\Transaksi\ModuleReturBeli.vb" />
     <Compile Include="Module\Transaksi\ModuleTerima.vb" />
     <Compile Include="Module\Transaksi\ModuleTransaksi.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -246,6 +258,12 @@
     <Compile Include="PreLoad\CekSetting.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Setting\Printer.Designer.vb">
+      <DependentUpon>Printer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\Printer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transaksi\Pembayaran.Designer.vb">
       <DependentUpon>Pembayaran.vb</DependentUpon>
     </Compile>
@@ -262,6 +280,12 @@
       <DependentUpon>PrintUlangNota.vb</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\PrintUlangNota.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaksi\ReturTerima.Designer.vb">
+      <DependentUpon>ReturTerima.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\ReturTerima.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaksi\StokOpname.Designer.vb">
@@ -284,6 +308,9 @@
     <EmbeddedResource Include="Laporan\FormLaporanPenjualan.resx">
       <DependentUpon>FormLaporanPenjualan.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\FormLaporanRetur.resx">
+      <DependentUpon>FormLaporanRetur.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Laporan\FormLaporanTerima.resx">
       <DependentUpon>FormLaporanTerima.vb</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +325,10 @@
     <EmbeddedResource Include="Laporan\Rpt\LaporanPenjualan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LaporanPenjualan.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\Rpt\LaporanReturTerima.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanReturTerima.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Laporan\Rpt\LaporanStokOpname.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -314,9 +345,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\Staff.resx">
       <DependentUpon>Staff.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Master\Supplier.resx">
-      <DependentUpon>Supplier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -338,6 +366,9 @@
     <EmbeddedResource Include="PreLoad\CekSetting.resx">
       <DependentUpon>CekSetting.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setting\Printer.resx">
+      <DependentUpon>Printer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\Pembayaran.resx">
       <DependentUpon>Pembayaran.vb</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\PrintUlangNota.resx">
       <DependentUpon>PrintUlangNota.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaksi\ReturTerima.resx">
+      <DependentUpon>ReturTerima.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\StokOpname.resx">
       <DependentUpon>StokOpname.vb</DependentUpon>
@@ -388,6 +422,17 @@
     </None>
     <None Include="DataSet\DSetPenjualan.xss">
       <DependentUpon>DSetPenjualan.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSetReturBarang.xsc">
+      <DependentUpon>DSetReturBarang.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSetReturBarang.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSetReturBarang.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DSetReturBarang.xss">
+      <DependentUpon>DSetReturBarang.xsd</DependentUpon>
     </None>
     <None Include="DataSet\DSetStokOpname.xsc">
       <DependentUpon>DSetStokOpname.xsd</DependentUpon>

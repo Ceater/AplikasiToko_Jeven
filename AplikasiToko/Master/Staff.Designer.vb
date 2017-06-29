@@ -33,12 +33,11 @@ Partial Class Staff
         Me.T4 = New System.Windows.Forms.CheckBox()
         Me.L1 = New System.Windows.Forms.CheckBox()
         Me.T2 = New System.Windows.Forms.CheckBox()
-        Me.M4 = New System.Windows.Forms.CheckBox()
         Me.M3 = New System.Windows.Forms.CheckBox()
+        Me.M2 = New System.Windows.Forms.CheckBox()
         Me.L2 = New System.Windows.Forms.CheckBox()
         Me.T3 = New System.Windows.Forms.CheckBox()
         Me.T1 = New System.Windows.Forms.CheckBox()
-        Me.M2 = New System.Windows.Forms.CheckBox()
         Me.M1 = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -53,6 +52,7 @@ Partial Class Staff
         Me.Tambah = New System.Windows.Forms.Button()
         Me.Hapus = New System.Windows.Forms.Button()
         Me.Reset = New System.Windows.Forms.Button()
+        Me.L4 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -102,6 +102,7 @@ Partial Class Staff
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.L4)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.L3)
@@ -110,12 +111,11 @@ Partial Class Staff
         Me.GroupBox2.Controls.Add(Me.T4)
         Me.GroupBox2.Controls.Add(Me.L1)
         Me.GroupBox2.Controls.Add(Me.T2)
-        Me.GroupBox2.Controls.Add(Me.M4)
         Me.GroupBox2.Controls.Add(Me.M3)
+        Me.GroupBox2.Controls.Add(Me.M2)
         Me.GroupBox2.Controls.Add(Me.L2)
         Me.GroupBox2.Controls.Add(Me.T3)
         Me.GroupBox2.Controls.Add(Me.T1)
-        Me.GroupBox2.Controls.Add(Me.M2)
         Me.GroupBox2.Controls.Add(Me.M1)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 201)
         Me.GroupBox2.Name = "GroupBox2"
@@ -127,7 +127,7 @@ Partial Class Staff
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 137)
+        Me.Label5.Location = New System.Drawing.Point(6, 117)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 13)
         Me.Label5.TabIndex = 1
@@ -145,7 +145,7 @@ Partial Class Staff
         'L3
         '
         Me.L3.AutoSize = True
-        Me.L3.Location = New System.Drawing.Point(6, 199)
+        Me.L3.Location = New System.Drawing.Point(6, 179)
         Me.L3.Name = "L3"
         Me.L3.Size = New System.Drawing.Size(85, 17)
         Me.L3.TabIndex = 12
@@ -184,7 +184,7 @@ Partial Class Staff
         'L1
         '
         Me.L1.AutoSize = True
-        Me.L1.Location = New System.Drawing.Point(6, 153)
+        Me.L1.Location = New System.Drawing.Point(6, 133)
         Me.L1.Name = "L1"
         Me.L1.Size = New System.Drawing.Size(73, 17)
         Me.L1.TabIndex = 10
@@ -201,30 +201,30 @@ Partial Class Staff
         Me.T2.Text = "Terima Barang"
         Me.T2.UseVisualStyleBackColor = True
         '
-        'M4
-        '
-        Me.M4.AutoSize = True
-        Me.M4.Location = New System.Drawing.Point(6, 113)
-        Me.M4.Name = "M4"
-        Me.M4.Size = New System.Drawing.Size(77, 17)
-        Me.M4.TabIndex = 9
-        Me.M4.Text = "Pelanggan"
-        Me.M4.UseVisualStyleBackColor = True
-        '
         'M3
         '
         Me.M3.AutoSize = True
         Me.M3.Location = New System.Drawing.Point(6, 90)
         Me.M3.Name = "M3"
-        Me.M3.Size = New System.Drawing.Size(48, 17)
-        Me.M3.TabIndex = 8
-        Me.M3.Text = "Staff"
+        Me.M3.Size = New System.Drawing.Size(77, 17)
+        Me.M3.TabIndex = 9
+        Me.M3.Text = "Pelanggan"
         Me.M3.UseVisualStyleBackColor = True
+        '
+        'M2
+        '
+        Me.M2.AutoSize = True
+        Me.M2.Location = New System.Drawing.Point(6, 67)
+        Me.M2.Name = "M2"
+        Me.M2.Size = New System.Drawing.Size(48, 17)
+        Me.M2.TabIndex = 8
+        Me.M2.Text = "Staff"
+        Me.M2.UseVisualStyleBackColor = True
         '
         'L2
         '
         Me.L2.AutoSize = True
-        Me.L2.Location = New System.Drawing.Point(6, 176)
+        Me.L2.Location = New System.Drawing.Point(6, 156)
         Me.L2.Name = "L2"
         Me.L2.Size = New System.Drawing.Size(95, 17)
         Me.L2.TabIndex = 11
@@ -250,16 +250,6 @@ Partial Class Staff
         Me.T1.TabIndex = 13
         Me.T1.Text = "Penjualan"
         Me.T1.UseVisualStyleBackColor = True
-        '
-        'M2
-        '
-        Me.M2.AutoSize = True
-        Me.M2.Location = New System.Drawing.Point(6, 67)
-        Me.M2.Name = "M2"
-        Me.M2.Size = New System.Drawing.Size(64, 17)
-        Me.M2.TabIndex = 7
-        Me.M2.Text = "Supplier"
-        Me.M2.UseVisualStyleBackColor = True
         '
         'M1
         '
@@ -379,6 +369,16 @@ Partial Class Staff
         Me.Reset.Text = "Reset"
         Me.Reset.UseVisualStyleBackColor = True
         '
+        'L4
+        '
+        Me.L4.AutoSize = True
+        Me.L4.Location = New System.Drawing.Point(6, 202)
+        Me.L4.Name = "L4"
+        Me.L4.Size = New System.Drawing.Size(89, 17)
+        Me.L4.TabIndex = 19
+        Me.L4.Text = "Retur Barang"
+        Me.L4.UseVisualStyleBackColor = True
+        '
         'Staff
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -411,9 +411,8 @@ Partial Class Staff
     Friend WithEvents Label3 As Label
     Friend WithEvents T2 As CheckBox
     Friend WithEvents L1 As CheckBox
-    Friend WithEvents M3 As CheckBox
-    Friend WithEvents T1 As CheckBox
     Friend WithEvents M2 As CheckBox
+    Friend WithEvents T1 As CheckBox
     Friend WithEvents M1 As CheckBox
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBox2 As TextBox
@@ -422,7 +421,7 @@ Partial Class Staff
     Friend WithEvents Reset As Button
     Friend WithEvents T5 As CheckBox
     Friend WithEvents T4 As CheckBox
-    Friend WithEvents M4 As CheckBox
+    Friend WithEvents M3 As CheckBox
     Friend WithEvents T3 As CheckBox
     Friend WithEvents Tambah As Button
     Friend WithEvents Hapus As Button
@@ -432,4 +431,5 @@ Partial Class Staff
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents L4 As CheckBox
 End Class
