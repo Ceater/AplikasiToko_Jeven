@@ -142,11 +142,13 @@ Public Class Penjualan
             Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
                 Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
-                Dim temp As String
+                Dim temp As String = ""
                 If RadioButton1.Checked Then
                     temp = "Tamu"
-                Else
+                ElseIf RadioButton2.Checked Then
                     temp = ComboBox2.SelectedValue
+                ElseIf RadioButton3.Checked Then
+                    temp = TextBox2.Text
                 End If
                 If cekNotaJual(NotaTxt.Text) Then
                     MsgBox("Nota sudah terdaftar")

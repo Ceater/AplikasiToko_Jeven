@@ -93,7 +93,7 @@ Public Class FormLaporan
                     rep.SetDataSource(dataset)
                 End If
             ElseIf Jenis = "StokOpname" Then
-                cmd.CommandText = "Select H.TglNota, H.NoNotaJual As 'Nomer Nota', D.IDBarang, D.NamaBarang, D.Jumlah From HJual As H INNER Join DJual As D On H.NoNotaJual = D.NoNotaJual where D.IDBarang = @a UNION Select HT.TglNota, HT.NoNotaTerima As 'Nomer Nota', DT.IDBarang, DT.NamaBarang, DT.Jumlah From HTerima As HT INNER Join DTerima As DT On HT.NoNotaTerima = DT.NoNotaTerima where DT.IDBarang = @a"
+                cmd.CommandText = "SELECT H.TglNota, H.NoNotaJual AS 'Nomer Nota', D.IDBarang, D.NamaBarang, D.Jumlah FROM HJual AS H INNER JOIN DJual AS D ON H.NoNotaJual = D.NoNotaJual where D.IDBarang = @a UNION SELECT HT.TglNota, HT.NoNotaTerima AS 'Nomer Nota', DT.IDBarang, DT.NamaBarang, DT.Jumlah FROM HTerima AS HT INNER JOIN DTerima AS DT ON HT.NoNotaTerima = DT.NoNotaTerima where DT.IDBarang = @a UNION SELECT HRT.TglReturTerima, HRT.NoNotaReturTerima AS 'Nomer Nota', DRT.IDBarang, DRT.NamaBarang, DRT.Jumlah FROM HReturTerima AS HRT INNER JOIN DReturTerima AS DRT ON HRT.NoNotaReturTerima = DRT.NoNotaReturTerima where DRT.IDBarang = @a"
                 cmd.Parameters.AddWithValue("@a", kodebarang)
                 adapt.Fill(dataset, "StokOpName")
                 rep = New LaporanStokOpname

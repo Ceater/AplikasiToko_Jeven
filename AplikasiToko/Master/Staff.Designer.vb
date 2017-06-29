@@ -25,6 +25,7 @@ Partial Class Staff
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.L4 = New System.Windows.Forms.CheckBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.L3 = New System.Windows.Forms.CheckBox()
@@ -52,7 +53,7 @@ Partial Class Staff
         Me.Tambah = New System.Windows.Forms.Button()
         Me.Hapus = New System.Windows.Forms.Button()
         Me.Reset = New System.Windows.Forms.Button()
-        Me.L4 = New System.Windows.Forms.CheckBox()
+        Me.T6 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -102,6 +103,7 @@ Partial Class Staff
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.T6)
         Me.GroupBox2.Controls.Add(Me.L4)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -123,6 +125,16 @@ Partial Class Staff
         Me.GroupBox2.TabIndex = 99
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Hak Akses"
+        '
+        'L4
+        '
+        Me.L4.AutoSize = True
+        Me.L4.Location = New System.Drawing.Point(6, 202)
+        Me.L4.Name = "L4"
+        Me.L4.Size = New System.Drawing.Size(89, 17)
+        Me.L4.TabIndex = 12
+        Me.L4.Text = "Retur Barang"
+        Me.L4.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -148,7 +160,7 @@ Partial Class Staff
         Me.L3.Location = New System.Drawing.Point(6, 179)
         Me.L3.Name = "L3"
         Me.L3.Size = New System.Drawing.Size(85, 17)
-        Me.L3.TabIndex = 12
+        Me.L3.TabIndex = 11
         Me.L3.Text = "Pembayaran"
         Me.L3.UseVisualStyleBackColor = True
         '
@@ -158,7 +170,7 @@ Partial Class Staff
         Me.T5.Location = New System.Drawing.Point(143, 136)
         Me.T5.Name = "T5"
         Me.T5.Size = New System.Drawing.Size(104, 17)
-        Me.T5.TabIndex = 18
+        Me.T5.TabIndex = 17
         Me.T5.Text = "Print Ulang Nota"
         Me.T5.UseVisualStyleBackColor = True
         '
@@ -177,7 +189,7 @@ Partial Class Staff
         Me.T4.Location = New System.Drawing.Point(143, 113)
         Me.T4.Name = "T4"
         Me.T4.Size = New System.Drawing.Size(85, 17)
-        Me.T4.TabIndex = 17
+        Me.T4.TabIndex = 16
         Me.T4.Text = "Pembayaran"
         Me.T4.UseVisualStyleBackColor = True
         '
@@ -187,7 +199,7 @@ Partial Class Staff
         Me.L1.Location = New System.Drawing.Point(6, 133)
         Me.L1.Name = "L1"
         Me.L1.Size = New System.Drawing.Size(73, 17)
-        Me.L1.TabIndex = 10
+        Me.L1.TabIndex = 9
         Me.L1.Text = "Penjualan"
         Me.L1.UseVisualStyleBackColor = True
         '
@@ -207,7 +219,7 @@ Partial Class Staff
         Me.M3.Location = New System.Drawing.Point(6, 90)
         Me.M3.Name = "M3"
         Me.M3.Size = New System.Drawing.Size(77, 17)
-        Me.M3.TabIndex = 9
+        Me.M3.TabIndex = 8
         Me.M3.Text = "Pelanggan"
         Me.M3.UseVisualStyleBackColor = True
         '
@@ -217,7 +229,7 @@ Partial Class Staff
         Me.M2.Location = New System.Drawing.Point(6, 67)
         Me.M2.Name = "M2"
         Me.M2.Size = New System.Drawing.Size(48, 17)
-        Me.M2.TabIndex = 8
+        Me.M2.TabIndex = 7
         Me.M2.Text = "Staff"
         Me.M2.UseVisualStyleBackColor = True
         '
@@ -227,7 +239,7 @@ Partial Class Staff
         Me.L2.Location = New System.Drawing.Point(6, 156)
         Me.L2.Name = "L2"
         Me.L2.Size = New System.Drawing.Size(95, 17)
-        Me.L2.TabIndex = 11
+        Me.L2.TabIndex = 10
         Me.L2.Text = "Barang Masuk"
         Me.L2.UseVisualStyleBackColor = True
         '
@@ -237,7 +249,7 @@ Partial Class Staff
         Me.T3.Location = New System.Drawing.Point(143, 90)
         Me.T3.Name = "T3"
         Me.T3.Size = New System.Drawing.Size(91, 17)
-        Me.T3.TabIndex = 16
+        Me.T3.TabIndex = 15
         Me.T3.Text = "Stok Opname"
         Me.T3.UseVisualStyleBackColor = True
         '
@@ -347,7 +359,7 @@ Partial Class Staff
         Me.Tambah.Location = New System.Drawing.Point(9, 439)
         Me.Tambah.Name = "Tambah"
         Me.Tambah.Size = New System.Drawing.Size(75, 23)
-        Me.Tambah.TabIndex = 0
+        Me.Tambah.TabIndex = 19
         Me.Tambah.Text = "Tambah"
         Me.Tambah.UseVisualStyleBackColor = True
         '
@@ -356,7 +368,7 @@ Partial Class Staff
         Me.Hapus.Location = New System.Drawing.Point(90, 439)
         Me.Hapus.Name = "Hapus"
         Me.Hapus.Size = New System.Drawing.Size(91, 23)
-        Me.Hapus.TabIndex = 0
+        Me.Hapus.TabIndex = 20
         Me.Hapus.Text = "Hapus"
         Me.Hapus.UseVisualStyleBackColor = True
         '
@@ -365,19 +377,19 @@ Partial Class Staff
         Me.Reset.Location = New System.Drawing.Point(187, 439)
         Me.Reset.Name = "Reset"
         Me.Reset.Size = New System.Drawing.Size(75, 23)
-        Me.Reset.TabIndex = 0
+        Me.Reset.TabIndex = 21
         Me.Reset.Text = "Reset"
         Me.Reset.UseVisualStyleBackColor = True
         '
-        'L4
+        'T6
         '
-        Me.L4.AutoSize = True
-        Me.L4.Location = New System.Drawing.Point(6, 202)
-        Me.L4.Name = "L4"
-        Me.L4.Size = New System.Drawing.Size(89, 17)
-        Me.L4.TabIndex = 19
-        Me.L4.Text = "Retur Barang"
-        Me.L4.UseVisualStyleBackColor = True
+        Me.T6.AutoSize = True
+        Me.T6.Location = New System.Drawing.Point(143, 159)
+        Me.T6.Name = "T6"
+        Me.T6.Size = New System.Drawing.Size(89, 17)
+        Me.T6.TabIndex = 18
+        Me.T6.Text = "Retur Barang"
+        Me.T6.UseVisualStyleBackColor = True
         '
         'Staff
         '
@@ -432,4 +444,5 @@ Partial Class Staff
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents L4 As CheckBox
+    Friend WithEvents T6 As CheckBox
 End Class

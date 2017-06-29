@@ -27,6 +27,7 @@
                 insertHReturTerima(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff)
                 For Each f As DataGridViewRow In DataGridView1.SelectedRows
                     insertDReturTerima(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value)
+                    updateStok(-f.Cells(3).Value, f.Cells(0).Value)
                 Next f
                 MsgBox("Sukses melakukan retur terima barang")
                 clear()

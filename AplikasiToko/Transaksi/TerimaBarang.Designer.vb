@@ -104,7 +104,7 @@ Partial Class TerimaBarang
         Me.ComboBox1.Location = New System.Drawing.Point(112, 106)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(233, 21)
-        Me.ComboBox1.TabIndex = 5
+        Me.ComboBox1.TabIndex = 3
         '
         'DataGridView1
         '
@@ -120,7 +120,7 @@ Partial Class TerimaBarang
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DataGridView1.Size = New System.Drawing.Size(760, 290)
-        Me.DataGridView1.TabIndex = 7
+        Me.DataGridView1.TabIndex = 4
         '
         'GroupBox2
         '
@@ -176,7 +176,7 @@ Partial Class TerimaBarang
         Me.Proses.Location = New System.Drawing.Point(631, 429)
         Me.Proses.Name = "Proses"
         Me.Proses.Size = New System.Drawing.Size(141, 66)
-        Me.Proses.TabIndex = 9
+        Me.Proses.TabIndex = 5
         Me.Proses.Text = "Proses"
         Me.Proses.UseVisualStyleBackColor = True
         '
@@ -185,7 +185,7 @@ Partial Class TerimaBarang
         Me.Batal.Location = New System.Drawing.Point(631, 503)
         Me.Batal.Name = "Batal"
         Me.Batal.Size = New System.Drawing.Size(141, 23)
-        Me.Batal.TabIndex = 9
+        Me.Batal.TabIndex = 6
         Me.Batal.Text = "Batal"
         Me.Batal.UseVisualStyleBackColor = True
         '

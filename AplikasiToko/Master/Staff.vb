@@ -1,5 +1,5 @@
 ﻿Public Class Staff
-    Dim chkbox(11) As CheckBox
+    Dim chkbox(12) As CheckBox
     Private Sub Staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.DataSource = DSet.Tables("DataStaff")
         setGV()
@@ -11,10 +11,11 @@
         chkbox(5) = T3
         chkbox(6) = T4
         chkbox(7) = T5
-        chkbox(8) = L1
-        chkbox(9) = L2
-        chkbox(10) = L3
-        chkbox(11) = L4
+        chkbox(8) = T6
+        chkbox(9) = L1
+        chkbox(10) = L2
+        chkbox(11) = L3
+        chkbox(12) = L4
     End Sub
 
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
@@ -127,16 +128,8 @@
         TextBox5.Text = ""
         TextBox1.ReadOnly = False
         Tambah.Text = "Tambah"
-        M1.Checked = False
-        M2.Checked = False
-        M3.Checked = False
-        L1.Checked = False
-        L2.Checked = False
-        L3.Checked = False
-        T1.Checked = False
-        T2.Checked = False
-        T3.Checked = False
-        T4.Checked = False
-        T5.Checked = False
+        For i = 0 To chkbox.Count - 1
+            chkbox(i).Checked = False
+        Next
     End Sub
 End Class

@@ -81,5 +81,6 @@ Module ModuleBarang
         Catch ex As Exception
             constring.Close()
         End Try
+        LoadDataSet()
     End Sub
 End Module

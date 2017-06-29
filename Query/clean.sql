@@ -1,17 +1,16 @@
-delete DBeli
 delete DJual
-delete HBeli
 delete HJual
 delete HTerima
 delete DTerima
-delete DReturBeli
-delete DReturJual
-delete HReturBeli
-delete HReturJual
 delete TbBarang
-delete TbKontakSupplier
 delete TbSatuan
 delete TbStaff
-delete TbSupplier
 delete TbPelanggan
 delete TbPembayaran
+delete HReturTerima
+delete DReturTerima
+DBCC CHECKIDENT ('DReturTerima', RESEED, 0);
+DBCC CHECKIDENT ('DJual', RESEED, 0);
+DBCC CHECKIDENT ('DTerima', RESEED, 0);
+DBCC CHECKIDENT ('TbPelanggan', RESEED, 0);
+DBCC CHECKIDENT ('TbPembayaran', RESEED, 0);

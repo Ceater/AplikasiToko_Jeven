@@ -322,7 +322,11 @@ FROM            HJual AS H INNER JOIN
 UNION
 SELECT        HT.TglNota, HT.NoNotaTerima AS 'Nomer Nota', DT.IDBarang, DT.NamaBarang, DT.Jumlah
 FROM            HTerima AS HT INNER JOIN
-                         DTerima AS DT ON HT.NoNotaTerima = DT.NoNotaTerima</CommandText>
+                         DTerima AS DT ON HT.NoNotaTerima = DT.NoNotaTerima
+UNION
+SELECT        HRT.TglReturTerima, HRT.NoNotaReturTerima AS 'Nomer Nota', DRT.IDBarang, DRT.NamaBarang, DRT.Jumlah
+FROM            HReturTerima AS HRT INNER JOIN
+                         DReturTerima AS DRT ON HRT.NoNotaReturTerima = DRT.NoNotaReturTerima</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -345,7 +349,7 @@ FROM            HTerima AS HT INNER JOIN
   <xs:element name="DSetStokOpname" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetStokOpname" msprop:Generator_UserDSName="DSetStokOpname">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTerima" msprop:Generator_TableClassName="DTerimaDataTable" msprop:Generator_TableVarName="tableDTerima" msprop:Generator_RowChangedName="DTerimaRowChanged" msprop:Generator_TablePropName="DTerima" msprop:Generator_RowDeletingName="DTerimaRowDeleting" msprop:Generator_RowChangingName="DTerimaRowChanging" msprop:Generator_RowEvHandlerName="DTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTerimaRowDeleted" msprop:Generator_RowClassName="DTerimaRow" msprop:Generator_UserTableName="DTerima" msprop:Generator_RowEvArgName="DTerimaRowChangeEvent">
+        <xs:element name="DTerima" msprop:Generator_TableClassName="DTerimaDataTable" msprop:Generator_TableVarName="tableDTerima" msprop:Generator_TablePropName="DTerima" msprop:Generator_RowDeletingName="DTerimaRowDeleting" msprop:Generator_RowChangingName="DTerimaRowChanging" msprop:Generator_RowEvHandlerName="DTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTerimaRowDeleted" msprop:Generator_UserTableName="DTerima" msprop:Generator_RowChangedName="DTerimaRowChanged" msprop:Generator_RowEvArgName="DTerimaRowChangeEvent" msprop:Generator_RowClassName="DTerimaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoTerima" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoTerima" msprop:Generator_ColumnPropNameInRow="NoTerima" msprop:Generator_ColumnPropNameInTable="NoTerimaColumn" msprop:Generator_UserColumnName="NoTerima" type="xs:int" />
@@ -381,7 +385,7 @@ FROM            HTerima AS HT INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HTerima" msprop:Generator_TableClassName="HTerimaDataTable" msprop:Generator_TableVarName="tableHTerima" msprop:Generator_RowChangedName="HTerimaRowChanged" msprop:Generator_TablePropName="HTerima" msprop:Generator_RowDeletingName="HTerimaRowDeleting" msprop:Generator_RowChangingName="HTerimaRowChanging" msprop:Generator_RowEvHandlerName="HTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="HTerimaRowDeleted" msprop:Generator_RowClassName="HTerimaRow" msprop:Generator_UserTableName="HTerima" msprop:Generator_RowEvArgName="HTerimaRowChangeEvent">
+        <xs:element name="HTerima" msprop:Generator_TableClassName="HTerimaDataTable" msprop:Generator_TableVarName="tableHTerima" msprop:Generator_TablePropName="HTerima" msprop:Generator_RowDeletingName="HTerimaRowDeleting" msprop:Generator_RowChangingName="HTerimaRowChanging" msprop:Generator_RowEvHandlerName="HTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="HTerimaRowDeleted" msprop:Generator_UserTableName="HTerima" msprop:Generator_RowChangedName="HTerimaRowChanged" msprop:Generator_RowEvArgName="HTerimaRowChangeEvent" msprop:Generator_RowClassName="HTerimaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaTerima" msprop:Generator_ColumnVarNameInTable="columnNoNotaTerima" msprop:Generator_ColumnPropNameInRow="NoNotaTerima" msprop:Generator_ColumnPropNameInTable="NoNotaTerimaColumn" msprop:Generator_UserColumnName="NoNotaTerima">
@@ -402,7 +406,7 @@ FROM            HTerima AS HT INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HJual" msprop:Generator_TableClassName="HJualDataTable" msprop:Generator_TableVarName="tableHJual" msprop:Generator_RowChangedName="HJualRowChanged" msprop:Generator_TablePropName="HJual" msprop:Generator_RowDeletingName="HJualRowDeleting" msprop:Generator_RowChangingName="HJualRowChanging" msprop:Generator_RowEvHandlerName="HJualRowChangeEventHandler" msprop:Generator_RowDeletedName="HJualRowDeleted" msprop:Generator_RowClassName="HJualRow" msprop:Generator_UserTableName="HJual" msprop:Generator_RowEvArgName="HJualRowChangeEvent">
+        <xs:element name="HJual" msprop:Generator_TableClassName="HJualDataTable" msprop:Generator_TableVarName="tableHJual" msprop:Generator_TablePropName="HJual" msprop:Generator_RowDeletingName="HJualRowDeleting" msprop:Generator_RowChangingName="HJualRowChanging" msprop:Generator_RowEvHandlerName="HJualRowChangeEventHandler" msprop:Generator_RowDeletedName="HJualRowDeleted" msprop:Generator_UserTableName="HJual" msprop:Generator_RowChangedName="HJualRowChanged" msprop:Generator_RowEvArgName="HJualRowChangeEvent" msprop:Generator_RowClassName="HJualRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaJual" msprop:Generator_ColumnPropNameInRow="NoNotaJual" msprop:Generator_ColumnPropNameInTable="NoNotaJualColumn" msprop:Generator_UserColumnName="NoNotaJual">
@@ -431,7 +435,7 @@ FROM            HTerima AS HT INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DJual" msprop:Generator_TableClassName="DJualDataTable" msprop:Generator_TableVarName="tableDJual" msprop:Generator_RowChangedName="DJualRowChanged" msprop:Generator_TablePropName="DJual" msprop:Generator_RowDeletingName="DJualRowDeleting" msprop:Generator_RowChangingName="DJualRowChanging" msprop:Generator_RowEvHandlerName="DJualRowChangeEventHandler" msprop:Generator_RowDeletedName="DJualRowDeleted" msprop:Generator_RowClassName="DJualRow" msprop:Generator_UserTableName="DJual" msprop:Generator_RowEvArgName="DJualRowChangeEvent">
+        <xs:element name="DJual" msprop:Generator_TableClassName="DJualDataTable" msprop:Generator_TableVarName="tableDJual" msprop:Generator_TablePropName="DJual" msprop:Generator_RowDeletingName="DJualRowDeleting" msprop:Generator_RowChangingName="DJualRowChanging" msprop:Generator_RowEvHandlerName="DJualRowChangeEventHandler" msprop:Generator_RowDeletedName="DJualRowDeleted" msprop:Generator_UserTableName="DJual" msprop:Generator_RowChangedName="DJualRowChanged" msprop:Generator_RowEvArgName="DJualRowChangeEvent" msprop:Generator_RowClassName="DJualRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoDJual" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoDJual" msprop:Generator_ColumnPropNameInRow="NoDJual" msprop:Generator_ColumnPropNameInTable="NoDJualColumn" msprop:Generator_UserColumnName="NoDJual" type="xs:int" />
@@ -476,7 +480,7 @@ FROM            HTerima AS HT INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Penerimaan" msprop:Generator_TableClassName="PenerimaanDataTable" msprop:Generator_TableVarName="tablePenerimaan" msprop:Generator_RowChangedName="PenerimaanRowChanged" msprop:Generator_TablePropName="Penerimaan" msprop:Generator_RowDeletingName="PenerimaanRowDeleting" msprop:Generator_RowChangingName="PenerimaanRowChanging" msprop:Generator_RowEvHandlerName="PenerimaanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenerimaanRowDeleted" msprop:Generator_RowClassName="PenerimaanRow" msprop:Generator_UserTableName="Penerimaan" msprop:Generator_RowEvArgName="PenerimaanRowChangeEvent">
+        <xs:element name="Penerimaan" msprop:Generator_TableClassName="PenerimaanDataTable" msprop:Generator_TableVarName="tablePenerimaan" msprop:Generator_TablePropName="Penerimaan" msprop:Generator_RowDeletingName="PenerimaanRowDeleting" msprop:Generator_RowChangingName="PenerimaanRowChanging" msprop:Generator_RowEvHandlerName="PenerimaanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenerimaanRowDeleted" msprop:Generator_UserTableName="Penerimaan" msprop:Generator_RowChangedName="PenerimaanRowChanged" msprop:Generator_RowEvArgName="PenerimaanRowChangeEvent" msprop:Generator_RowClassName="PenerimaanRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaTerima" msprop:Generator_ColumnVarNameInTable="columnNoNotaTerima" msprop:Generator_ColumnPropNameInRow="NoNotaTerima" msprop:Generator_ColumnPropNameInTable="NoNotaTerimaColumn" msprop:Generator_UserColumnName="NoNotaTerima">
@@ -519,7 +523,7 @@ FROM            HTerima AS HT INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Penjualan" msprop:Generator_TableClassName="PenjualanDataTable" msprop:Generator_TableVarName="tablePenjualan" msprop:Generator_RowChangedName="PenjualanRowChanged" msprop:Generator_TablePropName="Penjualan" msprop:Generator_RowDeletingName="PenjualanRowDeleting" msprop:Generator_RowChangingName="PenjualanRowChanging" msprop:Generator_RowEvHandlerName="PenjualanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenjualanRowDeleted" msprop:Generator_RowClassName="PenjualanRow" msprop:Generator_UserTableName="Penjualan" msprop:Generator_RowEvArgName="PenjualanRowChangeEvent">
+        <xs:element name="Penjualan" msprop:Generator_TableClassName="PenjualanDataTable" msprop:Generator_TableVarName="tablePenjualan" msprop:Generator_TablePropName="Penjualan" msprop:Generator_RowDeletingName="PenjualanRowDeleting" msprop:Generator_RowChangingName="PenjualanRowChanging" msprop:Generator_RowEvHandlerName="PenjualanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenjualanRowDeleted" msprop:Generator_UserTableName="Penjualan" msprop:Generator_RowChangedName="PenjualanRowChanged" msprop:Generator_RowEvArgName="PenjualanRowChangeEvent" msprop:Generator_RowClassName="PenjualanRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaJual" msprop:Generator_ColumnPropNameInRow="NoNotaJual" msprop:Generator_ColumnPropNameInTable="NoNotaJualColumn" msprop:Generator_UserColumnName="NoNotaJual">
@@ -579,7 +583,7 @@ FROM            HTerima AS HT INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StokOpName" msprop:Generator_TableClassName="StokOpNameDataTable" msprop:Generator_TableVarName="tableStokOpName" msprop:Generator_RowChangedName="StokOpNameRowChanged" msprop:Generator_TablePropName="StokOpName" msprop:Generator_RowDeletingName="StokOpNameRowDeleting" msprop:Generator_RowChangingName="StokOpNameRowChanging" msprop:Generator_RowEvHandlerName="StokOpNameRowChangeEventHandler" msprop:Generator_RowDeletedName="StokOpNameRowDeleted" msprop:Generator_RowClassName="StokOpNameRow" msprop:Generator_UserTableName="StokOpName" msprop:Generator_RowEvArgName="StokOpNameRowChangeEvent">
+        <xs:element name="StokOpName" msprop:Generator_TableClassName="StokOpNameDataTable" msprop:Generator_TableVarName="tableStokOpName" msprop:Generator_TablePropName="StokOpName" msprop:Generator_RowDeletingName="StokOpNameRowDeleting" msprop:Generator_RowChangingName="StokOpNameRowChanging" msprop:Generator_RowEvHandlerName="StokOpNameRowChangeEventHandler" msprop:Generator_RowDeletedName="StokOpNameRowDeleted" msprop:Generator_UserTableName="StokOpName" msprop:Generator_RowChangedName="StokOpNameRowChanged" msprop:Generator_RowEvArgName="StokOpNameRowChangeEvent" msprop:Generator_RowClassName="StokOpNameRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TglNota" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTglNota" msprop:Generator_ColumnPropNameInRow="TglNota" msprop:Generator_ColumnPropNameInTable="TglNotaColumn" msprop:Generator_UserColumnName="TglNota" type="xs:dateTime" minOccurs="0" />

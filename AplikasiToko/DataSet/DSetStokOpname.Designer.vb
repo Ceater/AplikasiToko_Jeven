@@ -5929,7 +5929,10 @@ Namespace DSetStokOpnameTableAdapters
                 "AS D ON H.NoNotaJual = D.NoNotaJual"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        HT.TglNota, HT.NoNotaT"& _ 
                 "erima AS 'Nomer Nota', DT.IDBarang, DT.NamaBarang, DT.Jumlah"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            HT"& _ 
                 "erima AS HT INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DTerima AS DT ON HT.NoNotaTerim"& _ 
-                "a = DT.NoNotaTerima"
+                "a = DT.NoNotaTerima"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        HRT.TglReturTerima, HRT.NoNotaReturTer"& _ 
+                "ima AS 'Nomer Nota', DRT.IDBarang, DRT.NamaBarang, DRT.Jumlah"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            H"& _ 
+                "ReturTerima AS HRT INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DReturTerima AS DRT ON H"& _ 
+                "RT.NoNotaReturTerima = DRT.NoNotaReturTerima"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

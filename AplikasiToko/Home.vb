@@ -96,37 +96,11 @@
         End If
     End Sub
 
-    Private Sub PenjualanToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles L1.Click
-        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
-        Else
-            Dim f As New FormLaporanPenjualan
-            f.MdiParent = Me
-            f.Show()
-        End If
-    End Sub
-
-    Private Sub PembelianToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles L2.Click
-        If Application.OpenForms().OfType(Of StokOpname).Any Then
-        Else
-            Dim f As New FormLaporanTerima
-            f.MdiParent = Me
-            f.Show()
-        End If
-    End Sub
-
     Private Sub StokOpnameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T4.Click
         If Application.OpenForms().OfType(Of StokOpname).Any Then
         Else
             Dim f As New StokOpname
             f.MdiParent = Me
-            f.Show()
-        End If
-    End Sub
-
-    Private Sub PembayaranToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles L3.Click
-        If Application.OpenForms().OfType(Of FormLaporan).Any Then
-        Else
-            Dim f As New FormLaporan("LaporanPembayaran")
             f.Show()
         End If
     End Sub
@@ -158,13 +132,27 @@
         End If
     End Sub
 
+    Private Sub PenjualanToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles L1.Click
+        Dim f As New FormLaporanPenjualan
+        f.MdiParent = Me
+        f.Show()
+    End Sub
+
+    Private Sub PembelianToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles L2.Click
+        Dim f As New FormLaporanTerima
+        f.MdiParent = Me
+        f.Show()
+    End Sub
+
+    Private Sub PembayaranToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles L3.Click
+        Dim f As New FormLaporan("LaporanPembayaran")
+        f.Show()
+    End Sub
+
     Private Sub ReturBarangToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles L4.Click
-        If Application.OpenForms().OfType(Of FormLaporanRetur).Any Then
-        Else
-            Dim f As New FormLaporanRetur
-            f.MdiParent = Me
-            f.Show()
-        End If
+        Dim f As New FormLaporanRetur
+        f.MdiParent = Me
+        f.Show()
     End Sub
 
     Sub cekStokMinimum()

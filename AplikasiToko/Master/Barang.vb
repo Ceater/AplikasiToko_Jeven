@@ -97,6 +97,8 @@
         TextBox1.Text = ""
         TextBox2.Text = ""
         TextBox3.Text = 0
+        TextBox4.Text = 0
+        TextBox5.Text = 0
         NumericUpDown1.Value = 0
         ComboBox1.SelectedIndex = 0
     End Sub

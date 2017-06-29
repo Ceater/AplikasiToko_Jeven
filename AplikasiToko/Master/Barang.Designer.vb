@@ -29,8 +29,14 @@ Partial Class Barang
         Me.Button3 = New System.Windows.Forms.Button()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -38,12 +44,6 @@ Partial Class Barang
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +65,7 @@ Partial Class Barang
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(748, 492)
-        Me.DataGridView1.TabIndex = 1
+        Me.DataGridView1.TabIndex = 11
         '
         'GroupBox1
         '
@@ -101,7 +101,7 @@ Partial Class Barang
         Me.Button1.Location = New System.Drawing.Point(8, 246)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(223, 38)
-        Me.Button1.TabIndex = 8
+        Me.Button1.TabIndex = 10
         Me.Button1.Text = "Tambah"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -110,7 +110,7 @@ Partial Class Barang
         Me.Button2.Location = New System.Drawing.Point(121, 202)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(110, 38)
-        Me.Button2.TabIndex = 10
+        Me.Button2.TabIndex = 9
         Me.Button2.Text = "Hapus"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -119,7 +119,7 @@ Partial Class Barang
         Me.Button3.Location = New System.Drawing.Point(8, 202)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(110, 38)
-        Me.Button3.TabIndex = 9
+        Me.Button3.TabIndex = 8
         Me.Button3.Text = "Reset"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -129,7 +129,7 @@ Partial Class Barang
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(122, 20)
-        Me.NumericUpDown1.TabIndex = 6
+        Me.NumericUpDown1.TabIndex = 7
         '
         'Label6
         '
@@ -140,6 +140,24 @@ Partial Class Barang
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Stok Pengingat"
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(90, 153)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(24, 13)
+        Me.Label10.TabIndex = 8
+        Me.Label10.Text = "Rp."
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(90, 127)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(24, 13)
+        Me.Label8.TabIndex = 8
+        Me.Label8.Text = "Rp."
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -148,6 +166,24 @@ Partial Class Barang
         Me.Label5.Size = New System.Drawing.Size(24, 13)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Rp."
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(6, 153)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(65, 13)
+        Me.Label9.TabIndex = 7
+        Me.Label9.Text = "Harga Sales"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 127)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(64, 13)
+        Me.Label7.TabIndex = 7
+        Me.Label7.Text = "Harga Toko"
         '
         'Label4
         '
@@ -158,12 +194,28 @@ Partial Class Barang
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Harga Normal"
         '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(120, 150)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(95, 20)
+        Me.TextBox5.TabIndex = 6
+        Me.TextBox5.Text = "0"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(120, 124)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(95, 20)
+        Me.TextBox4.TabIndex = 5
+        Me.TextBox4.Text = "0"
+        '
         'TextBox3
         '
         Me.TextBox3.Location = New System.Drawing.Point(120, 98)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(95, 20)
-        Me.TextBox3.TabIndex = 5
+        Me.TextBox3.TabIndex = 4
         Me.TextBox3.Text = "0"
         '
         'Label3
@@ -182,14 +234,14 @@ Partial Class Barang
         Me.ComboBox1.Location = New System.Drawing.Point(94, 71)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(134, 21)
-        Me.ComboBox1.TabIndex = 4
+        Me.ComboBox1.TabIndex = 3
         '
         'TextBox2
         '
         Me.TextBox2.Location = New System.Drawing.Point(94, 45)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(134, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.TextBox2.TabIndex = 2
         '
         'Label2
         '
@@ -214,59 +266,7 @@ Partial Class Barang
         Me.TextBox1.Location = New System.Drawing.Point(94, 19)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(134, 20)
-        Me.TextBox1.TabIndex = 2
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(120, 124)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(95, 20)
-        Me.TextBox4.TabIndex = 5
-        Me.TextBox4.Text = "0"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 127)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(64, 13)
-        Me.Label7.TabIndex = 7
-        Me.Label7.Text = "Harga Toko"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(90, 127)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(24, 13)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Rp."
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(120, 150)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(95, 20)
-        Me.TextBox5.TabIndex = 5
-        Me.TextBox5.Text = "0"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(6, 153)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(65, 13)
-        Me.Label9.TabIndex = 7
-        Me.Label9.Text = "Harga Sales"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(90, 153)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(24, 13)
-        Me.Label10.TabIndex = 8
-        Me.Label10.Text = "Rp."
+        Me.TextBox1.TabIndex = 1
         '
         'Barang
         '
