@@ -57,4 +57,28 @@ Module ModuleTerima
         End Try
         Return temp
     End Function
+
+    Function getNotaTerima() As String
+        Dim temp As String = ""
+        Try
+            constring.Open()
+            cmd = New SqlCommand("select TOP 1 NoNotaTerima from HTerima order by NoNotaTerima desc", constring)
+            temp = CInt(cmd.ExecuteScalar.substring(1) + 1)
+            If temp.Length = 1 Then
+                temp = "T0000" & temp
+            ElseIf temp.Length = 2 Then
+                temp = "T000" & temp
+            ElseIf temp.Length = 3 Then
+                temp = "T00" & temp
+            ElseIf temp.Length = 4 Then
+                temp = "T0" & temp
+            Else
+                temp = "T" & temp
+            End If
+            constring.Close()
+        Catch ex As Exception
+            temp = "T00001"
+        End Try
+        Return temp
+    End Function
 End Module

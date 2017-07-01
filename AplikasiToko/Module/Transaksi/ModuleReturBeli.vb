@@ -73,4 +73,28 @@ Module ModuleReturBeli
         End Try
         Return result
     End Function
+
+    Function getNotaReturTerima()
+        Dim temp As String = ""
+        Try
+            constring.Open()
+            cmd = New SqlCommand("select TOP 1 NoNotaReturTerima from HReturTerima order by NoNotaReturTerima desc", constring)
+            temp = CInt(cmd.ExecuteScalar.substring(1) + 1)
+            If temp.Length = 1 Then
+                temp = "RT0000" & temp
+            ElseIf temp.Length = 2 Then
+                temp = "RT000" & temp
+            ElseIf temp.Length = 3 Then
+                temp = "RT00" & temp
+            ElseIf temp.Length = 4 Then
+                temp = "RT0" & temp
+            Else
+                temp = "T" & temp
+            End If
+            constring.Close()
+        Catch ex As Exception
+            temp = "RT00001"
+        End Try
+        Return temp
+    End Function
 End Module

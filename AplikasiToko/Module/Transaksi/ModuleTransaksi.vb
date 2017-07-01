@@ -79,4 +79,28 @@ Module ModuleTransaksi
         End Try
         Return temp
     End Function
+
+    Function getNotaJual() As String
+        Dim temp As String = ""
+        Try
+            constring.Open()
+            cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
+            temp = CInt(cmd.ExecuteScalar.substring(1) + 1)
+            If temp.Length = 1 Then
+                temp = "J0000" & temp
+            ElseIf temp.Length = 2 Then
+                temp = "J000" & temp
+            ElseIf temp.Length = 3 Then
+                temp = "J00" & temp
+            ElseIf temp.Length = 4 Then
+                temp = "J0" & temp
+            Else
+                temp = "J" & temp
+            End If
+            constring.Close()
+        Catch ex As Exception
+            temp = "J00001"
+        End Try
+        Return temp
+    End Function
 End Module

@@ -43,7 +43,6 @@ Partial Class Penjualan
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -59,9 +58,9 @@ Partial Class Penjualan
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -243,7 +242,6 @@ Partial Class Penjualan
         Me.GroupBox3.Controls.Add(Me.Label19)
         Me.GroupBox3.Controls.Add(Me.Label15)
         Me.GroupBox3.Controls.Add(Me.Label12)
-        Me.GroupBox3.Controls.Add(Me.Label17)
         Me.GroupBox3.Controls.Add(Me.Label13)
         Me.GroupBox3.Controls.Add(Me.Label10)
         Me.GroupBox3.Controls.Add(Me.Label18)
@@ -291,15 +289,6 @@ Partial Class Penjualan
         Me.Label12.Size = New System.Drawing.Size(13, 13)
         Me.Label12.TabIndex = 0
         Me.Label12.Text = "0"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(6, 80)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(56, 13)
-        Me.Label17.TabIndex = 0
-        Me.Label17.Text = "Kembalian"
         '
         'Label13
         '
@@ -406,6 +395,7 @@ Partial Class Penjualan
         '
         'NotaTxt
         '
+        Me.NotaTxt.Enabled = False
         Me.NotaTxt.Location = New System.Drawing.Point(79, 19)
         Me.NotaTxt.Name = "NotaTxt"
         Me.NotaTxt.Size = New System.Drawing.Size(203, 20)
@@ -447,15 +437,12 @@ Partial Class Penjualan
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Data Pembeli"
         '
-        'ComboBox2
+        'TextBox2
         '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.Enabled = False
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(124, 45)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(188, 21)
-        Me.ComboBox2.TabIndex = 4
+        Me.TextBox2.Location = New System.Drawing.Point(124, 72)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(188, 20)
+        Me.TextBox2.TabIndex = 6
         '
         'RadioButton3
         '
@@ -468,12 +455,15 @@ Partial Class Penjualan
         Me.RadioButton3.Text = "Sales"
         Me.RadioButton3.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'ComboBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(124, 72)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(188, 20)
-        Me.TextBox2.TabIndex = 6
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.Enabled = False
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(124, 45)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(188, 21)
+        Me.ComboBox2.TabIndex = 4
         '
         'Penjualan
         '
@@ -532,7 +522,6 @@ Partial Class Penjualan
     Friend WithEvents Label16 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents Label17 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label18 As Label

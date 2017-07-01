@@ -14,6 +14,7 @@
         ComboBox1.DataSource = DSet.Tables("DataBarang")
         ComboBox1.ValueMember = "NamaBarang"
         ComboBox1.DisplayMember = "KodeBarang"
+        NotaTxt.Text = getNotaTerima()
     End Sub
 
     Private Sub ComboBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles ComboBox1.KeyUp
@@ -133,7 +134,7 @@
 
     Sub clear()
         DTable.Clear()
-        NotaTxt.Text = ""
+        NotaTxt.Text = getNotaTerima()
         ComboBox1.SelectedIndex = 0
     End Sub
 End Class

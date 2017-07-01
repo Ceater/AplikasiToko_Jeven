@@ -20,6 +20,7 @@ Public Class Penjualan
         grandtotaltxt1 = Label6
         grandtotaltxt2 = Label12
         pembayarantxt1 = Label15
+        NotaTxt.Text = getNotaJual()
         DateTimePicker1.CustomFormat = Application.CurrentCulture.DateTimeFormat.LongDatePattern
     End Sub
 
@@ -265,9 +266,9 @@ Public Class Penjualan
     Sub clear()
         Try
             DTable.Clear()
-            NotaTxt.Text = ""
             CashRB.Checked = True
             TextBox1.Text = "0"
+            NotaTxt.Text = getNotaJual()
             ComboBox1.SelectedIndex = 0
         Catch ex As Exception
 

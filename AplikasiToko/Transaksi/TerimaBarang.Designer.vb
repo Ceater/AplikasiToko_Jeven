@@ -53,6 +53,7 @@ Partial Class TerimaBarang
         '
         'NotaTxt
         '
+        Me.NotaTxt.Enabled = False
         Me.NotaTxt.Location = New System.Drawing.Point(100, 19)
         Me.NotaTxt.Name = "NotaTxt"
         Me.NotaTxt.Size = New System.Drawing.Size(152, 20)
