@@ -135,9 +135,10 @@ insert into DJUal Values('J00005', 'RO002', 'Rokok Surya', 'Dus', 13000, 1, 0, 1
 insert into TbPembayaran Values('J00005', '6/14/2017', 25000)
 update TbBarang set stok=stok-2 where KodeBarang='RO001'
 update TbBarang set stok=stok-1 where KodeBarang='RO002'
-insert into HReturTerima values('RT001','T001','6/20/2017','admin')
-insert into DReturTerima values('RT001','PE001','Pepsodent Kecil','Buah','100')
-insert into DReturTerima values('RT001','PE002','Pepsodent Sedang','Buah','100')
-update TbBarang set stok=stok-100 where KodeBarang='PE001'
-update TbBarang set stok=stok-100 where KodeBarang='PE002'
+insert into HReturTerima values('RT00001','T00005','6/20/2017','admin')
+insert into DReturTerima values('RT00001','TE001','Teh Pucuk Harum','Botol','100')
+insert into DReturTerima values('RT00001','YO001','You C 1000','Botol','100')
+update TbBarang set stok=stok-100 where KodeBarang='TE001'
+update TbBarang set stok=stok-100 where KodeBarang='YO001'
+/****** ============================================== ******/
 /****** ============================================== ******/

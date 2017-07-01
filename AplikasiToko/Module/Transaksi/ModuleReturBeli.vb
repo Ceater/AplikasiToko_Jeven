@@ -79,7 +79,7 @@ Module ModuleReturBeli
         Try
             constring.Open()
             cmd = New SqlCommand("select TOP 1 NoNotaReturTerima from HReturTerima order by NoNotaReturTerima desc", constring)
-            temp = CInt(cmd.ExecuteScalar.substring(1) + 1)
+            temp = CInt(cmd.ExecuteScalar.substring(2) + 1)
             If temp.Length = 1 Then
                 temp = "RT0000" & temp
             ElseIf temp.Length = 2 Then
@@ -89,7 +89,7 @@ Module ModuleReturBeli
             ElseIf temp.Length = 4 Then
                 temp = "RT0" & temp
             Else
-                temp = "T" & temp
+                temp = "RT" & temp
             End If
             constring.Close()
         Catch ex As Exception
