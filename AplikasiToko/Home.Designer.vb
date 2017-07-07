@@ -52,6 +52,7 @@ Partial Class Home
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.L5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -189,7 +190,7 @@ Partial Class Home
         '
         'LaporanToolStripMenuItem
         '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.L1, Me.L2, Me.L3, Me.L4})
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.L1, Me.L2, Me.L3, Me.L4, Me.L5})
         Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
@@ -252,6 +253,12 @@ Partial Class Home
         Me.ListBox1.Size = New System.Drawing.Size(227, 490)
         Me.ListBox1.TabIndex = 4
         '
+        'L5
+        '
+        Me.L5.Name = "L5"
+        Me.L5.Size = New System.Drawing.Size(152, 22)
+        Me.L5.Text = "Stok Barang"
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -304,4 +311,5 @@ Partial Class Home
     Friend WithEvents SettingToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrinterToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents L4 As ToolStripMenuItem
+    Friend WithEvents L5 As ToolStripMenuItem
 End Class

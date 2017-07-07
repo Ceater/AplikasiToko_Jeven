@@ -97,6 +97,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet\DSetDataBarang.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSetDataBarang.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DSetPembayaran.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,6 +154,12 @@
     <Compile Include="Laporan\FormLaporanTerima.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Laporan\Rpt\LaporanBarang.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanBarang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Laporan\Rpt\LaporanPembayaran.vb">
       <DependentUpon>LaporanPembayaran.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -177,6 +188,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LaporanStokOpname.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Laporan\Rpt\SuratJalan.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuratJalan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Master\Pelanggan.Designer.vb">
@@ -314,6 +331,10 @@
     <EmbeddedResource Include="Laporan\FormLaporanTerima.resx">
       <DependentUpon>FormLaporanTerima.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\Rpt\LaporanBarang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanBarang.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Laporan\Rpt\LaporanPembayaran.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LaporanPembayaran.vb</LastGenOutput>
@@ -333,6 +354,10 @@
     <EmbeddedResource Include="Laporan\Rpt\LaporanStokOpname.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LaporanStokOpname.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\Rpt\SuratJalan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SuratJalan.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
@@ -390,6 +415,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DataSet\DSetDataBarang.xsc">
+      <DependentUpon>DSetDataBarang.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSetDataBarang.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSetDataBarang.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DSetDataBarang.xss">
+      <DependentUpon>DSetDataBarang.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\DSetPembayaran.xsc">
       <DependentUpon>DSetPembayaran.xsd</DependentUpon>
     </None>

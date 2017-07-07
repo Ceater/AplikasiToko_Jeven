@@ -111,7 +111,6 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\Crysta
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\stdole.dll
-C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.vbprojResolveAssemblyReference.cache
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.Home.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanPenjualan.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanTerima.resources

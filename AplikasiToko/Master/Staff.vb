@@ -1,5 +1,5 @@
 ﻿Public Class Staff
-    Dim chkbox(12) As CheckBox
+    Dim chkbox(13) As CheckBox
     Private Sub Staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.DataSource = DSet.Tables("DataStaff")
         setGV()
@@ -16,6 +16,7 @@
         chkbox(10) = L2
         chkbox(11) = L3
         chkbox(12) = L4
+        chkbox(13) = L5
     End Sub
 
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick

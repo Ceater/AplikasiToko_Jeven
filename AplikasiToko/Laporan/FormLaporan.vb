@@ -9,6 +9,7 @@ Public Class FormLaporan
     Public tglAwal As Date
     Public tglAkhir As Date
     Public kodebarang As String = ""
+    Public copyNota As String = ""
     Dim Jenis As String = ""
 
     Public Sub New(ByVal laporan As String)
@@ -41,6 +42,15 @@ Public Class FormLaporan
                 cmd.Parameters.AddWithValue("@a", LaporanNoNota)
                 adapt.Fill(dataset, "Penjualan")
                 rep = New NotaPenjualan
+                rep.SetDataSource(dataset)
+                rep.SetParameterValue("copyNota", copyNota)
+                rep.PrintOptions.PrinterName = getPrinter()
+                rep.PrintToPrinter(1, False, 0, 0)
+            ElseIf Jenis = "SuratJalan" Then
+                cmd.CommandText = "SELECT H.NoNotaJual, H.TglNota, H.GrandTotal, H.NamaPelanggan, H.IDStaff, D.IDBarang, D.NamaBarang, D.Satuan, D.HargaSatuan, D.Jumlah, D.Diskon, D.Subtotal from HJual H, DJual D where H.NoNotaJual=D.NoNotaJual and H.NoNotaJual=@a"
+                cmd.Parameters.AddWithValue("@a", LaporanNoNota)
+                adapt.Fill(dataset, "Penjualan")
+                rep = New SuratJalan
                 rep.SetDataSource(dataset)
                 rep.PrintOptions.PrinterName = getPrinter()
                 rep.PrintToPrinter(1, False, 0, 0)
@@ -123,12 +133,18 @@ Public Class FormLaporan
                     rep = New LaporanReturTerima
                     rep.SetDataSource(dataset)
                 End If
+            ElseIf Jenis = "LaporanStokBarang" Then
+                cmd.CommandText = "select b.kodebarang, b.namabarang, b.stok, s.namasatuan, b.harganormal, b.hargatoko, b.hargasales from tbbarang b, tbsatuan s where b.satuanbarang = s.kodesatuan"
+                adapt.Fill(dataset, "DetailStokBarang")
+                rep = New LaporanBarang
+                rep.SetDataSource(dataset)
             End If
             con.Close()
             crv.ReportSource = rep
             crv.Refresh()
         Catch ex As Exception
             MsgBox(ex.ToString)
+            constring.Close()
         End Try
     End Sub
 

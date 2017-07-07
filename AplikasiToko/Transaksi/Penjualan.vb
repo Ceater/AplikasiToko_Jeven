@@ -162,12 +162,33 @@ Public Class Penjualan
                     insertPembayaran(NotaTxt.Text, tgl, Pembayaran)
                     Dim g As New FormLaporan("NotaPenjualan")
                     g.LaporanNoNota = NotaTxt.Text
+                    g.copyNota = "Asli"
                     g.Width = 0
                     g.Height = 0
                     g.Show()
+                    g.Close()
+                    g = New FormLaporan("NotaPenjualan")
+                    g.LaporanNoNota = NotaTxt.Text
+                    g.copyNota = "Copy 1"
+                    g.Width = 0
+                    g.Height = 0
+                    g.Show()
+                    g.Close()
+                    g = New FormLaporan("NotaPenjualan")
+                    g.LaporanNoNota = NotaTxt.Text
+                    g.copyNota = "Copy 2"
+                    g.Width = 0
+                    g.Height = 0
+                    g.Show()
+                    g.Close()
+                    g = New FormLaporan("SuratJalan")
+                    g.LaporanNoNota = NotaTxt.Text
+                    g.Width = 0
+                    g.Height = 0
+                    g.Show()
+                    g.Close()
                     LoadDataSet()
                     clear()
-                    g.Close()
                 End If
             ElseIf result = DialogResult.No Then
             End If
