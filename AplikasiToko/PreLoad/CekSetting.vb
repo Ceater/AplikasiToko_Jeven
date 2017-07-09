@@ -7,6 +7,7 @@ Public Class CekSetting
     Public cmd As SqlCommand
     Public SqlAdapter As SqlDataAdapter
     Private Sub CekSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        startupSetting()
         loadSetting()
     End Sub
 
@@ -14,7 +15,7 @@ Public Class CekSetting
         Dim objWriter As StreamWriter
         Dim con As String = "Server=" & TextBox2.Text & "\" & TextBox1.Text & ";Database=DatabaseToko;User Id=" & TextBox3.Text & ";Password=" & TextBox4.Text & ";"
 
-        Dim path As String = Directory.GetCurrentDirectory & "\setting.txt"
+        Dim path As String = "C:\AplikasiToko\setting.txt"
         Dim fs As FileStream
         System.IO.File.Delete(path)
         fs = File.Create(path)
@@ -30,7 +31,7 @@ Public Class CekSetting
     End Sub
 
     Sub loadSetting()
-        Dim path As String = Directory.GetCurrentDirectory & "\setting.txt"
+        Dim path As String = "C:\AplikasiToko\setting.txt"
         Dim x1, x2, x3, x4 As String
         Dim sr As StreamReader = New StreamReader(path)
         x1 = sr.ReadLine()
@@ -52,5 +53,49 @@ Public Class CekSetting
         Catch ex As Exception
             MsgBox("Pengaturan Salah")
         End Try
+    End Sub
+
+    Sub startupSetting()
+        Dim path As String = "C:\AplikasiToko\"
+        'cek directory
+        If Directory.Exists(path) Then
+        Else
+            Directory.CreateDirectory("C:\AplikasiToko\")
+        End If
+        'cek setting printer
+        If File.Exists(path & "printer.txt") Then
+        Else
+            createStartupSetting("printer.txt")
+        End If
+        'cek setting
+        If File.Exists(path & "setting.txt") Then
+        Else
+            createStartupSetting("setting.txt")
+        End If
+
+    End Sub
+
+    Sub createStartupSetting(path As String)
+        Dim objWriter As StreamWriter
+        Dim fs As FileStream
+        Dim temp As String = "C:\AplikasiToko\" & path
+        If path = "printer.txt" Then
+            fs = File.Create(temp)
+            fs.Dispose()
+            objWriter = New StreamWriter(temp)
+            objWriter.WriteLine("HP Deskjet 1010 Series")
+            objWriter.Close()
+            objWriter.Dispose()
+        ElseIf path = "setting.txt" Then
+            fs = File.Create(temp)
+            fs.Dispose()
+            objWriter = New StreamWriter(temp)
+            objWriter.WriteLine("DEVELOPER-PC")
+            objWriter.WriteLine("SQLEXPRESS")
+            objWriter.WriteLine("johan")
+            objWriter.WriteLine("1234")
+            objWriter.Close()
+            objWriter.Dispose()
+        End If
     End Sub
 End Class

@@ -130,3 +130,4 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\Ap
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.ReturTerima.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanRetur.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.Printer.resources
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.vbprojResolveAssemblyReference.cache

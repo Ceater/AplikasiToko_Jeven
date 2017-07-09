@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Home
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Home
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -47,12 +47,12 @@ Partial Class Home
         Me.L2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.L5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.L5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -198,26 +198,32 @@ Partial Class Home
         'L1
         '
         Me.L1.Name = "L1"
-        Me.L1.Size = New System.Drawing.Size(152, 22)
+        Me.L1.Size = New System.Drawing.Size(149, 22)
         Me.L1.Text = "Penjualan"
         '
         'L2
         '
         Me.L2.Name = "L2"
-        Me.L2.Size = New System.Drawing.Size(152, 22)
+        Me.L2.Size = New System.Drawing.Size(149, 22)
         Me.L2.Text = "Barang Masuk"
         '
         'L3
         '
         Me.L3.Name = "L3"
-        Me.L3.Size = New System.Drawing.Size(152, 22)
+        Me.L3.Size = New System.Drawing.Size(149, 22)
         Me.L3.Text = "Pembayaran"
         '
         'L4
         '
         Me.L4.Name = "L4"
-        Me.L4.Size = New System.Drawing.Size(152, 22)
+        Me.L4.Size = New System.Drawing.Size(149, 22)
         Me.L4.Text = "Retur Barang"
+        '
+        'L5
+        '
+        Me.L5.Name = "L5"
+        Me.L5.Size = New System.Drawing.Size(149, 22)
+        Me.L5.Text = "Stok Barang"
         '
         'LogoutToolStripMenuItem
         '
@@ -235,7 +241,7 @@ Partial Class Home
         'PrinterToolStripMenuItem
         '
         Me.PrinterToolStripMenuItem.Name = "PrinterToolStripMenuItem"
-        Me.PrinterToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.PrinterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PrinterToolStripMenuItem.Text = "Printer"
         '
         'Timer1
@@ -252,12 +258,6 @@ Partial Class Home
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(227, 490)
         Me.ListBox1.TabIndex = 4
-        '
-        'L5
-        '
-        Me.L5.Name = "L5"
-        Me.L5.Size = New System.Drawing.Size(152, 22)
-        Me.L5.Text = "Stok Barang"
         '
         'Home
         '

@@ -10,7 +10,7 @@ Module GlobalModule
     Public SqlAdapter As SqlDataAdapter
 
     Sub LoadSetting()
-        Dim filepath As String = Directory.GetCurrentDirectory & "\setting.txt"
+        Dim filepath As String = "C:\AplikasiToko\setting.txt"
         Dim x1, x2, x3, x4 As String
         Try
             Dim sr As StreamReader = New StreamReader(filepath)

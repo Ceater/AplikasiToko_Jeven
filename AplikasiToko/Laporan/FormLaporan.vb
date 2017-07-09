@@ -149,7 +149,7 @@ Public Class FormLaporan
     End Sub
 
     Function getPrinter()
-        Dim path As String = Directory.GetCurrentDirectory & "\printer.txt"
+        Dim path As String = "C:\AplikasiToko\printer.txt"
         Dim x1 As String
         Dim sr As StreamReader = New StreamReader(path)
         x1 = sr.ReadLine()

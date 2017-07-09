@@ -57,7 +57,7 @@ Public Class Penjualan
                     DRow("Satuan") = DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(3).ToString
                     DRow("Harga Satuan") = FormatCurrency(DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(PilihanHarga).ToString)
                     DRow("Jumlah") = 1
-                    DRow("Diskon %") = 0
+                    DRow("Diskon") = 0
                     DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan"))
                     DTable.Rows.Add(DRow)
                 End If
@@ -89,7 +89,7 @@ Public Class Penjualan
         If disc = 0 Then
             DataGridView1.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot))
         Else
-            DataGridView1.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot - (tot * (disc / 100))))
+            DataGridView1.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot - disc))
         End If
         cekTotal()
     End Sub
@@ -225,7 +225,7 @@ Public Class Penjualan
         DTable.Columns.Add("Satuan")
         DTable.Columns.Add("Harga Satuan")
         DTable.Columns.Add("Jumlah")
-        DTable.Columns.Add("Diskon %")
+        DTable.Columns.Add("Diskon")
         DTable.Columns.Add("Sub Total")
         DataGridView1.DataSource = DTable
         Dim temp As Double = DataGridView1.Size.Width

@@ -171,4 +171,8 @@
             ListBox1.Items.Add(f(0) & " - " & f(1))
         Next
     End Sub
+
+    Private Sub ResetLaporanToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+
+    End Sub
 End Class
