@@ -52,7 +52,7 @@ Module ModuleReturBeli
         End Try
     End Sub
 
-    Function cekNotaRetur(nota As String) As Boolean
+    Function cekNotaReturTerima(nota As String) As Boolean
         Dim result As Boolean = False
         Try
             constring.Open()

@@ -20,7 +20,7 @@
         For Each selectedItem As DataGridViewRow In DataGridView1.SelectedRows
             count += 1
         Next selectedItem
-        If cekNotaRetur(TextBox1.Text) Then
+        If cekNotaReturTerima(TextBox1.Text) Then
             MsgBox("Nomer Nota Sudah Pernah Digunakan")
         Else
             If count <> 0 Then
