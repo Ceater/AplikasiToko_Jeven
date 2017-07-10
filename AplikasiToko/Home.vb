@@ -1,6 +1,6 @@
 ﻿Public Class Home
     Public hakAkses As String = ""
-    Public MenuStrip(13) As ToolStripMenuItem
+    Public MenuStrip(14) As ToolStripMenuItem
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Timer1.Start()
         LoadDataSet()
@@ -18,6 +18,7 @@
         MenuStrip(11) = L3
         MenuStrip(12) = L4
         MenuStrip(13) = L5
+        MenuStrip(14) = L6
         Dim temp(MenuStrip.Count - 1) As String
         For i = 0 To MenuStrip.Count - 1
             temp(i) = hakAkses.Substring(i, 1)
@@ -151,15 +152,23 @@
     End Sub
 
     Private Sub ReturBarangToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles L4.Click
-        Dim f As New FormLaporanRetur
+        Dim f As New FormLaporanReturTerima
         f.MdiParent = Me
         f.Show()
     End Sub
 
-    Private Sub StokBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles L5.Click
+    Private Sub StokBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles L6.Click
         Dim f As New FormLaporan("LaporanStokBarang")
         f.Text = "Laporan Stok Barang"
         f.Show()
+    End Sub
+
+    Private Sub ResetLaporanToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ReturJualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles L5.Click
+
     End Sub
 
     Sub cekStokMinimum()
@@ -170,9 +179,5 @@
         For Each f As DataRow In DT.Rows
             ListBox1.Items.Add(f(0) & " - " & f(1))
         Next
-    End Sub
-
-    Private Sub ResetLaporanToolStripMenuItem_Click(sender As Object, e As EventArgs) 
-
     End Sub
 End Class

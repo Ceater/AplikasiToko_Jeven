@@ -47,12 +47,13 @@ Partial Class Home
         Me.L2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L4 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.L5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.L6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.L5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -69,7 +70,7 @@ Partial Class Home
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(77, 17)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(78, 17)
         Me.ToolStripStatusLabel1.Text = "Aplikasi Toko"
         '
         'ToolStripStatusLabel2
@@ -81,13 +82,13 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(574, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(572, 17)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel4
         '
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(49, 17)
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(50, 17)
         Me.ToolStripStatusLabel4.Text = "Tanggal"
         '
         'ToolStripStatusLabel5
@@ -143,7 +144,7 @@ Partial Class Home
         '
         Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T1, Me.T2, Me.T3, Me.T4, Me.T5, Me.T6})
         Me.TransaksiToolStripMenuItem.Name = "TransaksiToolStripMenuItem"
-        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
+        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
         Me.TransaksiToolStripMenuItem.Text = "Transaksi"
         '
         'T1
@@ -190,7 +191,7 @@ Partial Class Home
         '
         'LaporanToolStripMenuItem
         '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.L1, Me.L2, Me.L3, Me.L4, Me.L5})
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.L1, Me.L2, Me.L3, Me.L4, Me.L5, Me.L6})
         Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
@@ -198,32 +199,32 @@ Partial Class Home
         'L1
         '
         Me.L1.Name = "L1"
-        Me.L1.Size = New System.Drawing.Size(149, 22)
+        Me.L1.Size = New System.Drawing.Size(152, 22)
         Me.L1.Text = "Penjualan"
         '
         'L2
         '
         Me.L2.Name = "L2"
-        Me.L2.Size = New System.Drawing.Size(149, 22)
+        Me.L2.Size = New System.Drawing.Size(152, 22)
         Me.L2.Text = "Barang Masuk"
         '
         'L3
         '
         Me.L3.Name = "L3"
-        Me.L3.Size = New System.Drawing.Size(149, 22)
+        Me.L3.Size = New System.Drawing.Size(152, 22)
         Me.L3.Text = "Pembayaran"
         '
         'L4
         '
         Me.L4.Name = "L4"
-        Me.L4.Size = New System.Drawing.Size(149, 22)
-        Me.L4.Text = "Retur Barang"
+        Me.L4.Size = New System.Drawing.Size(152, 22)
+        Me.L4.Text = "Retur Terima"
         '
-        'L5
+        'L6
         '
-        Me.L5.Name = "L5"
-        Me.L5.Size = New System.Drawing.Size(149, 22)
-        Me.L5.Text = "Stok Barang"
+        Me.L6.Name = "L6"
+        Me.L6.Size = New System.Drawing.Size(152, 22)
+        Me.L6.Text = "Stok Barang"
         '
         'LogoutToolStripMenuItem
         '
@@ -241,7 +242,7 @@ Partial Class Home
         'PrinterToolStripMenuItem
         '
         Me.PrinterToolStripMenuItem.Name = "PrinterToolStripMenuItem"
-        Me.PrinterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PrinterToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.PrinterToolStripMenuItem.Text = "Printer"
         '
         'Timer1
@@ -258,6 +259,12 @@ Partial Class Home
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(227, 490)
         Me.ListBox1.TabIndex = 4
+        '
+        'L5
+        '
+        Me.L5.Name = "L5"
+        Me.L5.Size = New System.Drawing.Size(152, 22)
+        Me.L5.Text = "Retur Jual"
         '
         'Home
         '
@@ -311,5 +318,6 @@ Partial Class Home
     Friend WithEvents SettingToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrinterToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents L4 As ToolStripMenuItem
+    Friend WithEvents L6 As ToolStripMenuItem
     Friend WithEvents L5 As ToolStripMenuItem
 End Class

@@ -25,6 +25,7 @@ Partial Class Staff
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.L6 = New System.Windows.Forms.CheckBox()
         Me.T6 = New System.Windows.Forms.CheckBox()
         Me.L4 = New System.Windows.Forms.CheckBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -76,7 +77,7 @@ Partial Class Staff
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(543, 488)
+        Me.DataGridView1.Size = New System.Drawing.Size(543, 522)
         Me.DataGridView1.TabIndex = 0
         '
         'GroupBox1
@@ -97,7 +98,7 @@ Partial Class Staff
         Me.GroupBox1.Controls.Add(Me.Reset)
         Me.GroupBox1.Location = New System.Drawing.Point(561, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(268, 488)
+        Me.GroupBox1.Size = New System.Drawing.Size(268, 522)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Data Staff"
@@ -105,6 +106,7 @@ Partial Class Staff
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.L5)
+        Me.GroupBox2.Controls.Add(Me.L6)
         Me.GroupBox2.Controls.Add(Me.T6)
         Me.GroupBox2.Controls.Add(Me.L4)
         Me.GroupBox2.Controls.Add(Me.Label5)
@@ -123,10 +125,20 @@ Partial Class Staff
         Me.GroupBox2.Controls.Add(Me.M1)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 201)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(253, 252)
+        Me.GroupBox2.Size = New System.Drawing.Size(253, 286)
         Me.GroupBox2.TabIndex = 99
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Hak Akses"
+        '
+        'L6
+        '
+        Me.L6.AutoSize = True
+        Me.L6.Location = New System.Drawing.Point(6, 249)
+        Me.L6.Name = "L6"
+        Me.L6.Size = New System.Drawing.Size(127, 17)
+        Me.L6.TabIndex = 19
+        Me.L6.Text = "Laporan Stok Barang"
+        Me.L6.UseVisualStyleBackColor = True
         '
         'T6
         '
@@ -143,9 +155,9 @@ Partial Class Staff
         Me.L4.AutoSize = True
         Me.L4.Location = New System.Drawing.Point(6, 202)
         Me.L4.Name = "L4"
-        Me.L4.Size = New System.Drawing.Size(89, 17)
+        Me.L4.Size = New System.Drawing.Size(87, 17)
         Me.L4.TabIndex = 12
-        Me.L4.Text = "Retur Barang"
+        Me.L4.Text = "Retur Terima"
         Me.L4.UseVisualStyleBackColor = True
         '
         'Label5
@@ -368,7 +380,7 @@ Partial Class Staff
         '
         'Tambah
         '
-        Me.Tambah.Location = New System.Drawing.Point(9, 459)
+        Me.Tambah.Location = New System.Drawing.Point(12, 493)
         Me.Tambah.Name = "Tambah"
         Me.Tambah.Size = New System.Drawing.Size(75, 23)
         Me.Tambah.TabIndex = 19
@@ -377,7 +389,7 @@ Partial Class Staff
         '
         'Hapus
         '
-        Me.Hapus.Location = New System.Drawing.Point(90, 459)
+        Me.Hapus.Location = New System.Drawing.Point(93, 493)
         Me.Hapus.Name = "Hapus"
         Me.Hapus.Size = New System.Drawing.Size(91, 23)
         Me.Hapus.TabIndex = 20
@@ -386,7 +398,7 @@ Partial Class Staff
         '
         'Reset
         '
-        Me.Reset.Location = New System.Drawing.Point(187, 459)
+        Me.Reset.Location = New System.Drawing.Point(190, 493)
         Me.Reset.Name = "Reset"
         Me.Reset.Size = New System.Drawing.Size(75, 23)
         Me.Reset.TabIndex = 21
@@ -398,16 +410,16 @@ Partial Class Staff
         Me.L5.AutoSize = True
         Me.L5.Location = New System.Drawing.Point(6, 225)
         Me.L5.Name = "L5"
-        Me.L5.Size = New System.Drawing.Size(127, 17)
-        Me.L5.TabIndex = 19
-        Me.L5.Text = "Laporan Stok Barang"
+        Me.L5.Size = New System.Drawing.Size(74, 17)
+        Me.L5.TabIndex = 20
+        Me.L5.Text = "Retur Jual"
         Me.L5.UseVisualStyleBackColor = True
         '
         'Staff
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(841, 512)
+        Me.ClientSize = New System.Drawing.Size(841, 546)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.DataGridView1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -457,5 +469,6 @@ Partial Class Staff
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents L4 As CheckBox
     Friend WithEvents T6 As CheckBox
+    Friend WithEvents L6 As CheckBox
     Friend WithEvents L5 As CheckBox
 End Class

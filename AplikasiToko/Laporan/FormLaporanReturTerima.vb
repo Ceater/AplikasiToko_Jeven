@@ -1,4 +1,4 @@
-﻿Public Class FormLaporanRetur
+﻿Public Class FormLaporanReturTerima
     Private Sub FormLaporanRetur_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DateTimePicker2.MaxDate = Now
     End Sub

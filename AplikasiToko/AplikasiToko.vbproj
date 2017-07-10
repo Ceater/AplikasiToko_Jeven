@@ -142,10 +142,16 @@
     <Compile Include="Laporan\FormLaporanPenjualan.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Laporan\FormLaporanRetur.Designer.vb">
-      <DependentUpon>FormLaporanRetur.vb</DependentUpon>
+    <Compile Include="Laporan\FormLaporanReturJual.Designer.vb">
+      <DependentUpon>FormLaporanReturJual.vb</DependentUpon>
     </Compile>
-    <Compile Include="Laporan\FormLaporanRetur.vb">
+    <Compile Include="Laporan\FormLaporanReturJual.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laporan\FormLaporanReturTerima.Designer.vb">
+      <DependentUpon>FormLaporanReturTerima.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\FormLaporanReturTerima.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laporan\FormLaporanTerima.Designer.vb">
@@ -332,8 +338,8 @@
     <EmbeddedResource Include="Laporan\FormLaporanPenjualan.resx">
       <DependentUpon>FormLaporanPenjualan.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Laporan\FormLaporanRetur.resx">
-      <DependentUpon>FormLaporanRetur.vb</DependentUpon>
+    <EmbeddedResource Include="Laporan\FormLaporanReturTerima.resx">
+      <DependentUpon>FormLaporanReturTerima.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laporan\FormLaporanTerima.resx">
       <DependentUpon>FormLaporanTerima.vb</DependentUpon>
