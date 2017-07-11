@@ -168,7 +168,9 @@
     End Sub
 
     Private Sub L5_Click(sender As Object, e As EventArgs) Handles L5.Click
-
+        Dim f As New FormLaporanReturJual
+        f.MdiParent = Me
+        f.Show()
     End Sub
 
     Private Sub L6_Click(sender As Object, e As EventArgs) Handles L6.Click

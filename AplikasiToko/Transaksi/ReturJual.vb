@@ -28,8 +28,8 @@
                 insertHReturJual(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff)
                 For Each f As DataGridViewRow In Me.DataGridView1.Rows
                     If f.Selected Then
-                        insertDReturJual(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value)
-                        updateStok(f.Cells(3).Value, f.Cells(0).Value)
+                        insertDReturJual(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, f.Cells(4).Value, f.Cells(5).Value, f.Cells(6).Value)
+                        updateStok(f.Cells(4).Value, f.Cells(0).Value)
                     End If
                 Next
                 LoadDataSet()

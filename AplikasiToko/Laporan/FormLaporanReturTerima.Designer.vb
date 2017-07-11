@@ -127,7 +127,7 @@ Partial Class FormLaporanReturTerima
         Me.Button1.Text = "Lihat Laporan"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'FormLaporanRetur
+        'FormLaporanReturTerima
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -137,9 +137,9 @@ Partial Class FormLaporanReturTerima
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "FormLaporanRetur"
+        Me.Name = "FormLaporanReturTerima"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Laporan Retur"
+        Me.Text = "Laporan Retur Terima"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

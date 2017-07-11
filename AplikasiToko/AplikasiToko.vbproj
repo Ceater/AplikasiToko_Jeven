@@ -184,6 +184,12 @@
       <DependentUpon>LaporanPenjualan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Laporan\Rpt\LaporanReturJual.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanReturJual.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Laporan\Rpt\LaporanReturTerima.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -338,6 +344,9 @@
     <EmbeddedResource Include="Laporan\FormLaporanPenjualan.resx">
       <DependentUpon>FormLaporanPenjualan.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\FormLaporanReturJual.resx">
+      <DependentUpon>FormLaporanReturJual.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Laporan\FormLaporanReturTerima.resx">
       <DependentUpon>FormLaporanReturTerima.vb</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +368,10 @@
     <EmbeddedResource Include="Laporan\Rpt\LaporanPenjualan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LaporanPenjualan.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\Rpt\LaporanReturJual.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanReturJual.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Laporan\Rpt\LaporanReturTerima.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

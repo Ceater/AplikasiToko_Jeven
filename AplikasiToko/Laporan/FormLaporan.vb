@@ -133,6 +133,26 @@ Public Class FormLaporan
                     rep = New LaporanReturTerima
                     rep.SetDataSource(dataset)
                 End If
+            ElseIf Jenis = "LaporanReturJual" Then
+                If mode = "1" Then
+                    cmd.CommandText = "select HRT.NoNotaReturJual, HRT.NoNotaJual, HRT.TglReturJual, HRT.IDStaff, DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.HargaSatuan, DRT.Jumlah, DRT.Diskon, DRT.Subtotal from HReturJual HRT, DReturJual DRT where HRT.NoNotaReturJual = DRT.NoNotaReturJual"
+                    adapt.Fill(dataset, "ReturJual")
+                    rep = New LaporanReturJual
+                    rep.SetDataSource(dataset)
+                ElseIf mode = "2" Then
+                    cmd.CommandText = "select HRT.NoNotaReturJual, HRT.NoNotaJual, HRT.TglReturJual, HRT.IDStaff, DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.HargaSatuan, DRT.Jumlah, DRT.Diskon, DRT.Subtotal from HReturJual HRT, DReturJual DRT where HRT.NoNotaReturJual = DRT.NoNotaReturJual and HRT.TglReturJual BETWEEN @tglAwal AND @tglAkhir ORDER BY HRT.TglReturJual"
+                    cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM/dd/yyyy") & " 00:00:00")
+                    cmd.Parameters.AddWithValue("@tglakhir", tglAkhir.ToString("MM/dd/yyyy") & " 23:59:59")
+                    adapt.Fill(dataset, "ReturJual")
+                    rep = New LaporanReturJual
+                    rep.SetDataSource(dataset)
+                ElseIf mode = "3" Then
+                    cmd.CommandText = "select HRT.NoNotaReturJual, HRT.NoNotaJual, HRT.TglReturJual, HRT.IDStaff, DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.HargaSatuan, DRT.Jumlah, DRT.Diskon, DRT.Subtotal from HReturJual HRT, DReturJual DRT where HRT.NoNotaReturJual = DRT.NoNotaReturJual and month(HRT.TglReturJual) = @tglawal ORDER BY HRT.TglReturJual"
+                    cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM"))
+                    adapt.Fill(dataset, "ReturJual")
+                    rep = New LaporanReturJual
+                    rep.SetDataSource(dataset)
+                End If
             ElseIf Jenis = "LaporanStokBarang" Then
                 cmd.CommandText = "select b.kodebarang, b.namabarang, b.stok, s.namasatuan, b.harganormal, b.hargatoko, b.hargasales from tbbarang b, tbsatuan s where b.satuanbarang = s.kodesatuan"
                 adapt.Fill(dataset, "DetailStokBarang")
