@@ -128,7 +128,6 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\Ap
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.TerimaBarang.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.vbproj.GenerateResource.Cache
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.ReturTerima.resources
-C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanRetur.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.Printer.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.vbprojResolveAssemblyReference.cache
 C:\Users\Administrator\Source\Repos\AplikasiToko_Jeven\AplikasiToko\bin\Debug\AplikasiToko.exe.config
@@ -198,3 +197,5 @@ C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\
 C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.StokOpname.resources
 C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.TerimaBarang.resources
 C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.vbproj.GenerateResource.Cache
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanReturTerima.resources
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.ReturJual.resources

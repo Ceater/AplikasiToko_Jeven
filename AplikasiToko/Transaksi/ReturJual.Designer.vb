@@ -38,7 +38,7 @@ Partial Class ReturJual
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(252, 15)
+        Me.Label3.Location = New System.Drawing.Point(403, 17)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 13)
         Me.Label3.TabIndex = 9
@@ -48,7 +48,7 @@ Partial Class ReturJual
         '
         Me.DateTimePicker1.CustomFormat = "dd - MM - yyyy"
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(333, 13)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(484, 15)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(150, 20)
         Me.DateTimePicker1.TabIndex = 15
@@ -72,9 +72,9 @@ Partial Class ReturJual
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(272, 38)
+        Me.Button1.Location = New System.Drawing.Point(406, 40)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(211, 24)
+        Me.Button1.Size = New System.Drawing.Size(228, 24)
         Me.Button1.TabIndex = 12
         Me.Button1.Text = "Proses"
         Me.Button1.UseVisualStyleBackColor = True
@@ -84,7 +84,7 @@ Partial Class ReturJual
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 69)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(472, 289)
+        Me.GroupBox1.Size = New System.Drawing.Size(622, 289)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detail Barang"
@@ -104,7 +104,7 @@ Partial Class ReturJual
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(460, 264)
+        Me.DataGridView1.Size = New System.Drawing.Size(610, 264)
         Me.DataGridView1.TabIndex = 0
         '
         'Label1
@@ -123,14 +123,14 @@ Partial Class ReturJual
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(88, 12)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(158, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(178, 21)
         Me.ComboBox1.TabIndex = 8
         '
         'ReturJual
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(495, 375)
+        Me.ClientSize = New System.Drawing.Size(646, 375)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.TextBox1)
@@ -139,7 +139,9 @@ Partial Class ReturJual
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "ReturJual"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Retur Penjualan"
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -43,7 +43,7 @@
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Try
-            DataGridView1.DataSource = getDetailBarangRetur(ComboBox1.SelectedValue)
+            DataGridView1.DataSource = getDetailBarangJual(ComboBox1.SelectedValue)
             setGv()
         Catch ex As Exception
         End Try
@@ -51,15 +51,27 @@
 
     Sub setGv()
         Dim temp As Double = DataGridView1.Size.Width
-        DataGridView1.Columns(0).Width = temp * 0.18
-        DataGridView1.Columns(1).Width = temp * 0.35
-        DataGridView1.Columns(2).Width = temp * 0.25
+        DataGridView1.Columns(0).Width = temp * 0.19
+        DataGridView1.Columns(1).Width = temp * 0.3
+        DataGridView1.Columns(2).Width = temp * 0.1
+        DataGridView1.Columns(3).Width = temp * 0.1
+        DataGridView1.Columns(4).Width = temp * 0.1
+        DataGridView1.Columns(5).Width = temp * 0.1
+        DataGridView1.Columns(6).Width = temp * 0.1
         DataGridView1.Columns(0).ReadOnly = True
         DataGridView1.Columns(1).ReadOnly = True
         DataGridView1.Columns(2).ReadOnly = True
+        DataGridView1.Columns(3).ReadOnly = True
+        DataGridView1.Columns(4).ReadOnly = True
+        DataGridView1.Columns(5).ReadOnly = True
+        DataGridView1.Columns(6).ReadOnly = True
         DataGridView1.Columns(0).HeaderText = "Kode Barang"
         DataGridView1.Columns(1).HeaderText = "Nama Barang"
         DataGridView1.Columns(2).HeaderText = "Satuan"
+        DataGridView1.Columns(3).HeaderText = "Harga"
+        DataGridView1.Columns(4).HeaderText = "Jumlah"
+        DataGridView1.Columns(5).HeaderText = "Diskon"
+        DataGridView1.Columns(6).HeaderText = "Subtotal"
     End Sub
 
     Sub clear()

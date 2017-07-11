@@ -1,6 +1,6 @@
 ﻿Public Class Home
     Public hakAkses As String = ""
-    Public MenuStrip(14) As ToolStripMenuItem
+    Public MenuStrip(15) As ToolStripMenuItem
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Timer1.Start()
         LoadDataSet()
@@ -13,12 +13,13 @@
         MenuStrip(6) = T4
         MenuStrip(7) = T5
         MenuStrip(8) = T6
-        MenuStrip(9) = L1
-        MenuStrip(10) = L2
-        MenuStrip(11) = L3
-        MenuStrip(12) = L4
-        MenuStrip(13) = L5
-        MenuStrip(14) = L6
+        MenuStrip(9) = T7
+        MenuStrip(10) = L1
+        MenuStrip(11) = L2
+        MenuStrip(12) = L3
+        MenuStrip(13) = L4
+        MenuStrip(14) = L5
+        MenuStrip(15) = L6
         Dim temp(MenuStrip.Count - 1) As String
         For i = 0 To MenuStrip.Count - 1
             temp(i) = hakAkses.Substring(i, 1)
@@ -117,9 +118,18 @@
     End Sub
 
     Private Sub ReturBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T6.Click
-        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        If Application.OpenForms().OfType(Of ReturTerima).Any Then
         Else
             Dim f As New ReturTerima(ToolStripStatusLabel2.Text)
+            f.MdiParent = Me
+            f.Show()
+        End If
+    End Sub
+
+    Private Sub T7_Click(sender As Object, e As EventArgs) Handles T7.Click
+        If Application.OpenForms().OfType(Of ReturJual).Any Then
+        Else
+            Dim f As New ReturJual(ToolStripStatusLabel2.Text)
             f.MdiParent = Me
             f.Show()
         End If
@@ -146,29 +156,25 @@
         f.Show()
     End Sub
 
-    Private Sub PembayaranToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles L3.Click
+    Private Sub L3_Click(sender As Object, e As EventArgs) Handles L3.Click
         Dim f As New FormLaporan("LaporanPembayaran")
         f.Show()
     End Sub
 
-    Private Sub ReturBarangToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles L4.Click
+    Private Sub L4_Click(sender As Object, e As EventArgs) Handles L4.Click
         Dim f As New FormLaporanReturTerima
         f.MdiParent = Me
         f.Show()
     End Sub
 
-    Private Sub StokBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles L6.Click
+    Private Sub L5_Click(sender As Object, e As EventArgs) Handles L5.Click
+
+    End Sub
+
+    Private Sub L6_Click(sender As Object, e As EventArgs) Handles L6.Click
         Dim f As New FormLaporan("LaporanStokBarang")
         f.Text = "Laporan Stok Barang"
         f.Show()
-    End Sub
-
-    Private Sub ResetLaporanToolStripMenuItem_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub ReturJualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles L5.Click
-
     End Sub
 
     Sub cekStokMinimum()

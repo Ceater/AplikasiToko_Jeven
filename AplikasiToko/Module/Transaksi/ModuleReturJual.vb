@@ -5,7 +5,7 @@ Module ModuleReturJual
     Function getDetailBarangJual(ByVal NoNota As String) As DataTable
         Dim result As New DataSet
         constring.Open()
-        Dim cmd As String = "select DT.IDBarang, DT.NamaBarang, DT.Satuan, DT.Jumlah from HJual HT, DJual DT where HT.NoNotaJual = DT.NoNotaJual and HT.NoNotaJual = '" & NoNota & "' EXCEPT select DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.Jumlah  from HReturJual HRT, DReturJual DRT where HRT.NoNotaReturJual = DRT.NoNotaReturJual and HRT.NoNotaJual = '" & NoNota & "'"
+        Dim cmd As String = "select DT.IDBarang, DT.NamaBarang, DT.Satuan, DT.HargaSatuan, DT.Jumlah, DT.Diskon, DT.Subtotal from HJual HT, DJual DT where HT.NoNotaJual = DT.NoNotaJual and HT.NoNotaJual = '" & NoNota & "' EXCEPT select DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.HargaSatuan, DRT.Jumlah, DRT.Diskon, DRT.Subtotal  from HReturJual HRT, DReturJual DRT where HRT.NoNotaReturJual = DRT.NoNotaReturJual and HRT.NoNotaJual = '" & NoNota & "'"
         SqlAdapter = New SqlDataAdapter(cmd, constring)
         SqlAdapter.Fill(result, "Hasil")
         constring.Close()

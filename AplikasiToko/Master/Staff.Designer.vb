@@ -25,6 +25,7 @@ Partial Class Staff
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.L5 = New System.Windows.Forms.CheckBox()
         Me.L6 = New System.Windows.Forms.CheckBox()
         Me.T6 = New System.Windows.Forms.CheckBox()
         Me.L4 = New System.Windows.Forms.CheckBox()
@@ -55,7 +56,7 @@ Partial Class Staff
         Me.Tambah = New System.Windows.Forms.Button()
         Me.Hapus = New System.Windows.Forms.Button()
         Me.Reset = New System.Windows.Forms.Button()
-        Me.L5 = New System.Windows.Forms.CheckBox()
+        Me.T7 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -105,6 +106,7 @@ Partial Class Staff
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.T7)
         Me.GroupBox2.Controls.Add(Me.L5)
         Me.GroupBox2.Controls.Add(Me.L6)
         Me.GroupBox2.Controls.Add(Me.T6)
@@ -130,6 +132,16 @@ Partial Class Staff
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Hak Akses"
         '
+        'L5
+        '
+        Me.L5.AutoSize = True
+        Me.L5.Location = New System.Drawing.Point(6, 225)
+        Me.L5.Name = "L5"
+        Me.L5.Size = New System.Drawing.Size(74, 17)
+        Me.L5.TabIndex = 20
+        Me.L5.Text = "Retur Jual"
+        Me.L5.UseVisualStyleBackColor = True
+        '
         'L6
         '
         Me.L6.AutoSize = True
@@ -145,9 +157,9 @@ Partial Class Staff
         Me.T6.AutoSize = True
         Me.T6.Location = New System.Drawing.Point(143, 159)
         Me.T6.Name = "T6"
-        Me.T6.Size = New System.Drawing.Size(89, 17)
+        Me.T6.Size = New System.Drawing.Size(87, 17)
         Me.T6.TabIndex = 18
-        Me.T6.Text = "Retur Barang"
+        Me.T6.Text = "Retur Terima"
         Me.T6.UseVisualStyleBackColor = True
         '
         'L4
@@ -405,15 +417,15 @@ Partial Class Staff
         Me.Reset.Text = "Reset"
         Me.Reset.UseVisualStyleBackColor = True
         '
-        'L5
+        'T7
         '
-        Me.L5.AutoSize = True
-        Me.L5.Location = New System.Drawing.Point(6, 225)
-        Me.L5.Name = "L5"
-        Me.L5.Size = New System.Drawing.Size(74, 17)
-        Me.L5.TabIndex = 20
-        Me.L5.Text = "Retur Jual"
-        Me.L5.UseVisualStyleBackColor = True
+        Me.T7.AutoSize = True
+        Me.T7.Location = New System.Drawing.Point(143, 182)
+        Me.T7.Name = "T7"
+        Me.T7.Size = New System.Drawing.Size(74, 17)
+        Me.T7.TabIndex = 21
+        Me.T7.Text = "Retur Jual"
+        Me.T7.UseVisualStyleBackColor = True
         '
         'Staff
         '
@@ -471,4 +483,5 @@ Partial Class Staff
     Friend WithEvents T6 As CheckBox
     Friend WithEvents L6 As CheckBox
     Friend WithEvents L5 As CheckBox
+    Friend WithEvents T7 As CheckBox
 End Class
