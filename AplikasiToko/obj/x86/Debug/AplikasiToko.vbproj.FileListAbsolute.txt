@@ -205,3 +205,4 @@ C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\bin\Debu
 C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\bin\Debug\stdole.dll
 C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanReturJual.resources
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanReturJual.resources
