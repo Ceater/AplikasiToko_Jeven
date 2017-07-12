@@ -100,6 +100,7 @@ Module ModuleTransaksi
             constring.Close()
         Catch ex As Exception
             temp = "J00001"
+            constring.Close()
         End Try
         Return temp
     End Function

@@ -94,6 +94,7 @@ Module ModuleReturBeli
             constring.Close()
         Catch ex As Exception
             temp = "RT00001"
+            constring.Close()
         End Try
         Return temp
     End Function
