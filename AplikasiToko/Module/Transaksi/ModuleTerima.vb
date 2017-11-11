@@ -78,6 +78,7 @@ Module ModuleTerima
             constring.Close()
         Catch ex As Exception
             temp = "T00001"
+            constring.Close()
         End Try
         Return temp
     End Function

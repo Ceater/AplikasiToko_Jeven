@@ -3,7 +3,7 @@
     Dim lblArr(8) As Label
     Dim staff As String = ""
 
-    Private Sub Pembayaran_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Awalan(sender As Object, e As EventArgs) Handles MyBase.Shown
         lblArr(0) = NNota
         lblArr(1) = NToko
         lblArr(2) = TotTag1
@@ -17,6 +17,8 @@
         loadTagihan()
         loadListBox()
     End Sub
+
+
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         Try
@@ -115,6 +117,7 @@
             ListBox1.SelectedIndex = 0
         Else
             MsgBox("Tidak ada tagihan yang belum lunas")
+            Me.Close()
         End If
     End Sub
 

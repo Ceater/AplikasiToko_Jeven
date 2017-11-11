@@ -94,6 +94,7 @@ Module ModuleReturJual
             constring.Close()
         Catch ex As Exception
             temp = "RJ00001"
+            constring.Close()
         End Try
         Return temp
     End Function

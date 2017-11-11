@@ -2,13 +2,13 @@ delete HJual
 delete DJual
 delete TbPembayaran
 DBCC CHECKIDENT ('TbPembayaran', RESEED, 0);
-insert into HJual Values('J00001', '6/9/2017', 10000, 'Toko Maju Jaya','admin')
+insert into HJual Values('J00001', '6/10/2017', 10000, 'Toko Maju Jaya','admin')
 insert into DJUal Values('J00001', 'PE001', 'Pepsodent Kecil', 'Buah', 2500, 2, 0, 5000)
 insert into DJUal Values('J00001', 'PE002', 'Pepsodent Sedang', 'Buah', 5000, 1, 0, 5000)
-insert into TbPembayaran Values('J00001', '6/9/2017', 10000)
+insert into TbPembayaran Values('J00001', '6/10/2017', 10000)
 update TbBarang set stok=stok-2 where KodeBarang='PE001'
+insert into HJual Values('J00002', '6/11/2017', 15000, 'Toko Maju Mundur', 'admin')
 update TbBarang set stok=stok-1 where KodeBarang='PE002'
-insert into HJual Values('J00002', '6/10/2017', 15000, 'Toko Maju Mundur', 'admin')
 insert into DJUal Values('J00002', 'PE001', 'Pepsodent Kecil', 'Buah', 2500, 2, 0, 5000)
 insert into DJUal Values('J00002', 'GE002', 'Gery Chocolatos', 'Dus', 10000, 1, 0, 10000)
 insert into TbPembayaran Values('J00002', '6/11/2017', 10000)
