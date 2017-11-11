@@ -92,11 +92,6 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\Ap
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\AplikasiToko.exe
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\AplikasiToko.pdb
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\AplikasiToko.xml
-C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.ReportSource.dll
-C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.Shared.dll
-C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.Windows.Forms.dll
-C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\FlashControlV71.dll
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -206,3 +201,8 @@ C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\bin\Debu
 C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\bin\Debug\stdole.dll
 C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanReturJual.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanReturJual.resources
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\FlashControlV71.dll

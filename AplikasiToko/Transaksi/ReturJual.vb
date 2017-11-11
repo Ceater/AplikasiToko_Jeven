@@ -6,13 +6,17 @@
     End Sub
 
     Private Sub Form_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        ComboBox1.DataSource = DSet.Tables("DataNotaPenjualan")
-        ComboBox1.ValueMember = "NoNotaJual"
-        ComboBox1.SelectedIndex = 1
-        ComboBox1.SelectedIndex = 0
-        DateTimePicker1.MaxDate = Now
-        TextBox1.Text = getNotaReturJual()
-        clear()
+        Try
+            ComboBox1.DataSource = DSet.Tables("DataNotaPenjualan")
+            ComboBox1.ValueMember = "NoNotaJual"
+            ComboBox1.SelectedIndex = 1
+            ComboBox1.SelectedIndex = 0
+            DateTimePicker1.MaxDate = Now
+            TextBox1.Text = getNotaReturJual()
+            clear()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

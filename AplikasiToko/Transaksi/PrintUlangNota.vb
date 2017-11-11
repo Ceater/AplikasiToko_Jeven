@@ -6,8 +6,12 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim f As New FormLaporan("NotaPenjualan")
-        f.LaporanNoNota = ComboBox1.SelectedValue
-        f.Show()
+        If ComboBox1.SelectedValue = "" Then
+            MsgBox("Silahkan pilih nota yang ingin dicetak")
+        Else
+            Dim f As New FormLaporan("NotaPenjualan")
+            f.LaporanNoNota = ComboBox1.SelectedValue
+            f.Show()
+        End If
     End Sub
 End Class
