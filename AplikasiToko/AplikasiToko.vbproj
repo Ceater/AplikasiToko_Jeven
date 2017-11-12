@@ -249,6 +249,7 @@
     <Compile Include="Module\Transaksi\ModuleReturJual.vb" />
     <Compile Include="Module\Transaksi\ModuleTerima.vb" />
     <Compile Include="Module\Transaksi\ModuleTransaksi.vb" />
+    <Compile Include="Module\Transaksi\ModulePembelian.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -298,6 +299,12 @@
       <DependentUpon>Pembayaran.vb</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\Pembayaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaksi\Pembelian.Designer.vb">
+      <DependentUpon>Pembelian.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\Pembelian.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaksi\Penjualan.Designer.vb">
@@ -422,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\Pembayaran.resx">
       <DependentUpon>Pembayaran.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaksi\Pembelian.resx">
+      <DependentUpon>Pembelian.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\Penjualan.resx">
       <DependentUpon>Penjualan.vb</DependentUpon>

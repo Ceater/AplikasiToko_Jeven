@@ -18,7 +18,8 @@ Module GlobalModule
             x2 = sr.ReadLine()
             x3 = sr.ReadLine()
             x4 = sr.ReadLine()
-            Dim con As String = "Server=" & x1 & "\" & x2 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
+            'Dim con As String = "Server=" & x1 & "\" & x2 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
+            Dim con As String = "Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=True;User ID=aplikasitoko;Password=Zs3N?6-Gy4T0"
             constring = New SqlConnection(con)
         Catch ex As Exception
             MsgBox("Database tidak ditemukan")

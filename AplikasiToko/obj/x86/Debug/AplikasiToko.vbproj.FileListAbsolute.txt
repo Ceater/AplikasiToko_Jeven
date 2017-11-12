@@ -206,3 +206,4 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\Crysta
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.Shared.dll
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\CrystalDecisions.Windows.Forms.dll
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\FlashControlV71.dll
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.Pembelian.resources
