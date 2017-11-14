@@ -71,3 +71,47 @@ insert into TbPelanggan values('Willy Budiman','Pandegiling','031-5674380')
 insert into TbPelanggan values('Kent Tanuwijaya','Dinoyo','08175135582')
 insert into TbPelanggan values('Marissa Clara','Dukuh Pakis','082232130065')
 insert into TbPelanggan values('Oktaviani Sherly Diaz','Pakuwon City Regency','083849492993')
+/****** ======================================================================================== ******/
+insert into HTerima values('T00001','6/1/2017','admin')
+insert into DTerima Values('T00001', 'PE001', 'Pepsodent Kecil', 'Buah', 75)
+insert into DTerima Values('T00001', 'PE002', 'Pepsodent Sedang', 'Buah', 75)
+insert into DTerima Values('T00001', 'PE003', 'Pepsodent Besar', 'Buah', 75)
+update TbBarang set stok=stok+75 where KodeBarang='PE001'
+update TbBarang set stok=stok+75 where KodeBarang='PE002'
+update TbBarang set stok=stok+75 where KodeBarang='PE003'
+insert into HTerima values('T00002','6/2/2017','admin')
+insert into DTerima Values('T00002', 'SA001', 'Sabun Lifeboy', 'Batang', 100)
+insert into DTerima Values('T00002', 'SA002', 'Sabun Lux', 'Batang', 100)
+update TbBarang set stok=stok+100 where KodeBarang='SA001'
+update TbBarang set stok=stok+100 where KodeBarang='SA002'
+insert into HTerima values('T00003','6/3/2017','admin')
+insert into DTerima Values('T00003', 'GE001', 'Gery Chocolatos', 'Bungkus', 100)
+insert into DTerima Values('T00003', 'GE002', 'Gery Chocolatos', 'Dus', 100)
+update TbBarang set stok=stok+100 where KodeBarang='GE001'
+update TbBarang set stok=stok+100 where KodeBarang='GE002'
+insert into HTerima values('T00004','6/4/2017','admin')
+insert into DTerima Values('T00004', 'AQ001', 'Aqua Gelas', 'Buah', 100)
+insert into DTerima Values('T00004', 'AQ002', 'Aqua Sedang', 'Botol', 100)
+insert into DTerima Values('T00004', 'AQ003', 'Aqua 1.5L', 'Botol', 100)
+update TbBarang set stok=stok+100 where KodeBarang='AQ001'
+update TbBarang set stok=stok+100 where KodeBarang='AQ002'
+update TbBarang set stok=stok+100 where KodeBarang='AQ003'
+insert into HTerima values('T00005','6/5/2017','admin')
+insert into DTerima Values('T00005', 'TE001', 'Teh Pucuk Harum', 'Botol', 100)
+insert into DTerima Values('T00005', 'YO001', 'You C 1000', 'Botol', 100)
+update TbBarang set stok=stok+100 where KodeBarang='TE001'
+update TbBarang set stok=stok+100 where KodeBarang='YO001'
+insert into HTerima values('T00006','6/6/2017','admin')
+insert into DTerima Values('T00006', 'RO001', 'Rokok Inter', 'Bungkus', 100)
+insert into DTerima Values('T00006', 'RO002', 'Rokok Surya', 'Bungkus', 100)
+insert into DTerima Values('T00006', 'RO003', 'Rokok UMild', 'Bungkus', 100)
+update TbBarang set stok=stok+100 where KodeBarang='RO001'
+update TbBarang set stok=stok+100 where KodeBarang='RO002'
+update TbBarang set stok=stok+100 where KodeBarang='RO003'
+insert into HTerima values('T00007','6/7/2017','admin')
+insert into DTerima Values('T00007', 'PE001', 'Pepsodent Kecil', 'Buah', 50)
+insert into DTerima Values('T00007', 'PE002', 'Pepsodent Sedang', 'Buah', 50)
+insert into DTerima Values('T00007', 'PE003', 'Pepsodent Besar', 'Buah', 50)
+update TbBarang set stok=stok+50 where KodeBarang='PE001'
+update TbBarang set stok=stok+50 where KodeBarang='PE002'
+update TbBarang set stok=stok+50 where KodeBarang='PE003'
