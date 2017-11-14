@@ -43,6 +43,7 @@ Partial Class Home
         Me.T5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.T6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.T7 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.T8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.L1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -143,7 +144,7 @@ Partial Class Home
         '
         'TransaksiToolStripMenuItem
         '
-        Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T1, Me.T2, Me.T3, Me.T4, Me.T5, Me.T6, Me.T7})
+        Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T1, Me.T2, Me.T3, Me.T4, Me.T5, Me.T6, Me.T7, Me.T8})
         Me.TransaksiToolStripMenuItem.Name = "TransaksiToolStripMenuItem"
         Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
         Me.TransaksiToolStripMenuItem.Text = "Transaksi"
@@ -196,6 +197,13 @@ Partial Class Home
         Me.T7.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D7), System.Windows.Forms.Keys)
         Me.T7.Size = New System.Drawing.Size(202, 22)
         Me.T7.Text = "Retur Jual"
+        '
+        'T8
+        '
+        Me.T8.Name = "T8"
+        Me.T8.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D8), System.Windows.Forms.Keys)
+        Me.T8.Size = New System.Drawing.Size(202, 22)
+        Me.T8.Text = "Pembelian"
         '
         'LaporanToolStripMenuItem
         '
@@ -329,4 +337,5 @@ Partial Class Home
     Friend WithEvents L6 As ToolStripMenuItem
     Friend WithEvents L5 As ToolStripMenuItem
     Friend WithEvents T7 As ToolStripMenuItem
+    Friend WithEvents T8 As ToolStripMenuItem
 End Class

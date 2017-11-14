@@ -2,14 +2,10 @@
 Imports System.Data.SqlClient
 
 Module ModulePembelian
-    'Function getListNotaTerima()
-    '    Try
-    '        constring.Open()
-    '        cmd = New SqlCommand("select NoNotaTerima from HTerima", constring)
-    '        constring.Close()
-    '    Catch ex As Exception
-    '        constring.Close()
-    '    End Try
-    '    Return temp
-    'End Function
+    Function getDetailBarangTerima(Nota As String) As DataSet
+        Dim output As New DataSet
+        SqlAdapter = New SqlDataAdapter("select IDBarang, NamaBarang, Satuan, Jumlah from Pembelian where NoNotaTerima = '" & Nota & "'", constring)
+        SqlAdapter.Fill(output, "DataPembelian")
+        Return output
+    End Function
 End Module
