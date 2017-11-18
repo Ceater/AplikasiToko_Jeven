@@ -61,7 +61,7 @@ Partial Class Pembelian
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Location = New System.Drawing.Point(218, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(475, 326)
+        Me.GroupBox2.Size = New System.Drawing.Size(614, 326)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detail Barang"
@@ -79,7 +79,7 @@ Partial Class Pembelian
         Me.DataGridView1.Location = New System.Drawing.Point(3, 16)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(469, 307)
+        Me.DataGridView1.Size = New System.Drawing.Size(608, 307)
         Me.DataGridView1.TabIndex = 0
         '
         'GroupBox3
@@ -133,7 +133,7 @@ Partial Class Pembelian
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(618, 380)
+        Me.Button1.Location = New System.Drawing.Point(757, 380)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 4
@@ -144,12 +144,16 @@ Partial Class Pembelian
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(705, 415)
+        Me.ClientSize = New System.Drawing.Size(844, 415)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Pembelian"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pembelian"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)

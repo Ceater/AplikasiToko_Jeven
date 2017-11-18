@@ -11,12 +11,15 @@ delete HReturTerima
 delete DReturTerima
 delete HReturJual
 delete DReturJual
+delete HPembelian
+delete DPembelian
 DBCC CHECKIDENT ('DReturTerima', RESEED, 0);
 DBCC CHECKIDENT ('DReturJual', RESEED, 0);
 DBCC CHECKIDENT ('DJual', RESEED, 0);
 DBCC CHECKIDENT ('DTerima', RESEED, 0);
 DBCC CHECKIDENT ('TbPelanggan', RESEED, 0);
 DBCC CHECKIDENT ('TbPembayaran', RESEED, 0);
+DBCC CHECKIDENT ('DPembelian', RESEED, 0);
 /****** ======================================================================================== ******/
 insert into TbBarang values('PE001','Pepsodent Kecil',0,2,2500,2000,1500,5)
 insert into TbBarang values('PE002','Pepsodent Sedang',0,2,5000,4500,4000,5)
@@ -124,3 +127,8 @@ update TbBarang set stok=stok-100 where KodeBarang='YO001'
 insert into HReturTerima values('RT00002','T00007','6/25/2017','admin')
 insert into DReturTerima values('RT00002','PE001','Pepsodent Kecil', 'Buah', 50)
 update TbBarang set stok=stok-50 where KodeBarang='PE001'
+/****** ======================================================================================== ******/
+insert into HPembelian values('1','T00001',50000)
+insert into DPembelian Values('1', 'PE001', 'Pepsodent Kecil', 'Buah', 5000,75, 375000)
+insert into DPembelian Values('1', 'PE002', 'Pepsodent Sedang', 'Buah', 5000,75, 375000)
+insert into DPembelian Values('1', 'PE003', 'Pepsodent Besar', 'Buah', 5000,75, 375000)
