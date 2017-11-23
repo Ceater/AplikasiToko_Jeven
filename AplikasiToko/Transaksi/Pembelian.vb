@@ -4,16 +4,11 @@
     Private Sub Pembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             loadNotaTerima()
+            ListBox1.SelectedIndex = 2
             ListBox1.SelectedIndex = 0
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
-    End Sub
-
-    Sub loadNotaTerima()
-        ListBox1.DataSource = DSet.Tables("DataPembelian")
-        ListBox1.DisplayMember = "NoNotaTerima"
-        ListBox1.ValueMember = "NoNotaTerima"
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
@@ -37,6 +32,7 @@
             For Each f In DataGridView1.Rows
                 f.cells(4).value = 0
             Next
+            hitungTotalBarang()
         Catch ex As Exception
 
         End Try
@@ -44,6 +40,7 @@
 
     Private Sub DataGridView1_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles DataGridView1.EditingControlShowing
         If (DataGridView1.CurrentCell.ColumnIndex = 4) Then 'put columnindextovalidate
+        Else
             RemoveHandler e.Control.KeyPress, AddressOf ValidateKeyPress
             AddHandler e.Control.KeyPress, AddressOf ValidateKeyPress
         End If
@@ -61,6 +58,18 @@
         x = DataGridView1.Rows(e.RowIndex).Cells(3).Value
         x1 = DataGridView1.Rows(e.RowIndex).Cells(4).Value
         DataGridView1.Rows(e.RowIndex).Cells(5).Value = FormatCurrency(CStr(x * x1))
+        hitungTotalBayar()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        hitungTotalBayar()
+        Dim noPembelian As Integer = getLastNoPembelian()
+        If MsgBox("Apakah Kamu Yakin?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            insertHPembelian(noPembelian, ListBox1.SelectedValue, Label2.Text)
+            For Each f In DataGridView1.Rows
+                insertDPembelian(noPembelian, f.cells(0).Value, f.cells(1).Value, f.cells(2).Value, f.cells(4).Value, f.cells(3).Value, f.cells(5).Value)
+            Next
+        End If
     End Sub
 
     Function FormatCurrency(xx As Integer)
@@ -72,4 +81,34 @@
         End If
         Return s
     End Function
+
+    Sub loadNotaTerima()
+        ListBox1.DataSource = DSet.Tables("DataPembelian")
+        ListBox1.DisplayMember = "NoNotaTerima"
+        ListBox1.ValueMember = "NoNotaTerima"
+    End Sub
+
+    Sub hitungTotalBayar()
+        Try
+            Dim tot As Integer
+            For Each f In DataGridView1.Rows
+                tot = f.cells(5).Value + tot
+            Next
+            Label2.Text = tot
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Sub hitungTotalBarang()
+        Try
+            Dim tot As Integer
+            For Each f In DataGridView1.Rows
+                tot = f.cells(3).Value + tot
+            Next
+            Label4.Text = tot
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
