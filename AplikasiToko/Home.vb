@@ -135,6 +135,15 @@
         End If
     End Sub
 
+    Private Sub T8_Click(sender As Object, e As EventArgs) Handles T8.Click
+        If Application.OpenForms().OfType(Of ReturJual).Any Then
+        Else
+            Dim f As New Pembelian
+            f.MdiParent = Me
+            f.Show()
+        End If
+    End Sub
+
     Private Sub PrinterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrinterToolStripMenuItem.Click
         If Application.OpenForms().OfType(Of Printer).Any Then
         Else

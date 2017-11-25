@@ -47,10 +47,12 @@ Module GlobalModule
             SqlAdapter.Fill(DSet, "DataPelanggan")
             SqlAdapter = New SqlDataAdapter("select NoNotaJual from HJual", constring)
             SqlAdapter.Fill(DSet, "DataNotaPenjualan")
-            SqlAdapter = New SqlDataAdapter("select NoNotaTerima from HTerima", constring)
+            SqlAdapter = New SqlDataAdapter("select NoNotaTerima from HTerima except select HT.NoNotaTerima from HTerima HT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima UNION select Dr.NoNotaTerima from (select HT.NoNotaTerima, DT.IDBarang from HTerima HT, DTerima DT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima and HT.NoNotaTerima = DT.NoNOtaTerima Except select HTR.NoNotaTerima, DTR.IdBarang from HReturTerima HTR, DReturTerima DTR where HTR.NoNotaReturTerima = DTR.NoNotaReturTerima) DR group by Dr.NoNotaTerima except select NoNotaTerima from HPembelian", constring)
             SqlAdapter.Fill(DSet, "DataNotaTerima")
             SqlAdapter = New SqlDataAdapter("select tb.KodeBarang, NamaBarang from TbBarang tb, TbSatuan ts where tb.SatuanBarang = ts.KodeSatuan and Stok<=StokPengingat", constring)
             SqlAdapter.Fill(DSet, "DataStokMinim")
+            SqlAdapter = New SqlDataAdapter("select NoNotaTerima from Pembelian group by NoNotaTerima", constring)
+            SqlAdapter.Fill(DSet, "DataPembelian")
             constring.Close()
         Catch ex As Exception
             MsgBox(ex.ToString)

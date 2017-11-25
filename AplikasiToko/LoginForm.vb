@@ -20,8 +20,8 @@ Public Class LoginForm
         If e.KeyCode = Keys.Enter Then
             'Login()
             Dim f As New Home
-            f.ToolStripStatusLabel2.Text = "admin"
-            f.hakAkses = getHAkses(TextBox1.Text)
+            f.ToolStripStatusLabel2.Text = "Admin"
+            f.hakAkses = getHAkses("Admin")
             f.Show()
             Me.Close()
         End If

@@ -1,13 +1,16 @@
 ﻿Imports System.IO
 Imports System.Drawing.Printing
 
+
 Public Class Printer
     Public Sub New()
         InitializeComponent()
         Dim Printers As New System.Drawing.Printing.PrinterSettings()
         Dim sPrinter As String
 
+#Disable Warning BC42025 ' Access of shared member, constant member, enum member or nested type through an instance
         For Each sPrinter In Printers.InstalledPrinters
+#Enable Warning BC42025 ' Access of shared member, constant member, enum member or nested type through an instance
             ComboBox1.Items.Add(sPrinter)
             If Printers.PrinterName = sPrinter Then ComboBox1.SelectedItem = sPrinter
         Next sPrinter
