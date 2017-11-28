@@ -158,6 +158,26 @@ Public Class FormLaporan
                 adapt.Fill(dataset, "DetailStokBarang")
                 rep = New LaporanBarang
                 rep.SetDataSource(dataset)
+            ElseIf Jenis = "LaporanPembelian" Then
+                If mode = "1" Then
+                    cmd.CommandText = "select HP.NoPembelian, HP.NoNotaTerima, HP.GrandTotal, DP.IDBarang, DP.NamaBarang, DP.Satuan, DP.HargaSatuan, DP.Jumlah, DP.Subtotal from HPembelian HP, DPembelian DP where HP.NoPembelian = DP.NoPembelian"
+                    adapt.Fill(dataset, "Pembelian")
+                    rep = New LaporanPembelian
+                    rep.SetDataSource(dataset)
+                ElseIf mode = "2" Then
+                    cmd.CommandText = "select HP.NoPembelian, HP.NoNotaTerima, HP.GrandTotal, DP.IDBarang, DP.NamaBarang, DP.Satuan, DP.HargaSatuan, DP.Jumlah, DP.Subtotal from HPembelian HP, DPembelian DP, HTerima HT where HP.NoPembelian = DP.NoPembelian and HP.NoNotaTerima = HT.NoNotaTerima and HT.TglNota BETWEEN @tglAwal AND @tglAkhir ORDER BY HT.TglNota"
+                    cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM/dd/yyyy") & " 00:00:00")
+                    cmd.Parameters.AddWithValue("@tglakhir", tglAkhir.ToString("MM/dd/yyyy") & " 23:59:59")
+                    adapt.Fill(dataset, "ReturJual")
+                    rep = New LaporanPembelian
+                    rep.SetDataSource(dataset)
+                ElseIf mode = "3" Then
+                    cmd.CommandText = "select HP.NoPembelian, HP.NoNotaTerima, HP.GrandTotal, DP.IDBarang, DP.NamaBarang, DP.Satuan, DP.HargaSatuan, DP.Jumlah, DP.Subtotal from HPembelian HP, DPembelian DP, HTerima HT where HP.NoPembelian = DP.NoPembelian and HP.NoNotaTerima = HT.NoNotaTerima and month(HT.TglNota) = @tglawal ORDER BY HT.TglNota"
+                    cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM"))
+                    adapt.Fill(dataset, "ReturJual")
+                    rep = New LaporanPembelian
+                    rep.SetDataSource(dataset)
+                End If
             End If
             con.Close()
             crv.ReportSource = rep

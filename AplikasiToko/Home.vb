@@ -1,6 +1,6 @@
 ﻿Public Class Home
     Public hakAkses As String = ""
-    Public MenuStrip(15) As ToolStripMenuItem
+    Public MenuStrip(18) As ToolStripMenuItem
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Timer1.Start()
         LoadDataSet()
@@ -14,12 +14,15 @@
         MenuStrip(7) = T5
         MenuStrip(8) = T6
         MenuStrip(9) = T7
-        MenuStrip(10) = L1
-        MenuStrip(11) = L2
-        MenuStrip(12) = L3
-        MenuStrip(13) = L4
-        MenuStrip(14) = L5
-        MenuStrip(15) = L6
+        MenuStrip(10) = T8
+        MenuStrip(11) = L1
+        MenuStrip(12) = L2
+        MenuStrip(13) = L3
+        MenuStrip(14) = L4
+        MenuStrip(15) = L5
+        MenuStrip(16) = L6
+        MenuStrip(17) = L7
+        MenuStrip(18) = L8
         Dim temp(MenuStrip.Count - 1) As String
         For i = 0 To MenuStrip.Count - 1
             temp(i) = hakAkses.Substring(i, 1)
@@ -185,6 +188,12 @@
     Private Sub L6_Click(sender As Object, e As EventArgs) Handles L6.Click
         Dim f As New FormLaporan("LaporanStokBarang")
         f.Text = "Laporan Stok Barang"
+        f.Show()
+    End Sub
+
+    Private Sub L7_Click(sender As Object, e As EventArgs) Handles L7.Click
+        Dim f As New FormLaporanPembelian
+        f.MdiParent = Me
         f.Show()
     End Sub
 

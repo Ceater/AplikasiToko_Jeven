@@ -18,8 +18,8 @@ Module GlobalModule
             x2 = sr.ReadLine()
             x3 = sr.ReadLine()
             x4 = sr.ReadLine()
-            'Dim con As String = "Server=" & x1 & "\" & x2 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
-            Dim con As String = "Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=True;User ID=aplikasitoko;Password=Zs3N?6-Gy4T0"
+            Dim con As String = "Server=" & x1 & "\" & x2 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
+            'Dim con As String = "Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=True;User ID=aplikasitoko;Password=Zs3N?6-Gy4T0"
             constring = New SqlConnection(con)
         Catch ex As Exception
             MsgBox("Database tidak ditemukan")
@@ -51,7 +51,7 @@ Module GlobalModule
             SqlAdapter.Fill(DSet, "DataNotaTerima")
             SqlAdapter = New SqlDataAdapter("select tb.KodeBarang, NamaBarang from TbBarang tb, TbSatuan ts where tb.SatuanBarang = ts.KodeSatuan and Stok<=StokPengingat", constring)
             SqlAdapter.Fill(DSet, "DataStokMinim")
-            SqlAdapter = New SqlDataAdapter("select NoNotaTerima from Pembelian group by NoNotaTerima", constring)
+            SqlAdapter = New SqlDataAdapter("select NoNotaTerima from HTerima except select HT.NoNotaTerima from HTerima HT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima UNION select Dr.NoNotaTerima from (select HT.NoNotaTerima, DT.IDBarang from HTerima HT, DTerima DT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima and HT.NoNotaTerima = DT.NoNOtaTerima Except select HTR.NoNotaTerima, DTR.IdBarang from HReturTerima HTR, DReturTerima DTR where HTR.NoNotaReturTerima = DTR.NoNotaReturTerima) DR group by Dr.NoNotaTerima except select NoNotaTerima from HPembelian", constring)
             SqlAdapter.Fill(DSet, "DataPembelian")
             constring.Close()
         Catch ex As Exception

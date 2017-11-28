@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSetLabaRugi" targetNamespace="http://tempuri.org/DSetLabaRugi.xsd" xmlns:mstns="http://tempuri.org/DSetLabaRugi.xsd" xmlns="http://tempuri.org/DSetLabaRugi.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DatabaseTokoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DatabaseTokoConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.DatabaseTokoConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PenjualanTableAdapter" GeneratorDataComponentClassName="PenjualanTableAdapter" Name="Penjualan" UserDataComponentName="PenjualanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DatabaseTokoConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select sum(GrandTotal) as 'Grand Total' from HJual</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Grand Total" DataSetColumn="Grand Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PembelianTableAdapter" GeneratorDataComponentClassName="PembelianTableAdapter" Name="Pembelian" UserDataComponentName="PembelianTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DatabaseTokoConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select sum(GrandTotal) as 'Grand Total' from HPembelian</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Grand Total" DataSetColumn="Grand Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSetLabaRugi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetLabaRugi" msprop:Generator_UserDSName="DSetLabaRugi">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Penjualan" msprop:Generator_TableClassName="PenjualanDataTable" msprop:Generator_TableVarName="tablePenjualan" msprop:Generator_TablePropName="Penjualan" msprop:Generator_RowDeletingName="PenjualanRowDeleting" msprop:Generator_RowChangingName="PenjualanRowChanging" msprop:Generator_RowEvHandlerName="PenjualanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenjualanRowDeleted" msprop:Generator_UserTableName="Penjualan" msprop:Generator_RowChangedName="PenjualanRowChanged" msprop:Generator_RowEvArgName="PenjualanRowChangeEvent" msprop:Generator_RowClassName="PenjualanRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Grand_x0020_Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGrand_Total" msprop:Generator_ColumnPropNameInRow="Grand_Total" msprop:Generator_ColumnPropNameInTable="Grand_TotalColumn" msprop:Generator_UserColumnName="Grand Total" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Pembelian" msprop:Generator_TableClassName="PembelianDataTable" msprop:Generator_TableVarName="tablePembelian" msprop:Generator_TablePropName="Pembelian" msprop:Generator_RowDeletingName="PembelianRowDeleting" msprop:Generator_RowChangingName="PembelianRowChanging" msprop:Generator_RowEvHandlerName="PembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="PembelianRowDeleted" msprop:Generator_UserTableName="Pembelian" msprop:Generator_RowChangedName="PembelianRowChanged" msprop:Generator_RowEvArgName="PembelianRowChangeEvent" msprop:Generator_RowClassName="PembelianRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Grand_x0020_Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGrand_Total" msprop:Generator_ColumnPropNameInRow="Grand_Total" msprop:Generator_ColumnPropNameInTable="Grand_TotalColumn" msprop:Generator_UserColumnName="Grand Total" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -29,6 +29,11 @@
             DataGridView1.Columns(3).Width = 50
             DataGridView1.Columns(4).Width = 100
             DataGridView1.Columns(5).Width = 100
+            DataGridView1.Columns(0).ReadOnly = True
+            DataGridView1.Columns(1).ReadOnly = True
+            DataGridView1.Columns(2).ReadOnly = True
+            DataGridView1.Columns(3).ReadOnly = True
+            DataGridView1.Columns(5).ReadOnly = True
             For Each f In DataGridView1.Rows
                 f.cells(4).value = 0
             Next
@@ -40,7 +45,6 @@
 
     Private Sub DataGridView1_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles DataGridView1.EditingControlShowing
         If (DataGridView1.CurrentCell.ColumnIndex = 4) Then 'put columnindextovalidate
-        Else
             RemoveHandler e.Control.KeyPress, AddressOf ValidateKeyPress
             AddHandler e.Control.KeyPress, AddressOf ValidateKeyPress
         End If
@@ -66,9 +70,13 @@
         Dim noPembelian As Integer = getLastNoPembelian()
         If MsgBox("Apakah Kamu Yakin?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             insertHPembelian(noPembelian, ListBox1.SelectedValue, Label2.Text)
+            Dim rows As Integer = 0
             For Each f In DataGridView1.Rows
                 insertDPembelian(noPembelian, f.cells(0).Value, f.cells(1).Value, f.cells(2).Value, f.cells(4).Value, f.cells(3).Value, f.cells(5).Value)
+                rows += 1
             Next
+            LoadDataSet()
+            MsgBox("Transaksi Berhasil")
         End If
     End Sub
 
@@ -94,7 +102,7 @@
             For Each f In DataGridView1.Rows
                 tot = f.cells(5).Value + tot
             Next
-            Label2.Text = tot
+            Label2.Text = FormatCurrency(tot)
         Catch ex As Exception
 
         End Try

@@ -102,6 +102,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSetDataBarang.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DSetDataBarang.vb">
+      <DependentUpon>DSetDataBarang.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DSetLabaRugi.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSetLabaRugi.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DSetPembayaran.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +117,14 @@
     </Compile>
     <Compile Include="DataSet\DSetPembayaran.vb">
       <DependentUpon>DSetPembayaran.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DSetPembelian.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSetPembelian.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DSetPembelian.vb">
+      <DependentUpon>DSetPembelian.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\DSetPenerimaanBarang.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -135,6 +151,12 @@
     </Compile>
     <Compile Include="DataSet\DSetStokOpname.vb">
       <DependentUpon>DSetStokOpname.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\FormLaporanPembelian.Designer.vb">
+      <DependentUpon>FormLaporanPembelian.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\FormLaporanPembelian.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Laporan\FormLaporanPenjualan.Designer.vb">
       <DependentUpon>FormLaporanPenjualan.vb</DependentUpon>
@@ -166,11 +188,23 @@
       <DependentUpon>LaporanBarang.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Laporan\Rpt\LaporanLabaRugi.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanLabaRugi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Laporan\Rpt\LaporanPembayaran.vb">
       <DependentUpon>LaporanPembayaran.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Laporan\Rpt\LaporanPembelian.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanPembelian.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Laporan\Rpt\LaporanPenerimaan.vb">
       <AutoGen>True</AutoGen>
@@ -348,6 +382,9 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\FormLaporanPembelian.resx">
+      <DependentUpon>FormLaporanPembelian.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Laporan\FormLaporanPenjualan.resx">
       <DependentUpon>FormLaporanPenjualan.vb</DependentUpon>
     </EmbeddedResource>
@@ -364,9 +401,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LaporanBarang.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\Rpt\LaporanLabaRugi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanLabaRugi.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Laporan\Rpt\LaporanPembayaran.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LaporanPembayaran.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\Rpt\LaporanPembelian.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanPembelian.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Laporan\Rpt\LaporanPenerimaan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -465,6 +510,17 @@
     <None Include="DataSet\DSetDataBarang.xss">
       <DependentUpon>DSetDataBarang.xsd</DependentUpon>
     </None>
+    <None Include="DataSet\DSetLabaRugi.xsc">
+      <DependentUpon>DSetLabaRugi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSetLabaRugi.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSetLabaRugi.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DSetLabaRugi.xss">
+      <DependentUpon>DSetLabaRugi.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\DSetPembayaran.xsc">
       <DependentUpon>DSetPembayaran.xsd</DependentUpon>
     </None>
@@ -475,6 +531,17 @@
     </None>
     <None Include="DataSet\DSetPembayaran.xss">
       <DependentUpon>DSetPembayaran.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSetPembelian.xsc">
+      <DependentUpon>DSetPembelian.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSetPembelian.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSetPembelian.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DSetPembelian.xss">
+      <DependentUpon>DSetPembelian.xsd</DependentUpon>
     </None>
     <None Include="DataSet\DSetPenerimaanBarang.xsc">
       <DependentUpon>DSetPenerimaanBarang.xsd</DependentUpon>

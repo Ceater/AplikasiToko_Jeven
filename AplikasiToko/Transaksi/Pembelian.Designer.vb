@@ -82,7 +82,7 @@ Partial Class Pembelian
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(608, 307)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridView1.TabIndex = 1
         '
         'GroupBox3
         '
@@ -92,7 +92,7 @@ Partial Class Pembelian
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Location = New System.Drawing.Point(218, 344)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(128, 59)
+        Me.GroupBox3.Size = New System.Drawing.Size(203, 59)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Detail Nota"
@@ -138,7 +138,7 @@ Partial Class Pembelian
         Me.Button1.Location = New System.Drawing.Point(757, 380)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
+        Me.Button1.TabIndex = 2
         Me.Button1.Text = "Proses"
         Me.Button1.UseVisualStyleBackColor = True
         '
