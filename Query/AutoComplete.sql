@@ -66,8 +66,8 @@ insert into TbSatuan values('26','Miligram')
 insert into TbSatuan values('27','Meter')
 insert into TbSatuan values('28','Liter')
 /****** ======================================================================================== ******/
-insert into TbStaff values('admin','admin','Johan Jusianto','Kupang Panjaan','08175135582','1111111111111111')
-insert into TbStaff values('kasir','kasir','Chintya Marcheline','Diponegoro','081081081081','1111111111111111')
+insert into TbStaff values('admin','admin','Johan Jusianto','Kupang Panjaan','08175135582','1111111111111111111')
+insert into TbStaff values('kasir','kasir','Chintya Marcheline','Diponegoro','081081081081','1111111111111111111')
 /****** ======================================================================================== ******/
 insert into TbPelanggan values('Johan Jusianto','Kupang Panjaan','031-5614844')
 insert into TbPelanggan values('Willy Budiman','Pandegiling','031-5674380')

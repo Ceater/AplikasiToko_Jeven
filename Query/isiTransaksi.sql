@@ -82,3 +82,4 @@ insert into DPembelian values(3, 'YO001', 'You C 1000', 'Botol', 6500, 100, 6500
 insert into HReturTerima values('RT00002','T00007','6/25/2017','admin')
 insert into DReturTerima values('RT00002','PE001','Pepsodent Kecil', 'Buah', 50)
 update TbBarang set stok=stok-50 where KodeBarang='PE001'
+/****** ======================================================================================== ******/
