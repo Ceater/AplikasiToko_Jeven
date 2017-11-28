@@ -20,8 +20,7 @@ Module ModulePembayaran
         Return x
     End Function
 
-    Function cekNotaPembayaran() As Boolean
-        Dim x As Boolean
+    Function cekNotaPembayaran()
         Dim temp As Integer
         Try
             constring.Open()
@@ -33,6 +32,6 @@ Module ModulePembayaran
             temp = 1
             constring.Close()
         End Try
-        Return x
+        Return temp
     End Function
 End Module
