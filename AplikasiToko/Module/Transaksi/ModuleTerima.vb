@@ -53,7 +53,7 @@ Module ModuleTerima
             End If
             constring.Close()
         Catch ex As Exception
-
+            constring.Close()
         End Try
         Return temp
     End Function

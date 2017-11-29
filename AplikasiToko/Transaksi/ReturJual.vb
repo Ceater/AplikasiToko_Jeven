@@ -21,26 +21,29 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim count As Integer = 0
-        For Each selectedItem As DataGridViewRow In DataGridView1.SelectedRows
-            count += 1
-        Next selectedItem
-        If cekNotaReturJual(TextBox1.Text) Then
-            MsgBox("Nomer Nota Sudah Pernah Digunakan")
-        Else
-            If count <> 0 Then
-                Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
-                insertHReturJual(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff)
-                For Each f As DataGridViewRow In Me.DataGridView1.Rows
-                    If f.Selected Then
-                        insertDReturJual(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, f.Cells(4).Value, f.Cells(5).Value, f.Cells(6).Value)
-                        updateStok(f.Cells(4).Value, f.Cells(0).Value)
-                    End If
-                Next
-                LoadDataSet()
-                MsgBox("Sukses melakukan retur Jual barang")
-                clear()
+        Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
+        If result = DialogResult.Yes Then
+            For Each selectedItem As DataGridViewRow In DataGridView1.SelectedRows
+                count += 1
+            Next selectedItem
+            If cekNotaReturJual(TextBox1.Text) Then
+                MsgBox("Nomer Nota Sudah Pernah Digunakan")
             Else
-                MsgBox("Pastikan sudah ada barang yang dipilih")
+                If count <> 0 Then
+                    Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
+                    insertHReturJual(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff)
+                    For Each f As DataGridViewRow In Me.DataGridView1.Rows
+                        If f.Selected Then
+                            insertDReturJual(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, f.Cells(4).Value, f.Cells(5).Value, f.Cells(6).Value)
+                            updateStok(f.Cells(4).Value, f.Cells(0).Value)
+                        End If
+                    Next
+                    LoadDataSet()
+                    MsgBox("Sukses melakukan retur Jual barang")
+                    clear()
+                Else
+                    MsgBox("Pastikan sudah ada barang yang dipilih")
+                End If
             End If
         End If
     End Sub
