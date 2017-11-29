@@ -75,7 +75,7 @@ insert into DPembelian values(1, 'PE003', 'Pepsodent Kecil', 'Buah', 5000, 75, 3
 insert into HPembelian values(2, 'T00002', 720000)
 insert into DPembelian values(2, 'SA001', 'Sabun Lifeboy', 'Batang', 3500, 100, 350000)
 insert into DPembelian values(2, 'SA002', 'Sabun Lux', 'Batang', 3700, 100, 370000)
-insert into HPembelian values(3, 'T00005', 720000)
+insert into HPembelian values(3, 'T00005', 850000)
 insert into DPembelian values(3, 'TE001', 'Teh Pucuk Harum', 'Botol', 2000, 100, 200000)
 insert into DPembelian values(3, 'YO001', 'You C 1000', 'Botol', 6500, 100, 650000)
 /****** ======================================================================================== ******/
