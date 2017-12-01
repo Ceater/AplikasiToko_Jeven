@@ -39,13 +39,12 @@ Module ModuleBarang
         End Try
     End Sub
 
-    Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal Stok As Integer, ByVal KDSatuan As String, ByVal HNormal As Integer, ByVal HToko As Integer, ByVal HSales As Integer, ByVal Spengingat As Integer)
+    Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal KDSatuan As String, ByVal HNormal As Integer, ByVal HToko As Integer, ByVal HSales As Integer, ByVal Spengingat As Integer)
         constring.Open()
-        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, Stok=@a3, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8 where KodeBarang=@a1", constring)
+        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8 where KodeBarang=@a1", constring)
         With cmd.Parameters
             .Add(New SqlParameter("@a1", KDBarang))
             .Add(New SqlParameter("@a2", NMBarang))
-            .Add(New SqlParameter("@a3", Stok))
             .Add(New SqlParameter("@a4", KDSatuan))
             .Add(New SqlParameter("@a5", HNormal))
             .Add(New SqlParameter("@a6", HToko))

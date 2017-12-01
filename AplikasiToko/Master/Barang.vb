@@ -41,7 +41,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If TextBox1.Text <> "" And TextBox2.Text <> "" Then
             If sender.text = "Rubah" Then
-                updateBarang(TextBox1.Text, TextBox2.Text, 0, ComboBox1.SelectedValue, TextBox3.Text, TextBox4.Text, TextBox5.Text, NumericUpDown1.Value)
+                updateBarang(TextBox1.Text, TextBox2.Text, ComboBox1.SelectedValue, TextBox3.Text, TextBox4.Text, TextBox5.Text, NumericUpDown1.Value)
                 MsgBox("Perubahan berhasil")
             Else
                 insertBarang(TextBox1.Text, TextBox2.Text, 0, ComboBox1.SelectedValue, TextBox3.Text, TextBox4.Text, TextBox5.Text, NumericUpDown1.Value)

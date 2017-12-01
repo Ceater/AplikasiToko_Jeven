@@ -208,3 +208,5 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\Crysta
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\bin\Debug\FlashControlV71.dll
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.Pembelian.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanPembelian.resources
+C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.FormLaporanPembelian.resources
+C:\Users\Administrator\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.Pembelian.resources
