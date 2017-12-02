@@ -212,6 +212,71 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member>
+<member name="T:AplikasiToko.DSetLaporan">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetLaporan.TotalPendapatanDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetLaporan.TotalPendapatanRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetLaporan.TotalPendapatanRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetLaporanTableAdapters.TotalPendapatanTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetLaporanTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetLaporanTableAdapters.TableAdapterManager.UpdateUpdatedRows(AplikasiToko.DSetLaporan,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetLaporanTableAdapters.TableAdapterManager.UpdateInsertedRows(AplikasiToko.DSetLaporan,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetLaporanTableAdapters.TableAdapterManager.UpdateDeletedRows(AplikasiToko.DSetLaporan,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetLaporanTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AplikasiToko.DSetLaporanTableAdapters.TableAdapterManager.UpdateAll(AplikasiToko.DSetLaporan)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetLaporanTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AplikasiToko.DSetLaporanTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:AplikasiToko.DSetPembayaran">
 <summary>
 Represents a strongly typed in-memory cache of data.

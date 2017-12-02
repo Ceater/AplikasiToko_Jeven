@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSetLaporan" targetNamespace="http://tempuri.org/DSetLaporan.xsd" xmlns:mstns="http://tempuri.org/DSetLaporan.xsd" xmlns="http://tempuri.org/DSetLaporan.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DatabaseTokoConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DatabaseTokoConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.DatabaseTokoConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TotalPendapatanTableAdapter" GeneratorDataComponentClassName="TotalPendapatanTableAdapter" Name="TotalPendapatan" UserDataComponentName="TotalPendapatanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DatabaseTokoConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT (SELECT count(NoNotaJual) FROM HJual) AS NoNotaJual, (SELECT SUM(GrandTotal) FROM HJual) AS GrandTotal, (SELECT SUM(UangBayar) FROM TbPembayaran) AS TotalPembayaran</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NoNotaJual" DataSetColumn="NoNotaJual" />
+              <Mapping SourceColumn="GrandTotal" DataSetColumn="GrandTotal" />
+              <Mapping SourceColumn="TotalPembayaran" DataSetColumn="TotalPembayaran" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSetLaporan" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetLaporan" msprop:Generator_UserDSName="DSetLaporan">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TotalPendapatan" msprop:Generator_TableClassName="TotalPendapatanDataTable" msprop:Generator_TableVarName="tableTotalPendapatan" msprop:Generator_TablePropName="TotalPendapatan" msprop:Generator_RowDeletingName="TotalPendapatanRowDeleting" msprop:Generator_RowChangingName="TotalPendapatanRowChanging" msprop:Generator_RowEvHandlerName="TotalPendapatanRowChangeEventHandler" msprop:Generator_RowDeletedName="TotalPendapatanRowDeleted" msprop:Generator_UserTableName="TotalPendapatan" msprop:Generator_RowChangedName="TotalPendapatanRowChanged" msprop:Generator_RowEvArgName="TotalPendapatanRowChangeEvent" msprop:Generator_RowClassName="TotalPendapatanRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NoNotaJual" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNoNotaJual" msprop:Generator_ColumnPropNameInRow="NoNotaJual" msprop:Generator_ColumnPropNameInTable="NoNotaJualColumn" msprop:Generator_UserColumnName="NoNotaJual" type="xs:int" minOccurs="0" />
+              <xs:element name="GrandTotal" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_UserColumnName="GrandTotal" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalPembayaran" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalPembayaran" msprop:Generator_ColumnPropNameInRow="TotalPembayaran" msprop:Generator_ColumnPropNameInTable="TotalPembayaranColumn" msprop:Generator_UserColumnName="TotalPembayaran" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

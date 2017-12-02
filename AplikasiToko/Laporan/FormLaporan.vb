@@ -178,6 +178,27 @@ Public Class FormLaporan
                     rep = New LaporanPembelian
                     rep.SetDataSource(dataset)
                 End If
+            ElseIf Jenis = "LaporanPendapatan" Then
+                If mode = "1" Then
+                    cmd.CommandText = "SELECT (SELECT count(NoNotaJual) FROM HJual) AS NoNotaJual, (SELECT SUM(GrandTotal) FROM HJual) AS GrandTotal, (SELECT SUM(UangBayar) FROM TbPembayaran) AS TotalPembayaran"
+                    adapt.Fill(dataset, "TotalPendapatan")
+                    rep = New LaporanPendapatan
+                    rep.SetDataSource(dataset)
+                ElseIf mode = 2 Then
+                    cmd.CommandText = "SELECT (SELECT count(NoNotaJual) FROM HJual where TglNota BETWEEN @tglAwal AND @tglAkhir) AS NoNotaJual, (SELECT SUM(GrandTotal) FROM HJual where TglNota BETWEEN @tglAwal AND @tglAkhir) AS GrandTotal, (SELECT SUM(UangBayar) FROM TbPembayaran where TglBayar BETWEEN @tglAwal AND @tglAkhir) AS TotalPembayaran"
+                    cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM/dd/yyyy") & " 00:00:00")
+                    cmd.Parameters.AddWithValue("@tglakhir", tglAkhir.ToString("MM/dd/yyyy") & " 23:59:59")
+                    adapt.Fill(dataset, "TotalPendapatan")
+                    rep = New LaporanPendapatan
+                    rep.SetDataSource(dataset)
+                ElseIf mode = 3 Then
+                    cmd.CommandText = "SELECT (SELECT count(NoNotaJual) FROM HJual where month(TglNota) = @tglawal) AS NoNotaJual, (SELECT SUM(GrandTotal) FROM HJual where month(TglNota) = @tglawal) AS GrandTotal, (SELECT SUM(UangBayar) FROM TbPembayaran where month(TglBayar) = @tglawal) AS TotalPembayaran"
+                    cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM"))
+                    adapt.Fill(dataset, "TotalPendapatan")
+                    rep = New LaporanPendapatan
+                    rep.SetDataSource(dataset)
+                End If
+
             End If
             con.Close()
             crv.ReportSource = rep

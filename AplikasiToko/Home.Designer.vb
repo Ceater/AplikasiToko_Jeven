@@ -52,12 +52,13 @@ Partial Class Home
         Me.L5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L7 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.L8 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.L9 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.L8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -74,7 +75,7 @@ Partial Class Home
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(77, 17)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(78, 17)
         Me.ToolStripStatusLabel1.Text = "Aplikasi Toko"
         '
         'ToolStripStatusLabel2
@@ -86,13 +87,13 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(574, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(572, 17)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel4
         '
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(49, 17)
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(50, 17)
         Me.ToolStripStatusLabel4.Text = "Tanggal"
         '
         'ToolStripStatusLabel5
@@ -148,7 +149,7 @@ Partial Class Home
         '
         Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T1, Me.T2, Me.T3, Me.T4, Me.T5, Me.T6, Me.T7, Me.T8})
         Me.TransaksiToolStripMenuItem.Name = "TransaksiToolStripMenuItem"
-        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
+        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
         Me.TransaksiToolStripMenuItem.Text = "Transaksi"
         '
         'T1
@@ -209,7 +210,7 @@ Partial Class Home
         '
         'LaporanToolStripMenuItem
         '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.L1, Me.L2, Me.L3, Me.L4, Me.L5, Me.L6, Me.L7, Me.L8})
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.L1, Me.L2, Me.L3, Me.L4, Me.L5, Me.L6, Me.L7, Me.L8, Me.L9})
         Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
@@ -256,6 +257,18 @@ Partial Class Home
         Me.L7.Size = New System.Drawing.Size(152, 22)
         Me.L7.Text = "Pembelian"
         '
+        'L8
+        '
+        Me.L8.Name = "L8"
+        Me.L8.Size = New System.Drawing.Size(152, 22)
+        Me.L8.Text = "Laba Rugi"
+        '
+        'L9
+        '
+        Me.L9.Name = "L9"
+        Me.L9.Size = New System.Drawing.Size(152, 22)
+        Me.L9.Text = "Pendapatan"
+        '
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
@@ -289,12 +302,6 @@ Partial Class Home
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(227, 490)
         Me.ListBox1.TabIndex = 4
-        '
-        'L8
-        '
-        Me.L8.Name = "L8"
-        Me.L8.Size = New System.Drawing.Size(152, 22)
-        Me.L8.Text = "Laba Rugi"
         '
         'Home
         '
@@ -354,4 +361,5 @@ Partial Class Home
     Friend WithEvents T8 As ToolStripMenuItem
     Friend WithEvents L7 As ToolStripMenuItem
     Friend WithEvents L8 As ToolStripMenuItem
+    Friend WithEvents L9 As ToolStripMenuItem
 End Class

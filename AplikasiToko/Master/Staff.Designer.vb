@@ -25,6 +25,9 @@ Partial Class Staff
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.L8 = New System.Windows.Forms.CheckBox()
+        Me.L7 = New System.Windows.Forms.CheckBox()
+        Me.T8 = New System.Windows.Forms.CheckBox()
         Me.T7 = New System.Windows.Forms.CheckBox()
         Me.L5 = New System.Windows.Forms.CheckBox()
         Me.L6 = New System.Windows.Forms.CheckBox()
@@ -57,9 +60,7 @@ Partial Class Staff
         Me.Tambah = New System.Windows.Forms.Button()
         Me.Hapus = New System.Windows.Forms.Button()
         Me.Reset = New System.Windows.Forms.Button()
-        Me.L7 = New System.Windows.Forms.CheckBox()
-        Me.L8 = New System.Windows.Forms.CheckBox()
-        Me.T8 = New System.Windows.Forms.CheckBox()
+        Me.L9 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -109,6 +110,7 @@ Partial Class Staff
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.L9)
         Me.GroupBox2.Controls.Add(Me.L8)
         Me.GroupBox2.Controls.Add(Me.L7)
         Me.GroupBox2.Controls.Add(Me.T8)
@@ -137,6 +139,36 @@ Partial Class Staff
         Me.GroupBox2.TabIndex = 99
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Hak Akses"
+        '
+        'L8
+        '
+        Me.L8.AutoSize = True
+        Me.L8.Location = New System.Drawing.Point(6, 295)
+        Me.L8.Name = "L8"
+        Me.L8.Size = New System.Drawing.Size(117, 17)
+        Me.L8.TabIndex = 22
+        Me.L8.Text = "Laporan Laba Rugi"
+        Me.L8.UseVisualStyleBackColor = True
+        '
+        'L7
+        '
+        Me.L7.AutoSize = True
+        Me.L7.Location = New System.Drawing.Point(6, 272)
+        Me.L7.Name = "L7"
+        Me.L7.Size = New System.Drawing.Size(117, 17)
+        Me.L7.TabIndex = 22
+        Me.L7.Text = "Laporan Pembelian"
+        Me.L7.UseVisualStyleBackColor = True
+        '
+        'T8
+        '
+        Me.T8.AutoSize = True
+        Me.T8.Location = New System.Drawing.Point(142, 205)
+        Me.T8.Name = "T8"
+        Me.T8.Size = New System.Drawing.Size(75, 17)
+        Me.T8.TabIndex = 21
+        Me.T8.Text = "Pembelian"
+        Me.T8.UseVisualStyleBackColor = True
         '
         'T7
         '
@@ -433,35 +465,15 @@ Partial Class Staff
         Me.Reset.Text = "Reset"
         Me.Reset.UseVisualStyleBackColor = True
         '
-        'L7
+        'L9
         '
-        Me.L7.AutoSize = True
-        Me.L7.Location = New System.Drawing.Point(6, 272)
-        Me.L7.Name = "L7"
-        Me.L7.Size = New System.Drawing.Size(117, 17)
-        Me.L7.TabIndex = 22
-        Me.L7.Text = "Laporan Pembelian"
-        Me.L7.UseVisualStyleBackColor = True
-        '
-        'L8
-        '
-        Me.L8.AutoSize = True
-        Me.L8.Location = New System.Drawing.Point(6, 295)
-        Me.L8.Name = "L8"
-        Me.L8.Size = New System.Drawing.Size(117, 17)
-        Me.L8.TabIndex = 22
-        Me.L8.Text = "Laporan Laba Rugi"
-        Me.L8.UseVisualStyleBackColor = True
-        '
-        'T8
-        '
-        Me.T8.AutoSize = True
-        Me.T8.Location = New System.Drawing.Point(142, 205)
-        Me.T8.Name = "T8"
-        Me.T8.Size = New System.Drawing.Size(75, 17)
-        Me.T8.TabIndex = 21
-        Me.T8.Text = "Pembelian"
-        Me.T8.UseVisualStyleBackColor = True
+        Me.L9.AutoSize = True
+        Me.L9.Location = New System.Drawing.Point(6, 318)
+        Me.L9.Name = "L9"
+        Me.L9.Size = New System.Drawing.Size(126, 17)
+        Me.L9.TabIndex = 23
+        Me.L9.Text = "Laporan Pendapatan"
+        Me.L9.UseVisualStyleBackColor = True
         '
         'Staff
         '
@@ -523,4 +535,5 @@ Partial Class Staff
     Friend WithEvents L7 As CheckBox
     Friend WithEvents L8 As CheckBox
     Friend WithEvents T8 As CheckBox
+    Friend WithEvents L9 As CheckBox
 End Class
