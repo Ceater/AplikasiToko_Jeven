@@ -346,6 +346,12 @@
     <Compile Include="Setting\Printer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Setting\SetPersediaanAwal.Designer.vb">
+      <DependentUpon>SetPersediaanAwal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\SetPersediaanAwal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transaksi\Pembayaran.Designer.vb">
       <DependentUpon>Pembayaran.vb</DependentUpon>
     </Compile>
@@ -495,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setting\Printer.resx">
       <DependentUpon>Printer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\SetPersediaanAwal.resx">
+      <DependentUpon>SetPersediaanAwal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\Pembayaran.resx">
       <DependentUpon>Pembayaran.vb</DependentUpon>

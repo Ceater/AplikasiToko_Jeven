@@ -148,6 +148,15 @@
         End If
     End Sub
 
+    Private Sub SetPersediaanAwalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SetPersediaanAwalToolStripMenuItem.Click
+        If Application.OpenForms().OfType(Of SetPersediaanAwal).Any Then
+        Else
+            Dim f As New SetPersediaanAwal
+            f.MdiParent = Me
+            f.Show()
+        End If
+    End Sub
+
     Private Sub PrinterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrinterToolStripMenuItem.Click
         If Application.OpenForms().OfType(Of Printer).Any Then
         Else
