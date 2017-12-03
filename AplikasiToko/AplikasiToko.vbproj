@@ -157,6 +157,12 @@
     <Compile Include="DataSet\DSetStokOpname.vb">
       <DependentUpon>DSetStokOpname.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Laporan\FormLaporanLabaRugi.Designer.vb">
+      <DependentUpon>FormLaporanLabaRugi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\FormLaporanLabaRugi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Laporan\FormLaporanPembelian.Designer.vb">
       <DependentUpon>FormLaporanPembelian.vb</DependentUpon>
     </Compile>
@@ -404,6 +410,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\FormLaporanLabaRugi.resx">
+      <DependentUpon>FormLaporanLabaRugi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Laporan\FormLaporanPembelian.resx">
       <DependentUpon>FormLaporanPembelian.vb</DependentUpon>
