@@ -46,11 +46,12 @@ Public Class FormLaporanLabaRugi
         Return hsl
     End Function
 
-    Function getRetur()
+    Function getReturPenjualan()
         Dim hsl As Integer = 0
         constring.Open()
         Try
-
+            cmd = New SqlCommand("select sum(subtotal) from HReturJual HRJ, DReturJual DRJ where HRJ.NoNotaReturJual = DRJ.NoNotaReturJual", constring)
+            hsl = cmd.ExecuteScalar
         Catch ex As Exception
 
         End Try
@@ -62,7 +63,8 @@ Public Class FormLaporanLabaRugi
         Dim hsl As Integer = 0
         constring.Open()
         Try
-
+            cmd = New SqlCommand("select sum(GrandTotal) from HPembelian", constring)
+            hsl = cmd.ExecuteScalar
         Catch ex As Exception
 
         End Try
