@@ -1,0 +1,10 @@
+select KodeBarang, NamaBarang, Stok from TbBarang
+Select TOP 1 HargaSatuan from DPembelian where IDBarang='PE001' order by NoDPembelian Desc
+
+select KodeBarang, NamaBarang, Stok, (Stok * (Select TOP 1 HargaSatuan from DPembelian where IDBarang='PE001' order by NoDPembelian Desc)) as HargaBeli from TbBarang
+
+DECLARE @var_nilai AS VARCHAR(50)
+SET @var_nilai=KodeBarang
+select KodeBarang, NamaBarang, Stok, (Stok * (Select TOP 1 HargaSatuan from DPembelian where IDBarang=@var_nilai order by NoDPembelian Desc)) as HargaBeli from TbBarang where KodeBarang='PE001'
+
+select KodeBarang, NamaBarang, Stok, (Stok * ISNULL((Select TOP 1 HargaSatuan from DPembelian where IDBarang=TbBarang.KodeBarang order by NoDPembelian Desc),0)) as HargaBeli from TbBarang
