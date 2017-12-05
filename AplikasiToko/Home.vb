@@ -208,7 +208,8 @@
     End Sub
 
     Private Sub L8_Click(sender As Object, e As EventArgs) Handles L8.Click
-
+        Dim f As New FormLaporanLabaRugi
+        f.Show()
     End Sub
 
     Private Sub L9_Click(sender As Object, e As EventArgs) Handles L9.Click

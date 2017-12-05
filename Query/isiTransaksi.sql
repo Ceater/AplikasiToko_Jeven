@@ -9,6 +9,7 @@ delete HReturJual
 delete DReturJual
 delete HPembelian
 delete DPembelian
+delete TbLabaRugi
 DBCC CHECKIDENT ('DReturTerima', RESEED, 0);
 DBCC CHECKIDENT ('DReturJual', RESEED, 0);
 DBCC CHECKIDENT ('DJual', RESEED, 0);
@@ -16,6 +17,7 @@ DBCC CHECKIDENT ('DTerima', RESEED, 0);
 DBCC CHECKIDENT ('TbPelanggan', RESEED, 0);
 DBCC CHECKIDENT ('TbPembayaran', RESEED, 0);
 DBCC CHECKIDENT ('DPembelian', RESEED, 0);
+DBCC CHECKIDENT ('TbLabaRugi', RESEED, 0);
 /****** ======================================================================================== ******/
 insert into HTerima values('T00001','6/1/2017','admin')
 insert into DTerima Values('T00001', 'PE001', 'Pepsodent Kecil', 'Buah', 75)
@@ -122,3 +124,5 @@ update TbBarang set stok=stok-1 where KodeBarang='RO002'
 insert into HReturJual values('RJ00001','T00007','6/15/2017','admin')
 insert into DReturJual values('RJ00001','RO001', 'Rokok Inter', 'Bungkus', 13000, 2, 0, 26000)
 update TbBarang set stok=stok+2 where KodeBarang='RO001'
+/****** ======================================================================================== ******/
+insert into TbLabaRugi values(100000, '11/01/2017')

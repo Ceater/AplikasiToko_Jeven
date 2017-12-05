@@ -27,7 +27,7 @@ Public Class SetPersediaanAwal
         Dim hsl As String = ""
         constring.Open()
         Try
-            cmd = New SqlCommand("select TOP 1 Month(TglPersediaan) from TbLabaRugi", constring)
+            cmd = New SqlCommand("select TOP 1 Month(TglPersediaan) from TbLabaRugi order by TglPersediaan Desc", constring)
             Dim int As Integer = cmd.ExecuteScalar
             If int = 1 Then
                 hsl = "Januari"
@@ -94,7 +94,7 @@ Public Class SetPersediaanAwal
         Dim hsl As Integer = 0
         constring.Open()
         Try
-            cmd = New SqlCommand("select TOP 1 Month(TglPersediaan) from TbLabaRugi", constring)
+            cmd = New SqlCommand("select TOP 1 Month(TglPersediaan) from TbLabaRugi order by TglPersediaan Desc", constring)
             Dim int As Integer = cmd.ExecuteScalar
             hsl = int
         Catch ex As Exception
