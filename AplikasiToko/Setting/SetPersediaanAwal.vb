@@ -81,7 +81,7 @@ Public Class SetPersediaanAwal
         Dim int As Integer
         constring.Open()
         Try
-            cmd = New SqlCommand("select Sum(Stok * HargaSales) From TbBarang", constring)
+            cmd = New SqlCommand("select isnull((select TOP 1 PersediaanAwal from TbLabaRugi order by No Desc),0)", constring)
             int = cmd.ExecuteScalar
         Catch ex As Exception
             int = 0

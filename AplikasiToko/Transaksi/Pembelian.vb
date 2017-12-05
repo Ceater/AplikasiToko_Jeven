@@ -4,10 +4,9 @@
     Private Sub Pembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             loadNotaTerima()
-            ListBox1.SelectedIndex = 2
+            ListBox1.SelectedIndex = -1
             ListBox1.SelectedIndex = 0
         Catch ex As Exception
-            MsgBox(ex.ToString)
         End Try
     End Sub
 

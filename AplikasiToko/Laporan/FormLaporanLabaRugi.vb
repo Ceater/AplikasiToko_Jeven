@@ -38,8 +38,11 @@ Public Class FormLaporanLabaRugi
         Dim hsl As Integer = 0
         constring.Open()
         Try
-            cmd = New SqlCommand("select Sum(Stok * HargaSales) From TbBarang", constring)
-            hsl = cmd.ExecuteScalar
+            cmd = New SqlCommand("select ((Stok * ISNULL((Select TOP 1 HargaSatuan from HPembelian HP, DPembelian DP, HTerima HT where HP.NoPembelian=DP.NoPembelian and HT.NoNotaTerima=HP.NoNotaTerima  and IDBarang=TbBarang.KodeBarang order by NoDPembelian Desc),0))) as HargaBeli from TbBarang", constring)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            While reader.Read
+                hsl += reader.GetValue(0)
+            End While
         Catch ex As Exception
 
         End Try
