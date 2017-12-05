@@ -1,7 +1,3 @@
-delete DJual
-delete HJual
-delete HTerima
-delete DTerima
 delete TbBarang
 delete TbSatuan
 delete TbStaff
@@ -13,6 +9,10 @@ delete HReturJual
 delete DReturJual
 delete HPembelian
 delete DPembelian
+delete DJual
+delete HJual
+delete HTerima
+delete DTerima
 DBCC CHECKIDENT ('DReturTerima', RESEED, 0);
 DBCC CHECKIDENT ('DReturJual', RESEED, 0);
 DBCC CHECKIDENT ('DJual', RESEED, 0);
