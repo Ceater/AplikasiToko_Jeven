@@ -18,12 +18,7 @@ Public Class LoginForm
 
     Private Sub EnterPressed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown, TextBox2.KeyDown
         If e.KeyCode = Keys.Enter Then
-            'Login()
-            Dim f As New Home
-            f.ToolStripStatusLabel2.Text = "Admin"
-            f.hakAkses = getHAkses("Admin")
-            f.Show()
-            Me.Close()
+            Login()
         End If
     End Sub
 
