@@ -13,8 +13,9 @@ Public Class CekSetting
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim objWriter As StreamWriter
-        Dim con As String = "Server=" & TextBox2.Text & "\" & TextBox1.Text & ";Database=DatabaseToko;User Id=" & TextBox3.Text & ";Password=" & TextBox4.Text & ";"
+        'Dim con As String = "Server=" & TextBox2.Text & "\" & TextBox1.Text & ";Database=DatabaseToko;User Id=" & TextBox3.Text & ";Password=" & TextBox4.Text & ";"
         'Dim con As String = "Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=True;User ID=aplikasitoko;Password=Zs3N?6-Gy4T0"
+        Dim con As String = "Server=" & TextBox2.Text & ";Database=DatabaseToko;User Id=" & TextBox3.Text & ";Password=" & TextBox4.Text & ";"
         Dim path As String = "C:\AplikasiToko\setting.txt"
         Dim fs As FileStream
         System.IO.File.Delete(path)
@@ -43,8 +44,9 @@ Public Class CekSetting
         TextBox1.Text = x2
         TextBox3.Text = x3
         TextBox4.Text = x4
-        Dim con As String = "Server=" & x1 & "\" & x2 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
+        'Dim con As String = "Server=" & x1 & "\" & x2 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
         'Dim con As String = "Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=True;User ID=aplikasitoko;Password=Zs3N?6-Gy4T0"
+        Dim con As String = "Server=" & x1 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
         constring = New SqlConnection(con)
         Try
             constring.Open()
