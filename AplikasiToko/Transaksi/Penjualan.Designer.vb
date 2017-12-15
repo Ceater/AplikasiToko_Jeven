@@ -61,12 +61,16 @@ Partial Class Penjualan
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ComboBox1
@@ -97,11 +101,11 @@ Partial Class Penjualan
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 133)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 156)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DataGridView1.Size = New System.Drawing.Size(760, 290)
+        Me.DataGridView1.Size = New System.Drawing.Size(760, 267)
         Me.DataGridView1.TabIndex = 2
         '
         'GroupBox1
@@ -337,9 +341,9 @@ Partial Class Penjualan
         '
         'Proses_btn
         '
-        Me.Proses_btn.Location = New System.Drawing.Point(602, 429)
+        Me.Proses_btn.Location = New System.Drawing.Point(602, 452)
         Me.Proses_btn.Name = "Proses_btn"
-        Me.Proses_btn.Size = New System.Drawing.Size(173, 68)
+        Me.Proses_btn.Size = New System.Drawing.Size(173, 45)
         Me.Proses_btn.TabIndex = 6
         Me.Proses_btn.Text = "Proses"
         Me.Proses_btn.UseVisualStyleBackColor = True
@@ -465,11 +469,43 @@ Partial Class Penjualan
         Me.ComboBox2.Size = New System.Drawing.Size(188, 21)
         Me.ComboBox2.TabIndex = 4
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(602, 429)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(86, 17)
+        Me.CheckBox1.TabIndex = 9
+        Me.CheckBox1.Text = "Cetak Nota?"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(13, 136)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(40, 13)
+        Me.Label17.TabIndex = 11
+        Me.Label17.Text = "Jumlah"
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(111, 134)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
+        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(138, 20)
+        Me.NumericUpDown1.TabIndex = 12
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'Penjualan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(787, 538)
+        Me.Controls.Add(Me.NumericUpDown1)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.Batal_btn)
@@ -497,6 +533,7 @@ Partial Class Penjualan
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -541,4 +578,7 @@ Partial Class Penjualan
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents NumericUpDown1 As NumericUpDown
 End Class

@@ -374,6 +374,12 @@
     <Compile Include="Setting\SetPersediaanAwal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Setting\UpdateVersi.Designer.vb">
+      <DependentUpon>UpdateVersi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\UpdateVersi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transaksi\Pembayaran.Designer.vb">
       <DependentUpon>Pembayaran.vb</DependentUpon>
     </Compile>
@@ -529,6 +535,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setting\SetPersediaanAwal.resx">
       <DependentUpon>SetPersediaanAwal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\UpdateVersi.resx">
+      <DependentUpon>UpdateVersi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\Pembayaran.resx">
       <DependentUpon>Pembayaran.vb</DependentUpon>
@@ -703,6 +712,9 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FutureUpdate.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

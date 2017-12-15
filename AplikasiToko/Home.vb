@@ -116,6 +116,7 @@
         If Application.OpenForms().OfType(Of PrintUlangNota).Any Then
         Else
             Dim f As New PrintUlangNota
+
             f.MdiParent = Me
             f.Show()
         End If
@@ -226,5 +227,11 @@
         For Each f As DataRow In DT.Rows
             ListBox1.Items.Add(f(0) & " - " & f(1))
         Next
+    End Sub
+
+    Private Sub UpdateVersiToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateVersiToolStripMenuItem.Click
+        Dim f As New UpdateVersi("1.1")
+        f.MdiParent = Me
+        f.Show()
     End Sub
 End Class

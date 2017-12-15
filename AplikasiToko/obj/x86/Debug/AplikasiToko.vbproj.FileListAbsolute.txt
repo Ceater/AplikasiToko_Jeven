@@ -220,3 +220,4 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\Ap
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.SetPersediaanAwal.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.exe.manifest
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.application
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.UpdateVersi.resources

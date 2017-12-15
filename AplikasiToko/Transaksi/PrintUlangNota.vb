@@ -10,6 +10,7 @@
             MsgBox("Silahkan pilih nota yang ingin dicetak")
         Else
             Dim f As New FormLaporan("NotaPenjualan")
+            f.Text = "Cetak Ulang Laporan Penjualan"
             f.LaporanNoNota = ComboBox1.SelectedValue
             f.Show()
         End If

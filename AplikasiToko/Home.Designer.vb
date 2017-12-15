@@ -57,16 +57,18 @@ Partial Class Home
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetPersediaanAwalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.SetPersediaanAwalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripStatusLabel7 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.UpdateVersiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel6})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel7, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel6})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 514)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(829, 22)
@@ -76,7 +78,7 @@ Partial Class Home
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(78, 17)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(77, 17)
         Me.ToolStripStatusLabel1.Text = "Aplikasi Toko"
         '
         'ToolStripStatusLabel2
@@ -88,13 +90,13 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(572, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(525, 17)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel4
         '
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(50, 17)
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(49, 17)
         Me.ToolStripStatusLabel4.Text = "Tanggal"
         '
         'ToolStripStatusLabel5
@@ -150,7 +152,7 @@ Partial Class Home
         '
         Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T1, Me.T2, Me.T3, Me.T4, Me.T5, Me.T6, Me.T7, Me.T8})
         Me.TransaksiToolStripMenuItem.Name = "TransaksiToolStripMenuItem"
-        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
         Me.TransaksiToolStripMenuItem.Text = "Transaksi"
         '
         'T1
@@ -278,7 +280,7 @@ Partial Class Home
         '
         'SettingToolStripMenuItem
         '
-        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrinterToolStripMenuItem, Me.SetPersediaanAwalToolStripMenuItem})
+        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrinterToolStripMenuItem, Me.SetPersediaanAwalToolStripMenuItem, Me.UpdateVersiToolStripMenuItem})
         Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
         Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
         Me.SettingToolStripMenuItem.Text = "Setting"
@@ -288,6 +290,12 @@ Partial Class Home
         Me.PrinterToolStripMenuItem.Name = "PrinterToolStripMenuItem"
         Me.PrinterToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.PrinterToolStripMenuItem.Text = "Printer"
+        '
+        'SetPersediaanAwalToolStripMenuItem
+        '
+        Me.SetPersediaanAwalToolStripMenuItem.Name = "SetPersediaanAwalToolStripMenuItem"
+        Me.SetPersediaanAwalToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.SetPersediaanAwalToolStripMenuItem.Text = "Set Persediaan Awal"
         '
         'Timer1
         '
@@ -304,11 +312,17 @@ Partial Class Home
         Me.ListBox1.Size = New System.Drawing.Size(227, 490)
         Me.ListBox1.TabIndex = 4
         '
-        'SetPersediaanAwalToolStripMenuItem
+        'ToolStripStatusLabel7
         '
-        Me.SetPersediaanAwalToolStripMenuItem.Name = "SetPersediaanAwalToolStripMenuItem"
-        Me.SetPersediaanAwalToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.SetPersediaanAwalToolStripMenuItem.Text = "Set Persediaan Awal"
+        Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
+        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(49, 17)
+        Me.ToolStripStatusLabel7.Text = "Versi 1.1"
+        '
+        'UpdateVersiToolStripMenuItem
+        '
+        Me.UpdateVersiToolStripMenuItem.Name = "UpdateVersiToolStripMenuItem"
+        Me.UpdateVersiToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.UpdateVersiToolStripMenuItem.Text = "Update Versi"
         '
         'Home
         '
@@ -370,4 +384,6 @@ Partial Class Home
     Friend WithEvents L8 As ToolStripMenuItem
     Friend WithEvents L9 As ToolStripMenuItem
     Friend WithEvents SetPersediaanAwalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripStatusLabel7 As ToolStripStatusLabel
+    Friend WithEvents UpdateVersiToolStripMenuItem As ToolStripMenuItem
 End Class

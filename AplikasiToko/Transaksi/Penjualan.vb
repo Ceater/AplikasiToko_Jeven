@@ -10,6 +10,7 @@ Public Class Penjualan
     Dim Pembayaran As Integer
     Dim staff As String = ""
     Dim PilihanHarga As Integer = 4
+    Dim KodeBarang As String = ""
     'Variable Label
     Dim pembayarantxt1 As Label
     Dim grandtotaltxt1 As Label
@@ -36,14 +37,21 @@ Public Class Penjualan
 
     Private Sub ComboBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles ComboBox1.KeyUp
         If e.KeyCode = Keys.Enter Then
+            KodeBarang = ComboBox1.SelectedText
+            NumericUpDown1.Focus()
+        End If
+    End Sub
+
+    Private Sub NumericUpDown1_KeyUp(sender As Object, e As KeyEventArgs) Handles NumericUpDown1.KeyUp
+        If e.KeyCode = Keys.Enter Then
             Try
                 Dim addorappend As Boolean = True 'Digunakan untuk menentukan apakah tambah baru atau tambah jumlah
                 If DataGridView1.RowCount = 0 Then
                     addorappend = True
                 Else
                     For Each f In DataGridView1.Rows
-                        If f.cells(0).value = ComboBox1.SelectedText Then
-                            f.Cells(4).Value += 1
+                        If f.cells(0).value = KodeBarang Then
+                            f.Cells(4).Value += NumericUpDown1.Value
                             addorappend = False
                         Else
                             addorappend = True
@@ -52,11 +60,11 @@ Public Class Penjualan
                 End If
                 If addorappend Then
                     DRow = DTable.NewRow
-                    DRow("Kode Barang") = ComboBox1.SelectedText
+                    DRow("Kode Barang") = KodeBarang
                     DRow("Nama Barang") = ComboBox1.SelectedValue
                     DRow("Satuan") = DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(3).ToString
                     DRow("Harga Satuan") = FormatCurrency(DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(PilihanHarga).ToString)
-                    DRow("Jumlah") = 1
+                    DRow("Jumlah") = NumericUpDown1.Value
                     DRow("Diskon") = 0
                     DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan"))
                     DTable.Rows.Add(DRow)
@@ -66,7 +74,12 @@ Public Class Penjualan
                 MsgBox("Kode barang tidak ditemukan")
                 DataGridView1.Focus()
             End Try
+            ComboBox1.Focus()
         End If
+    End Sub
+
+    Private Sub NumericUpDown1_Enter(sender As Object, e As EventArgs) Handles NumericUpDown1.Enter
+        NumericUpDown1.Select(0, NumericUpDown1.Text.Length)
     End Sub
 
     Private Sub DataGridView1_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles DataGridView1.EditingControlShowing
@@ -84,8 +97,10 @@ Public Class Penjualan
     End Sub
 
     Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
+        Dim sat As Integer = DataGridView1.Rows(e.RowIndex).Cells(4).Value
         Dim tot As Integer = DataGridView1.Rows(e.RowIndex).Cells(3).Value * DataGridView1.Rows(e.RowIndex).Cells(4).Value
         Dim disc As Integer = DataGridView1.Rows(e.RowIndex).Cells(5).Value
+        disc = disc * sat
         If disc = 0 Then
             DataGridView1.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot))
         Else
@@ -160,33 +175,35 @@ Public Class Penjualan
                         updateStok(-f.Cells(4).Value, f.Cells(0).Value)
                     Next
                     insertPembayaran(NotaTxt.Text, tgl, Pembayaran)
-                    Dim g As New FormLaporan("NotaPenjualan")
-                    g.LaporanNoNota = NotaTxt.Text
-                    g.copyNota = "Asli"
-                    g.Width = 0
-                    g.Height = 0
-                    g.Show()
-                    g.Close()
-                    g = New FormLaporan("NotaPenjualan")
-                    g.LaporanNoNota = NotaTxt.Text
-                    g.copyNota = "Copy 1"
-                    g.Width = 0
-                    g.Height = 0
-                    g.Show()
-                    g.Close()
-                    g = New FormLaporan("NotaPenjualan")
-                    g.LaporanNoNota = NotaTxt.Text
-                    g.copyNota = "Copy 2"
-                    g.Width = 0
-                    g.Height = 0
-                    g.Show()
-                    g.Close()
-                    g = New FormLaporan("SuratJalan")
-                    g.LaporanNoNota = NotaTxt.Text
-                    g.Width = 0
-                    g.Height = 0
-                    g.Show()
-                    g.Close()
+                    If CheckBox1.Checked Then
+                        Dim g As New FormLaporan("NotaPenjualan")
+                        g.LaporanNoNota = NotaTxt.Text
+                        g.copyNota = "Asli"
+                        g.Width = 0
+                        g.Height = 0
+                        g.Show()
+                        g.Close()
+                        g = New FormLaporan("NotaPenjualan")
+                        g.LaporanNoNota = NotaTxt.Text
+                        g.copyNota = "Copy 1"
+                        g.Width = 0
+                        g.Height = 0
+                        g.Show()
+                        g.Close()
+                        g = New FormLaporan("NotaPenjualan")
+                        g.LaporanNoNota = NotaTxt.Text
+                        g.copyNota = "Copy 2"
+                        g.Width = 0
+                        g.Height = 0
+                        g.Show()
+                        g.Close()
+                        g = New FormLaporan("SuratJalan")
+                        g.LaporanNoNota = NotaTxt.Text
+                        g.Width = 0
+                        g.Height = 0
+                        g.Show()
+                        g.Close()
+                    End If
                     LoadDataSet()
                     clear()
                 End If
