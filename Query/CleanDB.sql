@@ -1,3 +1,27 @@
+delete TbBarang
+delete TbSatuan
+delete TbStaff
+delete TbPelanggan
+delete TbPembayaran
+delete HReturTerima
+delete DReturTerima
+delete HReturJual
+delete DReturJual
+delete HPembelian
+delete DPembelian
+delete DJual
+delete HJual
+delete HTerima
+delete DTerima
+delete TbLabaRugi
+DBCC CHECKIDENT ('DReturTerima', RESEED, 0);
+DBCC CHECKIDENT ('DReturJual', RESEED, 0);
+DBCC CHECKIDENT ('DJual', RESEED, 0);
+DBCC CHECKIDENT ('DTerima', RESEED, 0);
+DBCC CHECKIDENT ('TbPelanggan', RESEED, 0);
+DBCC CHECKIDENT ('TbPembayaran', RESEED, 0);
+DBCC CHECKIDENT ('DPembelian', RESEED, 0);
+/****** ======================================================================================== ******/
 insert into TbSatuan values('1','Unit')
 insert into TbSatuan values('2','Buah')
 insert into TbSatuan values('3','Pasang')
@@ -26,4 +50,5 @@ insert into TbSatuan values('25','Gram')
 insert into TbSatuan values('26','Miligram')
 insert into TbSatuan values('27','Meter')
 insert into TbSatuan values('28','Liter')
-insert into TbSatuan values('29','Lusin')
+/****** ======================================================================================== ******/
+insert into TbStaff values('admin','admin','Johan Jusianto','Kupang Panjaan','08175135582','11111111111111111111')
