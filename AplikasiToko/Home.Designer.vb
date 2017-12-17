@@ -27,6 +27,7 @@ Partial Class Home
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel7 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel6 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -58,10 +59,10 @@ Partial Class Home
         Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetPersediaanAwalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateVersiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.ToolStripStatusLabel7 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.UpdateVersiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackupDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -92,6 +93,12 @@ Partial Class Home
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
         Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(525, 17)
         Me.ToolStripStatusLabel3.Spring = True
+        '
+        'ToolStripStatusLabel7
+        '
+        Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
+        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(49, 17)
+        Me.ToolStripStatusLabel7.Text = "Versi 1.1"
         '
         'ToolStripStatusLabel4
         '
@@ -280,7 +287,7 @@ Partial Class Home
         '
         'SettingToolStripMenuItem
         '
-        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrinterToolStripMenuItem, Me.SetPersediaanAwalToolStripMenuItem, Me.UpdateVersiToolStripMenuItem})
+        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrinterToolStripMenuItem, Me.SetPersediaanAwalToolStripMenuItem, Me.UpdateVersiToolStripMenuItem, Me.BackupDatabaseToolStripMenuItem})
         Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
         Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
         Me.SettingToolStripMenuItem.Text = "Setting"
@@ -297,6 +304,12 @@ Partial Class Home
         Me.SetPersediaanAwalToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.SetPersediaanAwalToolStripMenuItem.Text = "Set Persediaan Awal"
         '
+        'UpdateVersiToolStripMenuItem
+        '
+        Me.UpdateVersiToolStripMenuItem.Name = "UpdateVersiToolStripMenuItem"
+        Me.UpdateVersiToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.UpdateVersiToolStripMenuItem.Text = "Update Versi"
+        '
         'Timer1
         '
         '
@@ -312,17 +325,11 @@ Partial Class Home
         Me.ListBox1.Size = New System.Drawing.Size(227, 490)
         Me.ListBox1.TabIndex = 4
         '
-        'ToolStripStatusLabel7
+        'BackupDatabaseToolStripMenuItem
         '
-        Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
-        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(49, 17)
-        Me.ToolStripStatusLabel7.Text = "Versi 1.1"
-        '
-        'UpdateVersiToolStripMenuItem
-        '
-        Me.UpdateVersiToolStripMenuItem.Name = "UpdateVersiToolStripMenuItem"
-        Me.UpdateVersiToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.UpdateVersiToolStripMenuItem.Text = "Update Versi"
+        Me.BackupDatabaseToolStripMenuItem.Name = "BackupDatabaseToolStripMenuItem"
+        Me.BackupDatabaseToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.BackupDatabaseToolStripMenuItem.Text = "Backup Database"
         '
         'Home
         '
@@ -386,4 +393,5 @@ Partial Class Home
     Friend WithEvents SetPersediaanAwalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripStatusLabel7 As ToolStripStatusLabel
     Friend WithEvents UpdateVersiToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BackupDatabaseToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -234,4 +234,10 @@
         f.MdiParent = Me
         f.Show()
     End Sub
+
+    Private Sub BackupDatabaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackupDatabaseToolStripMenuItem.Click
+        Dim f As New BackupDatabase
+        f.MdiParent = Me
+        f.Show()
+    End Sub
 End Class
