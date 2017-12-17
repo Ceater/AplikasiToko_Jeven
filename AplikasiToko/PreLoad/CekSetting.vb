@@ -3,59 +3,51 @@ Imports System.Data.SqlClient
 Imports System.IO
 
 Public Class CekSetting
-    Public constring As New SqlConnection("")
-    Public cmd As SqlCommand
-    Public SqlAdapter As SqlDataAdapter
+    Dim path As String = "C:\AplikasiToko\setting.txt"
     Private Sub CekSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        startupSetting()
-        loadSetting()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim objWriter As StreamWriter
-        'Dim con As String = "Server=" & TextBox2.Text & "\" & TextBox1.Text & ";Database=DatabaseToko;User Id=" & TextBox3.Text & ";Password=" & TextBox4.Text & ";"
-        'Dim con As String = "Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=True;User ID=aplikasitoko;Password=Zs3N?6-Gy4T0"
-        Dim con As String = "Server=" & TextBox2.Text & ";Database=DatabaseToko;User Id=" & TextBox3.Text & ";Password=" & TextBox4.Text & ";"
-        Dim path As String = "C:\AplikasiToko\setting.txt"
-        Dim fs As FileStream
-        System.IO.File.Delete(path)
-        fs = File.Create(path)
-        fs.Dispose()
-        objWriter = New StreamWriter(path)
-        objWriter.WriteLine(TextBox2.Text)
-        objWriter.WriteLine(TextBox1.Text)
-        objWriter.WriteLine(TextBox3.Text)
-        objWriter.WriteLine(TextBox4.Text)
-        objWriter.Close()
-        objWriter.Dispose()
-        loadSetting()
-    End Sub
-
-    Sub loadSetting()
-        Dim path As String = "C:\AplikasiToko\setting.txt"
         Dim x1, x2, x3, x4 As String
+        Dim x5 As Integer
         Dim sr As StreamReader = New StreamReader(path)
+        x5 = sr.ReadLine()
         x1 = sr.ReadLine()
         x2 = sr.ReadLine()
         x3 = sr.ReadLine()
         x4 = sr.ReadLine()
         sr.Dispose()
+
+        If x5 = 1 Then
+            RadioButton1.Checked = True
+        ElseIf x5 = 2 Then
+            RadioButton2.Checked = True
+        Else
+            RadioButton3.Checked = True
+        End If
         TextBox2.Text = x1
         TextBox1.Text = x2
         TextBox3.Text = x3
         TextBox4.Text = x4
-        'Dim con As String = "Server=" & x1 & "\" & x2 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
-        'Dim con As String = "Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=True;User ID=aplikasitoko;Password=Zs3N?6-Gy4T0"
-        Dim con As String = "Server=" & x1 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
-        constring = New SqlConnection(con)
-        Try
-            constring.Open()
-            constring.Close()
+        startupSetting()
+        TestKoneksi()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        cekButton()
+    End Sub
+
+    Sub TestKoneksi()
+        If RadioButton1.Checked Then
+            LoadSetting(1)
+        ElseIf radiobutton2.checked Then
+            LoadSetting(2)
+        ElseIf RadioButton3.Checked Then
+            LoadSetting(3)
+        End If
+        If cekKoneksi(con) Then
             LoginForm.Show()
             Me.Close()
-        Catch ex As Exception
-            MsgBox("Pengaturan Salah")
-        End Try
+        Else
+            MsgBox("Koneksi Gagal")
+        End If
     End Sub
 
     Sub startupSetting()
@@ -75,7 +67,6 @@ Public Class CekSetting
         Else
             createStartupSetting("setting.txt")
         End If
-
     End Sub
 
     Sub createStartupSetting(path As String)
@@ -93,12 +84,42 @@ Public Class CekSetting
             fs = File.Create(temp)
             fs.Dispose()
             objWriter = New StreamWriter(temp)
+            objWriter.WriteLine("1")
             objWriter.WriteLine("DEVELOPER-PC")
             objWriter.WriteLine("SQLEXPRESS")
-            objWriter.WriteLine("johan")
-            objWriter.WriteLine("1234")
+            objWriter.WriteLine("admin")
+            objWriter.WriteLine("admin")
             objWriter.Close()
             objWriter.Dispose()
         End If
+    End Sub
+
+    Private Sub Enter_Pressed(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyUp, TextBox2.KeyUp, TextBox3.KeyUp, TextBox4.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            cekButton()
+        End If
+    End Sub
+
+    Sub cekButton()
+        Dim objWriter As StreamWriter
+        Dim fs As FileStream
+        System.IO.File.Delete(path)
+        fs = File.Create(path)
+        fs.Dispose()
+        objWriter = New StreamWriter(path)
+        If RadioButton1.Checked Then
+            objWriter.WriteLine("1")
+        ElseIf RadioButton2.Checked Then
+            objWriter.WriteLine("2")
+        ElseIf RadioButton3.Checked Then
+            objWriter.WriteLine("3")
+        End If
+        objWriter.WriteLine(TextBox2.Text)
+        objWriter.WriteLine(TextBox1.Text)
+        objWriter.WriteLine(TextBox3.Text)
+        objWriter.WriteLine(TextBox4.Text)
+        objWriter.Close()
+        objWriter.Dispose()
+        TestKoneksi()
     End Sub
 End Class

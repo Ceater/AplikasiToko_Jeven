@@ -113,6 +113,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Module\ConnectionModule.vb" />
     <Compile Include="DataSet\DSetDataBarang.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

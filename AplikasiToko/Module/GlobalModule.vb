@@ -4,33 +4,23 @@ Imports System
 Imports System.IO
 
 Module GlobalModule
-    Public constring As New SqlConnection("")
     Public DSet As New DataSet
-    Public cmd As SqlCommand
     Public SqlAdapter As SqlDataAdapter
 
-    Sub LoadSetting()
+    Sub LoadSetting(TipeServer As Integer)
         Dim filepath As String = "C:\AplikasiToko\setting.txt"
-        Dim x1, x2, x3, x4 As String
+        Dim x1, x2, x3, x4, x5 As String
         Try
             Dim sr As StreamReader = New StreamReader(filepath)
+            x5 = sr.ReadLine()
             x1 = sr.ReadLine()
             x2 = sr.ReadLine()
             x3 = sr.ReadLine()
             x4 = sr.ReadLine()
-            'Dim con As String = "Server=" & x1 & "\" & x2 & ";Database=DatabaseToko;User Id=" & x3 & ";Password=" & x4 & ";"
-            'Dim con As String = "Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=True;User ID=aplikasitoko;Password=Zs3N?6-Gy4T0"
-            Dim con As String = "Data Source=server;Initial Catalog=DatabaseToko;Persist Security Info=True;User ID=admin;Password=admin"
-            constring = New SqlConnection(con)
+            setKoneksi(TipeServer, x1, x2, x3, x4)
+            sr.Dispose()
         Catch ex As Exception
-            MsgBox("Database tidak ditemukan")
-        End Try
 
-        Try
-            constring.Open()
-            constring.Close()
-        Catch ex As Exception
-            MsgBox("Pengaturan Salah")
         End Try
     End Sub
 

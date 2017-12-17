@@ -5,7 +5,6 @@ Public Class LoginForm
     Private Sub LoginForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Thread.CurrentThread.CurrentCulture = New CultureInfo("id-ID")
         Thread.CurrentThread.CurrentUICulture = New CultureInfo("id-ID")
-        LoadSetting()
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
