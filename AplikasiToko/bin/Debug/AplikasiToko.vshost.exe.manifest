@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="AplikasiToko.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="id-ID" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="AplikasiToko.exe" version="1.1.0.0" publicKeyToken="0000000000000000" language="id-ID" processorArchitecture="x86" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="AplikasiToko" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+C0CHMIlSAfk9NbpGIc7J7LdZi2/JNVY+AZeGFJUiiU=</dsig:DigestValue>
+        <dsig:DigestValue>or73HhZ9lEkjCJ9KcwS9l9nHC0GkYmrF73OEeUyC0ak=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -302,13 +302,13 @@
       <dsig:DigestValue>esFCI0eD5mQeDXbxLOZlunZnokw5qz9jwzoiTN1VHaM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="FutureUpdate.txt" size="555">
+  <file name="FutureUpdate.txt" size="812">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>OoavRzc+xtQL3nTXcmopJNDBCjCNaTA73V/g5rriMsQ=</dsig:DigestValue>
+      <dsig:DigestValue>MPAjybq5IX5FNHRExGSANk29nyVWokKouNiQMNkRdDU=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

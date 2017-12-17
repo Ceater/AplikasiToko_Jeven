@@ -1,0 +1,13 @@
+﻿Improvement
+-> Form Laporan cetak Nota Penjualan nama form diperbaiki dari FormLaporanCetakUlang menjadi Cetak Ulang Laporan Penjualan
+-> Menghapus property Kode Barang dari Laporan Penjualan, Retur Jual, NotaPenjualan, Surat Jalan
+
+New Feature
+-> Pencetakan Nota diberikan opsi untuk cetak atau tidak -> Done
+-> Perhitungan Diskon adalah Subtotal - (Diskon * Jumlah) -> Done
+-> Penambahan Satuan Lusin via Form Update Versi -> Done
+-> Tambahkan box untuk mengetik jumlah barang ketika kode barang dimasukkan, tanpa mengklik bagian jumlah barang di penjualan -> Done
+-> Tambahkan form agar pegawai bisa menambahkan data barang baru dan set harganya.
+-> Bisa melakukan retur item sebagian
+-> Menampilkan data pembeli pada bagian retur jual
+-> Laporan pendapatan juga menampilkan nota-nota transaksi
