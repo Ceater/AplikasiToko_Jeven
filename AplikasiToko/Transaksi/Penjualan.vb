@@ -157,6 +157,14 @@ Public Class Penjualan
         If NotaTxt.Text <> "" And DataGridView1.RowCount <> 0 Then
             Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
+                If CheckBox2.Checked Then
+                    Dim dr As DialogResult
+                    Dim f As New SuratJalanLuarKota
+                    dr = f.ShowDialog()
+                    If dr = DialogResult.OK Then
+                        MsgBox("User clicked OK button")
+                    End If
+                End If
                 Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
                 Dim temp As String = ""
                 If RadioButton1.Checked Then
@@ -175,28 +183,28 @@ Public Class Penjualan
                         updateStok(-f.Cells(4).Value, f.Cells(0).Value)
                     Next
                     insertPembayaran(NotaTxt.Text, tgl, Pembayaran)
+                    Dim g As New FormLaporan("NotaPenjualan")
+                    g.LaporanNoNota = NotaTxt.Text
+                    g.copyNota = "Asli"
+                    g.Width = 0
+                    g.Height = 0
+                    g.Show()
+                    g.Close()
+                    g = New FormLaporan("NotaPenjualan")
+                    g.LaporanNoNota = NotaTxt.Text
+                    g.copyNota = "Copy 1"
+                    g.Width = 0
+                    g.Height = 0
+                    g.Show()
+                    g.Close()
+                    g = New FormLaporan("NotaPenjualan")
+                    g.LaporanNoNota = NotaTxt.Text
+                    g.copyNota = "Copy 2"
+                    g.Width = 0
+                    g.Height = 0
+                    g.Show()
+                    g.Close()
                     If CheckBox1.Checked Then
-                        Dim g As New FormLaporan("NotaPenjualan")
-                        g.LaporanNoNota = NotaTxt.Text
-                        g.copyNota = "Asli"
-                        g.Width = 0
-                        g.Height = 0
-                        g.Show()
-                        g.Close()
-                        g = New FormLaporan("NotaPenjualan")
-                        g.LaporanNoNota = NotaTxt.Text
-                        g.copyNota = "Copy 1"
-                        g.Width = 0
-                        g.Height = 0
-                        g.Show()
-                        g.Close()
-                        g = New FormLaporan("NotaPenjualan")
-                        g.LaporanNoNota = NotaTxt.Text
-                        g.copyNota = "Copy 2"
-                        g.Width = 0
-                        g.Height = 0
-                        g.Show()
-                        g.Close()
                         g = New FormLaporan("SuratJalan")
                         g.LaporanNoNota = NotaTxt.Text
                         g.Width = 0

@@ -222,3 +222,4 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\Ap
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.application
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.UpdateVersi.resources
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.BackupDatabase.resources
+C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.SuratJalanLuarKota.resources

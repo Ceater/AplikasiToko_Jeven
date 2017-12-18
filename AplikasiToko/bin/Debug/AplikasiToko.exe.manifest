@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AplikasiToko.exe" size="949208">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AplikasiToko.exe" size="952280">
       <assemblyIdentity name="AplikasiToko" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o+mFTdHWaoAR17CtsgL5QbX4PuJDCXnBteeG5KMzEeg=</dsig:DigestValue>
+        <dsig:DigestValue>A+WB6K9IxjcgP+2qJwBqtAGGXgXGPzXONrHCJoZ6Yc4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

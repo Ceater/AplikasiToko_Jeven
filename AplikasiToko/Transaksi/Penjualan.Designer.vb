@@ -64,6 +64,7 @@ Partial Class Penjualan
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -341,9 +342,9 @@ Partial Class Penjualan
         '
         'Proses_btn
         '
-        Me.Proses_btn.Location = New System.Drawing.Point(602, 452)
+        Me.Proses_btn.Location = New System.Drawing.Point(602, 472)
         Me.Proses_btn.Name = "Proses_btn"
-        Me.Proses_btn.Size = New System.Drawing.Size(173, 45)
+        Me.Proses_btn.Size = New System.Drawing.Size(173, 25)
         Me.Proses_btn.TabIndex = 6
         Me.Proses_btn.Text = "Proses"
         Me.Proses_btn.UseVisualStyleBackColor = True
@@ -472,11 +473,13 @@ Partial Class Penjualan
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Checked = True
+        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox1.Location = New System.Drawing.Point(602, 429)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(86, 17)
+        Me.CheckBox1.Size = New System.Drawing.Size(116, 17)
         Me.CheckBox1.TabIndex = 9
-        Me.CheckBox1.Text = "Cetak Nota?"
+        Me.CheckBox1.Text = "Cetak Surat Jalan?"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Label17
@@ -498,6 +501,16 @@ Partial Class Penjualan
         Me.NumericUpDown1.TabIndex = 12
         Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(602, 449)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(134, 17)
+        Me.CheckBox2.TabIndex = 9
+        Me.CheckBox2.Text = "Surat Jalan Luar Kota?"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
         'Penjualan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -505,6 +518,7 @@ Partial Class Penjualan
         Me.ClientSize = New System.Drawing.Size(787, 538)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
@@ -581,4 +595,5 @@ Partial Class Penjualan
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents Label17 As Label
     Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents CheckBox2 As CheckBox
 End Class
