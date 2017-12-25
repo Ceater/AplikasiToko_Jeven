@@ -25,7 +25,25 @@ Public Class UpdateVersi
                 cmd = New SqlCommand("insert into TbSatuan values('29','Lusin')", constring)
                 cmd.ExecuteNonQuery()
                 constring.Close()
-                MsgBox("Data Sudah Diperbarui")
+                MsgBox("Pembaharuan Versi Berhasil")
+            Else
+                MsgBox("Data Sudah Paling Baru")
+            End If
+        ElseIf VSekarang = "1.1.1" Then
+            constring.Open()
+            cmd = New SqlCommand("SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'TbBarang' AND COLUMN_NAME = 'Stok'", constring)
+            Dim reader As String = cmd.ExecuteScalar
+            If reader = "float" Then
+                bool = True
+            End If
+            constring.Close()
+
+            If bool = False Then
+                constring.Open()
+                cmd = New SqlCommand("ALTER TABLE TbBarang ALTER COLUMN Stok float;", constring)
+                cmd.ExecuteNonQuery()
+                constring.Close()
+                MsgBox("Pembaharuan Versi Berhasil")
             Else
                 MsgBox("Data Sudah Paling Baru")
             End If

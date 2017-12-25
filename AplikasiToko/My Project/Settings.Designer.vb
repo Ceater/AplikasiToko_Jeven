@@ -85,6 +85,27 @@ Namespace My
                 Return CType(Me("DatabaseTokoConnectionString2"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=Server;Database=DatabaseToko;User Id=admin;Password=admin;")>  _
+        Public ReadOnly Property TestServer() As String
+            Get
+                Return CType(Me("TestServer"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=mssql1.gear.host;Initial Catalog=aplikasitoko;Persist Security Info=T"& _ 
+            "rue;User ID=aplikasitoko")>  _
+        Public ReadOnly Property ConnectionTestServer() As String
+            Get
+                Return CType(Me("ConnectionTestServer"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

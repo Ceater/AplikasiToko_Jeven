@@ -10,6 +10,7 @@ Public Class FormLaporan
     Public tglAkhir As Date
     Public kodebarang As String = ""
     Public copyNota As String = ""
+    Public detailNotaLuarKota() As String
     Dim Jenis As String = ""
 
     Public Sub New(ByVal laporan As String)
@@ -180,25 +181,32 @@ Public Class FormLaporan
                 End If
             ElseIf Jenis = "LaporanPendapatan" Then
                 If mode = "1" Then
-                    cmd.CommandText = "SELECT (SELECT count(NoNotaJual) FROM HJual) AS NoNotaJual, (SELECT SUM(GrandTotal) FROM HJual) AS GrandTotal, (SELECT SUM(UangBayar) FROM TbPembayaran) AS TotalPembayaran"
-                    adapt.Fill(dataset, "TotalPendapatan")
+                    cmd.CommandText = "SELECT H.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, sum(T.UangBayar) as UangBayar from HJual H, TbPembayaran T  WHERE H.NoNotaJual = T.NoNotaJual group by H.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal"
+                    adapt.Fill(dataset, "DetailPembayaran")
                     rep = New LaporanPendapatan
                     rep.SetDataSource(dataset)
                 ElseIf mode = 2 Then
-                    cmd.CommandText = "SELECT (SELECT count(NoNotaJual) FROM HJual where TglNota BETWEEN @tglAwal AND @tglAkhir) AS NoNotaJual, (SELECT SUM(GrandTotal) FROM HJual where TglNota BETWEEN @tglAwal AND @tglAkhir) AS GrandTotal, (SELECT SUM(UangBayar) FROM TbPembayaran where TglBayar BETWEEN @tglAwal AND @tglAkhir) AS TotalPembayaran"
+                    cmd.CommandText = "SELECT H.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, sum(T.UangBayar) as UangBayar from HJual H, TbPembayaran T  WHERE H.NoNotaJual = T.NoNotaJual and H.TglNota BETWEEN @tglAwal AND @tglAkhir group by H.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal"
                     cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM/dd/yyyy") & " 00:00:00")
                     cmd.Parameters.AddWithValue("@tglakhir", tglAkhir.ToString("MM/dd/yyyy") & " 23:59:59")
-                    adapt.Fill(dataset, "TotalPendapatan")
+                    adapt.Fill(dataset, "DetailPembayaran")
                     rep = New LaporanPendapatan
                     rep.SetDataSource(dataset)
                 ElseIf mode = 3 Then
-                    cmd.CommandText = "SELECT (SELECT count(NoNotaJual) FROM HJual where month(TglNota) = @tglawal) AS NoNotaJual, (SELECT SUM(GrandTotal) FROM HJual where month(TglNota) = @tglawal) AS GrandTotal, (SELECT SUM(UangBayar) FROM TbPembayaran where month(TglBayar) = @tglawal) AS TotalPembayaran"
+                    cmd.CommandText = "SELECT H.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, sum(T.UangBayar) as UangBayar from HJual H, TbPembayaran T  WHERE H.NoNotaJual = T.NoNotaJual and month(H.TglNota) = @tglawal group by H.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal"
                     cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM"))
-                    adapt.Fill(dataset, "TotalPendapatan")
+                    adapt.Fill(dataset, "DetailPembayaran")
                     rep = New LaporanPendapatan
                     rep.SetDataSource(dataset)
                 End If
-
+            ElseIf Jenis = "SuratJalanLuarKota" Then
+                rep = New SuratJalanLuarKota
+                rep.SetParameterValue("NomerNota", detailNotaLuarKota(0))
+                rep.SetParameterValue("TanggalNota", detailNotaLuarKota(1))
+                rep.SetParameterValue("Penerima", detailNotaLuarKota(2))
+                rep.SetParameterValue("KotaTujuan", detailNotaLuarKota(3))
+                rep.SetParameterValue("JumlahBarang", detailNotaLuarKota(4))
+                rep.SetParameterValue("DeskripsiBarang", detailNotaLuarKota(5))
             End If
             con.Close()
             crv.ReportSource = rep

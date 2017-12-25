@@ -113,6 +113,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Laporan\Rpt\SuratJalanLuarKota.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuratJalanLuarKota.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Module\ConnectionModule.vb" />
     <Compile Include="DataSet\DSetDataBarang.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -429,10 +435,10 @@
     <Compile Include="Transaksi\StokOpname.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\SuratJalanLuarKota.Designer.vb">
-      <DependentUpon>SuratJalanLuarKota.vb</DependentUpon>
+    <Compile Include="Transaksi\InfoSuratJalanLuarKota.Designer.vb">
+      <DependentUpon>InfoSuratJalanLuarKota.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\SuratJalanLuarKota.vb">
+    <Compile Include="Transaksi\InfoSuratJalanLuarKota.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaksi\TerimaBarang.Designer.vb">
@@ -511,6 +517,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SuratJalan.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\Rpt\SuratJalanLuarKota.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SuratJalanLuarKota.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -576,8 +586,8 @@
     <EmbeddedResource Include="Transaksi\StokOpname.resx">
       <DependentUpon>StokOpname.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\SuratJalanLuarKota.resx">
-      <DependentUpon>SuratJalanLuarKota.vb</DependentUpon>
+    <EmbeddedResource Include="Transaksi\InfoSuratJalanLuarKota.resx">
+      <DependentUpon>InfoSuratJalanLuarKota.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\TerimaBarang.resx">
       <DependentUpon>TerimaBarang.vb</DependentUpon>

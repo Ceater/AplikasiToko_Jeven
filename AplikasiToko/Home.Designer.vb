@@ -60,9 +60,9 @@ Partial Class Home
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetPersediaanAwalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateVersiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackupDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.BackupDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -91,14 +91,14 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(525, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(485, 17)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel7
         '
         Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
-        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(49, 17)
-        Me.ToolStripStatusLabel7.Text = "Versi 1.1"
+        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(58, 17)
+        Me.ToolStripStatusLabel7.Text = "Versi 1.1.1"
         '
         'ToolStripStatusLabel4
         '
@@ -310,6 +310,12 @@ Partial Class Home
         Me.UpdateVersiToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.UpdateVersiToolStripMenuItem.Text = "Update Versi"
         '
+        'BackupDatabaseToolStripMenuItem
+        '
+        Me.BackupDatabaseToolStripMenuItem.Name = "BackupDatabaseToolStripMenuItem"
+        Me.BackupDatabaseToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.BackupDatabaseToolStripMenuItem.Text = "Backup Database"
+        '
         'Timer1
         '
         '
@@ -324,12 +330,6 @@ Partial Class Home
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(227, 490)
         Me.ListBox1.TabIndex = 4
-        '
-        'BackupDatabaseToolStripMenuItem
-        '
-        Me.BackupDatabaseToolStripMenuItem.Name = "BackupDatabaseToolStripMenuItem"
-        Me.BackupDatabaseToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.BackupDatabaseToolStripMenuItem.Text = "Backup Database"
         '
         'Home
         '

@@ -66,7 +66,7 @@ Public Class Penjualan
                     DRow("Harga Satuan") = FormatCurrency(DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(PilihanHarga).ToString)
                     DRow("Jumlah") = NumericUpDown1.Value
                     DRow("Diskon") = 0
-                    DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan"))
+                    DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan") * NumericUpDown1.Value)
                     DTable.Rows.Add(DRow)
                 End If
                 cekTotal()
@@ -155,28 +155,38 @@ Public Class Penjualan
 
     Private Sub Proses_btn_Click(sender As Object, e As EventArgs) Handles Proses_btn.Click
         If NotaTxt.Text <> "" And DataGridView1.RowCount <> 0 Then
+            Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
+            Dim temp As String = ""
+            If RadioButton1.Checked Then
+                temp = "Tamu"
+            ElseIf RadioButton2.Checked Then
+                temp = ComboBox2.SelectedValue
+            ElseIf RadioButton3.Checked Then
+                temp = TextBox2.Text
+            End If
             Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
-                If CheckBox2.Checked Then
-                    Dim dr As DialogResult
-                    Dim f As New SuratJalanLuarKota
-                    dr = f.ShowDialog()
-                    If dr = DialogResult.OK Then
-                        MsgBox("User clicked OK button")
-                    End If
-                End If
-                Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
-                Dim temp As String = ""
-                If RadioButton1.Checked Then
-                    temp = "Tamu"
-                ElseIf RadioButton2.Checked Then
-                    temp = ComboBox2.SelectedValue
-                ElseIf RadioButton3.Checked Then
-                    temp = TextBox2.Text
-                End If
                 If cekNotaJual(NotaTxt.Text) Then
                     MsgBox("Nota sudah terdaftar")
                 Else
+                    If CheckBox2.Checked Then
+                        Dim f As New InfoSuratJalanLuarKota
+                        Dim dr As DialogResult
+                        dr = f.ShowDialog()
+                        If dr = DialogResult.OK Then
+                            Dim xz(5) As String
+                            xz = f.x
+                            xz(0) = NotaTxt.Text
+                            xz(1) = tgl
+                            xz(2) = temp
+                            Dim h As New FormLaporan("SuratJalanLuarKota")
+                            h.Width = 0
+                            h.Height = 0
+                            h.detailNotaLuarKota = xz
+                            h.Show()
+                            h.Close()
+                        End If
+                    End If
                     insertHJual(NotaTxt.Text, tgl, GTotal, temp, staff)
                     For Each f In DataGridView1.Rows
                         insertDJual(NotaTxt.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, f.Cells(4).Value, f.Cells(5).Value, f.Cells(6).Value)
@@ -184,31 +194,25 @@ Public Class Penjualan
                     Next
                     insertPembayaran(NotaTxt.Text, tgl, Pembayaran)
                     Dim g As New FormLaporan("NotaPenjualan")
-                    g.LaporanNoNota = NotaTxt.Text
-                    g.copyNota = "Asli"
                     g.Width = 0
                     g.Height = 0
+                    g.LaporanNoNota = NotaTxt.Text
+                    g.copyNota = "Asli"
                     g.Show()
                     g.Close()
                     g = New FormLaporan("NotaPenjualan")
                     g.LaporanNoNota = NotaTxt.Text
                     g.copyNota = "Copy 1"
-                    g.Width = 0
-                    g.Height = 0
                     g.Show()
                     g.Close()
                     g = New FormLaporan("NotaPenjualan")
                     g.LaporanNoNota = NotaTxt.Text
                     g.copyNota = "Copy 2"
-                    g.Width = 0
-                    g.Height = 0
                     g.Show()
                     g.Close()
                     If CheckBox1.Checked Then
                         g = New FormLaporan("SuratJalan")
                         g.LaporanNoNota = NotaTxt.Text
-                        g.Width = 0
-                        g.Height = 0
                         g.Show()
                         g.Close()
                     End If
