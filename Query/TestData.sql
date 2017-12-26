@@ -177,7 +177,7 @@ insert into TbPembayaran Values('J00005', '6/14/2017', 25000)
 update TbBarang set stok=stok-2 where KodeBarang='RO001'
 update TbBarang set stok=stok-1 where KodeBarang='RO002'
 /****** ======================================================================================== ******/
-insert into HReturJual values('RJ00001','T00007','6/15/2017','admin')
+insert into HReturJual values('RJ00001','J00005','6/15/2017','admin')
 insert into DReturJual values('RJ00001','RO001', 'Rokok Inter', 'Bungkus', 13000, 2, 0, 26000)
 update TbBarang set stok=stok+2 where KodeBarang='RO001'
 /****** ======================================================================================== ******/

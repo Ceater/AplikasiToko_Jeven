@@ -224,3 +224,4 @@ C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\Ap
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.xml
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.pdb
 C:\Users\Johan\Documents\Github\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.PenerimaanTambahBarang.resources
+C:\Users\Johan\Documents\GitHub\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.ReturJualCariNota.resources

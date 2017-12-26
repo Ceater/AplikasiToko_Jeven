@@ -56,7 +56,7 @@ Partial Class ReturJualCariNota
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(233, 15)
+        Me.Label2.Location = New System.Drawing.Point(12, 41)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 13)
         Me.Label2.TabIndex = 99
@@ -64,17 +64,17 @@ Partial Class ReturJualCariNota
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(298, 13)
+        Me.TextBox1.Location = New System.Drawing.Point(77, 39)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(162, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(150, 20)
         Me.TextBox1.TabIndex = 2
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 39)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 65)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(445, 210)
+        Me.GroupBox1.Size = New System.Drawing.Size(258, 172)
         Me.GroupBox1.TabIndex = 99
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detail Nota"
@@ -84,6 +84,7 @@ Partial Class ReturJualCariNota
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.Control
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -93,14 +94,15 @@ Partial Class ReturJualCariNota
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(439, 191)
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(252, 153)
         Me.DataGridView1.TabIndex = 3
         '
         'ReturJualCariNota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(472, 261)
+        Me.ClientSize = New System.Drawing.Size(285, 249)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label2)

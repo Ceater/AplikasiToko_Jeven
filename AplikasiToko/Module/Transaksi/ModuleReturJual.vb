@@ -98,4 +98,16 @@ Module ModuleReturJual
         End Try
         Return temp
     End Function
+
+    Function getNamaPelanggan(kodenota As String)
+        Dim hsl As String
+        constring.Open()
+        cmd = New SqlCommand("select NamaPelanggan from HJual where NoNotaJual=@a", constring)
+        With cmd.Parameters
+            .Add(New SqlParameter("@a", kodenota))
+        End With
+        hsl = cmd.ExecuteScalar
+        constring.Close()
+        Return hsl
+    End Function
 End Module

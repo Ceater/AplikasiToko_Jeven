@@ -27,6 +27,9 @@ Module GlobalModule
     Sub LoadDataSet()
         DSet.Clear()
         Try
+            If constring.State = ConnectionState.Open Then
+                constring.Close()
+            End If
             constring.Open()
             SqlAdapter = New SqlDataAdapter("select tb.KodeBarang, NamaBarang, Stok, NamaSatuan, HargaNormal, HargaToko, Hargasales,  StokPengingat from TbBarang tb, TbSatuan ts where tb.SatuanBarang = ts.KodeSatuan", constring)
             SqlAdapter.Fill(DSet, "DataBarang")
@@ -44,6 +47,8 @@ Module GlobalModule
             SqlAdapter.Fill(DSet, "DataStokMinim")
             SqlAdapter = New SqlDataAdapter("select NoNotaTerima from HTerima except select HT.NoNotaTerima from HTerima HT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima UNION select Dr.NoNotaTerima from (select HT.NoNotaTerima, DT.IDBarang from HTerima HT, DTerima DT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima and HT.NoNotaTerima = DT.NoNOtaTerima Except select HTR.NoNotaTerima, DTR.IdBarang from HReturTerima HTR, DReturTerima DTR where HTR.NoNotaReturTerima = DTR.NoNotaReturTerima) DR group by Dr.NoNotaTerima except select NoNotaTerima from HPembelian", constring)
             SqlAdapter.Fill(DSet, "DataPembelian")
+            SqlAdapter = New SqlDataAdapter("select NoNotaJual, NamaPelanggan  from HJual except select HJ.NoNotaJual, HJ.NamaPelanggan from HJual HJ, HReturJual HTJ where HJ.NoNotaJual = HTJ.NoNotaJual", constring)
+            SqlAdapter.Fill(DSet, "DataNotaSiapReturJual")
             constring.Close()
         Catch ex As Exception
             MsgBox(ex.ToString)

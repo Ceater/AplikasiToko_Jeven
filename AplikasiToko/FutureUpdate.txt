@@ -7,6 +7,10 @@ Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya 1.1.1
 -> Form pembelian tidak dapat menampilkan detail pembelian karena view Pembelian hilang dari database 1.1.1
 
+Bug Found
+-> Retur jual, masih menampilkan data yang sudah di retur
+-> Error ketika melakukan proses retur jual constring loaddataset tidak slalu terbuka, padahal sudah tertutup.
+
 New Feature
 -> Pencetakan Nota diberikan opsi untuk cetak atau tidak -> Done 1.1
 -> Perhitungan Diskon adalah Subtotal - (Diskon * Jumlah) -> Done 1.1
@@ -15,5 +19,6 @@ New Feature
 -> Laporan pendapatan juga menampilkan nota-nota transaksi -> Done 1.1.1
 -> Tambahkan form agar pegawai bisa menambahkan data barang baru dan set harganya. -> Done 1.1.1
 -> Tambahkan surata jalan untuk pengiriman luar kota. -> Done 1.1.1
--> Menampilkan data pembeli pada bagian retur jual
+-> Menampilkan data pembeli pada bagian retur jual. -> Done 1.1.1
+-> Dapat mencari dan menampilkan nota retur jual. -> Done 1.1.1
 -> Bisa melakukan retur item sebagian

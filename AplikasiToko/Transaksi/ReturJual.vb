@@ -38,6 +38,7 @@
                             updateStok(f.Cells(4).Value, f.Cells(0).Value)
                         End If
                     Next
+                    MsgBox(constring.State.ToString)
                     LoadDataSet()
                     MsgBox("Sukses melakukan retur Jual barang")
                     clear()
@@ -51,6 +52,7 @@
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Try
             DataGridView1.DataSource = getDetailBarangJual(ComboBox1.SelectedValue)
+            Label4.Text = getNamaPelanggan(ComboBox1.SelectedValue)
             setGv()
         Catch ex As Exception
         End Try
@@ -89,5 +91,12 @@
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim f As New ReturJualCariNota
+        If f.ShowDialog = DialogResult.OK Then
+            ComboBox1.SelectedValue = f.pilihanNota
+        End If
     End Sub
 End Class
