@@ -31,6 +31,9 @@ Partial Class ReturJual
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -56,7 +59,7 @@ Partial Class ReturJual
         'TextBox1
         '
         Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(133, 41)
+        Me.TextBox1.Location = New System.Drawing.Point(133, 62)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(133, 20)
         Me.TextBox1.TabIndex = 14
@@ -64,7 +67,7 @@ Partial Class ReturJual
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 44)
+        Me.Label2.Location = New System.Drawing.Point(12, 65)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(121, 13)
         Me.Label2.TabIndex = 13
@@ -82,7 +85,7 @@ Partial Class ReturJual
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 69)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 88)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(622, 289)
         Me.GroupBox1.TabIndex = 11
@@ -126,14 +129,44 @@ Partial Class ReturJual
         Me.ComboBox1.Size = New System.Drawing.Size(178, 21)
         Me.ComboBox1.TabIndex = 8
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(130, 42)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(10, 13)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "-"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(12, 42)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(75, 13)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "Nama Pembeli"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(272, 10)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(105, 23)
+        Me.Button2.TabIndex = 17
+        Me.Button2.Text = "Cari Nota Jual"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'ReturJual
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(646, 375)
+        Me.ClientSize = New System.Drawing.Size(646, 387)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
@@ -159,4 +192,7 @@ Partial Class ReturJual
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Button2 As Button
 End Class

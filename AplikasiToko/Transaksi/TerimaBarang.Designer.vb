@@ -37,6 +37,7 @@ Partial Class TerimaBarang
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Proses = New System.Windows.Forms.Button()
         Me.Batal = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -190,11 +191,21 @@ Partial Class TerimaBarang
         Me.Batal.Text = "Batal"
         Me.Batal.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(351, 106)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(140, 23)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "Tambah Barang Baru"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'TerimaBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(787, 538)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Batal)
         Me.Controls.Add(Me.Proses)
         Me.Controls.Add(Me.GroupBox2)
@@ -233,4 +244,5 @@ Partial Class TerimaBarang
     Friend WithEvents Label10 As Label
     Friend WithEvents Proses As Button
     Friend WithEvents Batal As Button
+    Friend WithEvents Button1 As Button
 End Class

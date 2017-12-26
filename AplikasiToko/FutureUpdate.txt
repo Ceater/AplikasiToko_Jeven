@@ -5,6 +5,7 @@
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya 1.1.1
+-> Form pembelian tidak dapat menampilkan detail pembelian karena view Pembelian hilang dari database 1.1.1
 
 New Feature
 -> Pencetakan Nota diberikan opsi untuk cetak atau tidak -> Done 1.1
@@ -12,6 +13,7 @@ New Feature
 -> Penambahan Satuan Lusin via Form Update Versi -> Done 1.1
 -> Tambahkan box untuk mengetik jumlah barang ketika kode barang dimasukkan, tanpa mengklik bagian jumlah barang di penjualan -> Done 1.1
 -> Laporan pendapatan juga menampilkan nota-nota transaksi -> Done 1.1.1
--> Tambahkan form agar pegawai bisa menambahkan data barang baru dan set harganya.
--> Bisa melakukan retur item sebagian
+-> Tambahkan form agar pegawai bisa menambahkan data barang baru dan set harganya. -> Done 1.1.1
+-> Tambahkan surata jalan untuk pengiriman luar kota. -> Done 1.1.1
 -> Menampilkan data pembeli pada bagian retur jual
+-> Bisa melakukan retur item sebagian

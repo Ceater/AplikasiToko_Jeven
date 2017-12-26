@@ -411,6 +411,12 @@
     <Compile Include="Transaksi\Penjualan.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Transaksi\PenerimaanTambahBarang.Designer.vb">
+      <DependentUpon>PenerimaanTambahBarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\PenerimaanTambahBarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transaksi\PrintUlangNota.Designer.vb">
       <DependentUpon>PrintUlangNota.vb</DependentUpon>
     </Compile>
@@ -421,6 +427,12 @@
       <DependentUpon>ReturJual.vb</DependentUpon>
     </Compile>
     <Compile Include="Transaksi\ReturJual.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaksi\ReturJualCariNota.Designer.vb">
+      <DependentUpon>ReturJualCariNota.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\ReturJualCariNota.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaksi\ReturTerima.Designer.vb">
@@ -574,11 +586,17 @@
     <EmbeddedResource Include="Transaksi\Penjualan.resx">
       <DependentUpon>Penjualan.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transaksi\PenerimaanTambahBarang.resx">
+      <DependentUpon>PenerimaanTambahBarang.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\PrintUlangNota.resx">
       <DependentUpon>PrintUlangNota.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\ReturJual.resx">
       <DependentUpon>ReturJual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaksi\ReturJualCariNota.resx">
+      <DependentUpon>ReturJualCariNota.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\ReturTerima.resx">
       <DependentUpon>ReturTerima.vb</DependentUpon>
