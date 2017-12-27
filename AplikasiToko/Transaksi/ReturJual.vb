@@ -38,7 +38,6 @@
                             updateStok(f.Cells(4).Value, f.Cells(0).Value)
                         End If
                     Next
-                    MsgBox(constring.State.ToString)
                     LoadDataSet()
                     MsgBox("Sukses melakukan retur Jual barang")
                     clear()
