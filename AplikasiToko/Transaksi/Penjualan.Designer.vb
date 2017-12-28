@@ -65,6 +65,7 @@ Partial Class Penjualan
         Me.Label17 = New System.Windows.Forms.Label()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -511,11 +512,22 @@ Partial Class Penjualan
         Me.CheckBox2.Text = "Surat Jalan Luar Kota?"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(684, 132)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(88, 17)
+        Me.CheckBox3.TabIndex = 13
+        Me.CheckBox3.Text = "Print Preview"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
         'Penjualan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(787, 538)
+        Me.Controls.Add(Me.CheckBox3)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.CheckBox2)
@@ -596,4 +608,5 @@ Partial Class Penjualan
     Friend WithEvents Label17 As Label
     Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents CheckBox3 As CheckBox
 End Class

@@ -4,10 +4,10 @@ Imports System.Data.SqlClient
 Public Class Penjualan
     Dim DTable As New DataTable
     Dim DRow As DataRow
-    Dim GTotal As Integer 'Grand Total
-    Dim TotBarang As Integer 'Total Barang
-    Dim TotJumBarang As Integer 'Total Jumlah Barang
-    Dim Pembayaran As Integer
+    Dim GTotal As Double 'Grand Total
+    Dim TotBarang As Double 'Total Barang
+    Dim TotJumBarang As Double 'Total Jumlah Barang
+    Dim Pembayaran As Double
     Dim staff As String = ""
     Dim PilihanHarga As Integer = 4
     Dim KodeBarang As String = ""
@@ -37,7 +37,6 @@ Public Class Penjualan
 
     Private Sub ComboBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles ComboBox1.KeyUp
         If e.KeyCode = Keys.Enter Then
-            KodeBarang = ComboBox1.SelectedText
             NumericUpDown1.Focus()
         End If
     End Sub
@@ -45,16 +44,16 @@ Public Class Penjualan
     Private Sub NumericUpDown1_KeyUp(sender As Object, e As KeyEventArgs) Handles NumericUpDown1.KeyUp
         If e.KeyCode = Keys.Enter Then
             Try
+                KodeBarang = ComboBox1.Text
                 Dim addorappend As Boolean = True 'Digunakan untuk menentukan apakah tambah baru atau tambah jumlah
                 If DataGridView1.RowCount = 0 Then
                     addorappend = True
                 Else
+                    addorappend = True
                     For Each f In DataGridView1.Rows
                         If f.cells(0).value = KodeBarang Then
                             f.Cells(4).Value += NumericUpDown1.Value
                             addorappend = False
-                        Else
-                            addorappend = True
                         End If
                     Next
                 End If
@@ -91,15 +90,15 @@ Public Class Penjualan
 
     Private Sub ValidateKeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         DRow = DTable.Rows(DataGridView1.CurrentCell.RowIndex)
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Asc(e.KeyChar) <> 45 AndAlso Asc(e.KeyChar) <> 46 AndAlso Not IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
 
     Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
-        Dim sat As Integer = DataGridView1.Rows(e.RowIndex).Cells(4).Value
-        Dim tot As Integer = DataGridView1.Rows(e.RowIndex).Cells(3).Value * DataGridView1.Rows(e.RowIndex).Cells(4).Value
-        Dim disc As Integer = DataGridView1.Rows(e.RowIndex).Cells(5).Value
+        Dim sat As Double = CDbl(Val(DataGridView1.Rows(e.RowIndex).Cells(4).Value))
+        Dim tot As Double = DataGridView1.Rows(e.RowIndex).Cells(3).Value * sat
+        Dim disc As Double = DataGridView1.Rows(e.RowIndex).Cells(5).Value
         disc = disc * sat
         If disc = 0 Then
             DataGridView1.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot))
@@ -154,6 +153,10 @@ Public Class Penjualan
     End Sub
 
     Private Sub Proses_btn_Click(sender As Object, e As EventArgs) Handles Proses_btn.Click
+        Dim printPreview As Boolean = False
+        If CheckBox3.Checked Then
+            printPreview = True
+        End If
         If NotaTxt.Text <> "" And DataGridView1.RowCount <> 0 Then
             Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
             Dim temp As String = ""
@@ -184,7 +187,10 @@ Public Class Penjualan
                             h.Height = 0
                             h.detailNotaLuarKota = xz
                             h.Show()
-                            h.Close()
+                            If printPreview Then
+                            Else
+                                h.Close()
+                            End If
                         End If
                     End If
                     insertHJual(NotaTxt.Text, tgl, GTotal, temp, staff)
@@ -199,22 +205,34 @@ Public Class Penjualan
                     g.LaporanNoNota = NotaTxt.Text
                     g.copyNota = "Asli"
                     g.Show()
-                    g.Close()
+                    If printPreview Then
+                    Else
+                        g.Close()
+                    End If
                     g = New FormLaporan("NotaPenjualan")
                     g.LaporanNoNota = NotaTxt.Text
                     g.copyNota = "Copy 1"
                     g.Show()
-                    g.Close()
+                    If printPreview Then
+                    Else
+                        g.Close()
+                    End If
                     g = New FormLaporan("NotaPenjualan")
                     g.LaporanNoNota = NotaTxt.Text
                     g.copyNota = "Copy 2"
                     g.Show()
-                    g.Close()
+                    If printPreview Then
+                    Else
+                        g.Close()
+                    End If
                     If CheckBox1.Checked Then
                         g = New FormLaporan("SuratJalan")
                         g.LaporanNoNota = NotaTxt.Text
                         g.Show()
-                        g.Close()
+                        If printPreview Then
+                        Else
+                            g.Close()
+                        End If
                     End If
                     LoadDataSet()
                     clear()
@@ -299,7 +317,7 @@ Public Class Penjualan
         End Try
     End Sub
 
-    Function FormatCurrency(xx As Integer)
+    Function FormatCurrency(xx As Double)
         Dim s As String
         If xx <> 0 Then
             s = xx.ToString("###,###")

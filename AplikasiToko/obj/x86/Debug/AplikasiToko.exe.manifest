@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AplikasiToko.exe" size="986072">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AplikasiToko.exe" size="986584">
       <assemblyIdentity name="AplikasiToko" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OFGc3BbaRLCIyw0Fv/tQOADPqQgxyjJVr8sxGnch2bE=</dsig:DigestValue>
+        <dsig:DigestValue>qqrmZG7mX+8t87upnTkm3o1Db26Ssvflry1rm0Im9Yo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -302,13 +302,13 @@
       <dsig:DigestValue>S+hZRR+b0vRPGbPzqGqej/5p/UiYhI33Tkbd/mJo+Rk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="FutureUpdate.txt" size="1504">
+  <file name="FutureUpdate.txt" size="2019">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>RlMee+SFIlTsRjADqmjRm0SFQi3hWVACIYtJrfKBsxQ=</dsig:DigestValue>
+      <dsig:DigestValue>qoz2CX1wnYfykDQ/dCURqaVZ/7877ZMS4MhxFdD5rOQ=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

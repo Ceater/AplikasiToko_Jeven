@@ -2,14 +2,20 @@
 -> Form Laporan cetak Nota Penjualan nama form diperbaiki dari FormLaporanCetakUlang menjadi Cetak Ulang Laporan Penjualan 1.1
 -> Menghapus property Kode Barang dari Laporan Penjualan, Retur Jual, NotaPenjualan, Surat Jalan 1.1
 -> Penggantian tipe data untuk stok dari int ke float 1.1.1
+-> Nama Toko dan Sales menggunakan combobox autosuggestion tanpa pengecekan.
 
 Bug Fix
--> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya 1.1.1
--> Form pembelian tidak dapat menampilkan detail pembelian karena view Pembelian hilang dari database 1.1.1
+-> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1
+-> Form pembelian tidak dapat menampilkan detail pembelian karena view Pembelian hilang dari database. 1.1.1
 
 Bug Found
 -> Retur jual, masih menampilkan data yang sudah di retur
 -> Error ketika melakukan proses retur jual constring loaddataset tidak slalu terbuka, padahal sudah tertutup.
+-> Nota surat jalan luar kota tidak dapat muncul.
+-> Ketik menamba barang di form penjualan, terjadi kejanggalan di bagian penambaan barang.
+-> Ketika nama pelanggan ada karakter spesial, maka akan terjadi error di Pembayaran.
+-> Jumlah barang tidak bisa di koma di bagian gridview
+-> Diskon tidak bisa minus
 
 New Feature
 -> Pencetakan Nota diberikan opsi untuk cetak atau tidak -> Done 1.1
@@ -18,7 +24,9 @@ New Feature
 -> Tambahkan box untuk mengetik jumlah barang ketika kode barang dimasukkan, tanpa mengklik bagian jumlah barang di penjualan -> Done 1.1
 -> Laporan pendapatan juga menampilkan nota-nota transaksi -> Done 1.1.1
 -> Tambahkan form agar pegawai bisa menambahkan data barang baru dan set harganya. -> Done 1.1.1
--> Tambahkan surata jalan untuk pengiriman luar kota. -> Done 1.1.1
+-> Tambahkan surat jalan untuk pengiriman luar kota. -> Done 1.1.1
 -> Menampilkan data pembeli pada bagian retur jual. -> Done 1.1.1
 -> Dapat mencari dan menampilkan nota retur jual. -> Done 1.1.1
+-> Toko dan Sales didaftarkan di tabel pelanggan.
+-> Retur terima bisa cetak surat jalan dan toko tujuan dapat diganti.
 -> Bisa melakukan retur item sebagian

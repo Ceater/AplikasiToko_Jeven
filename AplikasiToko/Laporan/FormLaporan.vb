@@ -207,6 +207,8 @@ Public Class FormLaporan
                 rep.SetParameterValue("KotaTujuan", detailNotaLuarKota(3))
                 rep.SetParameterValue("JumlahBarang", detailNotaLuarKota(4))
                 rep.SetParameterValue("DeskripsiBarang", detailNotaLuarKota(5))
+                rep.PrintOptions.PrinterName = getPrinter()
+                rep.PrintToPrinter(1, False, 0, 0)
             End If
             con.Close()
             crv.ReportSource = rep
