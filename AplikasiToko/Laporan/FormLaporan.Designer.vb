@@ -44,7 +44,7 @@ Partial Class FormLaporan
         Me.Controls.Add(Me.crv)
         Me.Name = "FormLaporan"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FormNotaPenjualan"
+        Me.Text = "Cetak Nota"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 

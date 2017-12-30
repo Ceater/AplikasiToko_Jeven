@@ -113,13 +113,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Laporan\Rpt\SuratJalanLuarKota.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SuratJalanLuarKota.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Module\ConnectionModule.vb" />
     <Compile Include="DataSet\DSetDataBarang.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,20 +121,27 @@
     <Compile Include="DataSet\DSetDataBarang.vb">
       <DependentUpon>DSetDataBarang.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet\DSetLabaRugi.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSetLabaRugi.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet\DSetLaporan.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSetLaporan.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSet\DSetPembayaran.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSetPembayaran.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DSetReturBarang.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSetReturBarang.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\Rpt\SuratJalanLuarKota.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuratJalanLuarKota.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Module\ConnectionModule.vb" />
+    <Compile Include="DataSet\DSetLaporan.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSetLaporan.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\DSetPembayaran.vb">
       <DependentUpon>DSetPembayaran.xsd</DependentUpon>
@@ -166,11 +166,6 @@
     </Compile>
     <Compile Include="DataSet\DSetPenjualan.vb">
       <DependentUpon>DSetPenjualan.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet\DSetReturBarang.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSetReturBarang.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\DSetStokOpname.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -381,6 +376,12 @@
     <Compile Include="Setting\Printer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Setting\ResetData.Designer.vb">
+      <DependentUpon>ResetData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\ResetData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Setting\SetPersediaanAwal.Designer.vb">
       <DependentUpon>SetPersediaanAwal.vb</DependentUpon>
     </Compile>
@@ -571,6 +572,9 @@
     <EmbeddedResource Include="Setting\Printer.resx">
       <DependentUpon>Printer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setting\ResetData.resx">
+      <DependentUpon>ResetData.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setting\SetPersediaanAwal.resx">
       <DependentUpon>SetPersediaanAwal.vb</DependentUpon>
     </EmbeddedResource>
@@ -624,17 +628,6 @@
     </None>
     <None Include="DataSet\DSetDataBarang.xss">
       <DependentUpon>DSetDataBarang.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet\DSetLabaRugi.xsc">
-      <DependentUpon>DSetLabaRugi.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet\DSetLabaRugi.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSetLabaRugi.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="DataSet\DSetLabaRugi.xss">
-      <DependentUpon>DSetLabaRugi.xsd</DependentUpon>
     </None>
     <None Include="DataSet\DSetLaporan.xsc">
       <DependentUpon>DSetLaporan.xsd</DependentUpon>

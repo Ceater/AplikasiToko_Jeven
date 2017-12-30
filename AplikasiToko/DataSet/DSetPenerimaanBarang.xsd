@@ -2,9 +2,10 @@
 <xs:schema id="DSetPenerimaanBarang" targetNamespace="http://tempuri.org/DSetPenerimaanBarang.xsd" xmlns:mstns="http://tempuri.org/DSetPenerimaanBarang.xsd" xmlns="http://tempuri.org/DSetPenerimaanBarang.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DatabaseTokoConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DatabaseTokoConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.DatabaseTokoConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TestServer" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TestServer (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.TestServer" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DTerimaTableAdapter" GeneratorDataComponentClassName="DTerimaTableAdapter" Name="DTerima" UserDataComponentName="DTerimaTableAdapter">
@@ -125,7 +126,7 @@ SELECT NoNotaTerima, TglNota, IDStaff FROM HTerima WHERE (NoNotaTerima = @NoNota
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PenerimaanTableAdapter" GeneratorDataComponentClassName="PenerimaanTableAdapter" Name="Penerimaan" UserDataComponentName="PenerimaanTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseTokoConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, D.IDBarang, D.Namabarang, D.Satuan, D.Jumlah From HTerima H,  DTerima D Where H.NoNotaTerima = D.NoNotaTerima</CommandText>
@@ -141,7 +142,7 @@ SELECT NoNotaTerima, TglNota, IDStaff FROM HTerima WHERE (NoNotaTerima = @NoNota
               <Mapping SourceColumn="IDBarang" DataSetColumn="IDBarang" />
               <Mapping SourceColumn="Namabarang" DataSetColumn="Namabarang" />
               <Mapping SourceColumn="Satuan" DataSetColumn="Satuan" />
-              <Mapping SourceColumn="Jumlah" DataSetColumn="Jumlah" />
+              <Mapping SourceColumn="Jumlah" DataSetColumn="Jumlah1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -153,7 +154,7 @@ SELECT NoNotaTerima, TglNota, IDStaff FROM HTerima WHERE (NoNotaTerima = @NoNota
   <xs:element name="DSetPenerimaanBarang" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetPenerimaanBarang" msprop:Generator_UserDSName="DSetPenerimaanBarang">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTerima" msprop:Generator_TableClassName="DTerimaDataTable" msprop:Generator_TableVarName="tableDTerima" msprop:Generator_TablePropName="DTerima" msprop:Generator_RowDeletingName="DTerimaRowDeleting" msprop:Generator_RowChangingName="DTerimaRowChanging" msprop:Generator_RowEvHandlerName="DTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTerimaRowDeleted" msprop:Generator_UserTableName="DTerima" msprop:Generator_RowChangedName="DTerimaRowChanged" msprop:Generator_RowEvArgName="DTerimaRowChangeEvent" msprop:Generator_RowClassName="DTerimaRow">
+        <xs:element name="DTerima" msprop:Generator_TableClassName="DTerimaDataTable" msprop:Generator_TableVarName="tableDTerima" msprop:Generator_RowChangedName="DTerimaRowChanged" msprop:Generator_TablePropName="DTerima" msprop:Generator_RowDeletingName="DTerimaRowDeleting" msprop:Generator_RowChangingName="DTerimaRowChanging" msprop:Generator_RowEvHandlerName="DTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTerimaRowDeleted" msprop:Generator_RowClassName="DTerimaRow" msprop:Generator_UserTableName="DTerima" msprop:Generator_RowEvArgName="DTerimaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoTerima" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoTerima" msprop:Generator_ColumnPropNameInRow="NoTerima" msprop:Generator_ColumnPropNameInTable="NoTerimaColumn" msprop:Generator_UserColumnName="NoTerima" type="xs:int" />
@@ -189,7 +190,7 @@ SELECT NoNotaTerima, TglNota, IDStaff FROM HTerima WHERE (NoNotaTerima = @NoNota
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HTerima" msprop:Generator_TableClassName="HTerimaDataTable" msprop:Generator_TableVarName="tableHTerima" msprop:Generator_TablePropName="HTerima" msprop:Generator_RowDeletingName="HTerimaRowDeleting" msprop:Generator_RowChangingName="HTerimaRowChanging" msprop:Generator_RowEvHandlerName="HTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="HTerimaRowDeleted" msprop:Generator_UserTableName="HTerima" msprop:Generator_RowChangedName="HTerimaRowChanged" msprop:Generator_RowEvArgName="HTerimaRowChangeEvent" msprop:Generator_RowClassName="HTerimaRow">
+        <xs:element name="HTerima" msprop:Generator_TableClassName="HTerimaDataTable" msprop:Generator_TableVarName="tableHTerima" msprop:Generator_RowChangedName="HTerimaRowChanged" msprop:Generator_TablePropName="HTerima" msprop:Generator_RowDeletingName="HTerimaRowDeleting" msprop:Generator_RowChangingName="HTerimaRowChanging" msprop:Generator_RowEvHandlerName="HTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="HTerimaRowDeleted" msprop:Generator_RowClassName="HTerimaRow" msprop:Generator_UserTableName="HTerima" msprop:Generator_RowEvArgName="HTerimaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaTerima" msprop:Generator_ColumnVarNameInTable="columnNoNotaTerima" msprop:Generator_ColumnPropNameInRow="NoNotaTerima" msprop:Generator_ColumnPropNameInTable="NoNotaTerimaColumn" msprop:Generator_UserColumnName="NoNotaTerima">
@@ -210,7 +211,7 @@ SELECT NoNotaTerima, TglNota, IDStaff FROM HTerima WHERE (NoNotaTerima = @NoNota
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Penerimaan" msprop:Generator_TableClassName="PenerimaanDataTable" msprop:Generator_TableVarName="tablePenerimaan" msprop:Generator_TablePropName="Penerimaan" msprop:Generator_RowDeletingName="PenerimaanRowDeleting" msprop:Generator_RowChangingName="PenerimaanRowChanging" msprop:Generator_RowEvHandlerName="PenerimaanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenerimaanRowDeleted" msprop:Generator_UserTableName="Penerimaan" msprop:Generator_RowChangedName="PenerimaanRowChanged" msprop:Generator_RowEvArgName="PenerimaanRowChangeEvent" msprop:Generator_RowClassName="PenerimaanRow">
+        <xs:element name="Penerimaan" msprop:Generator_TableClassName="PenerimaanDataTable" msprop:Generator_TableVarName="tablePenerimaan" msprop:Generator_RowChangedName="PenerimaanRowChanged" msprop:Generator_TablePropName="Penerimaan" msprop:Generator_RowDeletingName="PenerimaanRowDeleting" msprop:Generator_RowChangingName="PenerimaanRowChanging" msprop:Generator_RowEvHandlerName="PenerimaanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenerimaanRowDeleted" msprop:Generator_RowClassName="PenerimaanRow" msprop:Generator_UserTableName="Penerimaan" msprop:Generator_RowEvArgName="PenerimaanRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaTerima" msprop:Generator_ColumnVarNameInTable="columnNoNotaTerima" msprop:Generator_ColumnPropNameInRow="NoNotaTerima" msprop:Generator_ColumnPropNameInTable="NoNotaTerimaColumn" msprop:Generator_UserColumnName="NoNotaTerima">
@@ -250,6 +251,7 @@ SELECT NoNotaTerima, TglNota, IDStaff FROM HTerima WHERE (NoNotaTerima = @NoNota
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Jumlah" msprop:Generator_ColumnVarNameInTable="columnJumlah" msprop:Generator_ColumnPropNameInRow="Jumlah" msprop:Generator_ColumnPropNameInTable="JumlahColumn" msprop:Generator_UserColumnName="Jumlah" type="xs:int" />
+              <xs:element name="Jumlah1" msdata:Caption="Jumlah" msprop:Generator_ColumnVarNameInTable="columnJumlah1" msprop:Generator_ColumnPropNameInRow="Jumlah1" msprop:Generator_ColumnPropNameInTable="Jumlah1Column" msprop:Generator_UserColumnName="Jumlah1" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

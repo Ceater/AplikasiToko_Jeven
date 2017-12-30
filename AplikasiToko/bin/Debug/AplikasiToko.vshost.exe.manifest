@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AplikasiToko.exe" size="989656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AplikasiToko.exe" size="962520">
       <assemblyIdentity name="AplikasiToko" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cUSDAwcZOT79G5lMp1J8YKLSbrvHgkHFzYkaoClLhC4=</dsig:DigestValue>
+        <dsig:DigestValue>O9HIAuzGoMDFuvetgLjQdot70pw1h9OI9u63tjRU7Q4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -293,22 +293,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="AplikasiToko.exe.config" size="1273">
+  <file name="AplikasiToko.exe.config" size="554">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>S+hZRR+b0vRPGbPzqGqej/5p/UiYhI33Tkbd/mJo+Rk=</dsig:DigestValue>
+      <dsig:DigestValue>ZvsmrYVcMOVdfM3bm8NTSrWvzNePAKB31jz9dxyRJ5I=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="FutureUpdate.txt" size="2073">
+  <file name="FutureUpdate.txt" size="2365">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zhb+mNS+cqpFv3rvRuJfCU+UuL531TkK/tZipcwkXiw=</dsig:DigestValue>
+      <dsig:DigestValue>XADZMNUOOA2zBDifjx7FnuwmPiqVKcam4/UhCR++KGg=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

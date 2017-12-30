@@ -63,6 +63,7 @@ Partial Class Home
         Me.BackupDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.FormResetDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -91,7 +92,7 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(485, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(516, 17)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel7
@@ -287,7 +288,7 @@ Partial Class Home
         '
         'SettingToolStripMenuItem
         '
-        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrinterToolStripMenuItem, Me.SetPersediaanAwalToolStripMenuItem, Me.UpdateVersiToolStripMenuItem, Me.BackupDatabaseToolStripMenuItem})
+        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrinterToolStripMenuItem, Me.SetPersediaanAwalToolStripMenuItem, Me.UpdateVersiToolStripMenuItem, Me.BackupDatabaseToolStripMenuItem, Me.FormResetDataToolStripMenuItem})
         Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
         Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
         Me.SettingToolStripMenuItem.Text = "Setting"
@@ -330,6 +331,12 @@ Partial Class Home
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(227, 490)
         Me.ListBox1.TabIndex = 4
+        '
+        'FormResetDataToolStripMenuItem
+        '
+        Me.FormResetDataToolStripMenuItem.Name = "FormResetDataToolStripMenuItem"
+        Me.FormResetDataToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.FormResetDataToolStripMenuItem.Text = "Form Reset Data"
         '
         'Home
         '
@@ -394,4 +401,5 @@ Partial Class Home
     Friend WithEvents ToolStripStatusLabel7 As ToolStripStatusLabel
     Friend WithEvents UpdateVersiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackupDatabaseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FormResetDataToolStripMenuItem As ToolStripMenuItem
 End Class

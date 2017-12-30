@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:HJual" ZOrder="3" X="146" Y="44" Height="210" Width="177" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:DJual" ZOrder="2" X="577" Y="42" Height="248" Width="177" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="197" />
-    <Shape ID="DesignTable:Penjualan" ZOrder="1" X="344" Y="39" Height="305" Width="210" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:Penjualan" ZOrder="1" X="344" Y="39" Height="305" Width="201" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

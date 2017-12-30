@@ -9,7 +9,7 @@ Module ModulePembelian
         Return output
     End Function
 
-    Sub insertHPembelian(NoPembelian As String, NotaTerima As String, GrandTotal As Integer)
+    Sub insertHPembelian(NoPembelian As String, NotaTerima As String, GrandTotal As Double)
         Try
             constring.Open()
             cmd = New SqlCommand("insert into HPembelian values(" & NoPembelian & ",'" & NotaTerima & "'," & GrandTotal & ")", constring)
@@ -20,7 +20,7 @@ Module ModulePembelian
         End Try
     End Sub
 
-    Sub insertDPembelian(NoPembelian As String, KodeBarang As String, NamaBarang As String, Satuan As String, HargaSatuan As Integer, Jumlah As Integer, SubTotal As Integer)
+    Sub insertDPembelian(NoPembelian As String, KodeBarang As String, NamaBarang As String, Satuan As String, HargaSatuan As Double, Jumlah As Double, SubTotal As Double)
         Try
             constring.Open()
             cmd = New SqlCommand("insert into DPembelian Values(" & NoPembelian & ", '" & KodeBarang & "', '" & NamaBarang & "', '" & Satuan & "', " & HargaSatuan & "," & Jumlah & ", " & SubTotal & ")", constring)
@@ -31,8 +31,8 @@ Module ModulePembelian
         End Try
     End Sub
 
-    Function getLastNoPembelian() As Integer
-        Dim hsl As Integer = 0
+    Function getLastNoPembelian() As Double
+        Dim hsl As Double = 0
         Try
             constring.Open()
             cmd = New SqlCommand("select NoPembelian from HPembelian order by NoPembelian desc", constring)

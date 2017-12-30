@@ -820,7 +820,6 @@ Namespace DSetLaporanTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "TotalPendapatan"
             tableMapping.ColumnMappings.Add("NoNotaJual", "NoNotaJual")
-            tableMapping.ColumnMappings.Add("GrandTotal", "GrandTotal")
             tableMapping.ColumnMappings.Add("TotalPembayaran", "TotalPembayaran")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
@@ -829,7 +828,7 @@ Namespace DSetLaporanTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString1
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -838,9 +837,12 @@ Namespace DSetLaporanTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT (SELECT count(NoNotaJual) FROM HJual) AS NoNotaJual, (SELECT SUM(GrandTota"& _ 
-                "l) FROM HJual) AS GrandTotal, (SELECT SUM(UangBayar) FROM TbPembayaran) AS Total"& _ 
-                "Pembayaran"
+            Me._commandCollection(0).CommandText = "SELECT        (SELECT        COUNT(NoNotaJual) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                "  FROM            HJual) AS NoNotaJual,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             (SELECT   "& _ 
+                "     SUM(GrandTotal) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               FROM            HJ"& _ 
+                "ual AS HJual_1) AS GrandTotal,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             (SELECT        SUM("& _ 
+                "UangBayar) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               FROM            TbPembayaran"& _ 
+                ") AS TotalPembayaran"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

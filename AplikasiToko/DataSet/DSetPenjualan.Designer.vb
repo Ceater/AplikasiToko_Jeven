@@ -1059,8 +1059,6 @@ Partial Public Class DSetPenjualan
         
         Private columnTglNota As Global.System.Data.DataColumn
         
-        Private columnGrandTotal As Global.System.Data.DataColumn
-        
         Private columnNamaPelanggan As Global.System.Data.DataColumn
         
         Private columnIDStaff As Global.System.Data.DataColumn
@@ -1072,6 +1070,8 @@ Partial Public Class DSetPenjualan
         Private columnSatuan As Global.System.Data.DataColumn
         
         Private columnHargaSatuan As Global.System.Data.DataColumn
+        
+        Private columnGrandTotal As Global.System.Data.DataColumn
         
         Private columnJumlah As Global.System.Data.DataColumn
         
@@ -1132,14 +1132,6 @@ Partial Public Class DSetPenjualan
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property GrandTotalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnGrandTotal
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property NamaPelangganColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnNamaPelanggan
@@ -1183,6 +1175,14 @@ Partial Public Class DSetPenjualan
         Public ReadOnly Property HargaSatuanColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnHargaSatuan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property GrandTotalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGrandTotal
             End Get
         End Property
         
@@ -1247,9 +1247,9 @@ Partial Public Class DSetPenjualan
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddPenjualanRow(ByVal NoNotaJual As String, ByVal TglNota As Date, ByVal GrandTotal As Integer, ByVal NamaPelanggan As String, ByVal IDStaff As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Integer, ByVal Diskon As String, ByVal Subtotal As Integer) As PenjualanRow
+        Public Overloads Function AddPenjualanRow(ByVal NoNotaJual As String, ByVal TglNota As Date, ByVal NamaPelanggan As String, ByVal IDStaff As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal GrandTotal As Double, ByVal Jumlah As Double, ByVal Diskon As Double, ByVal Subtotal As Double) As PenjualanRow
             Dim rowPenjualanRow As PenjualanRow = CType(Me.NewRow,PenjualanRow)
-            Dim columnValuesArray() As Object = New Object() {NoNotaJual, TglNota, GrandTotal, NamaPelanggan, IDStaff, IDBarang, NamaBarang, Satuan, HargaSatuan, Jumlah, Diskon, Subtotal}
+            Dim columnValuesArray() As Object = New Object() {NoNotaJual, TglNota, NamaPelanggan, IDStaff, IDBarang, NamaBarang, Satuan, HargaSatuan, GrandTotal, Jumlah, Diskon, Subtotal}
             rowPenjualanRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPenjualanRow)
             Return rowPenjualanRow
@@ -1280,13 +1280,13 @@ Partial Public Class DSetPenjualan
         Friend Sub InitVars()
             Me.columnNoNotaJual = MyBase.Columns("NoNotaJual")
             Me.columnTglNota = MyBase.Columns("TglNota")
-            Me.columnGrandTotal = MyBase.Columns("GrandTotal")
             Me.columnNamaPelanggan = MyBase.Columns("NamaPelanggan")
             Me.columnIDStaff = MyBase.Columns("IDStaff")
             Me.columnIDBarang = MyBase.Columns("IDBarang")
             Me.columnNamaBarang = MyBase.Columns("NamaBarang")
             Me.columnSatuan = MyBase.Columns("Satuan")
             Me.columnHargaSatuan = MyBase.Columns("HargaSatuan")
+            Me.columnGrandTotal = MyBase.Columns("GrandTotal")
             Me.columnJumlah = MyBase.Columns("Jumlah")
             Me.columnDiskon = MyBase.Columns("Diskon")
             Me.columnSubtotal = MyBase.Columns("Subtotal")
@@ -1299,8 +1299,6 @@ Partial Public Class DSetPenjualan
             MyBase.Columns.Add(Me.columnNoNotaJual)
             Me.columnTglNota = New Global.System.Data.DataColumn("TglNota", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTglNota)
-            Me.columnGrandTotal = New Global.System.Data.DataColumn("GrandTotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnGrandTotal)
             Me.columnNamaPelanggan = New Global.System.Data.DataColumn("NamaPelanggan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNamaPelanggan)
             Me.columnIDStaff = New Global.System.Data.DataColumn("IDStaff", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1313,18 +1311,19 @@ Partial Public Class DSetPenjualan
             MyBase.Columns.Add(Me.columnSatuan)
             Me.columnHargaSatuan = New Global.System.Data.DataColumn("HargaSatuan", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHargaSatuan)
-            Me.columnJumlah = New Global.System.Data.DataColumn("Jumlah", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnGrandTotal = New Global.System.Data.DataColumn("GrandTotal", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGrandTotal)
+            Me.columnJumlah = New Global.System.Data.DataColumn("Jumlah", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnJumlah)
-            Me.columnDiskon = New Global.System.Data.DataColumn("Diskon", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnDiskon = New Global.System.Data.DataColumn("Diskon", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDiskon)
-            Me.columnSubtotal = New Global.System.Data.DataColumn("Subtotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnSubtotal = New Global.System.Data.DataColumn("Subtotal", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSubtotal)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNoNotaJual}, true))
             Me.columnNoNotaJual.AllowDBNull = false
             Me.columnNoNotaJual.Unique = true
             Me.columnNoNotaJual.MaxLength = 10
             Me.columnTglNota.AllowDBNull = false
-            Me.columnGrandTotal.AllowDBNull = false
             Me.columnNamaPelanggan.AllowDBNull = false
             Me.columnNamaPelanggan.MaxLength = 2147483647
             Me.columnIDStaff.AllowDBNull = false
@@ -1336,9 +1335,9 @@ Partial Public Class DSetPenjualan
             Me.columnSatuan.AllowDBNull = false
             Me.columnSatuan.MaxLength = 2147483647
             Me.columnHargaSatuan.AllowDBNull = false
+            Me.columnGrandTotal.AllowDBNull = false
             Me.columnJumlah.AllowDBNull = false
             Me.columnDiskon.AllowDBNull = false
-            Me.columnDiskon.MaxLength = 10
             Me.columnSubtotal.AllowDBNull = false
         End Sub
         
@@ -1694,17 +1693,6 @@ Partial Public Class DSetPenjualan
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property GrandTotal() As Integer
-            Get
-                Return CType(Me(Me.tablePenjualan.GrandTotalColumn),Integer)
-            End Get
-            Set
-                Me(Me.tablePenjualan.GrandTotalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property NamaPelanggan() As String
             Get
                 Return CType(Me(Me.tablePenjualan.NamaPelangganColumn),String)
@@ -1771,9 +1759,20 @@ Partial Public Class DSetPenjualan
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Jumlah() As Integer
+        Public Property GrandTotal() As Double
             Get
-                Return CType(Me(Me.tablePenjualan.JumlahColumn),Integer)
+                Return CType(Me(Me.tablePenjualan.GrandTotalColumn),Double)
+            End Get
+            Set
+                Me(Me.tablePenjualan.GrandTotalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Jumlah() As Double
+            Get
+                Return CType(Me(Me.tablePenjualan.JumlahColumn),Double)
             End Get
             Set
                 Me(Me.tablePenjualan.JumlahColumn) = value
@@ -1782,9 +1781,9 @@ Partial Public Class DSetPenjualan
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Diskon() As String
+        Public Property Diskon() As Double
             Get
-                Return CType(Me(Me.tablePenjualan.DiskonColumn),String)
+                Return CType(Me(Me.tablePenjualan.DiskonColumn),Double)
             End Get
             Set
                 Me(Me.tablePenjualan.DiskonColumn) = value
@@ -1793,9 +1792,9 @@ Partial Public Class DSetPenjualan
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Subtotal() As Integer
+        Public Property Subtotal() As Double
             Get
-                Return CType(Me(Me.tablePenjualan.SubtotalColumn),Integer)
+                Return CType(Me(Me.tablePenjualan.SubtotalColumn),Double)
             End Get
             Set
                 Me(Me.tablePenjualan.SubtotalColumn) = value
@@ -2093,7 +2092,7 @@ Namespace DSetPenjualanTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2515,7 +2514,7 @@ Namespace DSetPenjualanTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2890,13 +2889,13 @@ Namespace DSetPenjualanTableAdapters
             tableMapping.DataSetTable = "Penjualan"
             tableMapping.ColumnMappings.Add("NoNotaJual", "NoNotaJual")
             tableMapping.ColumnMappings.Add("TglNota", "TglNota")
-            tableMapping.ColumnMappings.Add("GrandTotal", "GrandTotal")
             tableMapping.ColumnMappings.Add("NamaPelanggan", "NamaPelanggan")
             tableMapping.ColumnMappings.Add("IDStaff", "IDStaff")
             tableMapping.ColumnMappings.Add("IDBarang", "IDBarang")
             tableMapping.ColumnMappings.Add("NamaBarang", "NamaBarang")
             tableMapping.ColumnMappings.Add("Satuan", "Satuan")
             tableMapping.ColumnMappings.Add("HargaSatuan", "HargaSatuan")
+            tableMapping.ColumnMappings.Add("GrandTotal", "GrandTotal")
             tableMapping.ColumnMappings.Add("Jumlah", "Jumlah")
             tableMapping.ColumnMappings.Add("Diskon", "Diskon")
             tableMapping.ColumnMappings.Add("Subtotal", "Subtotal")
@@ -2907,7 +2906,7 @@ Namespace DSetPenjualanTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2916,9 +2915,10 @@ Namespace DSetPenjualanTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT H.NoNotaJual, H.TglNota, H.GrandTotal, H.NamaPelanggan, H.IDStaff, D.IDBar"& _ 
-                "ang, D.NamaBarang, D.Satuan, D.HargaSatuan, D.Jumlah, D.Diskon, D.Subtotal from "& _ 
-                "HJual H, DJual D where H.NoNotaJual=D.NoNotaJual"
+            Me._commandCollection(0).CommandText = "SELECT        H.NoNotaJual, H.TglNota, H.GrandTotal, H.NamaPelanggan, H.IDStaff, "& _ 
+                "D.IDBarang, D.NamaBarang, D.Satuan, D.HargaSatuan, D.Jumlah, D.Diskon, D.Subtota"& _ 
+                "l"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            HJual AS H INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DJual AS D ON"& _ 
+                " H.NoNotaJual = D.NoNotaJual"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

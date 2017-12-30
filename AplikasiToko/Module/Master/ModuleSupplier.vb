@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Module ModuleSupplier
     Dim cmd As SqlCommand
     Function getKodeSupplier(ByVal s As String)
-        Dim x As Integer = 0
+        Dim x As Double = 0
         constring.Open()
         cmd = New SqlCommand("Select IDSupplier from TbSupplier where NamaSupplier=@ns", constring)
         With cmd.Parameters

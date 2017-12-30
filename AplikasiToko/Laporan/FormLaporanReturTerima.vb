@@ -23,5 +23,6 @@
             f.Text = "Laporan Retur Barang"
             f.Show()
         End If
+        Me.Close()
     End Sub
 End Class

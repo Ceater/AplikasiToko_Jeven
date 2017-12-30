@@ -19,5 +19,10 @@
             f.Text = "Laporan Penjualan"
             f.Show()
         End If
+        Me.Close()
+    End Sub
+
+    Private Sub FormLaporanPenjualan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DateTimePicker2.MaxDate = Now
     End Sub
 End Class

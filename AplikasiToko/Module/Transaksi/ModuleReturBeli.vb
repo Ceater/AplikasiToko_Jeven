@@ -33,7 +33,7 @@ Module ModuleReturBeli
         End Try
     End Sub
 
-    Sub insertDReturTerima(NoReturTerima As String, idbarang As String, nama As String, satuan As String, jumlah As Integer)
+    Sub insertDReturTerima(NoReturTerima As String, idbarang As String, nama As String, satuan As String, jumlah As Double)
         Try
             constring.Open()
             cmd = New SqlCommand("insert into DReturTerima values(@a,@b,@c,@d,@e)", constring)

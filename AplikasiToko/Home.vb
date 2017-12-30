@@ -240,4 +240,10 @@
         f.MdiParent = Me
         f.Show()
     End Sub
+
+    Private Sub FormResetDataToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FormResetDataToolStripMenuItem.Click
+        Dim f As New ResetData
+        f.MdiParent = Me
+        f.Show()
+    End Sub
 End Class

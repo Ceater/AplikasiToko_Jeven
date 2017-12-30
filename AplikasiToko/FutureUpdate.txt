@@ -4,6 +4,9 @@
 -> Penggantian tipe data untuk stok dari int ke float. 1.1.1
 -> Nama Toko dan Sales menggunakan combobox autosuggestion tanpa pengecekan. 1.1.2
 -> Format informasi toko berubah untuk semua laporan. 1.1.2
+-> Beberapa laporan maksimal tanggal untuk periodik adalah tanggal saat ini. 1.1.2
+-> Menambahkan Fitur Reset Data dan Test Data untuk kepentingan testing. 1.1.2
+-> Jumlah barang masuk dan jual bisa menggunakan angka desimal.
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1

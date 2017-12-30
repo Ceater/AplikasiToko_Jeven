@@ -2,36 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
   <Profiles />
   <Settings>
-    <Setting Name="DatabaseTokoConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=192.168.1.99\SQLEXPRESS;Initial Catalog=DatabaseToko;Persist Security Info=True;User ID=johan;Password=1234&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=192.168.1.99\SQLEXPRESS;Initial Catalog=DatabaseToko;Persist Security Info=True;User ID=johan;Password=1234</Value>
-    </Setting>
-    <Setting Name="DatabaseTokoConnectionString1" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=developer-pc\SQLEXPRESS;Initial Catalog=DatabaseToko;Persist Security Info=True;User ID=johan;Password=1234&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=developer-pc\SQLEXPRESS;Initial Catalog=DatabaseToko;Persist Security Info=True;User ID=johan;Password=1234</Value>
-    </Setting>
-    <Setting Name="DatabaseTokoConnectionString2" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=.\SQLEXPRESS;Initial Catalog=DatabaseToko;Integrated Security=True&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=.\SQLEXPRESS;Initial Catalog=DatabaseToko;Integrated Security=True</Value>
-    </Setting>
     <Setting Name="TestServer" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Server=Server;Database=DatabaseToko;User Id=admin;Password=admin;&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=server;Initial Catalog=DatabaseToko;Persist Security Info=True;User ID=admin;Password=admin&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Server=Server;Database=DatabaseToko;User Id=admin;Password=admin;</Value>
+      <Value Profile="(Default)">Data Source=server;Initial Catalog=DatabaseToko;Persist Security Info=True;User ID=admin;Password=admin</Value>
     </Setting>
   </Settings>
 </SettingsFile>

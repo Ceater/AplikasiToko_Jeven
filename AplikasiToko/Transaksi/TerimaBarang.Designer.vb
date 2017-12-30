@@ -29,7 +29,7 @@ Partial Class TerimaBarang
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgv = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -38,8 +38,10 @@ Partial Class TerimaBarang
         Me.Proses = New System.Windows.Forms.Button()
         Me.Batal = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.JmlBarang = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -49,7 +51,7 @@ Partial Class TerimaBarang
         Me.Label1.Location = New System.Drawing.Point(10, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(64, 13)
-        Me.Label1.TabIndex = 0
+        Me.Label1.TabIndex = 99
         Me.Label1.Text = "Nomer Nota"
         '
         'NotaTxt
@@ -73,7 +75,7 @@ Partial Class TerimaBarang
         Me.Label2.Location = New System.Drawing.Point(10, 51)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(81, 13)
-        Me.Label2.TabIndex = 3
+        Me.Label2.TabIndex = 99
         Me.Label2.Text = "Tanggal Terima"
         '
         'GroupBox1
@@ -95,7 +97,7 @@ Partial Class TerimaBarang
         Me.Label3.Location = New System.Drawing.Point(14, 109)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 13)
-        Me.Label3.TabIndex = 6
+        Me.Label3.TabIndex = 99
         Me.Label3.Text = "Kode Barang: "
         '
         'ComboBox1
@@ -108,21 +110,21 @@ Partial Class TerimaBarang
         Me.ComboBox1.Size = New System.Drawing.Size(233, 21)
         Me.ComboBox1.TabIndex = 3
         '
-        'DataGridView1
+        'dgv
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToResizeColumns = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 133)
-        Me.DataGridView1.MultiSelect = False
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DataGridView1.Size = New System.Drawing.Size(760, 290)
-        Me.DataGridView1.TabIndex = 4
+        Me.dgv.AllowUserToAddRows = False
+        Me.dgv.AllowUserToResizeColumns = False
+        Me.dgv.AllowUserToResizeRows = False
+        Me.dgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
+        Me.dgv.Location = New System.Drawing.Point(12, 159)
+        Me.dgv.MultiSelect = False
+        Me.dgv.Name = "dgv"
+        Me.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgv.Size = New System.Drawing.Size(760, 264)
+        Me.dgv.TabIndex = 99
         '
         'GroupBox2
         '
@@ -133,7 +135,7 @@ Partial Class TerimaBarang
         Me.GroupBox2.Location = New System.Drawing.Point(12, 429)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(201, 105)
-        Me.GroupBox2.TabIndex = 8
+        Me.GroupBox2.TabIndex = 99
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detail Barang"
         '
@@ -143,7 +145,7 @@ Partial Class TerimaBarang
         Me.Label8.Location = New System.Drawing.Point(115, 27)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(13, 13)
-        Me.Label8.TabIndex = 0
+        Me.Label8.TabIndex = 99
         Me.Label8.Text = "0"
         '
         'Label4
@@ -152,7 +154,7 @@ Partial Class TerimaBarang
         Me.Label4.Location = New System.Drawing.Point(86, 53)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(13, 13)
-        Me.Label4.TabIndex = 0
+        Me.Label4.TabIndex = 99
         Me.Label4.Text = "0"
         '
         'Label9
@@ -161,7 +163,7 @@ Partial Class TerimaBarang
         Me.Label9.Location = New System.Drawing.Point(6, 27)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(103, 13)
-        Me.Label9.TabIndex = 0
+        Me.Label9.TabIndex = 99
         Me.Label9.Text = "Total Jumlah barang"
         '
         'Label10
@@ -170,7 +172,7 @@ Partial Class TerimaBarang
         Me.Label10.Location = New System.Drawing.Point(6, 53)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(74, 13)
-        Me.Label10.TabIndex = 0
+        Me.Label10.TabIndex = 99
         Me.Label10.Text = "Total Barang: "
         '
         'Proses
@@ -178,7 +180,7 @@ Partial Class TerimaBarang
         Me.Proses.Location = New System.Drawing.Point(631, 429)
         Me.Proses.Name = "Proses"
         Me.Proses.Size = New System.Drawing.Size(141, 66)
-        Me.Proses.TabIndex = 5
+        Me.Proses.TabIndex = 6
         Me.Proses.Text = "Proses"
         Me.Proses.UseVisualStyleBackColor = True
         '
@@ -187,7 +189,7 @@ Partial Class TerimaBarang
         Me.Batal.Location = New System.Drawing.Point(631, 503)
         Me.Batal.Name = "Batal"
         Me.Batal.Size = New System.Drawing.Size(141, 23)
-        Me.Batal.TabIndex = 6
+        Me.Batal.TabIndex = 7
         Me.Batal.Text = "Batal"
         Me.Batal.UseVisualStyleBackColor = True
         '
@@ -196,20 +198,39 @@ Partial Class TerimaBarang
         Me.Button1.Location = New System.Drawing.Point(351, 106)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(140, 23)
-        Me.Button1.TabIndex = 9
+        Me.Button1.TabIndex = 4
         Me.Button1.Text = "Tambah Barang Baru"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'JmlBarang
+        '
+        Me.JmlBarang.Location = New System.Drawing.Point(112, 133)
+        Me.JmlBarang.Name = "JmlBarang"
+        Me.JmlBarang.Size = New System.Drawing.Size(100, 20)
+        Me.JmlBarang.TabIndex = 5
+        Me.JmlBarang.Text = "0"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(14, 136)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(40, 13)
+        Me.Label5.TabIndex = 99
+        Me.Label5.Text = "Jumlah"
         '
         'TerimaBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(787, 538)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.JmlBarang)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Batal)
         Me.Controls.Add(Me.Proses)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgv)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.GroupBox1)
@@ -221,7 +242,7 @@ Partial Class TerimaBarang
         Me.Text = "Terima Barang"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
@@ -236,7 +257,7 @@ Partial Class TerimaBarang
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgv As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label4 As Label
@@ -245,4 +266,6 @@ Partial Class TerimaBarang
     Friend WithEvents Proses As Button
     Friend WithEvents Batal As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents JmlBarang As TextBox
+    Friend WithEvents Label5 As Label
 End Class

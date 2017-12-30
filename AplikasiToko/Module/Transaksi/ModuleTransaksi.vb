@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 
 Module ModuleTransaksi
     Dim cmd As SqlCommand
-    Sub insertHJual(nota As String, tgl As String, grandtot As Integer, pelanggan As String, idstaff As String)
+    Sub insertHJual(nota As String, tgl As String, grandtot As Double, pelanggan As String, idstaff As String)
         Try
             constring.Open()
             cmd = New SqlCommand("Insert into HJual values(@a,@b,@c,@d,@e)", constring)
@@ -22,7 +22,7 @@ Module ModuleTransaksi
         End Try
     End Sub
 
-    Sub insertDJual(nota As String, idbarang As String, namabarang As String, satuan As String, harga As Integer, jumlah As Integer, diskon As String, subtot As Integer)
+    Sub insertDJual(nota As String, idbarang As String, namabarang As String, satuan As String, harga As Double, jumlah As Double, diskon As String, subtot As Double)
         Try
             constring.Open()
             cmd = New SqlCommand("Insert into DJual values(@a,@b,@c,@d,@e,@f,@g,@h)", constring)
@@ -44,7 +44,7 @@ Module ModuleTransaksi
         End Try
     End Sub
 
-    Sub insertPembayaran(nota As String, tgl As String, uangbayar As Integer)
+    Sub insertPembayaran(nota As String, tgl As String, uangbayar As Double)
         Try
             constring.Open()
             cmd = New SqlCommand("Insert into TbPembayaran values(@a,@b,@c)", constring)

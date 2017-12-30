@@ -505,7 +505,7 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddTbBarangRow(ByVal KodeBarang As String, ByVal NamaBarang As String, ByVal Stok As Integer, ByVal SatuanBarang As String, ByVal HargaNormal As Integer, ByVal HargaToko As Integer, ByVal HargaSales As Integer, ByVal StokPengingat As Integer) As TbBarangRow
+        Public Overloads Function AddTbBarangRow(ByVal KodeBarang As String, ByVal NamaBarang As String, ByVal Stok As Double, ByVal SatuanBarang As String, ByVal HargaNormal As Double, ByVal HargaToko As Double, ByVal HargaSales As Double, ByVal StokPengingat As Double) As TbBarangRow
             Dim rowTbBarangRow As TbBarangRow = CType(Me.NewRow,TbBarangRow)
             Dim columnValuesArray() As Object = New Object() {KodeBarang, NamaBarang, Stok, SatuanBarang, HargaNormal, HargaToko, HargaSales, StokPengingat}
             rowTbBarangRow.ItemArray = columnValuesArray
@@ -553,17 +553,17 @@ Partial Public Class DSetDataBarang
             MyBase.Columns.Add(Me.columnKodeBarang)
             Me.columnNamaBarang = New Global.System.Data.DataColumn("NamaBarang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNamaBarang)
-            Me.columnStok = New Global.System.Data.DataColumn("Stok", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnStok = New Global.System.Data.DataColumn("Stok", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStok)
             Me.columnSatuanBarang = New Global.System.Data.DataColumn("SatuanBarang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSatuanBarang)
-            Me.columnHargaNormal = New Global.System.Data.DataColumn("HargaNormal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnHargaNormal = New Global.System.Data.DataColumn("HargaNormal", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHargaNormal)
-            Me.columnHargaToko = New Global.System.Data.DataColumn("HargaToko", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnHargaToko = New Global.System.Data.DataColumn("HargaToko", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHargaToko)
-            Me.columnHargaSales = New Global.System.Data.DataColumn("HargaSales", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnHargaSales = New Global.System.Data.DataColumn("HargaSales", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHargaSales)
-            Me.columnStokPengingat = New Global.System.Data.DataColumn("StokPengingat", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnStokPengingat = New Global.System.Data.DataColumn("StokPengingat", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStokPengingat)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnKodeBarang}, true))
             Me.columnKodeBarang.AllowDBNull = false
@@ -571,7 +571,6 @@ Partial Public Class DSetDataBarang
             Me.columnKodeBarang.MaxLength = 10
             Me.columnNamaBarang.AllowDBNull = false
             Me.columnNamaBarang.MaxLength = 2147483647
-            Me.columnStok.AllowDBNull = false
             Me.columnSatuanBarang.AllowDBNull = false
             Me.columnSatuanBarang.MaxLength = 10
             Me.columnHargaNormal.AllowDBNull = false
@@ -1134,7 +1133,7 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDetailStokBarangRow(ByVal kodebarang As String, ByVal namabarang As String, ByVal stok As Integer, ByVal namasatuan As String, ByVal harganormal As Integer, ByVal hargatoko As Integer, ByVal hargasales As Integer) As DetailStokBarangRow
+        Public Overloads Function AddDetailStokBarangRow(ByVal kodebarang As String, ByVal namabarang As String, ByVal stok As Double, ByVal namasatuan As String, ByVal harganormal As Double, ByVal hargatoko As Double, ByVal hargasales As Double) As DetailStokBarangRow
             Dim rowDetailStokBarangRow As DetailStokBarangRow = CType(Me.NewRow,DetailStokBarangRow)
             Dim columnValuesArray() As Object = New Object() {kodebarang, namabarang, stok, namasatuan, harganormal, hargatoko, hargasales}
             rowDetailStokBarangRow.ItemArray = columnValuesArray
@@ -1181,15 +1180,15 @@ Partial Public Class DSetDataBarang
             MyBase.Columns.Add(Me.columnkodebarang)
             Me.columnnamabarang = New Global.System.Data.DataColumn("namabarang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnamabarang)
-            Me.columnstok = New Global.System.Data.DataColumn("stok", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnstok = New Global.System.Data.DataColumn("stok", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstok)
             Me.columnnamasatuan = New Global.System.Data.DataColumn("namasatuan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnamasatuan)
-            Me.columnharganormal = New Global.System.Data.DataColumn("harganormal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnharganormal = New Global.System.Data.DataColumn("harganormal", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnharganormal)
-            Me.columnhargatoko = New Global.System.Data.DataColumn("hargatoko", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnhargatoko = New Global.System.Data.DataColumn("hargatoko", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnhargatoko)
-            Me.columnhargasales = New Global.System.Data.DataColumn("hargasales", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnhargasales = New Global.System.Data.DataColumn("hargasales", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnhargasales)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnkodebarang}, true))
             Me.columnkodebarang.AllowDBNull = false
@@ -1197,7 +1196,6 @@ Partial Public Class DSetDataBarang
             Me.columnkodebarang.MaxLength = 10
             Me.columnnamabarang.AllowDBNull = false
             Me.columnnamabarang.MaxLength = 2147483647
-            Me.columnstok.AllowDBNull = false
             Me.columnnamasatuan.AllowDBNull = false
             Me.columnnamasatuan.MaxLength = 2147483647
             Me.columnharganormal.AllowDBNull = false
@@ -1371,9 +1369,13 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Stok() As Integer
+        Public Property Stok() As Double
             Get
-                Return CType(Me(Me.tableTbBarang.StokColumn),Integer)
+                Try 
+                    Return CType(Me(Me.tableTbBarang.StokColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Stok' in table 'TbBarang' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableTbBarang.StokColumn) = value
@@ -1393,9 +1395,9 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property HargaNormal() As Integer
+        Public Property HargaNormal() As Double
             Get
-                Return CType(Me(Me.tableTbBarang.HargaNormalColumn),Integer)
+                Return CType(Me(Me.tableTbBarang.HargaNormalColumn),Double)
             End Get
             Set
                 Me(Me.tableTbBarang.HargaNormalColumn) = value
@@ -1404,9 +1406,9 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property HargaToko() As Integer
+        Public Property HargaToko() As Double
             Get
-                Return CType(Me(Me.tableTbBarang.HargaTokoColumn),Integer)
+                Return CType(Me(Me.tableTbBarang.HargaTokoColumn),Double)
             End Get
             Set
                 Me(Me.tableTbBarang.HargaTokoColumn) = value
@@ -1415,9 +1417,9 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property HargaSales() As Integer
+        Public Property HargaSales() As Double
             Get
-                Return CType(Me(Me.tableTbBarang.HargaSalesColumn),Integer)
+                Return CType(Me(Me.tableTbBarang.HargaSalesColumn),Double)
             End Get
             Set
                 Me(Me.tableTbBarang.HargaSalesColumn) = value
@@ -1426,14 +1428,26 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property StokPengingat() As Integer
+        Public Property StokPengingat() As Double
             Get
-                Return CType(Me(Me.tableTbBarang.StokPengingatColumn),Integer)
+                Return CType(Me(Me.tableTbBarang.StokPengingatColumn),Double)
             End Get
             Set
                 Me(Me.tableTbBarang.StokPengingatColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsStokNull() As Boolean
+            Return Me.IsNull(Me.tableTbBarang.StokColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetStokNull()
+            Me(Me.tableTbBarang.StokColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -1513,9 +1527,13 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property stok() As Integer
+        Public Property stok() As Double
             Get
-                Return CType(Me(Me.tableDetailStokBarang.stokColumn),Integer)
+                Try 
+                    Return CType(Me(Me.tableDetailStokBarang.stokColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'stok' in table 'DetailStokBarang' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableDetailStokBarang.stokColumn) = value
@@ -1535,9 +1553,9 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property harganormal() As Integer
+        Public Property harganormal() As Double
             Get
-                Return CType(Me(Me.tableDetailStokBarang.harganormalColumn),Integer)
+                Return CType(Me(Me.tableDetailStokBarang.harganormalColumn),Double)
             End Get
             Set
                 Me(Me.tableDetailStokBarang.harganormalColumn) = value
@@ -1546,9 +1564,9 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property hargatoko() As Integer
+        Public Property hargatoko() As Double
             Get
-                Return CType(Me(Me.tableDetailStokBarang.hargatokoColumn),Integer)
+                Return CType(Me(Me.tableDetailStokBarang.hargatokoColumn),Double)
             End Get
             Set
                 Me(Me.tableDetailStokBarang.hargatokoColumn) = value
@@ -1557,14 +1575,26 @@ Partial Public Class DSetDataBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property hargasales() As Integer
+        Public Property hargasales() As Double
             Get
-                Return CType(Me(Me.tableDetailStokBarang.hargasalesColumn),Integer)
+                Return CType(Me(Me.tableDetailStokBarang.hargasalesColumn),Double)
             End Get
             Set
                 Me(Me.tableDetailStokBarang.hargasalesColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsstokNull() As Boolean
+            Return Me.IsNull(Me.tableDetailStokBarang.stokColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetstokNull()
+            Me(Me.tableDetailStokBarang.stokColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -1816,19 +1846,20 @@ Namespace DSetDataBarangTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TbBarang] WHERE (([KodeBarang] = @Original_KodeBarang) AND ([S"& _ 
-                "tok] = @Original_Stok) AND ([SatuanBarang] = @Original_SatuanBarang) AND ([Harga"& _ 
-                "Normal] = @Original_HargaNormal) AND ([HargaToko] = @Original_HargaToko) AND ([H"& _ 
-                "argaSales] = @Original_HargaSales) AND ([StokPengingat] = @Original_StokPenginga"& _ 
-                "t))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TbBarang] WHERE (([KodeBarang] = @Original_KodeBarang) AND ((@"& _ 
+                "IsNull_Stok = 1 AND [Stok] IS NULL) OR ([Stok] = @Original_Stok)) AND ([SatuanBa"& _ 
+                "rang] = @Original_SatuanBarang) AND ([HargaNormal] = @Original_HargaNormal) AND "& _ 
+                "([HargaToko] = @Original_HargaToko) AND ([HargaSales] = @Original_HargaSales) AN"& _ 
+                "D ([StokPengingat] = @Original_StokPengingat))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_KodeBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "KodeBarang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stok", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Stok", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stok", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SatuanBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SatuanBarang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaNormal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaNormal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaToko", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaToko", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaSales", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSales", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StokPengingat", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StokPengingat", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaNormal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaNormal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaToko", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaToko", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaSales", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSales", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StokPengingat", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StokPengingat", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TbBarang] ([KodeBarang], [NamaBarang], [Stok], [SatuanBarang],"& _ 
@@ -1840,46 +1871,48 @@ Namespace DSetDataBarangTableAdapters
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@KodeBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "KodeBarang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NamaBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NamaBarang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stok", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stok", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SatuanBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SatuanBarang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaNormal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaNormal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaToko", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaToko", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaSales", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSales", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StokPengingat", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StokPengingat", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaNormal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaNormal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaToko", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaToko", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaSales", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSales", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StokPengingat", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StokPengingat", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TbBarang] SET [KodeBarang] = @KodeBarang, [NamaBarang] = @NamaBaran"& _ 
                 "g, [Stok] = @Stok, [SatuanBarang] = @SatuanBarang, [HargaNormal] = @HargaNormal,"& _ 
                 " [HargaToko] = @HargaToko, [HargaSales] = @HargaSales, [StokPengingat] = @StokPe"& _ 
-                "ngingat WHERE (([KodeBarang] = @Original_KodeBarang) AND ([Stok] = @Original_Sto"& _ 
-                "k) AND ([SatuanBarang] = @Original_SatuanBarang) AND ([HargaNormal] = @Original_"& _ 
-                "HargaNormal) AND ([HargaToko] = @Original_HargaToko) AND ([HargaSales] = @Origin"& _ 
-                "al_HargaSales) AND ([StokPengingat] = @Original_StokPengingat));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT KodeBar"& _ 
-                "ang, NamaBarang, Stok, SatuanBarang, HargaNormal, HargaToko, HargaSales, StokPen"& _ 
-                "gingat FROM TbBarang WHERE (KodeBarang = @KodeBarang)"
+                "ngingat WHERE (([KodeBarang] = @Original_KodeBarang) AND ((@IsNull_Stok = 1 AND "& _ 
+                "[Stok] IS NULL) OR ([Stok] = @Original_Stok)) AND ([SatuanBarang] = @Original_Sa"& _ 
+                "tuanBarang) AND ([HargaNormal] = @Original_HargaNormal) AND ([HargaToko] = @Orig"& _ 
+                "inal_HargaToko) AND ([HargaSales] = @Original_HargaSales) AND ([StokPengingat] ="& _ 
+                " @Original_StokPengingat));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT KodeBarang, NamaBarang, Stok, SatuanBarang, "& _ 
+                "HargaNormal, HargaToko, HargaSales, StokPengingat FROM TbBarang WHERE (KodeBaran"& _ 
+                "g = @KodeBarang)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@KodeBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "KodeBarang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NamaBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NamaBarang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stok", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stok", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SatuanBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SatuanBarang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaNormal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaNormal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaToko", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaToko", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaSales", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSales", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StokPengingat", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StokPengingat", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaNormal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaNormal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaToko", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaToko", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaSales", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSales", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StokPengingat", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StokPengingat", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_KodeBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "KodeBarang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stok", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Stok", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stok", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SatuanBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SatuanBarang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaNormal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaNormal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaToko", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaToko", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaSales", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSales", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StokPengingat", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StokPengingat", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaNormal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaNormal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaToko", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaToko", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaSales", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSales", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StokPengingat", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StokPengingat", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString1
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1949,22 +1982,28 @@ Namespace DSetDataBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_KodeBarang As String, ByVal Original_Stok As Integer, ByVal Original_SatuanBarang As String, ByVal Original_HargaNormal As Integer, ByVal Original_HargaToko As Integer, ByVal Original_HargaSales As Integer, ByVal Original_StokPengingat As Integer) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_KodeBarang As String, ByVal Original_Stok As Global.System.Nullable(Of Double), ByVal Original_SatuanBarang As String, ByVal Original_HargaNormal As Double, ByVal Original_HargaToko As Double, ByVal Original_HargaSales As Double, ByVal Original_StokPengingat As Double) As Integer
             If (Original_KodeBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_KodeBarang")
             Else
                 Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_KodeBarang,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Stok,Integer)
+            If (Original_Stok.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Stok.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
             If (Original_SatuanBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_SatuanBarang")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_SatuanBarang,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_SatuanBarang,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_HargaNormal,Integer)
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_HargaToko,Integer)
-            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_HargaSales,Integer)
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_StokPengingat,Integer)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_HargaNormal,Double)
+            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_HargaToko,Double)
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_HargaSales,Double)
+            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_StokPengingat,Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1984,7 +2023,7 @@ Namespace DSetDataBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal KodeBarang As String, ByVal NamaBarang As String, ByVal Stok As Integer, ByVal SatuanBarang As String, ByVal HargaNormal As Integer, ByVal HargaToko As Integer, ByVal HargaSales As Integer, ByVal StokPengingat As Integer) As Integer
+        Public Overloads Overridable Function Insert(ByVal KodeBarang As String, ByVal NamaBarang As String, ByVal Stok As Global.System.Nullable(Of Double), ByVal SatuanBarang As String, ByVal HargaNormal As Double, ByVal HargaToko As Double, ByVal HargaSales As Double, ByVal StokPengingat As Double) As Integer
             If (KodeBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("KodeBarang")
             Else
@@ -1995,16 +2034,20 @@ Namespace DSetDataBarangTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(NamaBarang,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(Stok,Integer)
+            If (Stok.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Stok.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
             If (SatuanBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("SatuanBarang")
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(SatuanBarang,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(HargaNormal,Integer)
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(HargaToko,Integer)
-            Me.Adapter.InsertCommand.Parameters(6).Value = CType(HargaSales,Integer)
-            Me.Adapter.InsertCommand.Parameters(7).Value = CType(StokPengingat,Integer)
+            Me.Adapter.InsertCommand.Parameters(4).Value = CType(HargaNormal,Double)
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(HargaToko,Double)
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(HargaSales,Double)
+            Me.Adapter.InsertCommand.Parameters(7).Value = CType(StokPengingat,Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2024,7 +2067,7 @@ Namespace DSetDataBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal KodeBarang As String, ByVal NamaBarang As String, ByVal Stok As Integer, ByVal SatuanBarang As String, ByVal HargaNormal As Integer, ByVal HargaToko As Integer, ByVal HargaSales As Integer, ByVal StokPengingat As Integer, ByVal Original_KodeBarang As String, ByVal Original_Stok As Integer, ByVal Original_SatuanBarang As String, ByVal Original_HargaNormal As Integer, ByVal Original_HargaToko As Integer, ByVal Original_HargaSales As Integer, ByVal Original_StokPengingat As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal KodeBarang As String, ByVal NamaBarang As String, ByVal Stok As Global.System.Nullable(Of Double), ByVal SatuanBarang As String, ByVal HargaNormal As Double, ByVal HargaToko As Double, ByVal HargaSales As Double, ByVal StokPengingat As Double, ByVal Original_KodeBarang As String, ByVal Original_Stok As Global.System.Nullable(Of Double), ByVal Original_SatuanBarang As String, ByVal Original_HargaNormal As Double, ByVal Original_HargaToko As Double, ByVal Original_HargaSales As Double, ByVal Original_StokPengingat As Double) As Integer
             If (KodeBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("KodeBarang")
             Else
@@ -2035,31 +2078,41 @@ Namespace DSetDataBarangTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(NamaBarang,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Stok,Integer)
+            If (Stok.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Stok.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
             If (SatuanBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("SatuanBarang")
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(SatuanBarang,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(HargaNormal,Integer)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(HargaToko,Integer)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(HargaSales,Integer)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(StokPengingat,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(HargaNormal,Double)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(HargaToko,Double)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(HargaSales,Double)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(StokPengingat,Double)
             If (Original_KodeBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_KodeBarang")
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_KodeBarang,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Stok,Integer)
+            If (Original_Stok.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Stok.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
             If (Original_SatuanBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_SatuanBarang")
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_SatuanBarang,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_SatuanBarang,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_HargaNormal,Integer)
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_HargaToko,Integer)
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_HargaSales,Integer)
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_StokPengingat,Integer)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_HargaNormal,Double)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_HargaToko,Double)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_HargaSales,Double)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_StokPengingat,Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2079,7 +2132,7 @@ Namespace DSetDataBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NamaBarang As String, ByVal Stok As Integer, ByVal SatuanBarang As String, ByVal HargaNormal As Integer, ByVal HargaToko As Integer, ByVal HargaSales As Integer, ByVal StokPengingat As Integer, ByVal Original_KodeBarang As String, ByVal Original_Stok As Integer, ByVal Original_SatuanBarang As String, ByVal Original_HargaNormal As Integer, ByVal Original_HargaToko As Integer, ByVal Original_HargaSales As Integer, ByVal Original_StokPengingat As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal NamaBarang As String, ByVal Stok As Global.System.Nullable(Of Double), ByVal SatuanBarang As String, ByVal HargaNormal As Double, ByVal HargaToko As Double, ByVal HargaSales As Double, ByVal StokPengingat As Double, ByVal Original_KodeBarang As String, ByVal Original_Stok As Global.System.Nullable(Of Double), ByVal Original_SatuanBarang As String, ByVal Original_HargaNormal As Double, ByVal Original_HargaToko As Double, ByVal Original_HargaSales As Double, ByVal Original_StokPengingat As Double) As Integer
             Return Me.Update(Original_KodeBarang, NamaBarang, Stok, SatuanBarang, HargaNormal, HargaToko, HargaSales, StokPengingat, Original_KodeBarang, Original_Stok, Original_SatuanBarang, Original_HargaNormal, Original_HargaToko, Original_HargaSales, Original_StokPengingat)
         End Function
     End Class
@@ -2242,7 +2295,7 @@ Namespace DSetDataBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString1
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2547,7 +2600,7 @@ Namespace DSetDataBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString1
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

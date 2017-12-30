@@ -1486,6 +1486,10 @@ Partial Public Class DSetReturBarang
         
         Private columnSubtotal As Global.System.Data.DataColumn
         
+        Private columnJumlah1 As Global.System.Data.DataColumn
+        
+        Private columnSubtotal1 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1594,6 +1598,22 @@ Partial Public Class DSetReturBarang
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Jumlah1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnJumlah1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Subtotal1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSubtotal1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1630,9 +1650,9 @@ Partial Public Class DSetReturBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDReturJualRow(ByVal NoNotaReturJual As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Integer, ByVal Diskon As String, ByVal Subtotal As Integer) As DReturJualRow
+        Public Overloads Function AddDReturJualRow(ByVal NoNotaReturJual As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Integer, ByVal Diskon As String, ByVal Subtotal As Integer, ByVal Jumlah1 As Double, ByVal Subtotal1 As Double) As DReturJualRow
             Dim rowDReturJualRow As DReturJualRow = CType(Me.NewRow,DReturJualRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, NoNotaReturJual, IDBarang, NamaBarang, Satuan, HargaSatuan, Jumlah, Diskon, Subtotal}
+            Dim columnValuesArray() As Object = New Object() {Nothing, NoNotaReturJual, IDBarang, NamaBarang, Satuan, HargaSatuan, Jumlah, Diskon, Subtotal, Jumlah1, Subtotal1}
             rowDReturJualRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDReturJualRow)
             Return rowDReturJualRow
@@ -1670,6 +1690,8 @@ Partial Public Class DSetReturBarang
             Me.columnJumlah = MyBase.Columns("Jumlah")
             Me.columnDiskon = MyBase.Columns("Diskon")
             Me.columnSubtotal = MyBase.Columns("Subtotal")
+            Me.columnJumlah1 = MyBase.Columns("Jumlah1")
+            Me.columnSubtotal1 = MyBase.Columns("Subtotal1")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1693,6 +1715,10 @@ Partial Public Class DSetReturBarang
             MyBase.Columns.Add(Me.columnDiskon)
             Me.columnSubtotal = New Global.System.Data.DataColumn("Subtotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSubtotal)
+            Me.columnJumlah1 = New Global.System.Data.DataColumn("Jumlah1", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnJumlah1)
+            Me.columnSubtotal1 = New Global.System.Data.DataColumn("Subtotal1", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSubtotal1)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNoDReturJual}, true))
             Me.columnNoDReturJual.AutoIncrement = true
             Me.columnNoDReturJual.AutoIncrementSeed = -1
@@ -1713,6 +1739,10 @@ Partial Public Class DSetReturBarang
             Me.columnDiskon.AllowDBNull = false
             Me.columnDiskon.MaxLength = 10
             Me.columnSubtotal.AllowDBNull = false
+            Me.columnJumlah1.AllowDBNull = false
+            Me.columnJumlah1.Caption = "Jumlah"
+            Me.columnSubtotal1.AllowDBNull = false
+            Me.columnSubtotal1.Caption = "Subtotal"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2178,6 +2208,10 @@ Partial Public Class DSetReturBarang
         
         Private columnSubtotal As Global.System.Data.DataColumn
         
+        Private columnJumlah1 As Global.System.Data.DataColumn
+        
+        Private columnSubtotal1 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -2302,6 +2336,22 @@ Partial Public Class DSetReturBarang
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Jumlah1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnJumlah1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Subtotal1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSubtotal1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2338,9 +2388,9 @@ Partial Public Class DSetReturBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReturJualRow(ByVal NoNotaReturJual As String, ByVal NoNotaJual As String, ByVal TglReturJual As Date, ByVal IDStaff As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Integer, ByVal Diskon As String, ByVal Subtotal As Integer) As ReturJualRow
+        Public Overloads Function AddReturJualRow(ByVal NoNotaReturJual As String, ByVal NoNotaJual As String, ByVal TglReturJual As Date, ByVal IDStaff As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Integer, ByVal Diskon As String, ByVal Subtotal As Integer, ByVal Jumlah1 As Double, ByVal Subtotal1 As Double) As ReturJualRow
             Dim rowReturJualRow As ReturJualRow = CType(Me.NewRow,ReturJualRow)
-            Dim columnValuesArray() As Object = New Object() {NoNotaReturJual, NoNotaJual, TglReturJual, IDStaff, IDBarang, NamaBarang, Satuan, HargaSatuan, Jumlah, Diskon, Subtotal}
+            Dim columnValuesArray() As Object = New Object() {NoNotaReturJual, NoNotaJual, TglReturJual, IDStaff, IDBarang, NamaBarang, Satuan, HargaSatuan, Jumlah, Diskon, Subtotal, Jumlah1, Subtotal1}
             rowReturJualRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReturJualRow)
             Return rowReturJualRow
@@ -2380,6 +2430,8 @@ Partial Public Class DSetReturBarang
             Me.columnJumlah = MyBase.Columns("Jumlah")
             Me.columnDiskon = MyBase.Columns("Diskon")
             Me.columnSubtotal = MyBase.Columns("Subtotal")
+            Me.columnJumlah1 = MyBase.Columns("Jumlah1")
+            Me.columnSubtotal1 = MyBase.Columns("Subtotal1")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2407,6 +2459,10 @@ Partial Public Class DSetReturBarang
             MyBase.Columns.Add(Me.columnDiskon)
             Me.columnSubtotal = New Global.System.Data.DataColumn("Subtotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSubtotal)
+            Me.columnJumlah1 = New Global.System.Data.DataColumn("Jumlah1", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnJumlah1)
+            Me.columnSubtotal1 = New Global.System.Data.DataColumn("Subtotal1", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSubtotal1)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNoNotaReturJual}, true))
             Me.columnNoNotaReturJual.AllowDBNull = false
             Me.columnNoNotaReturJual.Unique = true
@@ -2427,6 +2483,10 @@ Partial Public Class DSetReturBarang
             Me.columnDiskon.AllowDBNull = false
             Me.columnDiskon.MaxLength = 10
             Me.columnSubtotal.AllowDBNull = false
+            Me.columnJumlah1.AllowDBNull = false
+            Me.columnJumlah1.Caption = "Jumlah"
+            Me.columnSubtotal1.AllowDBNull = false
+            Me.columnSubtotal1.Caption = "Subtotal"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2915,6 +2975,28 @@ Partial Public Class DSetReturBarang
                 Me(Me.tableDReturJual.SubtotalColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Jumlah1() As Double
+            Get
+                Return CType(Me(Me.tableDReturJual.Jumlah1Column),Double)
+            End Get
+            Set
+                Me(Me.tableDReturJual.Jumlah1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Subtotal1() As Double
+            Get
+                Return CType(Me(Me.tableDReturJual.Subtotal1Column),Double)
+            End Get
+            Set
+                Me(Me.tableDReturJual.Subtotal1Column) = value
+            End Set
+        End Property
     End Class
     
     '''<summary>
@@ -3110,6 +3192,28 @@ Partial Public Class DSetReturBarang
             End Get
             Set
                 Me(Me.tableReturJual.SubtotalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Jumlah1() As Double
+            Get
+                Return CType(Me(Me.tableReturJual.Jumlah1Column),Double)
+            End Get
+            Set
+                Me(Me.tableReturJual.Jumlah1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Subtotal1() As Double
+            Get
+                Return CType(Me(Me.tableReturJual.Subtotal1Column),Double)
+            End Get
+            Set
+                Me(Me.tableReturJual.Subtotal1Column) = value
             End Set
         End Property
     End Class
@@ -3515,7 +3619,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString1
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3894,7 +3998,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString1
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4235,7 +4339,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString1
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4408,9 +4512,9 @@ Namespace DSetReturBarangTableAdapters
             tableMapping.ColumnMappings.Add("NamaBarang", "NamaBarang")
             tableMapping.ColumnMappings.Add("Satuan", "Satuan")
             tableMapping.ColumnMappings.Add("HargaSatuan", "HargaSatuan")
-            tableMapping.ColumnMappings.Add("Jumlah", "Jumlah")
             tableMapping.ColumnMappings.Add("Diskon", "Diskon")
-            tableMapping.ColumnMappings.Add("Subtotal", "Subtotal")
+            tableMapping.ColumnMappings.Add("Jumlah", "Jumlah1")
+            tableMapping.ColumnMappings.Add("Subtotal", "Subtotal1")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -4423,9 +4527,9 @@ Namespace DSetReturBarangTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NoNotaReturJual", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NoNotaReturJual", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IDBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IDBarang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaSatuan", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSatuan", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Jumlah", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Jumlah", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Diskon", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diskon", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Subtotal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[DReturJual] ([NoNotaReturJual], [IDBarang], [NamaBarang], [Sat"& _ 
@@ -4439,9 +4543,9 @@ Namespace DSetReturBarangTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NamaBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NamaBarang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaSatuan", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSatuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diskon", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diskon", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[DReturJual] SET [NoNotaReturJual] = @NoNotaReturJual, [IDBarang] = "& _ 
@@ -4459,16 +4563,16 @@ Namespace DSetReturBarangTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NamaBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NamaBarang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HargaSatuan", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSatuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diskon", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diskon", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NoDReturJual", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NoDReturJual", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NoNotaReturJual", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NoNotaReturJual", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IDBarang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IDBarang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HargaSatuan", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HargaSatuan", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Jumlah", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Jumlah", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Diskon", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diskon", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Subtotal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NoDReturJual", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "NoDReturJual", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -4476,7 +4580,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString2
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4546,7 +4650,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_NoDReturJual As Integer, ByVal Original_NoNotaReturJual As String, ByVal Original_IDBarang As String, ByVal Original_HargaSatuan As Integer, ByVal Original_Jumlah As Integer, ByVal Original_Diskon As String, ByVal Original_Subtotal As Integer) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_NoDReturJual As Integer, ByVal Original_NoNotaReturJual As String, ByVal Original_IDBarang As String, ByVal Original_HargaSatuan As Integer, ByVal Original_Jumlah As Double, ByVal Original_Diskon As String, ByVal Original_Subtotal As Double) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_NoDReturJual,Integer)
             If (Original_NoNotaReturJual Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_NoNotaReturJual")
@@ -4559,13 +4663,13 @@ Namespace DSetReturBarangTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_IDBarang,String)
             End If
             Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_HargaSatuan,Integer)
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Jumlah,Integer)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Jumlah,Double)
             If (Original_Diskon Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Diskon")
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Diskon,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Subtotal,Integer)
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Subtotal,Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -4585,7 +4689,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal NoNotaReturJual As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Integer, ByVal Diskon As String, ByVal Subtotal As Integer) As Integer
+        Public Overloads Overridable Function Insert(ByVal NoNotaReturJual As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Double, ByVal Diskon As String, ByVal Subtotal As Double) As Integer
             If (NoNotaReturJual Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NoNotaReturJual")
             Else
@@ -4607,13 +4711,13 @@ Namespace DSetReturBarangTableAdapters
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(Satuan,String)
             End If
             Me.Adapter.InsertCommand.Parameters(4).Value = CType(HargaSatuan,Integer)
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(Jumlah,Integer)
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(Jumlah,Double)
             If (Diskon Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Diskon")
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = CType(Diskon,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(7).Value = CType(Subtotal,Integer)
+            Me.Adapter.InsertCommand.Parameters(7).Value = CType(Subtotal,Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -4639,16 +4743,16 @@ Namespace DSetReturBarangTableAdapters
                     ByVal NamaBarang As String,  _
                     ByVal Satuan As String,  _
                     ByVal HargaSatuan As Integer,  _
-                    ByVal Jumlah As Integer,  _
+                    ByVal Jumlah As Double,  _
                     ByVal Diskon As String,  _
-                    ByVal Subtotal As Integer,  _
+                    ByVal Subtotal As Double,  _
                     ByVal Original_NoDReturJual As Integer,  _
                     ByVal Original_NoNotaReturJual As String,  _
                     ByVal Original_IDBarang As String,  _
                     ByVal Original_HargaSatuan As Integer,  _
-                    ByVal Original_Jumlah As Integer,  _
+                    ByVal Original_Jumlah As Double,  _
                     ByVal Original_Diskon As String,  _
-                    ByVal Original_Subtotal As Integer,  _
+                    ByVal Original_Subtotal As Double,  _
                     ByVal NoDReturJual As Integer) As Integer
             If (NoNotaReturJual Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NoNotaReturJual")
@@ -4671,13 +4775,13 @@ Namespace DSetReturBarangTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Satuan,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(4).Value = CType(HargaSatuan,Integer)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Jumlah,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Jumlah,Double)
             If (Diskon Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Diskon")
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Diskon,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Subtotal,Integer)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Subtotal,Double)
             Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_NoDReturJual,Integer)
             If (Original_NoNotaReturJual Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_NoNotaReturJual")
@@ -4690,13 +4794,13 @@ Namespace DSetReturBarangTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_IDBarang,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_HargaSatuan,Integer)
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Jumlah,Integer)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Jumlah,Double)
             If (Original_Diskon Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Diskon")
             Else
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Diskon,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Subtotal,Integer)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Subtotal,Double)
             Me.Adapter.UpdateCommand.Parameters(15).Value = CType(NoDReturJual,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4717,7 +4821,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NoNotaReturJual As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Integer, ByVal Diskon As String, ByVal Subtotal As Integer, ByVal Original_NoDReturJual As Integer, ByVal Original_NoNotaReturJual As String, ByVal Original_IDBarang As String, ByVal Original_HargaSatuan As Integer, ByVal Original_Jumlah As Integer, ByVal Original_Diskon As String, ByVal Original_Subtotal As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal NoNotaReturJual As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Double, ByVal Diskon As String, ByVal Subtotal As Double, ByVal Original_NoDReturJual As Integer, ByVal Original_NoNotaReturJual As String, ByVal Original_IDBarang As String, ByVal Original_HargaSatuan As Integer, ByVal Original_Jumlah As Double, ByVal Original_Diskon As String, ByVal Original_Subtotal As Double) As Integer
             Return Me.Update(NoNotaReturJual, IDBarang, NamaBarang, Satuan, HargaSatuan, Jumlah, Diskon, Subtotal, Original_NoDReturJual, Original_NoNotaReturJual, Original_IDBarang, Original_HargaSatuan, Original_Jumlah, Original_Diskon, Original_Subtotal, Original_NoDReturJual)
         End Function
     End Class
@@ -4898,7 +5002,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString2
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5231,9 +5335,9 @@ Namespace DSetReturBarangTableAdapters
             tableMapping.ColumnMappings.Add("NamaBarang", "NamaBarang")
             tableMapping.ColumnMappings.Add("Satuan", "Satuan")
             tableMapping.ColumnMappings.Add("HargaSatuan", "HargaSatuan")
-            tableMapping.ColumnMappings.Add("Jumlah", "Jumlah")
             tableMapping.ColumnMappings.Add("Diskon", "Diskon")
-            tableMapping.ColumnMappings.Add("Subtotal", "Subtotal")
+            tableMapping.ColumnMappings.Add("Jumlah", "Jumlah1")
+            tableMapping.ColumnMappings.Add("Subtotal", "Subtotal1")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -5241,7 +5345,7 @@ Namespace DSetReturBarangTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.DatabaseTokoConnectionString2
+            Me._connection.ConnectionString = Global.AplikasiToko.My.MySettings.Default.TestServer
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

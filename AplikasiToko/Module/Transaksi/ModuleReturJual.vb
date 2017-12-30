@@ -30,7 +30,7 @@ Module ModuleReturJual
         End Try
     End Sub
 
-    Sub insertDReturJual(NoReturJual As String, idbarang As String, nama As String, satuan As String, harga As String, jumlah As Integer, diskon As Integer, subtotal As Integer)
+    Sub insertDReturJual(NoReturJual As String, idbarang As String, nama As String, satuan As String, harga As String, jumlah As Double, diskon As Double, subtotal As Double)
         Try
             constring.Open()
             cmd = New SqlCommand("insert into DReturJual values(@a,@b,@c,@d,@e,@f,@g,@h)", constring)

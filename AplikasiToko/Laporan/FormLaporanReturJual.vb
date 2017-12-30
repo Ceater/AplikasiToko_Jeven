@@ -19,6 +19,7 @@
             f.Text = "Laporan Retur Barang"
             f.Show()
         End If
+        Me.Close()
     End Sub
 
     Private Sub FormLaporanReturJual_Load(sender As Object, e As EventArgs) Handles MyBase.Load

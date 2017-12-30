@@ -21,7 +21,7 @@ Module ModulePembayaran
     End Function
 
     Function cekNotaPembayaran()
-        Dim temp As Integer
+        Dim temp As Double
         Try
             constring.Open()
             cmd = New SqlCommand("select NoNotaPembayaran from TbPembayaran order by NoNotaPembayaran desc", constring)

@@ -2,10 +2,11 @@
 <xs:schema id="DSetReturBarang" targetNamespace="http://tempuri.org/DSetReturBarang.xsd" xmlns:mstns="http://tempuri.org/DSetReturBarang.xsd" xmlns="http://tempuri.org/DSetReturBarang.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DatabaseTokoConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DatabaseTokoConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.DatabaseTokoConnectionString1" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DatabaseTokoConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DatabaseTokoConnectionString2 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.DatabaseTokoConnectionString2" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DatabaseTokoConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="DatabaseTokoConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.DatabaseTokoConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TestServer" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TestServer (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.TestServer" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TestServer" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TestServer (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.TestServer" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DReturTerimaTableAdapter" GeneratorDataComponentClassName="DReturTerimaTableAdapter" Name="DReturTerima" UserDataComponentName="DReturTerimaTableAdapter">
@@ -154,7 +155,7 @@ SELECT NoNotaReturTerima, NoNotaTerima, TglReturTerima, IDStaff FROM HReturTerim
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DReturJualTableAdapter" GeneratorDataComponentClassName="DReturJualTableAdapter" Name="DReturJual" UserDataComponentName="DReturJualTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseTokoConnectionString2 (MySettings)" DbObjectName="DatabaseToko.dbo.DReturJual" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectName="DatabaseToko.dbo.DReturJual" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[DReturJual] WHERE (([NoDReturJual] = @Original_NoDReturJual) AND ([NoNotaReturJual] = @Original_NoNotaReturJual) AND ([IDBarang] = @Original_IDBarang) AND ([HargaSatuan] = @Original_HargaSatuan) AND ([Jumlah] = @Original_Jumlah) AND ([Diskon] = @Original_Diskon) AND ([Subtotal] = @Original_Subtotal))</CommandText>
@@ -163,9 +164,9 @@ SELECT NoNotaReturTerima, NoNotaTerima, TglReturTerima, IDStaff FROM HReturTerim
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_NoNotaReturJual" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NoNotaReturJual" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_IDBarang" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="IDBarang" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_HargaSatuan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HargaSatuan" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Jumlah" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Jumlah" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Jumlah" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Jumlah" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Diskon" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Diskon" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Subtotal" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Subtotal" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Subtotal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Subtotal" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
@@ -179,14 +180,14 @@ SELECT NoDReturJual, NoNotaReturJual, IDBarang, NamaBarang, Satuan, HargaSatuan,
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@NamaBarang" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NamaBarang" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Satuan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Satuan" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@HargaSatuan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HargaSatuan" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Jumlah" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Jumlah" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Jumlah" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Jumlah" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Diskon" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Diskon" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Subtotal" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Subtotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Subtotal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Subtotal" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT NoDReturJual, NoNotaReturJual, IDBarang, NamaBarang, Satuan, HargaSatuan, Jumlah, Diskon, Subtotal FROM dbo.DReturJual</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -201,17 +202,17 @@ SELECT NoDReturJual, NoNotaReturJual, IDBarang, NamaBarang, Satuan, HargaSatuan,
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@NamaBarang" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NamaBarang" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Satuan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Satuan" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@HargaSatuan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HargaSatuan" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Jumlah" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Jumlah" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Jumlah" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Jumlah" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Diskon" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Diskon" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Subtotal" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Subtotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Subtotal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Subtotal" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NoDReturJual" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NoDReturJual" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_NoNotaReturJual" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NoNotaReturJual" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_IDBarang" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="IDBarang" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_HargaSatuan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HargaSatuan" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Jumlah" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Jumlah" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Jumlah" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Jumlah" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Diskon" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Diskon" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Subtotal" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Subtotal" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="NoDReturJual" ColumnName="NoDReturJual" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NoDReturJual" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NoDReturJual" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Subtotal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Subtotal" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NoDReturJual" ColumnName="NoDReturJual" DataSourceName="DatabaseToko.dbo.DReturJual" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NoDReturJual" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NoDReturJual" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -224,15 +225,15 @@ SELECT NoDReturJual, NoNotaReturJual, IDBarang, NamaBarang, Satuan, HargaSatuan,
               <Mapping SourceColumn="NamaBarang" DataSetColumn="NamaBarang" />
               <Mapping SourceColumn="Satuan" DataSetColumn="Satuan" />
               <Mapping SourceColumn="HargaSatuan" DataSetColumn="HargaSatuan" />
-              <Mapping SourceColumn="Jumlah" DataSetColumn="Jumlah" />
               <Mapping SourceColumn="Diskon" DataSetColumn="Diskon" />
-              <Mapping SourceColumn="Subtotal" DataSetColumn="Subtotal" />
+              <Mapping SourceColumn="Jumlah" DataSetColumn="Jumlah1" />
+              <Mapping SourceColumn="Subtotal" DataSetColumn="Subtotal1" />
             </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HReturJualTableAdapter" GeneratorDataComponentClassName="HReturJualTableAdapter" Name="HReturJual" UserDataComponentName="HReturJualTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseTokoConnectionString2 (MySettings)" DbObjectName="DatabaseToko.dbo.HReturJual" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectName="DatabaseToko.dbo.HReturJual" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[HReturJual] WHERE (([NoNotaReturJual] = @Original_NoNotaReturJual) AND ([NoNotaJual] = @Original_NoNotaJual) AND ([TglReturJual] = @Original_TglReturJual) AND ([IDStaff] = @Original_IDStaff))</CommandText>
@@ -257,7 +258,7 @@ SELECT NoNotaReturJual, NoNotaJual, TglReturJual, IDStaff FROM HReturJual WHERE 
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT NoNotaReturJual, NoNotaJual, TglReturJual, IDStaff FROM dbo.HReturJual</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -290,7 +291,7 @@ SELECT NoNotaReturJual, NoNotaJual, TglReturJual, IDStaff FROM HReturJual WHERE 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReturJualTableAdapter" GeneratorDataComponentClassName="ReturJualTableAdapter" Name="ReturJual" UserDataComponentName="ReturJualTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseTokoConnectionString2 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        HRJ.NoNotaReturJual, HRJ.NoNotaJual, HRJ.TglReturJual, HRJ.IDStaff, DRJ.IDBarang, DRJ.NamaBarang, DRJ.Satuan, DRJ.HargaSatuan, DRJ.Jumlah, DRJ.Diskon, 
@@ -311,9 +312,9 @@ FROM            HReturJual AS HRJ INNER JOIN
               <Mapping SourceColumn="NamaBarang" DataSetColumn="NamaBarang" />
               <Mapping SourceColumn="Satuan" DataSetColumn="Satuan" />
               <Mapping SourceColumn="HargaSatuan" DataSetColumn="HargaSatuan" />
-              <Mapping SourceColumn="Jumlah" DataSetColumn="Jumlah" />
               <Mapping SourceColumn="Diskon" DataSetColumn="Diskon" />
-              <Mapping SourceColumn="Subtotal" DataSetColumn="Subtotal" />
+              <Mapping SourceColumn="Jumlah" DataSetColumn="Jumlah1" />
+              <Mapping SourceColumn="Subtotal" DataSetColumn="Subtotal1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -325,7 +326,7 @@ FROM            HReturJual AS HRJ INNER JOIN
   <xs:element name="DSetReturBarang" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetReturBarang" msprop:Generator_UserDSName="DSetReturBarang">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DReturTerima" msprop:Generator_TableClassName="DReturTerimaDataTable" msprop:Generator_TableVarName="tableDReturTerima" msprop:Generator_RowChangedName="DReturTerimaRowChanged" msprop:Generator_TablePropName="DReturTerima" msprop:Generator_RowDeletingName="DReturTerimaRowDeleting" msprop:Generator_RowChangingName="DReturTerimaRowChanging" msprop:Generator_RowEvHandlerName="DReturTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="DReturTerimaRowDeleted" msprop:Generator_RowClassName="DReturTerimaRow" msprop:Generator_UserTableName="DReturTerima" msprop:Generator_RowEvArgName="DReturTerimaRowChangeEvent">
+        <xs:element name="DReturTerima" msprop:Generator_TableClassName="DReturTerimaDataTable" msprop:Generator_TableVarName="tableDReturTerima" msprop:Generator_TablePropName="DReturTerima" msprop:Generator_RowDeletingName="DReturTerimaRowDeleting" msprop:Generator_RowChangingName="DReturTerimaRowChanging" msprop:Generator_RowEvHandlerName="DReturTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="DReturTerimaRowDeleted" msprop:Generator_UserTableName="DReturTerima" msprop:Generator_RowChangedName="DReturTerimaRowChanged" msprop:Generator_RowEvArgName="DReturTerimaRowChangeEvent" msprop:Generator_RowClassName="DReturTerimaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoDReturTerima" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoDReturTerima" msprop:Generator_ColumnPropNameInRow="NoDReturTerima" msprop:Generator_ColumnPropNameInTable="NoDReturTerimaColumn" msprop:Generator_UserColumnName="NoDReturTerima" type="xs:int" />
@@ -361,7 +362,7 @@ FROM            HReturJual AS HRJ INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HReturTerima" msprop:Generator_TableClassName="HReturTerimaDataTable" msprop:Generator_TableVarName="tableHReturTerima" msprop:Generator_RowChangedName="HReturTerimaRowChanged" msprop:Generator_TablePropName="HReturTerima" msprop:Generator_RowDeletingName="HReturTerimaRowDeleting" msprop:Generator_RowChangingName="HReturTerimaRowChanging" msprop:Generator_RowEvHandlerName="HReturTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="HReturTerimaRowDeleted" msprop:Generator_RowClassName="HReturTerimaRow" msprop:Generator_UserTableName="HReturTerima" msprop:Generator_RowEvArgName="HReturTerimaRowChangeEvent">
+        <xs:element name="HReturTerima" msprop:Generator_TableClassName="HReturTerimaDataTable" msprop:Generator_TableVarName="tableHReturTerima" msprop:Generator_TablePropName="HReturTerima" msprop:Generator_RowDeletingName="HReturTerimaRowDeleting" msprop:Generator_RowChangingName="HReturTerimaRowChanging" msprop:Generator_RowEvHandlerName="HReturTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="HReturTerimaRowDeleted" msprop:Generator_UserTableName="HReturTerima" msprop:Generator_RowChangedName="HReturTerimaRowChanged" msprop:Generator_RowEvArgName="HReturTerimaRowChangeEvent" msprop:Generator_RowClassName="HReturTerimaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaReturTerima" msprop:Generator_ColumnVarNameInTable="columnNoNotaReturTerima" msprop:Generator_ColumnPropNameInRow="NoNotaReturTerima" msprop:Generator_ColumnPropNameInTable="NoNotaReturTerimaColumn" msprop:Generator_UserColumnName="NoNotaReturTerima">
@@ -389,7 +390,7 @@ FROM            HReturJual AS HRJ INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReturBarang" msprop:Generator_TableClassName="ReturBarangDataTable" msprop:Generator_TableVarName="tableReturBarang" msprop:Generator_RowChangedName="ReturBarangRowChanged" msprop:Generator_TablePropName="ReturBarang" msprop:Generator_RowDeletingName="ReturBarangRowDeleting" msprop:Generator_RowChangingName="ReturBarangRowChanging" msprop:Generator_RowEvHandlerName="ReturBarangRowChangeEventHandler" msprop:Generator_RowDeletedName="ReturBarangRowDeleted" msprop:Generator_RowClassName="ReturBarangRow" msprop:Generator_UserTableName="ReturBarang" msprop:Generator_RowEvArgName="ReturBarangRowChangeEvent">
+        <xs:element name="ReturBarang" msprop:Generator_TableClassName="ReturBarangDataTable" msprop:Generator_TableVarName="tableReturBarang" msprop:Generator_TablePropName="ReturBarang" msprop:Generator_RowDeletingName="ReturBarangRowDeleting" msprop:Generator_RowChangingName="ReturBarangRowChanging" msprop:Generator_RowEvHandlerName="ReturBarangRowChangeEventHandler" msprop:Generator_RowDeletedName="ReturBarangRowDeleted" msprop:Generator_UserTableName="ReturBarang" msprop:Generator_RowChangedName="ReturBarangRowChanged" msprop:Generator_RowEvArgName="ReturBarangRowChangeEvent" msprop:Generator_RowClassName="ReturBarangRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaReturTerima" msprop:Generator_ColumnVarNameInTable="columnNoNotaReturTerima" msprop:Generator_ColumnPropNameInRow="NoNotaReturTerima" msprop:Generator_ColumnPropNameInTable="NoNotaReturTerimaColumn" msprop:Generator_UserColumnName="NoNotaReturTerima">
@@ -439,7 +440,7 @@ FROM            HReturJual AS HRJ INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DReturJual" msprop:Generator_TableClassName="DReturJualDataTable" msprop:Generator_TableVarName="tableDReturJual" msprop:Generator_TablePropName="DReturJual" msprop:Generator_RowDeletingName="DReturJualRowDeleting" msprop:Generator_RowChangingName="DReturJualRowChanging" msprop:Generator_RowEvHandlerName="DReturJualRowChangeEventHandler" msprop:Generator_RowDeletedName="DReturJualRowDeleted" msprop:Generator_UserTableName="DReturJual" msprop:Generator_RowChangedName="DReturJualRowChanged" msprop:Generator_RowEvArgName="DReturJualRowChangeEvent" msprop:Generator_RowClassName="DReturJualRow">
+        <xs:element name="DReturJual" msprop:Generator_TableClassName="DReturJualDataTable" msprop:Generator_TableVarName="tableDReturJual" msprop:Generator_RowChangedName="DReturJualRowChanged" msprop:Generator_TablePropName="DReturJual" msprop:Generator_RowDeletingName="DReturJualRowDeleting" msprop:Generator_RowChangingName="DReturJualRowChanging" msprop:Generator_RowEvHandlerName="DReturJualRowChangeEventHandler" msprop:Generator_RowDeletedName="DReturJualRowDeleted" msprop:Generator_RowClassName="DReturJualRow" msprop:Generator_UserTableName="DReturJual" msprop:Generator_RowEvArgName="DReturJualRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoDReturJual" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoDReturJual" msprop:Generator_ColumnPropNameInRow="NoDReturJual" msprop:Generator_ColumnPropNameInTable="NoDReturJualColumn" msprop:Generator_UserColumnName="NoDReturJual" type="xs:int" />
@@ -481,10 +482,12 @@ FROM            HReturJual AS HRJ INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal" msprop:Generator_ColumnPropNameInRow="Subtotal" msprop:Generator_ColumnPropNameInTable="SubtotalColumn" msprop:Generator_UserColumnName="Subtotal" type="xs:int" />
+              <xs:element name="Jumlah1" msdata:Caption="Jumlah" msprop:Generator_ColumnVarNameInTable="columnJumlah1" msprop:Generator_ColumnPropNameInRow="Jumlah1" msprop:Generator_ColumnPropNameInTable="Jumlah1Column" msprop:Generator_UserColumnName="Jumlah1" type="xs:double" />
+              <xs:element name="Subtotal1" msdata:Caption="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal1" msprop:Generator_ColumnPropNameInRow="Subtotal1" msprop:Generator_ColumnPropNameInTable="Subtotal1Column" msprop:Generator_UserColumnName="Subtotal1" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HReturJual" msprop:Generator_TableClassName="HReturJualDataTable" msprop:Generator_TableVarName="tableHReturJual" msprop:Generator_TablePropName="HReturJual" msprop:Generator_RowDeletingName="HReturJualRowDeleting" msprop:Generator_RowChangingName="HReturJualRowChanging" msprop:Generator_RowEvHandlerName="HReturJualRowChangeEventHandler" msprop:Generator_RowDeletedName="HReturJualRowDeleted" msprop:Generator_UserTableName="HReturJual" msprop:Generator_RowChangedName="HReturJualRowChanged" msprop:Generator_RowEvArgName="HReturJualRowChangeEvent" msprop:Generator_RowClassName="HReturJualRow">
+        <xs:element name="HReturJual" msprop:Generator_TableClassName="HReturJualDataTable" msprop:Generator_TableVarName="tableHReturJual" msprop:Generator_RowChangedName="HReturJualRowChanged" msprop:Generator_TablePropName="HReturJual" msprop:Generator_RowDeletingName="HReturJualRowDeleting" msprop:Generator_RowChangingName="HReturJualRowChanging" msprop:Generator_RowEvHandlerName="HReturJualRowChangeEventHandler" msprop:Generator_RowDeletedName="HReturJualRowDeleted" msprop:Generator_RowClassName="HReturJualRow" msprop:Generator_UserTableName="HReturJual" msprop:Generator_RowEvArgName="HReturJualRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaReturJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaReturJual" msprop:Generator_ColumnPropNameInRow="NoNotaReturJual" msprop:Generator_ColumnPropNameInTable="NoNotaReturJualColumn" msprop:Generator_UserColumnName="NoNotaReturJual">
@@ -512,7 +515,7 @@ FROM            HReturJual AS HRJ INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReturJual" msprop:Generator_TableClassName="ReturJualDataTable" msprop:Generator_TableVarName="tableReturJual" msprop:Generator_TablePropName="ReturJual" msprop:Generator_RowDeletingName="ReturJualRowDeleting" msprop:Generator_RowChangingName="ReturJualRowChanging" msprop:Generator_RowEvHandlerName="ReturJualRowChangeEventHandler" msprop:Generator_RowDeletedName="ReturJualRowDeleted" msprop:Generator_UserTableName="ReturJual" msprop:Generator_RowChangedName="ReturJualRowChanged" msprop:Generator_RowEvArgName="ReturJualRowChangeEvent" msprop:Generator_RowClassName="ReturJualRow">
+        <xs:element name="ReturJual" msprop:Generator_TableClassName="ReturJualDataTable" msprop:Generator_TableVarName="tableReturJual" msprop:Generator_RowChangedName="ReturJualRowChanged" msprop:Generator_TablePropName="ReturJual" msprop:Generator_RowDeletingName="ReturJualRowDeleting" msprop:Generator_RowChangingName="ReturJualRowChanging" msprop:Generator_RowEvHandlerName="ReturJualRowChangeEventHandler" msprop:Generator_RowDeletedName="ReturJualRowDeleted" msprop:Generator_RowClassName="ReturJualRow" msprop:Generator_UserTableName="ReturJual" msprop:Generator_RowEvArgName="ReturJualRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaReturJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaReturJual" msprop:Generator_ColumnPropNameInRow="NoNotaReturJual" msprop:Generator_ColumnPropNameInTable="NoNotaReturJualColumn" msprop:Generator_UserColumnName="NoNotaReturJual">
@@ -568,6 +571,8 @@ FROM            HReturJual AS HRJ INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal" msprop:Generator_ColumnPropNameInRow="Subtotal" msprop:Generator_ColumnPropNameInTable="SubtotalColumn" msprop:Generator_UserColumnName="Subtotal" type="xs:int" />
+              <xs:element name="Jumlah1" msdata:Caption="Jumlah" msprop:Generator_ColumnVarNameInTable="columnJumlah1" msprop:Generator_ColumnPropNameInRow="Jumlah1" msprop:Generator_ColumnPropNameInTable="Jumlah1Column" msprop:Generator_UserColumnName="Jumlah1" type="xs:double" />
+              <xs:element name="Subtotal1" msdata:Caption="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal1" msprop:Generator_ColumnPropNameInRow="Subtotal1" msprop:Generator_ColumnPropNameInTable="Subtotal1Column" msprop:Generator_UserColumnName="Subtotal1" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

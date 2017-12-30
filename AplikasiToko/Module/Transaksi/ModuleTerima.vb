@@ -20,7 +20,7 @@ Module ModuleTerima
         End Try
     End Sub
 
-    Sub insertDTerima(nota As String, idbarang As String, namabarang As String, satuan As String, jumlah As String)
+    Sub insertDTerima(nota As String, idbarang As String, namabarang As String, satuan As String, jumlah As Double)
         Try
             constring.Open()
             cmd = New SqlCommand("insert into DTerima Values(@a,@b,@c,@d,@e)", constring)

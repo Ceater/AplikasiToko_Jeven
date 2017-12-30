@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Module ModuleBarang
     Dim cmd As SqlCommand
     Function getKodeSatuan(ByVal s As String)
-        Dim x As Integer = 0
+        Dim x As Double = 0
         constring.Open()
         cmd = New SqlCommand("Select KodeSatuan from TbSatuan where NamaSatuan=@ns", constring)
         With cmd.Parameters
@@ -15,7 +15,7 @@ Module ModuleBarang
         Return x
     End Function
 
-    Sub insertBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal Stok As Integer, ByVal KDSatuan As String, ByVal HNormal As Integer, ByVal HToko As Integer, ByVal HSales As Integer, ByVal Spengingat As Integer)
+    Sub insertBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal Stok As Double, ByVal KDSatuan As String, ByVal HNormal As Double, ByVal HToko As Double, ByVal HSales As Double, ByVal Spengingat As Double)
         Try
             constring.Open()
             cmd = New SqlCommand("insert into TbBarang values(@aa,@ab,@ac,@ad,@ae,@af,@ag,@ah)", constring)
@@ -39,7 +39,7 @@ Module ModuleBarang
         End Try
     End Sub
 
-    Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal KDSatuan As String, ByVal HNormal As Integer, ByVal HToko As Integer, ByVal HSales As Integer, ByVal Spengingat As Integer)
+    Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal KDSatuan As String, ByVal HNormal As Double, ByVal HToko As Double, ByVal HSales As Double, ByVal Spengingat As Double)
         constring.Open()
         cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8 where KodeBarang=@a1", constring)
         With cmd.Parameters
@@ -67,7 +67,7 @@ Module ModuleBarang
         constring.Close()
     End Sub
 
-    Sub updateStok(stok As Integer, KDBarang As String)
+    Sub updateStok(stok As Double, KDBarang As String)
         Try
             constring.Open()
             cmd = New SqlCommand("update TbBarang set stok=stok+@a where KodeBarang=@b", constring)
