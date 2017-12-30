@@ -33,6 +33,8 @@ Partial Class Pelanggan
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -57,6 +59,8 @@ Partial Class Pelanggan
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.RadioButton2)
+        Me.GroupBox1.Controls.Add(Me.RadioButton1)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
@@ -75,27 +79,27 @@ Partial Class Pelanggan
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(553, 101)
+        Me.Button3.Location = New System.Drawing.Point(553, 111)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 50)
+        Me.Button3.Size = New System.Drawing.Size(100, 40)
         Me.Button3.TabIndex = 5
         Me.Button3.Text = "Reset"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(553, 48)
+        Me.Button2.Location = New System.Drawing.Point(553, 70)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 50)
+        Me.Button2.Size = New System.Drawing.Size(100, 40)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "Hapus"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(341, 48)
+        Me.Button1.Location = New System.Drawing.Point(341, 70)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(206, 103)
+        Me.Button1.Size = New System.Drawing.Size(200, 80)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "Tambah"
         Me.Button1.UseVisualStyleBackColor = True
@@ -149,6 +153,28 @@ Partial Class Pelanggan
         Me.TextBox1.Size = New System.Drawing.Size(212, 20)
         Me.TextBox1.TabIndex = 0
         '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Location = New System.Drawing.Point(390, 45)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(50, 17)
+        Me.RadioButton1.TabIndex = 6
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Toko"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(446, 45)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(51, 17)
+        Me.RadioButton2.TabIndex = 6
+        Me.RadioButton2.Text = "Sales"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
         'Pelanggan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -180,4 +206,6 @@ Partial Class Pelanggan
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
 End Class

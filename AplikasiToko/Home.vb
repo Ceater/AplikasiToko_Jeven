@@ -230,7 +230,7 @@
     End Sub
 
     Private Sub UpdateVersiToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateVersiToolStripMenuItem.Click
-        Dim f As New UpdateVersi("1.1.1")
+        Dim f As New UpdateVersi(ToolStripStatusLabel7.Text.Substring(6))
         f.MdiParent = Me
         f.Show()
     End Sub

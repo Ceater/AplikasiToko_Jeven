@@ -30,9 +30,12 @@ Public Class Penjualan
         ComboBox1.DataSource = DSet.Tables("DataBarang")
         ComboBox1.ValueMember = "NamaBarang"
         ComboBox1.DisplayMember = "KodeBarang"
-        ComboBox2.DataSource = DSet.Tables("DataPelanggan")
+        ComboBox2.DataSource = DSet.Tables("DataPelangganToko")
         ComboBox2.ValueMember = "NamaPelanggan"
         ComboBox2.DisplayMember = "NamaPelanggan"
+        ComboBox3.DataSource = DSet.Tables("DataPelangganSales")
+        ComboBox3.ValueMember = "NamaPelanggan"
+        ComboBox3.DisplayMember = "NamaPelanggan"
     End Sub
 
     Private Sub ComboBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles ComboBox1.KeyUp
@@ -48,15 +51,15 @@ Public Class Penjualan
     Private Sub Radio_CheckedChanged(sender As Object, e As EventArgs) Handles R1.CheckedChanged, R2.CheckedChanged, R3.CheckedChanged
         If R1.Checked Then
             ComboBox2.Enabled = False
-            TextBox2.Enabled = False
+            ComboBox3.Enabled = False
             PilihanHarga = 4
         ElseIf R2.Checked Then
             ComboBox2.Enabled = True
-            TextBox2.Enabled = False
+            ComboBox3.Enabled = False
             PilihanHarga = 5
         ElseIf R3.Checked Then
             ComboBox2.Enabled = False
-            TextBox2.Enabled = True
+            ComboBox3.Enabled = True
             PilihanHarga = 6
         End If
         clear()
@@ -190,9 +193,9 @@ Public Class Penjualan
             If R1.Checked Then
                 temp = "Tamu"
             ElseIf R2.Checked Then
-                temp = ComboBox2.SelectedValue
+                temp = ComboBox2.Text
             ElseIf R3.Checked Then
-                temp = TextBox2.Text
+                temp = ComboBox3.Text
             End If
             Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then

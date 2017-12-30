@@ -58,7 +58,6 @@ Partial Class Penjualan
         Me.R1 = New System.Windows.Forms.RadioButton()
         Me.R2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.R3 = New System.Windows.Forms.RadioButton()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -66,6 +65,7 @@ Partial Class Penjualan
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.JmlBarang = New System.Windows.Forms.TextBox()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -421,7 +421,7 @@ Partial Class Penjualan
         'R2
         '
         Me.R2.AutoSize = True
-        Me.R2.Location = New System.Drawing.Point(6, 45)
+        Me.R2.Location = New System.Drawing.Point(6, 46)
         Me.R2.Name = "R2"
         Me.R2.Size = New System.Drawing.Size(112, 17)
         Me.R2.TabIndex = 7
@@ -430,8 +430,8 @@ Partial Class Penjualan
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.TextBox2)
         Me.GroupBox5.Controls.Add(Me.R3)
+        Me.GroupBox5.Controls.Add(Me.ComboBox3)
         Me.GroupBox5.Controls.Add(Me.ComboBox2)
         Me.GroupBox5.Controls.Add(Me.R1)
         Me.GroupBox5.Controls.Add(Me.R2)
@@ -442,17 +442,10 @@ Partial Class Penjualan
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Data Pembeli"
         '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(124, 72)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(188, 20)
-        Me.TextBox2.TabIndex = 10
-        '
         'R3
         '
         Me.R3.AutoSize = True
-        Me.R3.Location = New System.Drawing.Point(6, 68)
+        Me.R3.Location = New System.Drawing.Point(6, 73)
         Me.R3.Name = "R3"
         Me.R3.Size = New System.Drawing.Size(51, 17)
         Me.R3.TabIndex = 9
@@ -462,7 +455,8 @@ Partial Class Penjualan
         '
         'ComboBox2
         '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.ComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBox2.Enabled = False
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(124, 45)
@@ -518,6 +512,17 @@ Partial Class Penjualan
         Me.JmlBarang.Size = New System.Drawing.Size(100, 20)
         Me.JmlBarang.TabIndex = 4
         Me.JmlBarang.Text = "0"
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBox3.Enabled = False
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(124, 72)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(188, 21)
+        Me.ComboBox3.TabIndex = 8
         '
         'Penjualan
         '
@@ -598,11 +603,11 @@ Partial Class Penjualan
     Friend WithEvents R2 As RadioButton
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents R3 As RadioButton
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents Label17 As Label
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents CheckBox3 As CheckBox
     Friend WithEvents JmlBarang As TextBox
+    Friend WithEvents ComboBox3 As ComboBox
 End Class

@@ -10,7 +10,7 @@ Module ModulePembayaran
             cmd = New SqlCommand("select T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, H.GrandTotal - sum(T.UangBayar) as Kekurangan from HJual H, TbPembayaran T where H.NoNotaJual = T.NoNotaJual group by T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal HAVING  (H.GrandTotal - sum(T.UangBayar)) <> 0", constring)
             Dim reader As SqlDataReader = cmd.ExecuteReader
             While reader.Read
-                x.Add(reader.GetValue(0) & "-" & reader.GetValue(1) & "-" & reader.GetValue(2) & "-" & reader.GetValue(3) & "-" & reader.GetValue(4))
+                x.Add(reader.GetValue(0) & "---" & reader.GetValue(1) & "---" & reader.GetValue(2) & "---" & reader.GetValue(3) & "---" & reader.GetValue(4))
             End While
             constring.Close()
         Catch ex As Exception

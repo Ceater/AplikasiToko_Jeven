@@ -22,7 +22,7 @@
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         Try
-            Dim temp() As String = Split(loadTagihan.Item(sender.selectedindex), "-")
+            Dim temp() As String = Split(loadTagihan.Item(sender.selectedindex), "---")
             lblArr(0).Text = temp(0)
             lblArr(1).Text = temp(2)
             lblArr(2).Text = FormatCurrency(temp(3))

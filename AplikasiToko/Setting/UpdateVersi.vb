@@ -47,6 +47,24 @@ Public Class UpdateVersi
             Else
                 MsgBox("Data Sudah Paling Baru")
             End If
+        ElseIf VSekarang = "1.1.2" Then
+            constring.Open()
+            cmd = New SqlCommand("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE table_catalog = 'DatabaseToko' AND table_name = 'TbPelanggan'", constring)
+            Dim reader As Integer = cmd.ExecuteScalar
+            If reader = 5 Then
+                bool = True
+            End If
+            constring.Close()
+
+            If bool = False Then
+                constring.Open()
+                cmd = New SqlCommand("ALTER TABLE dbo.TbPelanggan ADD TipePelanggan VARCHAR(255) NULL;", constring)
+                cmd.ExecuteNonQuery()
+                constring.Close()
+                MsgBox("Pembaharuan Versi Berhasil")
+            Else
+                MsgBox("Data Sudah Paling Baru")
+            End If
         End If
     End Sub
 End Class
