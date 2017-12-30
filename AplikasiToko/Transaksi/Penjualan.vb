@@ -37,22 +37,94 @@ Public Class Penjualan
 
     Private Sub ComboBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles ComboBox1.KeyUp
         If e.KeyCode = Keys.Enter Then
-            NumericUpDown1.Focus()
+            JmlBarang.Focus()
         End If
     End Sub
 
-    Private Sub NumericUpDown1_KeyUp(sender As Object, e As KeyEventArgs) Handles NumericUpDown1.KeyUp
+    Private Sub CheckedChanged(sender As Object, e As EventArgs) Handles CashRB.CheckedChanged, KreditRB.CheckedChanged
+        cekTotal()
+    End Sub
+
+    Private Sub Radio_CheckedChanged(sender As Object, e As EventArgs) Handles R1.CheckedChanged, R2.CheckedChanged, R3.CheckedChanged
+        If R1.Checked Then
+            ComboBox2.Enabled = False
+            TextBox2.Enabled = False
+            PilihanHarga = 4
+        ElseIf R2.Checked Then
+            ComboBox2.Enabled = True
+            TextBox2.Enabled = False
+            PilihanHarga = 5
+        ElseIf R3.Checked Then
+            ComboBox2.Enabled = False
+            TextBox2.Enabled = True
+            PilihanHarga = 6
+        End If
+        clear()
+    End Sub
+
+
+    'dgv
+    Private Sub dgv_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgv.RowsRemoved
+        cekTotal()
+    End Sub
+
+    Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
+        Dim sat As Double = CDbl(Val(dgv.Rows(e.RowIndex).Cells(4).Value))
+        Dim tot As Double = dgv.Rows(e.RowIndex).Cells(3).Value * sat
+        Dim disc As Double = dgv.Rows(e.RowIndex).Cells(5).Value
+        disc = disc * sat
+        If disc = 0 Then
+            dgv.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot))
+        Else
+            dgv.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot - disc))
+        End If
+        cekTotal()
+    End Sub
+
+    Private Sub dgv_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgv.EditingControlShowing
+        If (dgv.CurrentCell.ColumnIndex = 4 Or dgv.CurrentCell.ColumnIndex = 5) Then 'put columnindextovalidate
+            RemoveHandler e.Control.KeyPress, AddressOf ValidateKeyPress
+            AddHandler e.Control.KeyPress, AddressOf ValidateKeyPress
+        End If
+    End Sub
+
+    Private Sub ValidateKeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        DRow = DTable.Rows(dgv.CurrentCell.RowIndex)
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Asc(e.KeyChar) <> 45 AndAlso Asc(e.KeyChar) <> 46 AndAlso Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub dgv_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles dgv.UserDeletedRow
+        cekTotal()
+    End Sub
+
+
+    'JmlBarang
+    Private Sub JmlBarang_KeyDown(sender As Object, e As KeyEventArgs) Handles JmlBarang.KeyDown
+        If e.KeyCode >= 48 And e.KeyCode <= 57 Or e.KeyCode >= 96 And e.KeyCode <= 105 Or e.KeyCode = 8 Or e.KeyCode = 46 Or e.KeyCode <> 45 Or e.KeyCode <> 46 Then
+        Else
+            e.SuppressKeyPress = True
+        End If
+    End Sub
+
+    Private Sub JmlBarang_KeyUp(sender As Object, e As KeyEventArgs) Handles JmlBarang.KeyUp
+        If sender.text = "" Then
+            sender.text = "0"
+        End If
+
         If e.KeyCode = Keys.Enter Then
+            Dim JumlahBarang As Double = CDbl(Val(JmlBarang.Text))
             Try
                 KodeBarang = ComboBox1.Text
                 Dim addorappend As Boolean = True 'Digunakan untuk menentukan apakah tambah baru atau tambah jumlah
-                If DataGridView1.RowCount = 0 Then
+                If dgv.RowCount = 0 Then
                     addorappend = True
                 Else
                     addorappend = True
-                    For Each f In DataGridView1.Rows
+                    For Each f In dgv.Rows
                         If f.cells(0).value = KodeBarang Then
-                            f.Cells(4).Value += NumericUpDown1.Value
+                            f.Cells(4).Value += JumlahBarang
                             addorappend = False
                         End If
                     Next
@@ -63,81 +135,34 @@ Public Class Penjualan
                     DRow("Nama Barang") = ComboBox1.SelectedValue
                     DRow("Satuan") = DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(3).ToString
                     DRow("Harga Satuan") = FormatCurrency(DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(PilihanHarga).ToString)
-                    DRow("Jumlah") = NumericUpDown1.Value
+                    DRow("Jumlah") = JumlahBarang
                     DRow("Diskon") = 0
-                    DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan") * NumericUpDown1.Value)
+                    DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan") * JumlahBarang)
                     DTable.Rows.Add(DRow)
                 End If
                 cekTotal()
             Catch ex As Exception
                 MsgBox("Kode barang tidak ditemukan")
-                DataGridView1.Focus()
+                dgv.Focus()
             End Try
             ComboBox1.Focus()
         End If
     End Sub
 
-    Private Sub NumericUpDown1_Enter(sender As Object, e As EventArgs) Handles NumericUpDown1.Enter
-        NumericUpDown1.Select(0, NumericUpDown1.Text.Length)
+    Private Sub JmlBarang_Enter(sender As Object, e As EventArgs) Handles JmlBarang.Enter
+        JmlBarang.Select(0, JmlBarang.Text.Length)
     End Sub
 
-    Private Sub DataGridView1_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles DataGridView1.EditingControlShowing
-        If (DataGridView1.CurrentCell.ColumnIndex = 4 Or DataGridView1.CurrentCell.ColumnIndex = 5) Then 'put columnindextovalidate
-            RemoveHandler e.Control.KeyPress, AddressOf ValidateKeyPress
-            AddHandler e.Control.KeyPress, AddressOf ValidateKeyPress
-        End If
-    End Sub
 
-    Private Sub ValidateKeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
-        DRow = DTable.Rows(DataGridView1.CurrentCell.RowIndex)
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Asc(e.KeyChar) <> 45 AndAlso Asc(e.KeyChar) <> 46 AndAlso Not IsNumeric(e.KeyChar) Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
-        Dim sat As Double = CDbl(Val(DataGridView1.Rows(e.RowIndex).Cells(4).Value))
-        Dim tot As Double = DataGridView1.Rows(e.RowIndex).Cells(3).Value * sat
-        Dim disc As Double = DataGridView1.Rows(e.RowIndex).Cells(5).Value
-        disc = disc * sat
-        If disc = 0 Then
-            DataGridView1.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot))
-        Else
-            DataGridView1.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot - disc))
-        End If
-        cekTotal()
-    End Sub
-
-    Private Sub Batal(sender As Object, e As EventArgs) Handles Batal_btn.Click
-        Dim result As Integer = MessageBox.Show("Anda ingin mengosongkan daftar barang?", "Peringatan", MessageBoxButtons.YesNo)
-        If result = DialogResult.Yes Then
-            DTable.Clear()
-            GTotal = 0
-            TotBarang = 0
-            TotJumBarang = 0
-            pembayarantxt1.Text = 0
-            grandtotaltxt1.Text = 0
-            grandtotaltxt2.Text = 0
-        ElseIf result = DialogResult.No Then
-        End If
-    End Sub
-
-    Private Sub DataGridView1_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles DataGridView1.UserDeletedRow
-        cekTotal()
-    End Sub
-
-    Private Sub CheckedChanged(sender As Object, e As EventArgs) Handles CashRB.CheckedChanged, KreditRB.CheckedChanged
-        cekTotal()
-    End Sub
-
-    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
+    'JmlBayar
+    Private Sub JmlBayar_KeyDown(sender As Object, e As KeyEventArgs) Handles JmlBayar.KeyDown
         If e.KeyCode >= 48 And e.KeyCode <= 57 Or e.KeyCode >= 96 And e.KeyCode <= 105 Or e.KeyCode = 8 Or e.KeyCode = 46 Then
         Else
             e.SuppressKeyPress = True
         End If
     End Sub
 
-    Private Sub TextBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyUp
+    Private Sub JmlBayar_KeyUp(sender As Object, e As KeyEventArgs) Handles JmlBayar.KeyUp
         If sender.text = "" Then
             sender.text = "0"
             cekTotal()
@@ -152,19 +177,21 @@ Public Class Penjualan
         sender.select(sender.text.length, 0)
     End Sub
 
+
+    'ButtonEvent
     Private Sub Proses_btn_Click(sender As Object, e As EventArgs) Handles Proses_btn.Click
         Dim printPreview As Boolean = False
         If CheckBox3.Checked Then
             printPreview = True
         End If
-        If NotaTxt.Text <> "" And DataGridView1.RowCount <> 0 Then
+        If NotaTxt.Text <> "" And dgv.RowCount <> 0 Then
             Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
             Dim temp As String = ""
-            If RadioButton1.Checked Then
+            If R1.Checked Then
                 temp = "Tamu"
-            ElseIf RadioButton2.Checked Then
+            ElseIf R2.Checked Then
                 temp = ComboBox2.SelectedValue
-            ElseIf RadioButton3.Checked Then
+            ElseIf R3.Checked Then
                 temp = TextBox2.Text
             End If
             Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
@@ -194,7 +221,7 @@ Public Class Penjualan
                         End If
                     End If
                     insertHJual(NotaTxt.Text, tgl, GTotal, temp, staff)
-                    For Each f In DataGridView1.Rows
+                    For Each f In dgv.Rows
                         insertDJual(NotaTxt.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, f.Cells(4).Value, f.Cells(5).Value, f.Cells(6).Value)
                         updateStok(-f.Cells(4).Value, f.Cells(0).Value)
                     Next
@@ -244,26 +271,20 @@ Public Class Penjualan
         End If
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged, RadioButton2.CheckedChanged, RadioButton3.CheckedChanged
-        If RadioButton1.Checked Then
-            ComboBox2.Enabled = False
-            TextBox2.Enabled = False
-            PilihanHarga = 4
-        ElseIf RadioButton2.Checked Then
-            ComboBox2.Enabled = True
-            TextBox2.Enabled = False
-            PilihanHarga = 5
-        ElseIf RadioButton3.Checked Then
-            ComboBox2.Enabled = False
-            TextBox2.Enabled = True
-            PilihanHarga = 6
+    Private Sub Batal(sender As Object, e As EventArgs) Handles Batal_btn.Click
+        Dim result As Integer = MessageBox.Show("Anda ingin mengosongkan daftar barang?", "Peringatan", MessageBoxButtons.YesNo)
+        If result = DialogResult.Yes Then
+            DTable.Clear()
+            GTotal = 0
+            TotBarang = 0
+            TotJumBarang = 0
+            pembayarantxt1.Text = 0
+            grandtotaltxt1.Text = 0
+            grandtotaltxt2.Text = 0
+        ElseIf result = DialogResult.No Then
         End If
-        clear()
     End Sub
 
-    Private Sub DataGridView1_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles DataGridView1.RowsRemoved
-        cekTotal()
-    End Sub
 
     'Procedure and Function
     Sub setGV()
@@ -274,20 +295,20 @@ Public Class Penjualan
         DTable.Columns.Add("Jumlah")
         DTable.Columns.Add("Diskon")
         DTable.Columns.Add("Sub Total")
-        DataGridView1.DataSource = DTable
-        Dim temp As Double = DataGridView1.Size.Width
-        DataGridView1.Columns(0).Width = temp * 0.15
-        DataGridView1.Columns(1).Width = temp * 0.245
-        DataGridView1.Columns(2).Width = temp * 0.1
-        DataGridView1.Columns(3).Width = temp * 0.15
-        DataGridView1.Columns(4).Width = temp * 0.12 - 41
-        DataGridView1.Columns(5).Width = temp * 0.1
-        DataGridView1.Columns(6).Width = temp * 0.13
-        DataGridView1.Columns(0).ReadOnly = True
-        DataGridView1.Columns(1).ReadOnly = True
-        DataGridView1.Columns(2).ReadOnly = True
-        DataGridView1.Columns(3).ReadOnly = True
-        DataGridView1.Columns(6).ReadOnly = True
+        dgv.DataSource = DTable
+        Dim temp As Double = dgv.Size.Width
+        dgv.Columns(0).Width = temp * 0.15
+        dgv.Columns(1).Width = temp * 0.245
+        dgv.Columns(2).Width = temp * 0.1
+        dgv.Columns(3).Width = temp * 0.15
+        dgv.Columns(4).Width = temp * 0.12 - 41
+        dgv.Columns(5).Width = temp * 0.1
+        dgv.Columns(6).Width = temp * 0.13
+        dgv.Columns(0).ReadOnly = True
+        dgv.Columns(1).ReadOnly = True
+        dgv.Columns(2).ReadOnly = True
+        dgv.Columns(3).ReadOnly = True
+        dgv.Columns(6).ReadOnly = True
     End Sub
 
     Sub cekTotal()
@@ -296,7 +317,7 @@ Public Class Penjualan
             TotJumBarang = 0
             GTotal = 0
             Pembayaran = 0
-            For Each f In DataGridView1.Rows
+            For Each f In dgv.Rows
                 TotBarang += 1
                 TotJumBarang += f.Cells(4).Value
                 GTotal += f.Cells(6).Value
@@ -304,7 +325,7 @@ Public Class Penjualan
             If CashRB.Checked Then
                 Pembayaran = GTotal
             ElseIf KreditRB.Checked Then
-                Pembayaran = TextBox1.Text
+                Pembayaran = JmlBayar.Text
             End If
             pembayarantxt1.Text = FormatCurrency(Pembayaran)
             grandtotaltxt1.Text = FormatCurrency(GTotal)
@@ -335,7 +356,7 @@ Public Class Penjualan
         Try
             DTable.Clear()
             CashRB.Checked = True
-            TextBox1.Text = "0"
+            JmlBayar.Text = "0"
             NotaTxt.Text = getNotaJual()
             ComboBox1.SelectedIndex = 0
         Catch ex As Exception
