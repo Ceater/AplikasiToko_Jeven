@@ -406,16 +406,16 @@
     <Compile Include="Transaksi\Pembelian.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\Penjualan.Designer.vb">
+    <Compile Include="Transaksi\Penjualan\Penjualan.Designer.vb">
       <DependentUpon>Penjualan.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\Penjualan.vb">
+    <Compile Include="Transaksi\Penjualan\Penjualan.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\PenerimaanTambahBarang.Designer.vb">
+    <Compile Include="Transaksi\TerimaBarang\PenerimaanTambahBarang.Designer.vb">
       <DependentUpon>PenerimaanTambahBarang.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\PenerimaanTambahBarang.vb">
+    <Compile Include="Transaksi\TerimaBarang\PenerimaanTambahBarang.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaksi\PrintUlangNota.Designer.vb">
@@ -424,22 +424,22 @@
     <Compile Include="Transaksi\PrintUlangNota.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\ReturJual.Designer.vb">
+    <Compile Include="Transaksi\Retur Jual\ReturJual.Designer.vb">
       <DependentUpon>ReturJual.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\ReturJual.vb">
+    <Compile Include="Transaksi\Retur Jual\ReturJual.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\ReturJualCariNota.Designer.vb">
+    <Compile Include="Transaksi\Retur Jual\ReturJualCariNota.Designer.vb">
       <DependentUpon>ReturJualCariNota.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\ReturJualCariNota.vb">
+    <Compile Include="Transaksi\Retur Jual\ReturJualCariNota.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\ReturTerima.Designer.vb">
+    <Compile Include="Transaksi\Retur Terima\ReturTerima.Designer.vb">
       <DependentUpon>ReturTerima.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\ReturTerima.vb">
+    <Compile Include="Transaksi\Retur Terima\ReturTerima.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaksi\StokOpname.Designer.vb">
@@ -448,16 +448,16 @@
     <Compile Include="Transaksi\StokOpname.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\InfoSuratJalanLuarKota.Designer.vb">
+    <Compile Include="Transaksi\Penjualan\InfoSuratJalanLuarKota.Designer.vb">
       <DependentUpon>InfoSuratJalanLuarKota.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\InfoSuratJalanLuarKota.vb">
+    <Compile Include="Transaksi\Penjualan\InfoSuratJalanLuarKota.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\TerimaBarang.Designer.vb">
+    <Compile Include="Transaksi\TerimaBarang\TerimaBarang.Designer.vb">
       <DependentUpon>TerimaBarang.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\TerimaBarang.vb">
+    <Compile Include="Transaksi\TerimaBarang\TerimaBarang.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -587,31 +587,31 @@
     <EmbeddedResource Include="Transaksi\Pembelian.resx">
       <DependentUpon>Pembelian.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\Penjualan.resx">
+    <EmbeddedResource Include="Transaksi\Penjualan\Penjualan.resx">
       <DependentUpon>Penjualan.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\PenerimaanTambahBarang.resx">
+    <EmbeddedResource Include="Transaksi\TerimaBarang\PenerimaanTambahBarang.resx">
       <DependentUpon>PenerimaanTambahBarang.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\PrintUlangNota.resx">
       <DependentUpon>PrintUlangNota.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\ReturJual.resx">
+    <EmbeddedResource Include="Transaksi\Retur Jual\ReturJual.resx">
       <DependentUpon>ReturJual.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\ReturJualCariNota.resx">
+    <EmbeddedResource Include="Transaksi\Retur Jual\ReturJualCariNota.resx">
       <DependentUpon>ReturJualCariNota.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\ReturTerima.resx">
+    <EmbeddedResource Include="Transaksi\Retur Terima\ReturTerima.resx">
       <DependentUpon>ReturTerima.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaksi\StokOpname.resx">
       <DependentUpon>StokOpname.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\InfoSuratJalanLuarKota.resx">
+    <EmbeddedResource Include="Transaksi\Penjualan\InfoSuratJalanLuarKota.resx">
       <DependentUpon>InfoSuratJalanLuarKota.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\TerimaBarang.resx">
+    <EmbeddedResource Include="Transaksi\TerimaBarang\TerimaBarang.resx">
       <DependentUpon>TerimaBarang.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
