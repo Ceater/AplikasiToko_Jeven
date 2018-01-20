@@ -7,7 +7,7 @@
 
     Private Sub Form_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Try
-            ComboBox1.DataSource = DSet.Tables("DataNotaPenjualan")
+            ComboBox1.DataSource = DSet.Tables("ReturJualDataNotaJual")
             ComboBox1.ValueMember = "NoNotaJual"
             ComboBox1.SelectedIndex = 1
             ComboBox1.SelectedIndex = 0

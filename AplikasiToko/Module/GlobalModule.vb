@@ -53,6 +53,8 @@ Module GlobalModule
             SqlAdapter.Fill(DSet, "DataPembelian")
             SqlAdapter = New SqlDataAdapter("select NoNotaJual, NamaPelanggan  from HJual except select HJ.NoNotaJual, HJ.NamaPelanggan from HJual HJ, HReturJual HTJ where HJ.NoNotaJual = HTJ.NoNotaJual", constring)
             SqlAdapter.Fill(DSet, "DataNotaSiapReturJual")
+            SqlAdapter = New SqlDataAdapter(qstring2, constring)
+            SqlAdapter.Fill(DSet, "ReturJualDataNotaJual")
             constring.Close()
         Catch ex As Exception
             MsgBox(ex.ToString)

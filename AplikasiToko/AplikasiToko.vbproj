@@ -326,6 +326,7 @@
     <Compile Include="Module\Master\ModulePelanggan.vb" />
     <Compile Include="Module\Master\ModuleStaff.vb" />
     <Compile Include="Module\Master\ModuleSupplier.vb" />
+    <Compile Include="Module\QueryModule.vb" />
     <Compile Include="Module\Transaksi\ModulePembayaran.vb" />
     <Compile Include="Module\Transaksi\ModuleReturBeli.vb" />
     <Compile Include="Module\Transaksi\ModuleReturJual.vb" />

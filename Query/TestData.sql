@@ -130,6 +130,11 @@ insert into DTerima Values('T00008', 'RO003', 'Rokok UMild', 'Bungkus', 10)
 update TbBarang set stok=stok+10 where KodeBarang='PE001'
 update TbBarang set stok=stok+10 where KodeBarang='SA001'
 update TbBarang set stok=stok+10 where KodeBarang='RO003'
+insert into HTerima values('T00009','6/9/2017','admin')
+insert into DTerima Values('T00009', 'AQ003', 'Aqua 1.5L', 'Botol', 30)
+insert into DTerima Values('T00009', 'GE002', 'Gery Chocolatos', 'Dus', 30)
+update TbBarang set stok=stok+30 where KodeBarang='AQ003'
+update TbBarang set stok=stok+30 where KodeBarang='GE002'
 /****** ======================================================================================== ******/
 insert into HPembelian values(1, 'T00001', 1125000)
 insert into DPembelian values(1, 'PE001', 'Pepsodent Kecil', 'Buah', 5000, 75, 375000)
@@ -141,6 +146,9 @@ insert into DPembelian values(2, 'SA002', 'Sabun Lux', 'Batang', 3700, 100, 3700
 insert into HPembelian values(3, 'T00005', 850000)
 insert into DPembelian values(3, 'TE001', 'Teh Pucuk Harum', 'Botol', 2000, 100, 200000)
 insert into DPembelian values(3, 'YO001', 'You C 1000', 'Botol', 6500, 100, 650000)
+insert into HPembelian values(4, 'T00009', 850000)
+insert into DPembelian values(4, 'AQ003', 'Aqua 1.5L', 'Botol', 2000, 30, 60000)
+insert into DPembelian values(4, 'GE002', 'Gery Chocolatos', 'Dus', 6500, 30, 195000)
 /****** ======================================================================================== ******/
 insert into HReturTerima values('RT00002','T00007','6/25/2017','admin')
 insert into DReturTerima values('RT00002','PE001','Pepsodent Kecil', 'Buah', 50)
@@ -181,9 +189,30 @@ insert into DJUal Values('J00005', 'RO002', 'Rokok Surya', 'Dus', 13000, 1, 0, 1
 insert into TbPembayaran Values('J00005', '6/14/2017', 25000)
 update TbBarang set stok=stok-2 where KodeBarang='RO001'
 update TbBarang set stok=stok-1 where KodeBarang='RO002'
+insert into HJual Values('J00006', '6/30/2017', 425000, 'Toko Jewel', 'admin')
+insert into DJUal Values('J00006', 'AQ003', 'Aqua 1.5L', 'Botol', 5000, 25, 0, 125000)
+insert into DJUal Values('J00006', 'GE002', 'Gery Chocolatos', 'Dus', 10000, 30, 0, 300000)
+insert into TbPembayaran Values('J00006', '6/30/2017', 400000)
+update TbBarang set stok=stok-25 where KodeBarang='AQ003'
+update TbBarang set stok=stok-30 where KodeBarang='GE002'
+insert into HJual Values('J00007', '7/5/2017', 15000, 'Toko Murry', 'Johan')
+insert into DJUal Values('J00007', 'PE001', 'Pepsodent Kecil', 'Buah', 2500, 2, 0, 5000)
+insert into DJUal Values('J00007', 'GE002', 'Gery Chocolatos', 'Dus', 10000, 1, 0, 10000)
+update TbBarang set stok=stok-2 where KodeBarang='PE001'
+update TbBarang set stok=stok-1 where KodeBarang='GE002'
 /****** ======================================================================================== ******/
 insert into HReturJual values('RJ00001','J00005','6/15/2017','admin')
 insert into DReturJual values('RJ00001','RO001', 'Rokok Inter', 'Bungkus', 13000, 2, 0, 26000)
 update TbBarang set stok=stok+2 where KodeBarang='RO001'
+insert into HReturJual values('RJ00002','J00006','6/30/2017','admin')
+insert into DReturJual values('RJ00002','AQ003', 'Aqua 1.5L', 'Botol', 5000, 25, 0, 125000)
+insert into DReturJual values('RJ00002','GE002', 'Gery Chocolatos', 'Dus', 10000, 25, 0, 250000)
+update TbBarang set stok=stok+25 where KodeBarang='AQ003'
+update TbBarang set stok=stok+25 where KodeBarang='GE002'
+insert into HReturJual values('RJ00003','J00007','7/16/2017','admin')
+insert into DReturJual values('RJ00003','PE001', 'Pepsodent Kecil', 'Buah', 2500, 2, 0, 5000)
+insert into DReturJual values('RJ00003','GE002', 'Gery Chocolatos', 'Dus', 10000, 1, 0, 10000)
+update TbBarang set stok=stok+2 where KodeBarang='PE001'
+update TbBarang set stok=stok+1 where KodeBarang='GE002'
 /****** ======================================================================================== ******/
 insert into TbLabaRugi values(100000, '11/01/2017')

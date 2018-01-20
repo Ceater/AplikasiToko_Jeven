@@ -22,7 +22,7 @@ Public Class ReturJualCariNota
 
     Sub createDSet()
         constring.Open()
-        SqlAdapter = New SqlDataAdapter("select NoNotaJual, NamaPelanggan  from HJual except select HJ.NoNotaJual, HJ.NamaPelanggan from HJual HJ, HReturJual HTJ where HJ.NoNotaJual = HTJ.NoNotaJual", constring)
+        SqlAdapter = New SqlDataAdapter("select HJ.NoNotaJual, NamaPelanggan from HJual HJ, DJual DJ where HJ.NoNotaJual=DJ.NoNotaJual EXCEPT select HJ.NoNotaJual, DJ.IDBarang from HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.Jumlah-DRJ.Jumlah = 0", constring)
         SqlAdapter.Fill(Dset, "DataNotaSiapReturJual")
         constring.Close()
     End Sub

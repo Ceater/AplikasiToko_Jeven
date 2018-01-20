@@ -20,6 +20,8 @@ Bug Fix
 Bug Found
 -> Retur jual, masih menampilkan data yang sudah di retur
 -> Error ketika melakukan proses retur jual constring loaddataset tidak slalu terbuka, padahal sudah tertutup.
+-> Orang Belum Bayar Tapi Barang Mau Di Retur, Nanti error dipembayaran karena uang akan berkurang pada saaat retur tapi tidak nambah pada saat pembayaran.
+-> Error yang sama apakah muncula di retur beli?
 
 New Feature
 -> Pencetakan Nota diberikan opsi untuk cetak atau tidak -> Done 1.1
