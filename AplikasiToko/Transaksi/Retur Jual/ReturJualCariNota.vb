@@ -22,7 +22,7 @@ Public Class ReturJualCariNota
 
     Sub createDSet()
         constring.Open()
-        SqlAdapter = New SqlDataAdapter("select HJ.NoNotaJual, NamaPelanggan from HJual HJ, DJual DJ where HJ.NoNotaJual=DJ.NoNotaJual EXCEPT select HJ.NoNotaJual, DJ.IDBarang from HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.Jumlah-DRJ.Jumlah = 0", constring)
+        SqlAdapter = New SqlDataAdapter(qstring4, constring)
         SqlAdapter.Fill(Dset, "DataNotaSiapReturJual")
         constring.Close()
     End Sub
@@ -31,10 +31,10 @@ Public Class ReturJualCariNota
         constring.Open()
         Dset.Clear()
         If pil = 2 Then
-            SqlAdapter = New SqlDataAdapter("select NoNotaJual, NamaPelanggan from HJual where NoNotaJual Like '%" & keyword & "%' except select HJ.NoNotaJual, HJ.NamaPelanggan from HJual HJ, HReturJual HTJ where HJ.NoNotaJual = HTJ.NoNotaJual", constring)
+            SqlAdapter = New SqlDataAdapter("select HJx.NoNotaJual, HJx.NamaPelanggan From HJual HJx, DJual DJx Where HJx.NoNotaJual=DJx.NoNotaJual and HJx.NoNotaJual Like '%" & keyword & "%' and DJx.Jumlah <> ISNULL((select DRJ.Jumlah From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0) group by HJx.NoNotaJual, HJx.NamaPelanggan", constring)
             SqlAdapter.Fill(Dset, "DataNotaSiapReturJual")
         Else
-            SqlAdapter = New SqlDataAdapter("select NoNotaJual, NamaPelanggan from HJual where NamaPelanggan Like '%" & keyword & "%' except select HJ.NoNotaJual, HJ.NamaPelanggan from HJual HJ, HReturJual HTJ where HJ.NoNotaJual = HTJ.NoNotaJual", constring)
+            SqlAdapter = New SqlDataAdapter("select HJx.NoNotaJual, HJx.NamaPelanggan From HJual HJx, DJual DJx Where HJx.NoNotaJual=DJx.NoNotaJual and HJx.NamaPelanggan Like '%" & keyword & "%' and DJx.Jumlah <> ISNULL((select DRJ.Jumlah From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0) group by HJx.NoNotaJual, HJx.NamaPelanggan", constring)
             SqlAdapter.Fill(Dset, "DataNotaSiapReturJual")
         End If
         constring.Close()

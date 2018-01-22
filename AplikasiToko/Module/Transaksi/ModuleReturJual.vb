@@ -110,4 +110,8 @@ Module ModuleReturJual
         constring.Close()
         Return hsl
     End Function
+
+    Function getDetailPembayaran()
+
+    End Function
 End Module

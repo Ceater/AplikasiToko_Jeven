@@ -34,4 +34,20 @@ Module ModulePembayaran
         End Try
         Return temp
     End Function
+
+    Function getDetailTagihan(NomerNota As String)
+        Dim x As String = ""
+        Try
+            constring.Open()
+            cmd = New SqlCommand("select T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, sum(T.UangBayar) as 'Pembayaran Diterima', H.GrandTotal - sum(T.UangBayar) as Kekurangan from HJual H, TbPembayaran T where H.NoNotaJual = T.NoNotaJual and H.NoNotaJual = '" & NomerNota & "' group by T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal", constring)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            reader.Read()
+            x = reader.GetValue(0) & "-" & reader.GetValue(1) & "-" & reader.GetValue(2) & "-" & reader.GetValue(3) & "-" & reader.GetValue(4) & "-" & reader.GetValue(5)
+            constring.Close()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            constring.Close()
+        End Try
+        Return x
+    End Function
 End Module
