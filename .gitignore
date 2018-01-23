@@ -1,3 +1,13 @@
 .vs/AplikasiToko/v14/.suo
 .AplikasiToko/bin/Debug/
 AplikasiToko/bin/Debug/
+bin/*
+build/
+Debug/
+bin/Debug/*
+Debug/*
+AplikasiToko/
+.AplikasiToko/*
+*/Debug/
+*/bin/
+*/debug/
