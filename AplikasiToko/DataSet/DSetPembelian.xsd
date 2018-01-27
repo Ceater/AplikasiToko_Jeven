@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TestServer" IsAppSettingsProperty="true" Modifier="Assembly" Name="TestServer (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.TestServer" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TestServer" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TestServer (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AplikasiToko.My.MySettings.GlobalReference.Default.TestServer" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DPembelianTableAdapter" GeneratorDataComponentClassName="DPembelianTableAdapter" Name="DPembelian" UserDataComponentName="DPembelianTableAdapter">
@@ -139,10 +139,12 @@ SELECT NoPembelian, NoNotaTerima, GrandTotal FROM HPembelian WHERE (NoPembelian 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PembelianTableAdapter" GeneratorDataComponentClassName="PembelianTableAdapter" Name="Pembelian" UserDataComponentName="PembelianTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>select HP.NoPembelian, HP.NoNotaTerima, HP.GrandTotal, DP.IDBarang, DP.NamaBarang, DP.Satuan, DP.HargaSatuan, DP.Jumlah, DP.Subtotal from HPembelian HP, DPembelian DP where HP.NoPembelian = DP.NoPembelian</CommandText>
+                    <CommandText>SELECT        HP.NoPembelian, HP.NoNotaTerima, HP.GrandTotal, HP.TglBayar, DP.IDBarang, DP.NamaBarang, DP.Satuan, DP.HargaSatuan, DP.Jumlah, DP.Subtotal
+FROM            HPembelian AS HP INNER JOIN
+                         DPembelian AS DP ON HP.NoPembelian = DP.NoPembelian</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -151,11 +153,12 @@ SELECT NoPembelian, NoNotaTerima, GrandTotal FROM HPembelian WHERE (NoPembelian 
             <Mappings>
               <Mapping SourceColumn="NoPembelian" DataSetColumn="NoPembelian" />
               <Mapping SourceColumn="NoNotaTerima" DataSetColumn="NoNotaTerima" />
-              <Mapping SourceColumn="GrandTotal" DataSetColumn="GrandTotal" />
               <Mapping SourceColumn="IDBarang" DataSetColumn="IDBarang" />
               <Mapping SourceColumn="NamaBarang" DataSetColumn="NamaBarang" />
               <Mapping SourceColumn="Satuan" DataSetColumn="Satuan" />
               <Mapping SourceColumn="HargaSatuan" DataSetColumn="HargaSatuan" />
+              <Mapping SourceColumn="GrandTotal" DataSetColumn="GrandTotal" />
+              <Mapping SourceColumn="TglBayar" DataSetColumn="TglBayar" />
               <Mapping SourceColumn="Jumlah" DataSetColumn="Jumlah" />
               <Mapping SourceColumn="Subtotal" DataSetColumn="Subtotal" />
             </Mappings>
@@ -169,7 +172,7 @@ SELECT NoPembelian, NoNotaTerima, GrandTotal FROM HPembelian WHERE (NoPembelian 
   <xs:element name="DSetPembelian" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetPembelian" msprop:Generator_UserDSName="DSetPembelian">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DPembelian" msprop:Generator_TableClassName="DPembelianDataTable" msprop:Generator_TableVarName="tableDPembelian" msprop:Generator_RowChangedName="DPembelianRowChanged" msprop:Generator_TablePropName="DPembelian" msprop:Generator_RowDeletingName="DPembelianRowDeleting" msprop:Generator_RowChangingName="DPembelianRowChanging" msprop:Generator_RowEvHandlerName="DPembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="DPembelianRowDeleted" msprop:Generator_RowClassName="DPembelianRow" msprop:Generator_UserTableName="DPembelian" msprop:Generator_RowEvArgName="DPembelianRowChangeEvent">
+        <xs:element name="DPembelian" msprop:Generator_TableClassName="DPembelianDataTable" msprop:Generator_TableVarName="tableDPembelian" msprop:Generator_TablePropName="DPembelian" msprop:Generator_RowDeletingName="DPembelianRowDeleting" msprop:Generator_RowChangingName="DPembelianRowChanging" msprop:Generator_RowEvHandlerName="DPembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="DPembelianRowDeleted" msprop:Generator_UserTableName="DPembelian" msprop:Generator_RowChangedName="DPembelianRowChanged" msprop:Generator_RowEvArgName="DPembelianRowChangeEvent" msprop:Generator_RowClassName="DPembelianRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoDPembelian" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoDPembelian" msprop:Generator_ColumnPropNameInRow="NoDPembelian" msprop:Generator_ColumnPropNameInTable="NoDPembelianColumn" msprop:Generator_UserColumnName="NoDPembelian" type="xs:int" />
@@ -201,7 +204,7 @@ SELECT NoPembelian, NoNotaTerima, GrandTotal FROM HPembelian WHERE (NoPembelian 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HPembelian" msprop:Generator_TableClassName="HPembelianDataTable" msprop:Generator_TableVarName="tableHPembelian" msprop:Generator_RowChangedName="HPembelianRowChanged" msprop:Generator_TablePropName="HPembelian" msprop:Generator_RowDeletingName="HPembelianRowDeleting" msprop:Generator_RowChangingName="HPembelianRowChanging" msprop:Generator_RowEvHandlerName="HPembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="HPembelianRowDeleted" msprop:Generator_RowClassName="HPembelianRow" msprop:Generator_UserTableName="HPembelian" msprop:Generator_RowEvArgName="HPembelianRowChangeEvent">
+        <xs:element name="HPembelian" msprop:Generator_TableClassName="HPembelianDataTable" msprop:Generator_TableVarName="tableHPembelian" msprop:Generator_TablePropName="HPembelian" msprop:Generator_RowDeletingName="HPembelianRowDeleting" msprop:Generator_RowChangingName="HPembelianRowChanging" msprop:Generator_RowEvHandlerName="HPembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="HPembelianRowDeleted" msprop:Generator_UserTableName="HPembelian" msprop:Generator_RowChangedName="HPembelianRowChanged" msprop:Generator_RowEvArgName="HPembelianRowChangeEvent" msprop:Generator_RowClassName="HPembelianRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoPembelian" msprop:Generator_ColumnVarNameInTable="columnNoPembelian" msprop:Generator_ColumnPropNameInRow="NoPembelian" msprop:Generator_ColumnPropNameInTable="NoPembelianColumn" msprop:Generator_UserColumnName="NoPembelian" type="xs:int" />
@@ -216,7 +219,7 @@ SELECT NoPembelian, NoNotaTerima, GrandTotal FROM HPembelian WHERE (NoPembelian 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pembelian" msprop:Generator_TableClassName="PembelianDataTable" msprop:Generator_TableVarName="tablePembelian" msprop:Generator_RowChangedName="PembelianRowChanged" msprop:Generator_TablePropName="Pembelian" msprop:Generator_RowDeletingName="PembelianRowDeleting" msprop:Generator_RowChangingName="PembelianRowChanging" msprop:Generator_RowEvHandlerName="PembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="PembelianRowDeleted" msprop:Generator_RowClassName="PembelianRow" msprop:Generator_UserTableName="Pembelian" msprop:Generator_RowEvArgName="PembelianRowChangeEvent">
+        <xs:element name="Pembelian" msprop:Generator_TableClassName="PembelianDataTable" msprop:Generator_TableVarName="tablePembelian" msprop:Generator_TablePropName="Pembelian" msprop:Generator_RowDeletingName="PembelianRowDeleting" msprop:Generator_RowChangingName="PembelianRowChanging" msprop:Generator_RowEvHandlerName="PembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="PembelianRowDeleted" msprop:Generator_UserTableName="Pembelian" msprop:Generator_RowChangedName="PembelianRowChanged" msprop:Generator_RowEvArgName="PembelianRowChangeEvent" msprop:Generator_RowClassName="PembelianRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoPembelian" msprop:Generator_ColumnVarNameInTable="columnNoPembelian" msprop:Generator_ColumnPropNameInRow="NoPembelian" msprop:Generator_ColumnPropNameInTable="NoPembelianColumn" msprop:Generator_UserColumnName="NoPembelian" type="xs:int" />
@@ -227,7 +230,6 @@ SELECT NoPembelian, NoNotaTerima, GrandTotal FROM HPembelian WHERE (NoPembelian 
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="GrandTotal" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_UserColumnName="GrandTotal" type="xs:int" />
               <xs:element name="IDBarang" msprop:Generator_ColumnVarNameInTable="columnIDBarang" msprop:Generator_ColumnPropNameInRow="IDBarang" msprop:Generator_ColumnPropNameInTable="IDBarangColumn" msprop:Generator_UserColumnName="IDBarang">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -250,8 +252,10 @@ SELECT NoPembelian, NoNotaTerima, GrandTotal FROM HPembelian WHERE (NoPembelian 
                 </xs:simpleType>
               </xs:element>
               <xs:element name="HargaSatuan" msprop:Generator_ColumnVarNameInTable="columnHargaSatuan" msprop:Generator_ColumnPropNameInRow="HargaSatuan" msprop:Generator_ColumnPropNameInTable="HargaSatuanColumn" msprop:Generator_UserColumnName="HargaSatuan" type="xs:int" />
-              <xs:element name="Jumlah" msprop:Generator_ColumnVarNameInTable="columnJumlah" msprop:Generator_ColumnPropNameInRow="Jumlah" msprop:Generator_ColumnPropNameInTable="JumlahColumn" msprop:Generator_UserColumnName="Jumlah" type="xs:int" />
-              <xs:element name="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal" msprop:Generator_ColumnPropNameInRow="Subtotal" msprop:Generator_ColumnPropNameInTable="SubtotalColumn" msprop:Generator_UserColumnName="Subtotal" type="xs:int" />
+              <xs:element name="GrandTotal" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_UserColumnName="GrandTotal" type="xs:double" />
+              <xs:element name="TglBayar" msprop:Generator_ColumnVarNameInTable="columnTglBayar" msprop:Generator_ColumnPropNameInRow="TglBayar" msprop:Generator_ColumnPropNameInTable="TglBayarColumn" msprop:Generator_UserColumnName="TglBayar" type="xs:dateTime" />
+              <xs:element name="Jumlah" msprop:Generator_ColumnVarNameInTable="columnJumlah" msprop:Generator_ColumnPropNameInRow="Jumlah" msprop:Generator_ColumnPropNameInTable="JumlahColumn" msprop:Generator_UserColumnName="Jumlah" type="xs:double" />
+              <xs:element name="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal" msprop:Generator_ColumnPropNameInRow="Subtotal" msprop:Generator_ColumnPropNameInTable="SubtotalColumn" msprop:Generator_UserColumnName="Subtotal" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

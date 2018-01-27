@@ -1013,8 +1013,6 @@ Partial Public Class DSetPembelian
         
         Private columnNoNotaTerima As Global.System.Data.DataColumn
         
-        Private columnGrandTotal As Global.System.Data.DataColumn
-        
         Private columnIDBarang As Global.System.Data.DataColumn
         
         Private columnNamaBarang As Global.System.Data.DataColumn
@@ -1022,6 +1020,10 @@ Partial Public Class DSetPembelian
         Private columnSatuan As Global.System.Data.DataColumn
         
         Private columnHargaSatuan As Global.System.Data.DataColumn
+        
+        Private columnGrandTotal As Global.System.Data.DataColumn
+        
+        Private columnTglBayar As Global.System.Data.DataColumn
         
         Private columnJumlah As Global.System.Data.DataColumn
         
@@ -1080,14 +1082,6 @@ Partial Public Class DSetPembelian
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property GrandTotalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnGrandTotal
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property IDBarangColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnIDBarang
@@ -1115,6 +1109,22 @@ Partial Public Class DSetPembelian
         Public ReadOnly Property HargaSatuanColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnHargaSatuan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property GrandTotalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGrandTotal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TglBayarColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTglBayar
             End Get
         End Property
         
@@ -1171,9 +1181,9 @@ Partial Public Class DSetPembelian
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddPembelianRow(ByVal NoPembelian As Integer, ByVal NoNotaTerima As String, ByVal GrandTotal As Integer, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal Jumlah As Integer, ByVal Subtotal As Integer) As PembelianRow
+        Public Overloads Function AddPembelianRow(ByVal NoPembelian As Integer, ByVal NoNotaTerima As String, ByVal IDBarang As String, ByVal NamaBarang As String, ByVal Satuan As String, ByVal HargaSatuan As Integer, ByVal GrandTotal As Double, ByVal TglBayar As Date, ByVal Jumlah As Double, ByVal Subtotal As Double) As PembelianRow
             Dim rowPembelianRow As PembelianRow = CType(Me.NewRow,PembelianRow)
-            Dim columnValuesArray() As Object = New Object() {NoPembelian, NoNotaTerima, GrandTotal, IDBarang, NamaBarang, Satuan, HargaSatuan, Jumlah, Subtotal}
+            Dim columnValuesArray() As Object = New Object() {NoPembelian, NoNotaTerima, IDBarang, NamaBarang, Satuan, HargaSatuan, GrandTotal, TglBayar, Jumlah, Subtotal}
             rowPembelianRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPembelianRow)
             Return rowPembelianRow
@@ -1204,11 +1214,12 @@ Partial Public Class DSetPembelian
         Friend Sub InitVars()
             Me.columnNoPembelian = MyBase.Columns("NoPembelian")
             Me.columnNoNotaTerima = MyBase.Columns("NoNotaTerima")
-            Me.columnGrandTotal = MyBase.Columns("GrandTotal")
             Me.columnIDBarang = MyBase.Columns("IDBarang")
             Me.columnNamaBarang = MyBase.Columns("NamaBarang")
             Me.columnSatuan = MyBase.Columns("Satuan")
             Me.columnHargaSatuan = MyBase.Columns("HargaSatuan")
+            Me.columnGrandTotal = MyBase.Columns("GrandTotal")
+            Me.columnTglBayar = MyBase.Columns("TglBayar")
             Me.columnJumlah = MyBase.Columns("Jumlah")
             Me.columnSubtotal = MyBase.Columns("Subtotal")
         End Sub
@@ -1220,8 +1231,6 @@ Partial Public Class DSetPembelian
             MyBase.Columns.Add(Me.columnNoPembelian)
             Me.columnNoNotaTerima = New Global.System.Data.DataColumn("NoNotaTerima", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNoNotaTerima)
-            Me.columnGrandTotal = New Global.System.Data.DataColumn("GrandTotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnGrandTotal)
             Me.columnIDBarang = New Global.System.Data.DataColumn("IDBarang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDBarang)
             Me.columnNamaBarang = New Global.System.Data.DataColumn("NamaBarang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1230,16 +1239,19 @@ Partial Public Class DSetPembelian
             MyBase.Columns.Add(Me.columnSatuan)
             Me.columnHargaSatuan = New Global.System.Data.DataColumn("HargaSatuan", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHargaSatuan)
-            Me.columnJumlah = New Global.System.Data.DataColumn("Jumlah", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnGrandTotal = New Global.System.Data.DataColumn("GrandTotal", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGrandTotal)
+            Me.columnTglBayar = New Global.System.Data.DataColumn("TglBayar", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTglBayar)
+            Me.columnJumlah = New Global.System.Data.DataColumn("Jumlah", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnJumlah)
-            Me.columnSubtotal = New Global.System.Data.DataColumn("Subtotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnSubtotal = New Global.System.Data.DataColumn("Subtotal", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSubtotal)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNoPembelian}, true))
             Me.columnNoPembelian.AllowDBNull = false
             Me.columnNoPembelian.Unique = true
             Me.columnNoNotaTerima.AllowDBNull = false
             Me.columnNoNotaTerima.MaxLength = 10
-            Me.columnGrandTotal.AllowDBNull = false
             Me.columnIDBarang.AllowDBNull = false
             Me.columnIDBarang.MaxLength = 10
             Me.columnNamaBarang.AllowDBNull = false
@@ -1247,6 +1259,8 @@ Partial Public Class DSetPembelian
             Me.columnSatuan.AllowDBNull = false
             Me.columnSatuan.MaxLength = 255
             Me.columnHargaSatuan.AllowDBNull = false
+            Me.columnGrandTotal.AllowDBNull = false
+            Me.columnTglBayar.AllowDBNull = false
             Me.columnJumlah.AllowDBNull = false
             Me.columnSubtotal.AllowDBNull = false
         End Sub
@@ -1570,17 +1584,6 @@ Partial Public Class DSetPembelian
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property GrandTotal() As Integer
-            Get
-                Return CType(Me(Me.tablePembelian.GrandTotalColumn),Integer)
-            End Get
-            Set
-                Me(Me.tablePembelian.GrandTotalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property IDBarang() As String
             Get
                 Return CType(Me(Me.tablePembelian.IDBarangColumn),String)
@@ -1625,9 +1628,31 @@ Partial Public Class DSetPembelian
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Jumlah() As Integer
+        Public Property GrandTotal() As Double
             Get
-                Return CType(Me(Me.tablePembelian.JumlahColumn),Integer)
+                Return CType(Me(Me.tablePembelian.GrandTotalColumn),Double)
+            End Get
+            Set
+                Me(Me.tablePembelian.GrandTotalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property TglBayar() As Date
+            Get
+                Return CType(Me(Me.tablePembelian.TglBayarColumn),Date)
+            End Get
+            Set
+                Me(Me.tablePembelian.TglBayarColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Jumlah() As Double
+            Get
+                Return CType(Me(Me.tablePembelian.JumlahColumn),Double)
             End Get
             Set
                 Me(Me.tablePembelian.JumlahColumn) = value
@@ -1636,9 +1661,9 @@ Partial Public Class DSetPembelian
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Subtotal() As Integer
+        Public Property Subtotal() As Double
             Get
-                Return CType(Me(Me.tablePembelian.SubtotalColumn),Integer)
+                Return CType(Me(Me.tablePembelian.SubtotalColumn),Double)
             End Get
             Set
                 Me(Me.tablePembelian.SubtotalColumn) = value
@@ -2648,11 +2673,12 @@ Namespace DSetPembelianTableAdapters
             tableMapping.DataSetTable = "Pembelian"
             tableMapping.ColumnMappings.Add("NoPembelian", "NoPembelian")
             tableMapping.ColumnMappings.Add("NoNotaTerima", "NoNotaTerima")
-            tableMapping.ColumnMappings.Add("GrandTotal", "GrandTotal")
             tableMapping.ColumnMappings.Add("IDBarang", "IDBarang")
             tableMapping.ColumnMappings.Add("NamaBarang", "NamaBarang")
             tableMapping.ColumnMappings.Add("Satuan", "Satuan")
             tableMapping.ColumnMappings.Add("HargaSatuan", "HargaSatuan")
+            tableMapping.ColumnMappings.Add("GrandTotal", "GrandTotal")
+            tableMapping.ColumnMappings.Add("TglBayar", "TglBayar")
             tableMapping.ColumnMappings.Add("Jumlah", "Jumlah")
             tableMapping.ColumnMappings.Add("Subtotal", "Subtotal")
             Me._adapter.TableMappings.Add(tableMapping)
@@ -2671,9 +2697,10 @@ Namespace DSetPembelianTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "select HP.NoPembelian, HP.NoNotaTerima, HP.GrandTotal, DP.IDBarang, DP.NamaBarang"& _ 
-                ", DP.Satuan, DP.HargaSatuan, DP.Jumlah, DP.Subtotal from HPembelian HP, DPembeli"& _ 
-                "an DP where HP.NoPembelian = DP.NoPembelian"
+            Me._commandCollection(0).CommandText = "SELECT        HP.NoPembelian, HP.NoNotaTerima, HP.GrandTotal, HP.TglBayar, DP.IDB"& _ 
+                "arang, DP.NamaBarang, DP.Satuan, DP.HargaSatuan, DP.Jumlah, DP.Subtotal"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   "& _ 
+                "         HPembelian AS HP INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DPembelian AS DP "& _ 
+                "ON HP.NoPembelian = DP.NoPembelian"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

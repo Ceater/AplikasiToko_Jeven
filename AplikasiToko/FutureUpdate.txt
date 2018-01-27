@@ -8,6 +8,9 @@
 -> Menambahkan Fitur Reset Data dan Test Data untuk kepentingan testing. 1.1.2
 -> Jumlah barang masuk dan jual bisa menggunakan angka desimal. 1.1.2
 -> Penyempurnaan form Retur Jual. 1.1.2
+-> Penyempurnaan tampilan laporan pembelian. 1.1.2
+-> Penambahan field tanggal bayar pada tabel pembelian
+-> Penambahan kotak tanggal untuk mengisi tanggal pembayaran terjadi. 1.1.2
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1
@@ -18,10 +21,10 @@ Bug Fix
 -> Nota surat jalan luar kota tidak dapat muncul. 1.1.2
 -> Ketika nama pelanggan ada karakter spesial, maka akan terjadi error di Pembayaran. 1.1.2
 -> Ketika melakukan retur jual, nota tidak merefresh. 1.1.2
--> Retur jual, masih menampilkan data yang sudah di retur 1.1.2
+-> Retur jual, masih menampilkan data yang sudah di retur. 1.1.2
+-> Error ketika melakukan proses retur jual constring loaddataset tidak slalu terbuka, padahal sudah tertutup. 1.1.2
 
 Bug Found
--> Error ketika melakukan proses retur jual constring loaddataset tidak slalu terbuka, padahal sudah tertutup.
 -> Orang Belum Bayar Tapi Barang Mau Di Retur, Nanti error dipembayaran karena uang akan berkurang pada saat retur tapi tidak nambah pada saat pembayaran.
 -> Error yang sama apakah muncul di retur beli?
 
@@ -37,4 +40,4 @@ New Feature
 -> Dapat mencari dan menampilkan nota retur jual. -> Done 1.1.1
 -> Toko dan Sales didaftarkan di tabel pelanggan. -> Done 1.1.2
 -> Retur terima bisa cetak surat jalan dan toko tujuan dapat diganti.
--> Bisa melakukan retur item sebagian
+-> Bisa melakukan retur item sebagian. -> Done 1.1.2 Note: Retur jual bisa sebagian

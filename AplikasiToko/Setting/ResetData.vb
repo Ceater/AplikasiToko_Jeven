@@ -10,6 +10,7 @@ Public Class ResetData
             constring.Close()
             LoadDataSet()
             MsgBox("Reset berhasil")
+            Me.Close()
         End If
     End Sub
 
@@ -22,6 +23,7 @@ Public Class ResetData
             constring.Close()
             LoadDataSet()
             MsgBox("Reset berhasil")
+            Me.Close()
         End If
     End Sub
 End Class

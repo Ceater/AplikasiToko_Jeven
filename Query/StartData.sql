@@ -13,6 +13,8 @@ delete DJual
 delete HJual
 delete HTerima
 delete DTerima
+delete TbLabaRugi
+DBCC CHECKIDENT ('TbLabaRugi', RESEED, 0);
 DBCC CHECKIDENT ('DReturTerima', RESEED, 0);
 DBCC CHECKIDENT ('DReturJual', RESEED, 0);
 DBCC CHECKIDENT ('DJual', RESEED, 0);

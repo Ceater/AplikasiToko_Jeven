@@ -67,8 +67,9 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         hitungTotalBayar()
         Dim noPembelian As Integer = getLastNoPembelian()
+        Dim tanggalan As String = DateTimePicker1.Value.Year & "/" & DateTimePicker1.Value.Month & "/" & DateTimePicker1.Value.Day
         If MsgBox("Apakah Kamu Yakin?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            insertHPembelian(noPembelian, ListBox1.SelectedValue, Label2.Text)
+            insertHPembelian(noPembelian, ListBox1.SelectedValue, Label2.Text, tanggalan)
             Dim rows As Integer = 0
             For Each f In DataGridView1.Rows
                 insertDPembelian(noPembelian, f.cells(0).Value, f.cells(1).Value, f.cells(2).Value, f.cells(4).Value, f.cells(3).Value, f.cells(5).Value)

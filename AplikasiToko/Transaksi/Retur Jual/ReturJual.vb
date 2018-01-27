@@ -74,8 +74,12 @@
 
     'dgv
     Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
-        dgv.Rows(e.RowIndex).Cells(6).Value = (dgv.Rows(e.RowIndex).Cells(3).Value - dgv.Rows(e.RowIndex).Cells(5).Value) * dgv.Rows(e.RowIndex).Cells(4).Value
-        cekTotal()
+        Try
+            dgv.Rows(e.RowIndex).Cells(6).Value = (dgv.Rows(e.RowIndex).Cells(3).Value - dgv.Rows(e.RowIndex).Cells(5).Value) * dgv.Rows(e.RowIndex).Cells(4).Value
+            cekTotal()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub dgv_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgv.EditingControlShowing
@@ -101,16 +105,19 @@
             JumlahUangRetur += f.cells(6).value
         Next
         lb_TotalUangyangSudahDiretur.Text = FormatCurrency(TotalUangSudahDiRetur(ComboBox1.SelectedValue))
-        'lb_TotalUangYangDikembalikan.Text = FormatCurrency(JumlahUangRetur)
         lb_BanyakJenisBarang.Text = FormatCurrency(BnykJenisBarang)
         lb_TotalJumlahBarang.Text = FormatCurrency(BnykBarang)
         If ((CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)) - JumlahUangRetur) <= 0 Then
-            lb_TotalUangYangDikembalikan.Text = (CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text))
+            lb_TotalUangYangDikembalikan.Text = FormatCurrency((CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)))
+        Else
+            lb_TotalUangYangDikembalikan.Text = FormatCurrency(JumlahUangRetur)
+        End If
+        If (JumlahUangRetur + CInt(lb_TotalUangyangSudahDiretur.Text) = CInt(lb_TotalTagihan.Text)) Then
             lb_FullRetur.Visible = True
         Else
-            lb_TotalUangYangDikembalikan.Text = (CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)) - JumlahUangRetur
             lb_FullRetur.Visible = False
         End If
+
     End Sub
 
     Sub setGv()

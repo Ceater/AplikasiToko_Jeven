@@ -9,10 +9,10 @@ Module ModulePembelian
         Return output
     End Function
 
-    Sub insertHPembelian(NoPembelian As String, NotaTerima As String, GrandTotal As Double)
+    Sub insertHPembelian(NoPembelian As String, NotaTerima As String, GrandTotal As Double, Tgl As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into HPembelian values(" & NoPembelian & ",'" & NotaTerima & "'," & GrandTotal & ")", constring)
+            cmd = New SqlCommand("insert into HPembelian values(" & NoPembelian & ",'" & NotaTerima & "'," & GrandTotal & ", '" & Tgl & "')", constring)
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
