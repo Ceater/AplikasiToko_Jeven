@@ -5,9 +5,13 @@ Module ModuleReturJual
     Function getDetailBarangJual(ByVal NoNota As String) As DataTable
         Dim result As New DataSet
         constring.Open()
-        Dim cmd As String = "select DJx.IDBarang, DJx.NamaBarang, DJx.Satuan, DJx.HargaSatuan, DJx.Jumlah - ISNULL((select DRJ.Jumlah From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0) as Jumlah, DJx.Diskon, ((DJx.Jumlah - ISNULL((select DRJ.Jumlah From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0))*(DJx.HargaSatuan-Diskon)) as Subtotal From HJual HJx, DJual DJx Where HJx.NoNotaJual=DJx.NoNotaJual and DJx.Jumlah <> ISNULL((select DRJ.Jumlah From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0) and HJx.NoNotaJual='" & NoNota & "'"
-        SqlAdapter = New SqlDataAdapter(cmd, constring)
-        SqlAdapter.Fill(result, "Hasil")
+        Try
+            Dim cmd As String = "select DJx.IDBarang, DJx.NamaBarang, DJx.Satuan, DJx.HargaSatuan, DJx.Jumlah - ISNULL((select sum(DRJ.Jumlah) From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0) as Jumlah, DJx.Diskon, ((DJx.Jumlah - ISNULL((select sum(DRJ.Jumlah) From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0))*(DJx.HargaSatuan-Diskon)) as Subtotal From HJual HJx, DJual DJx Where HJx.NoNotaJual=DJx.NoNotaJual and DJx.Jumlah <> ISNULL((select sum(DRJ.Jumlah) From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0) and HJx.NoNotaJual='" & NoNota & "'"
+            SqlAdapter = New SqlDataAdapter(cmd, constring)
+            SqlAdapter.Fill(result, "Hasil")
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
         constring.Close()
         Return result.Tables("Hasil")
     End Function
@@ -95,6 +99,7 @@ Module ModuleReturJual
         Catch ex As Exception
             temp = "RJ00001"
             constring.Close()
+            MsgBox(ex.ToString)
         End Try
         Return temp
     End Function
@@ -102,16 +107,29 @@ Module ModuleReturJual
     Function getNamaPelanggan(kodenota As String)
         Dim hsl As String
         constring.Open()
-        cmd = New SqlCommand("select NamaPelanggan from HJual where NoNotaJual=@a", constring)
-        With cmd.Parameters
-            .Add(New SqlParameter("@a", kodenota))
-        End With
-        hsl = cmd.ExecuteScalar
+        Try
+            cmd = New SqlCommand("select NamaPelanggan from HJual where NoNotaJual=@a", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a", kodenota))
+            End With
+            hsl = cmd.ExecuteScalar
+        Catch ex As Exception
+            hsl = "-"
+        End Try
         constring.Close()
         Return hsl
     End Function
 
-    Function getDetailPembayaran()
+    Function TotalUangSudahDiRetur(KodeNota As String)
+        Dim x As Integer = 0
+        constring.Open()
+        Try
+            cmd = New SqlCommand("select ISNULL(sum(DRJ.Subtotal),0) from HReturJual HRJ, DReturJual DRJ where HRJ.NoNotaReturJual = DRJ.NoNotaReturJual and HRJ.NoNotaJual = '" & KodeNota & "'", constring)
+            x = cmd.ExecuteScalar
+        Catch ex As Exception
 
+        End Try
+        constring.Close()
+        Return x
     End Function
 End Module

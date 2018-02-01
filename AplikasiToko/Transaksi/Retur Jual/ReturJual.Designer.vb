@@ -35,15 +35,15 @@ Partial Class ReturJual
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.lb_TotalTagihan = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.lb_PembayaranDiterima = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.lb_Kekurangan = New System.Windows.Forms.Label()
+        Me.lb_PembayaranDiterima = New System.Windows.Forms.Label()
+        Me.lb_TotalTagihan = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -52,6 +52,10 @@ Partial Class ReturJual
         Me.lb_BanyakJenisBarang = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lb_TotalUangyangSudahDiretur = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.lb_FullRetur = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -73,15 +77,15 @@ Partial Class ReturJual
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker1.Location = New System.Drawing.Point(88, 90)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(187, 20)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(230, 20)
         Me.DateTimePicker1.TabIndex = 15
         '
         'TextBox1
         '
-        Me.TextBox1.Enabled = False
         Me.TextBox1.Location = New System.Drawing.Point(133, 64)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(142, 20)
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(185, 20)
         Me.TextBox1.TabIndex = 14
         '
         'Label2
@@ -95,9 +99,9 @@ Partial Class ReturJual
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(10, 288)
+        Me.Button1.Location = New System.Drawing.Point(10, 316)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(265, 24)
+        Me.Button1.Size = New System.Drawing.Size(302, 24)
         Me.Button1.TabIndex = 12
         Me.Button1.Text = "Proses"
         Me.Button1.UseVisualStyleBackColor = True
@@ -105,9 +109,9 @@ Partial Class ReturJual
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.dgv)
-        Me.GroupBox1.Location = New System.Drawing.Point(281, 10)
+        Me.GroupBox1.Location = New System.Drawing.Point(324, 10)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(578, 300)
+        Me.GroupBox1.Size = New System.Drawing.Size(578, 330)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detail Barang"
@@ -128,7 +132,7 @@ Partial Class ReturJual
         Me.dgv.Name = "dgv"
         Me.dgv.RowHeadersVisible = False
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv.Size = New System.Drawing.Size(572, 281)
+        Me.dgv.Size = New System.Drawing.Size(572, 311)
         Me.dgv.TabIndex = 0
         '
         'Label1
@@ -147,7 +151,7 @@ Partial Class ReturJual
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(88, 12)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(143, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(187, 21)
         Me.ComboBox1.TabIndex = 8
         '
         'Label4
@@ -170,7 +174,7 @@ Partial Class ReturJual
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(234, 10)
+        Me.Button2.Location = New System.Drawing.Point(277, 10)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(41, 23)
         Me.Button2.TabIndex = 17
@@ -179,6 +183,10 @@ Partial Class ReturJual
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lb_FullRetur)
+        Me.GroupBox2.Controls.Add(Me.lb_TotalUangyangSudahDiretur)
+        Me.GroupBox2.Controls.Add(Me.Label14)
+        Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.lb_Kekurangan)
@@ -190,64 +198,10 @@ Partial Class ReturJual
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Location = New System.Drawing.Point(10, 116)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(265, 80)
+        Me.GroupBox2.Size = New System.Drawing.Size(308, 108)
         Me.GroupBox2.TabIndex = 18
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Catatan Pembayaran"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 16)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(73, 13)
-        Me.Label6.TabIndex = 0
-        Me.Label6.Text = "Total Tagihan"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(158, 16)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(24, 13)
-        Me.Label7.TabIndex = 1
-        Me.Label7.Text = "Rp."
-        '
-        'lb_TotalTagihan
-        '
-        Me.lb_TotalTagihan.AutoSize = True
-        Me.lb_TotalTagihan.Location = New System.Drawing.Point(188, 16)
-        Me.lb_TotalTagihan.Name = "lb_TotalTagihan"
-        Me.lb_TotalTagihan.Size = New System.Drawing.Size(13, 13)
-        Me.lb_TotalTagihan.TabIndex = 2
-        Me.lb_TotalTagihan.Text = "0"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(6, 36)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(107, 13)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "Pembayaran Diterima"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(158, 36)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(24, 13)
-        Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Rp."
-        '
-        'lb_PembayaranDiterima
-        '
-        Me.lb_PembayaranDiterima.AutoSize = True
-        Me.lb_PembayaranDiterima.Location = New System.Drawing.Point(188, 36)
-        Me.lb_PembayaranDiterima.Name = "lb_PembayaranDiterima"
-        Me.lb_PembayaranDiterima.Size = New System.Drawing.Size(13, 13)
-        Me.lb_PembayaranDiterima.TabIndex = 2
-        Me.lb_PembayaranDiterima.Text = "0"
         '
         'Label12
         '
@@ -258,14 +212,14 @@ Partial Class ReturJual
         Me.Label12.TabIndex = 4
         Me.Label12.Text = "Kekurangan"
         '
-        'Label13
+        'Label9
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(158, 56)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(24, 13)
-        Me.Label13.TabIndex = 1
-        Me.Label13.Text = "Rp."
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(6, 36)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(107, 13)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "Pembayaran Diterima"
         '
         'lb_Kekurangan
         '
@@ -276,6 +230,60 @@ Partial Class ReturJual
         Me.lb_Kekurangan.TabIndex = 2
         Me.lb_Kekurangan.Text = "0"
         '
+        'lb_PembayaranDiterima
+        '
+        Me.lb_PembayaranDiterima.AutoSize = True
+        Me.lb_PembayaranDiterima.Location = New System.Drawing.Point(188, 36)
+        Me.lb_PembayaranDiterima.Name = "lb_PembayaranDiterima"
+        Me.lb_PembayaranDiterima.Size = New System.Drawing.Size(13, 13)
+        Me.lb_PembayaranDiterima.TabIndex = 2
+        Me.lb_PembayaranDiterima.Text = "0"
+        '
+        'lb_TotalTagihan
+        '
+        Me.lb_TotalTagihan.AutoSize = True
+        Me.lb_TotalTagihan.Location = New System.Drawing.Point(188, 16)
+        Me.lb_TotalTagihan.Name = "lb_TotalTagihan"
+        Me.lb_TotalTagihan.Size = New System.Drawing.Size(13, 13)
+        Me.lb_TotalTagihan.TabIndex = 2
+        Me.lb_TotalTagihan.Text = "0"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(158, 56)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(24, 13)
+        Me.Label13.TabIndex = 1
+        Me.Label13.Text = "Rp."
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(158, 36)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(24, 13)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "Rp."
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(158, 16)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(24, 13)
+        Me.Label7.TabIndex = 1
+        Me.Label7.Text = "Rp."
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 16)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(73, 13)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Total Tagihan"
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.Label15)
@@ -285,9 +293,9 @@ Partial Class ReturJual
         Me.GroupBox3.Controls.Add(Me.lb_BanyakJenisBarang)
         Me.GroupBox3.Controls.Add(Me.Label20)
         Me.GroupBox3.Controls.Add(Me.Label23)
-        Me.GroupBox3.Location = New System.Drawing.Point(10, 202)
+        Me.GroupBox3.Location = New System.Drawing.Point(10, 230)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(265, 80)
+        Me.GroupBox3.Size = New System.Drawing.Size(302, 80)
         Me.GroupBox3.TabIndex = 18
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ringkasan Pengembalian Barang"
@@ -355,11 +363,48 @@ Partial Class ReturJual
         Me.Label23.TabIndex = 0
         Me.Label23.Text = "Banyak Jenis Barang"
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 76)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(152, 13)
+        Me.Label8.TabIndex = 5
+        Me.Label8.Text = "Total Uang yang sudah Diretur"
+        '
+        'lb_TotalUangyangSudahDiretur
+        '
+        Me.lb_TotalUangyangSudahDiretur.AutoSize = True
+        Me.lb_TotalUangyangSudahDiretur.Location = New System.Drawing.Point(188, 76)
+        Me.lb_TotalUangyangSudahDiretur.Name = "lb_TotalUangyangSudahDiretur"
+        Me.lb_TotalUangyangSudahDiretur.Size = New System.Drawing.Size(13, 13)
+        Me.lb_TotalUangyangSudahDiretur.TabIndex = 7
+        Me.lb_TotalUangyangSudahDiretur.Text = "0"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(158, 76)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(24, 13)
+        Me.Label14.TabIndex = 6
+        Me.Label14.Text = "Rp."
+        '
+        'lb_FullRetur
+        '
+        Me.lb_FullRetur.Location = New System.Drawing.Point(264, 36)
+        Me.lb_FullRetur.Name = "lb_FullRetur"
+        Me.lb_FullRetur.Size = New System.Drawing.Size(38, 33)
+        Me.lb_FullRetur.TabIndex = 8
+        Me.lb_FullRetur.Text = "Full Retur"
+        Me.lb_FullRetur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lb_FullRetur.Visible = False
+        '
         'ReturJual
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(872, 323)
+        Me.ClientSize = New System.Drawing.Size(914, 352)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button2)
@@ -418,4 +463,8 @@ Partial Class ReturJual
     Friend WithEvents lb_BanyakJenisBarang As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents Label23 As Label
+    Friend WithEvents lb_TotalUangyangSudahDiretur As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents lb_FullRetur As Label
 End Class
