@@ -18,9 +18,9 @@
         Dim count As Integer = 0
         Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
-            For Each selectedItem As DataGridViewRow In dgv.SelectedRows
-                count += selectedItem.Cells(4).Value
-            Next selectedItem
+            For Each f In dgv.Rows
+                count += 1
+            Next
             If cekNotaReturJual(TextBox1.Text) Then
                 MsgBox("Nomer Nota Sudah Pernah Digunakan")
             Else
@@ -101,13 +101,14 @@
             JumlahUangRetur += f.cells(6).value
         Next
         lb_TotalUangyangSudahDiretur.Text = FormatCurrency(TotalUangSudahDiRetur(ComboBox1.SelectedValue))
-        'JumlahUangRetur -= CInt(lb_Kekurangan.Text)
-        lb_TotalUangYangDikembalikan.Text = FormatCurrency(JumlahUangRetur)
+        'lb_TotalUangYangDikembalikan.Text = FormatCurrency(JumlahUangRetur)
         lb_BanyakJenisBarang.Text = FormatCurrency(BnykJenisBarang)
         lb_TotalJumlahBarang.Text = FormatCurrency(BnykBarang)
-        If (CInt(lb_TotalUangyangSudahDiretur.Text) + CInt(lb_TotalUangYangDikembalikan.Text)) = CInt(lb_TotalTagihan.Text) Then
+        If ((CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)) - JumlahUangRetur) <= 0 Then
+            lb_TotalUangYangDikembalikan.Text = (CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text))
             lb_FullRetur.Visible = True
         Else
+            lb_TotalUangYangDikembalikan.Text = (CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)) - JumlahUangRetur
             lb_FullRetur.Visible = False
         End If
     End Sub
