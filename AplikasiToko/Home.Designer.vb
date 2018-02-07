@@ -92,14 +92,14 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(516, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(476, 17)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel7
         '
         Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
-        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(58, 17)
-        Me.ToolStripStatusLabel7.Text = "Versi 1.1.2"
+        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(67, 17)
+        Me.ToolStripStatusLabel7.Text = "Versi 1.1.2.1"
         '
         'ToolStripStatusLabel4
         '
@@ -229,55 +229,55 @@ Partial Class Home
         'L1
         '
         Me.L1.Name = "L1"
-        Me.L1.Size = New System.Drawing.Size(152, 22)
+        Me.L1.Size = New System.Drawing.Size(149, 22)
         Me.L1.Text = "Penjualan"
         '
         'L2
         '
         Me.L2.Name = "L2"
-        Me.L2.Size = New System.Drawing.Size(152, 22)
+        Me.L2.Size = New System.Drawing.Size(149, 22)
         Me.L2.Text = "Barang Masuk"
         '
         'L3
         '
         Me.L3.Name = "L3"
-        Me.L3.Size = New System.Drawing.Size(152, 22)
+        Me.L3.Size = New System.Drawing.Size(149, 22)
         Me.L3.Text = "Pembayaran"
         '
         'L4
         '
         Me.L4.Name = "L4"
-        Me.L4.Size = New System.Drawing.Size(152, 22)
+        Me.L4.Size = New System.Drawing.Size(149, 22)
         Me.L4.Text = "Retur Terima"
         '
         'L5
         '
         Me.L5.Name = "L5"
-        Me.L5.Size = New System.Drawing.Size(152, 22)
+        Me.L5.Size = New System.Drawing.Size(149, 22)
         Me.L5.Text = "Retur Jual"
         '
         'L6
         '
         Me.L6.Name = "L6"
-        Me.L6.Size = New System.Drawing.Size(152, 22)
+        Me.L6.Size = New System.Drawing.Size(149, 22)
         Me.L6.Text = "Stok Barang"
         '
         'L7
         '
         Me.L7.Name = "L7"
-        Me.L7.Size = New System.Drawing.Size(152, 22)
+        Me.L7.Size = New System.Drawing.Size(149, 22)
         Me.L7.Text = "Pembelian"
         '
         'L8
         '
         Me.L8.Name = "L8"
-        Me.L8.Size = New System.Drawing.Size(152, 22)
+        Me.L8.Size = New System.Drawing.Size(149, 22)
         Me.L8.Text = "Laba Rugi"
         '
         'L9
         '
         Me.L9.Name = "L9"
-        Me.L9.Size = New System.Drawing.Size(152, 22)
+        Me.L9.Size = New System.Drawing.Size(149, 22)
         Me.L9.Text = "Pendapatan"
         '
         'LogoutToolStripMenuItem

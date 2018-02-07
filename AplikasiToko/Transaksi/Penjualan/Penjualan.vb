@@ -78,8 +78,10 @@ Public Class Penjualan
         disc = disc * sat
         If disc = 0 Then
             dgv.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot))
-        Else
+        ElseIf disc >= 1 Then
             dgv.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot - disc))
+        ElseIf disc <= -1 Then
+            dgv.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(CStr(tot + disc))
         End If
         cekTotal()
     End Sub

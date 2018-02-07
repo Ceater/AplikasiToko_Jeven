@@ -7,12 +7,12 @@
 
     Private Sub ReturTerima_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Try
+            DateTimePicker1.MaxDate = Now
+            TextBox1.Text = getNotaReturTerima()
             ComboBox1.DataSource = DSet.Tables("DataNotaTerima")
             ComboBox1.ValueMember = "NoNotaTerima"
             ComboBox1.SelectedIndex = 1
             ComboBox1.SelectedIndex = 0
-            DateTimePicker1.MaxDate = Now
-            TextBox1.Text = getNotaReturTerima()
             clear()
         Catch ex As Exception
 
@@ -75,7 +75,6 @@
             DateTimePicker1.Value = Now
             ComboBox1.SelectedIndex = 0
         Catch ex As Exception
-
         End Try
     End Sub
 End Class

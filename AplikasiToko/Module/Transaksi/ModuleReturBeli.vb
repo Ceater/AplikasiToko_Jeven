@@ -75,7 +75,7 @@ Module ModuleReturBeli
     End Function
 
     Function getNotaReturTerima()
-        Dim temp As String = ""
+        Dim temp As String = "RT00001"
         Try
             constring.Open()
             cmd = New SqlCommand("select TOP 1 NoNotaReturTerima from HReturTerima order by NoNotaReturTerima desc", constring)

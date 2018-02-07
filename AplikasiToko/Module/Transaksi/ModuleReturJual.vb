@@ -99,7 +99,7 @@ Module ModuleReturJual
         Catch ex As Exception
             temp = "RJ00001"
             constring.Close()
-            MsgBox(ex.ToString)
+            'MsgBox(ex.ToString)
         End Try
         Return temp
     End Function

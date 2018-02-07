@@ -65,6 +65,24 @@ Public Class UpdateVersi
             Else
                 MsgBox("Data Sudah Paling Baru")
             End If
+        ElseIf VSekarang = "1.1.2.1" Then
+            constring.Open()
+            cmd = New SqlCommand("SELECT character_maximum_length FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'TbBarang' AND COLUMN_NAME = 'KodeBarang'", constring)
+            Dim reader As Integer = cmd.ExecuteScalar
+            If reader = 100 Then
+                bool = True
+            End If
+            constring.Close()
+
+            If bool = False Then
+                constring.Open()
+                cmd = New SqlCommand("ALTER TABLE TbBarang DROP CONSTRAINT PK_TbBarang; ALTER TABLE TbBarang ALTER COLUMN KodeBarang varchar(100) NOT NULL; ALTER TABLE TbBarang ADD CONSTRAINT PK_TbBarang PRIMARY KEY CLUSTERED (KodeBarang);", constring)
+                cmd.ExecuteNonQuery()
+                constring.Close()
+                MsgBox("Pembaharuan Versi Berhasil")
+            Else
+                MsgBox("Data Sudah Paling Baru")
+            End If
         End If
     End Sub
 End Class
