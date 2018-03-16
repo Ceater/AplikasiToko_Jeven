@@ -59,4 +59,11 @@ Module GlobalModule
             constring.Close()
         End Try
     End Sub
+
+    Sub AutoUpdatePersediaanAwal()
+        Dim BulanTerakhir As Integer = getBulanTerakhirNumeric()
+        If BulanTerakhir <> Now.Month Then
+            setBulanBaru()
+        End If
+    End Sub
 End Module
