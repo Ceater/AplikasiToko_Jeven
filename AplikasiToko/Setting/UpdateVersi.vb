@@ -83,6 +83,25 @@ Public Class UpdateVersi
             Else
                 MsgBox("Data Sudah Paling Baru")
             End If
+        ElseIf VSekarang = "1.1.2.2" Then
+            constring.Open()
+            cmd = New SqlCommand("select NamaSatuan from TbSatuan where NamaSatuan='Lusin'", constring)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            If reader.HasRows Then
+                bool = True
+            End If
+            constring.Close()
+
+            If bool = False Then
+                constring.Open()
+                cmd = New SqlCommand("insert into TbSatuan values('29','Lusin')", constring)
+                cmd.ExecuteNonQuery()
+                constring.Close()
+                MsgBox("Pembaharuan Versi Berhasil, Silahkan restart program")
+                Me.Close()
+            Else
+                MsgBox("Data Sudah Paling Baru")
+            End If
         End If
     End Sub
 End Class

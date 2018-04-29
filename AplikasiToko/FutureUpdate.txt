@@ -11,6 +11,8 @@
 -> Penyempurnaan tampilan laporan pembelian. 1.1.2
 -> Penambahan field tanggal bayar pada tabel pembelian
 -> Penambahan kotak tanggal untuk mengisi tanggal pembayaran terjadi. 1.1.2
+-> Tambah satuan lusin. 1.1.2.2
+-> Autoclose Form Update Version. 1.1.2.2
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1

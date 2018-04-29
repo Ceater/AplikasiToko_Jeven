@@ -5,6 +5,7 @@ Imports System.IO
 Public Class CekSetting
     Dim path As String = "C:\AplikasiToko\setting.txt"
     Private Sub CekSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        startupSetting()
         Dim x1, x2, x3, x4 As String
         Dim x5 As Integer
         Dim sr As StreamReader = New StreamReader(path)
@@ -26,7 +27,6 @@ Public Class CekSetting
         TextBox1.Text = x2
         TextBox3.Text = x3
         TextBox4.Text = x4
-        startupSetting()
         TestKoneksi()
     End Sub
 

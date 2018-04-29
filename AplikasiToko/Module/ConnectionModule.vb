@@ -7,6 +7,7 @@ Module ConnectionModule
     Public cmd As SqlCommand
 
     Public Sub setKoneksi(TipeKoneksi As String, ServerName As String, ServerInstance As String, UName As String, PWord As String)
+        'Dim connectionString AS String = "Server=my_server;Database=name_of_db;User Id=user_name;Password=my_password"
         If TipeKoneksi = "1" Then
             con = "Server=" & ServerName & "\" & ServerInstance & ";Database=DatabaseToko;User Id=" & UName & ";Password=" & PWord & ";"
         ElseIf TipeKoneksi = "2" Then
