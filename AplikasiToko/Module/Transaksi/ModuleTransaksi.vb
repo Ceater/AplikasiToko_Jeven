@@ -82,24 +82,33 @@ Module ModuleTransaksi
 
     Function getNotaJual() As String
         Dim temp As String = ""
+        Dim notaFormat, tglSkr As String
+        tglSkr = String.Format("{0:ddMMyy}", DateTime.Now)
         Try
             constring.Open()
-            cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
-            temp = CInt(cmd.ExecuteScalar.substring(1) + 1)
-            If temp.Length = 1 Then
-                temp = "J0000" & temp
-            ElseIf temp.Length = 2 Then
-                temp = "J000" & temp
-            ElseIf temp.Length = 3 Then
-                temp = "J00" & temp
-            ElseIf temp.Length = 4 Then
-                temp = "J0" & temp
+            notaFormat = "%" & tglSkr & "%"
+            'cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
+            cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaJual, 8, 4) as Nota FROM HJual WHERE SUBSTRING(NoNotaJual, 1, 7) LIKE '" & notaFormat & "' ORDER BY NoNotaJual DESC;", constring)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            If reader.HasRows Then
+                reader.Read()
+                temp = CInt(reader.GetValue(0)) + 1
+                If temp.Length = 1 Then
+                    temp = "J" & tglSkr & "000" & temp
+                ElseIf temp.Length = 2 Then
+                    temp = "J" & tglSkr & "00" & temp
+                ElseIf temp.Length = 3 Then
+                    temp = "J" & tglSkr & "0" & temp
+                Else
+                    temp = "J" & tglSkr & temp
+                End If
             Else
-                temp = "J" & temp
+                temp = "J" & tglSkr & "0001"
             End If
             constring.Close()
         Catch ex As Exception
-            temp = "J00001"
+            MsgBox(ex.ToString)
+            temp = "J" & tglSkr & "0001"
             constring.Close()
         End Try
         Return temp

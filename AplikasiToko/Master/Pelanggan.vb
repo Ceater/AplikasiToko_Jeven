@@ -1,23 +1,29 @@
 ﻿Public Class Pelanggan
     Dim kodePel As String = ""
+    Dim scrollIdx As Integer = 0
     Private Sub Pelanggan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.DataSource = DSet.Tables("DataPelanggan")
         setGV()
     End Sub
 
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
-        kodePel = DataGridView1.Rows(e.RowIndex).Cells(0).Value
-        TextBox1.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value
-        TextBox2.Text = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-        TextBox3.Text = DataGridView1.Rows(e.RowIndex).Cells(3).Value
-        If DataGridView1.Rows(e.RowIndex).Cells(4).Value = "Toko" Then
-            RadioButton1.Checked = True
-            RadioButton2.Checked = False
-        Else
-            RadioButton1.Checked = False
-            RadioButton2.Checked = True
-        End If
-        Button1.Text = "Rubah"
+        Try
+            kodePel = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+            TextBox1.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value
+            TextBox2.Text = DataGridView1.Rows(e.RowIndex).Cells(2).Value
+            TextBox3.Text = DataGridView1.Rows(e.RowIndex).Cells(3).Value
+            scrollIdx = e.RowIndex
+            If DataGridView1.Rows(e.RowIndex).Cells(4).Value = "Toko" Then
+                RadioButton1.Checked = True
+                RadioButton2.Checked = False
+            Else
+                RadioButton1.Checked = False
+                RadioButton2.Checked = True
+            End If
+            Button1.Text = "Rubah"
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -84,5 +90,6 @@
         TextBox3.Text = ""
         RadioButton1.Checked = True
         Button1.Text = "Tambah"
+        DataGridView1.FirstDisplayedScrollingRowIndex = scrollIdx
     End Sub
 End Class

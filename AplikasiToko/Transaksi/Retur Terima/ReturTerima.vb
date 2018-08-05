@@ -22,6 +22,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim count As Integer = 0
         Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
+        TextBox1.Text = getNotaReturTerima()
         If result = DialogResult.Yes Then
             For Each selectedItem As DataGridViewRow In DataGridView1.SelectedRows
                 count += 1

@@ -5,7 +5,7 @@
     <InstallUrlHistory />
     <SupportUrlHistory />
     <UpdateUrlHistory />
-    <BootstrapperUrlHistory />
+    <BootstrapperUrlHistory>D:\CRRuntime_32bit_13_0_23.msi</BootstrapperUrlHistory>
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>

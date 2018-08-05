@@ -60,24 +60,32 @@ Module ModuleTerima
 
     Function getNotaTerima() As String
         Dim temp As String = ""
+        Dim notaFormat, tglSkr As String
+        tglSkr = String.Format("{0:ddMMyy}", DateTime.Now)
         Try
             constring.Open()
-            cmd = New SqlCommand("select TOP 1 NoNotaTerima from HTerima order by NoNotaTerima desc", constring)
-            temp = CInt(cmd.ExecuteScalar.substring(1) + 1)
-            If temp.Length = 1 Then
-                temp = "T0000" & temp
-            ElseIf temp.Length = 2 Then
-                temp = "T000" & temp
-            ElseIf temp.Length = 3 Then
-                temp = "T00" & temp
-            ElseIf temp.Length = 4 Then
-                temp = "T0" & temp
+            notaFormat = "%" & tglSkr & "%"
+            'cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
+            cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaTerima, 8, 4) as Nota FROM HJual WHERE SUBSTRING(NoNotaTerima, 1, 7) LIKE '" & notaFormat & "' ORDER BY NoNotaTerima DESC;", constring)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            If reader.HasRows Then
+                reader.Read()
+                temp = CInt(reader.GetValue(0)) + 1
+                If temp.Length = 1 Then
+                    temp = "T" & tglSkr & "000" & temp
+                ElseIf temp.Length = 2 Then
+                    temp = "T" & tglSkr & "00" & temp
+                ElseIf temp.Length = 3 Then
+                    temp = "T" & tglSkr & "0" & temp
+                Else
+                    temp = "T" & tglSkr & temp
+                End If
             Else
-                temp = "T" & temp
+                temp = "T" & tglSkr & "0001"
             End If
             constring.Close()
         Catch ex As Exception
-            temp = "T00001"
+            temp = "T" & tglSkr & "0001"
             constring.Close()
         End Try
         Return temp

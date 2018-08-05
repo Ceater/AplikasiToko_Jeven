@@ -13,6 +13,8 @@
 -> Penambahan kotak tanggal untuk mengisi tanggal pembayaran terjadi. 1.1.2
 -> Tambah satuan lusin. 1.1.2.2
 -> Autoclose Form Update Version. 1.1.2.2
+-> Nomer nota digenerate dengan kode "J-Hari-Bulan-Tahun-NoUrut" 1.1.2.3
+
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1
@@ -25,6 +27,9 @@ Bug Fix
 -> Ketika melakukan retur jual, nota tidak merefresh. 1.1.2
 -> Retur jual, masih menampilkan data yang sudah di retur. 1.1.2
 -> Error ketika melakukan proses retur jual constring loaddataset tidak slalu terbuka, padahal sudah tertutup. 1.1.2
+-> Stok pengingat lari-lari -> Done 1.1.2.3
+-> Setelah update barang, gridnya balik ke atas. -> Done 1.1.2.3
+-> Ketika buka 2 form transaksi, nomer nota sering tabrakan Form Penjualan, Form Terima, Form ReturJual, Form ReturBeli. -> Done 1.1.2.3
 
 Bug Found
 -> Orang Belum Bayar Tapi Barang Mau Di Retur, Nanti error dipembayaran karena uang akan berkurang pada saat retur tapi tidak nambah pada saat pembayaran.

@@ -1,5 +1,6 @@
 ﻿Public Class Staff
     Dim chkbox(19) As CheckBox
+    Dim scrollIdx As Integer = 0
     Private Sub Staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.DataSource = DSet.Tables("DataStaff")
         setGV()
@@ -34,6 +35,7 @@
             TextBox5.Text = DataGridView1.Rows(e.RowIndex).Cells(4).Value
             TextBox1.ReadOnly = True
             Tambah.Text = "Rubah"
+            scrollIdx = e.RowIndex
             Dim x(chkbox.Count - 1) As String
             For i = 0 To chkbox.Count - 1
                 x(i) = DataGridView1.Rows(e.RowIndex).Cells(5).Value.substring(i, 1)
@@ -135,6 +137,7 @@
         TextBox5.Text = ""
         TextBox1.ReadOnly = False
         Tambah.Text = "Tambah"
+        DataGridView1.FirstDisplayedScrollingRowIndex = scrollIdx
         For i = 0 To chkbox.Count - 1
             chkbox(i).Checked = False
         Next

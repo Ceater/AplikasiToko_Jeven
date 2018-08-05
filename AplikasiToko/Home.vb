@@ -1,6 +1,8 @@
 ﻿Public Class Home
     Public hakAkses As String = ""
     Public MenuStrip(19) As ToolStripMenuItem
+    Dim isec As Integer = 0
+
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Timer1.Start()
         LoadDataSet()
@@ -34,12 +36,16 @@
             End If
         Next
         AutoUpdatePersediaanAwal()
+        cekStokMinimum()
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         ToolStripStatusLabel4.Text = Date.Now.ToString("dd - MMMM - yyyy")
         ToolStripStatusLabel6.Text = TimeOfDay.ToString("h:mm:ss tt")
-        cekStokMinimum()
+        isec = DateTime.Now.Second
+        If isec = 0 Then
+            cekStokMinimum()
+        End If
     End Sub
 
     Private Sub LogoutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogoutToolStripMenuItem.Click

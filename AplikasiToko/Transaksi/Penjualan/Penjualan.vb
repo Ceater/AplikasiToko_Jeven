@@ -189,6 +189,7 @@ Public Class Penjualan
         If CheckBox3.Checked Then
             printPreview = True
         End If
+        NotaTxt.Text = getNotaJual()
         If NotaTxt.Text <> "" And dgv.RowCount <> 0 Then
             Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
             Dim temp As String = ""

@@ -102,6 +102,26 @@ Public Class UpdateVersi
             Else
                 MsgBox("Data Sudah Paling Baru")
             End If
+        ElseIf VSekarang = "1.1.2.3" Then
+            constring.Open()
+            cmd = New SqlCommand("
+                ALTER TABLE HJual ALTER COLUMN NoNotaJual VARCHAR(25) NOT NULL;
+                ALTER TABLE DJual ALTER COLUMN NoNotaJual VARCHAR(25) NOT NULL;
+                ALTER TABLE HTerima ALTER COLUMN NoNotaTerima VARCHAR(25) NOT NULL;
+                ALTER TABLE DTerima ALTER COLUMN NoNotaTerima VARCHAR(25) NOT NULL;
+                ALTER TABLE HPembelian ALTER COLUMN NoNotaTerima VARCHAR(25) NOT NULL;
+                ALTER TABLE HReturJual ALTER COLUMN NoNotaReturJual VARCHAR(25) NOT NULL;
+                ALTER TABLE HReturJual ALTER COLUMN NoNotaJual VARCHAR(25) NOT NULL;
+                ALTER TABLE DReturJual ALTER COLUMN NoNotaReturJual VARCHAR(25) NOT NULL;
+                ALTER TABLE HReturTerima ALTER COLUMN NoNotaReturTerima VARCHAR(25) NOT NULL;
+                ALTER TABLE HReturTerima ALTER COLUMN NoNotaTerima VARCHAR(25) NOT NULL;
+                ALTER TABLE DReturTerima ALTER COLUMN NoNotaReturTerima VARCHAR(25) NOT NULL;
+                ALTER TABLE TbPembayaran ALTER COLUMN NoNotaJual VARCHAR(25) NOT NULL;
+            ", constring)
+            cmd.ExecuteNonQuery()
+            constring.Close()
+            MsgBox("Pembaharuan Versi Berhasil, Silahkan restart program")
+            Me.Close()
         End If
     End Sub
 End Class

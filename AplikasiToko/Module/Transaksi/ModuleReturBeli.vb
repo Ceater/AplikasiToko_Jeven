@@ -75,25 +75,33 @@ Module ModuleReturBeli
     End Function
 
     Function getNotaReturTerima()
-        Dim temp As String = "RT00001"
+        Dim temp As String = ""
+        Dim notaFormat, tglSkr As String
+        tglSkr = String.Format("{0:ddMMyy}", DateTime.Now)
         Try
             constring.Open()
-            cmd = New SqlCommand("select TOP 1 NoNotaReturTerima from HReturTerima order by NoNotaReturTerima desc", constring)
-            temp = CInt(cmd.ExecuteScalar.substring(2) + 1)
-            If temp.Length = 1 Then
-                temp = "RT0000" & temp
-            ElseIf temp.Length = 2 Then
-                temp = "RT000" & temp
-            ElseIf temp.Length = 3 Then
-                temp = "RT00" & temp
-            ElseIf temp.Length = 4 Then
-                temp = "RT0" & temp
+            notaFormat = "%" & tglSkr & "%"
+            'cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
+            cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaReturTerima , 8, 4) as Nota FROM HJual WHERE SUBSTRING(NoNotaReturTerima , 1, 7) LIKE '" & notaFormat & "' ORDER BY NoNotaReturTerima DESC;", constring)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            If reader.HasRows Then
+                reader.Read()
+                temp = CInt(reader.GetValue(0)) + 1
+                If temp.Length = 1 Then
+                    temp = "RT" & tglSkr & "000" & temp
+                ElseIf temp.Length = 2 Then
+                    temp = "RT" & tglSkr & "00" & temp
+                ElseIf temp.Length = 3 Then
+                    temp = "RT" & tglSkr & "0" & temp
+                Else
+                    temp = "RT" & tglSkr & temp
+                End If
             Else
-                temp = "RT" & temp
+                temp = "RT" & tglSkr & "0001"
             End If
             constring.Close()
         Catch ex As Exception
-            temp = "RT00001"
+            temp = "RT" & tglSkr & "0001"
             constring.Close()
         End Try
         Return temp

@@ -80,26 +80,33 @@ Module ModuleReturJual
 
     Function getNotaReturJual()
         Dim temp As String = ""
+        Dim notaFormat, tglSkr As String
+        tglSkr = String.Format("{0:ddMMyy}", DateTime.Now)
         Try
             constring.Open()
-            cmd = New SqlCommand("select TOP 1 NoNotaReturJual from HReturJual order by NoNotaReturJual desc", constring)
-            temp = CInt(cmd.ExecuteScalar.substring(2) + 1)
-            If temp.Length = 1 Then
-                temp = "RJ0000" & temp
-            ElseIf temp.Length = 2 Then
-                temp = "RJ000" & temp
-            ElseIf temp.Length = 3 Then
-                temp = "RJ00" & temp
-            ElseIf temp.Length = 4 Then
-                temp = "RJ0" & temp
+            notaFormat = "%" & tglSkr & "%"
+            'cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
+            cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaReturJual, 8, 4) as Nota FROM HJual WHERE SUBSTRING(NoNotaReturJual, 1, 7) LIKE '" & notaFormat & "' ORDER BY NoNotaReturJual DESC;", constring)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            If reader.HasRows Then
+                reader.Read()
+                temp = CInt(reader.GetValue(0)) + 1
+                If temp.Length = 1 Then
+                    temp = "RJ" & tglSkr & "000" & temp
+                ElseIf temp.Length = 2 Then
+                    temp = "RJ" & tglSkr & "00" & temp
+                ElseIf temp.Length = 3 Then
+                    temp = "RJ" & tglSkr & "0" & temp
+                Else
+                    temp = "RJ" & tglSkr & temp
+                End If
             Else
-                temp = "RJ" & temp
+                temp = "RJ" & tglSkr & "0001"
             End If
             constring.Close()
         Catch ex As Exception
-            temp = "RJ00001"
+            temp = "RJ" & tglSkr & "0001"
             constring.Close()
-            'MsgBox(ex.ToString)
         End Try
         Return temp
     End Function

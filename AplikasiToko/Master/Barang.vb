@@ -1,5 +1,5 @@
 ﻿Public Class Barang
-
+    Dim scrollIdx As Integer = 0
     Private Sub Barang_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         DataGridView1.DataSource = DSet.Tables("DataBarang")
         setGV()
@@ -24,6 +24,7 @@
             TextBox4.Text = FormatCurrency(DataGridView1.Rows(e.RowIndex).Cells(5).Value)
             TextBox5.Text = FormatCurrency(DataGridView1.Rows(e.RowIndex).Cells(6).Value)
             NumericUpDown1.Value = DataGridView1.Rows(e.RowIndex).Cells(7).Value
+            scrollIdx = e.RowIndex
         Catch ex As Exception
 
         End Try
@@ -101,6 +102,7 @@
         TextBox5.Text = 0
         NumericUpDown1.Value = 0
         ComboBox1.SelectedIndex = 0
+        DataGridView1.FirstDisplayedScrollingRowIndex = scrollIdx
     End Sub
 
     Sub setGV()

@@ -17,6 +17,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim count As Integer = 0
         Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
+        TextBox1.Text = getNotaReturJual()
         If result = DialogResult.Yes Then
             For Each f In dgv.Rows
                 count += 1
@@ -60,7 +61,7 @@
                 cekTotal()
             End If
         Catch ex As Exception
-            'MsgBox(ex.ToString)
+            MsgBox("asd")
         End Try
     End Sub
 

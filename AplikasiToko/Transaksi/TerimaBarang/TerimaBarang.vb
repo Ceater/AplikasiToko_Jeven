@@ -19,6 +19,7 @@
 
     Private Sub Proses_Click(sender As Object, e As EventArgs) Handles Proses.Click
         If NotaTxt.Text <> "" And dgv.RowCount <> 0 Then
+            NotaTxt.Text = getNotaTerima()
             Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
                 Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
