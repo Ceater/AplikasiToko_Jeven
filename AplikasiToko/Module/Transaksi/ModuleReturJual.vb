@@ -86,7 +86,7 @@ Module ModuleReturJual
             constring.Open()
             notaFormat = "%" & tglSkr & "%"
             'cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
-            cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaReturJual, 8, 4) as Nota FROM HJual WHERE SUBSTRING(NoNotaReturJual, 1, 7) LIKE '" & notaFormat & "' ORDER BY NoNotaReturJual DESC;", constring)
+            cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaReturJual, 8, 4) as Nota FROM HReturJual WHERE SUBSTRING(NoNotaReturJual, 1, 7) LIKE '" & notaFormat & "' ORDER BY NoNotaReturJual DESC;", constring)
             Dim reader As SqlDataReader = cmd.ExecuteReader
             If reader.HasRows Then
                 reader.Read()

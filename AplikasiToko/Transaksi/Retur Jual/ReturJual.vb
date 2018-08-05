@@ -61,7 +61,7 @@
                 cekTotal()
             End If
         Catch ex As Exception
-            MsgBox("asd")
+
         End Try
     End Sub
 
