@@ -17,7 +17,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Johan\Desktop\InstallerTokoNogo\</PublishUrl>
+    <PublishUrl>D:\InstallerTokoNogo\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -147,6 +147,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SuratJalanLuarKota.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master\HargaAmbilan.Designer.vb">
+      <DependentUpon>HargaAmbilan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\HargaAmbilan.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\ConnectionModule.vb" />
     <Compile Include="DataSet\DSetLaporan.Designer.vb">
@@ -328,6 +334,7 @@
     <Compile Include="Module\LabaRugiModule.vb" />
     <Compile Include="Module\LoginModule.vb" />
     <Compile Include="Module\Master\ModuleBarang.vb" />
+    <Compile Include="Module\Master\ModuleHargaAmbilan.vb" />
     <Compile Include="Module\Master\ModulePelanggan.vb" />
     <Compile Include="Module\Master\ModuleStaff.vb" />
     <Compile Include="Module\Master\ModuleSupplier.vb" />
@@ -563,6 +570,9 @@
     <EmbeddedResource Include="Master\Barang.resx">
       <DependentUpon>Barang.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\HargaAmbilan.resx">
+      <DependentUpon>HargaAmbilan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\Pelanggan.resx">
       <DependentUpon>Pelanggan.vb</DependentUpon>
     </EmbeddedResource>
@@ -765,12 +775,12 @@
   <ItemGroup>
     <PublishFile Include="log4net">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
