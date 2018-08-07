@@ -68,4 +68,31 @@ Module GlobalModule
             setBulanBaru()
         End If
     End Sub
+
+    Function SqlSafe(strInput As String) As String
+        SqlSafe = Replace(strInput, "'", "''")
+        SqlSafe = Replace(SqlSafe, """", """""")
+    End Function
+
+    Function getDataTB(FieldName As String, TableName As String, Optional WhereKey As String = "", Optional OrderBy As String = "", Optional GroupBy As String = "")
+        Dim query As String = "SELECT " & FieldName & " FROM " & TableName
+        If WhereKey <> "" Then
+            query &= " WHERE " & WhereKey
+        End If
+        If OrderBy <> "" Then
+            query &= " OrderBy " & OrderBy
+        End If
+
+
+        constring.Open()
+        Dim result As New DataSet
+        Try
+            SqlAdapter = New SqlDataAdapter(query, constring)
+            SqlAdapter.Fill(result, "DataBarang")
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        constring.Close()
+        Return result.Tables("DataBarang")
+    End Function
 End Module

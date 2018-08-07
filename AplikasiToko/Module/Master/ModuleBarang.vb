@@ -82,4 +82,28 @@ Module ModuleBarang
             constring.Close()
         End Try
     End Sub
+
+    Function getDetailbarang(kdBarang As String)
+        Dim result = New Dictionary(Of String, String)
+        constring.Open()
+        Try
+            cmd = New SqlCommand("SELECT * FROM TbBarang WHERE KodeBarang=@a", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a", kdBarang))
+            End With
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            reader.Read()
+            result.Add("KodeBarang", reader.GetValue(0))
+            result.Add("NamaBarang", reader.GetValue(1))
+            result.Add("Stok", reader.GetValue(2))
+            result.Add("SatuanBarang", reader.GetValue(3))
+            result.Add("HargaNormal", reader.GetValue(4))
+            result.Add("HargaToko", reader.GetValue(5))
+            result.Add("HargaSales", reader.GetValue(6))
+        Catch ex As Exception
+
+        End Try
+        constring.Close()
+        Return result
+    End Function
 End Module

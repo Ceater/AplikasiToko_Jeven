@@ -25,6 +25,8 @@ Partial Class Printer
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -38,7 +40,7 @@ Partial Class Printer
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 52)
+        Me.Button1.Location = New System.Drawing.Point(12, 99)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(257, 23)
         Me.Button1.TabIndex = 2
@@ -54,13 +56,33 @@ Partial Class Printer
         Me.ComboBox1.Size = New System.Drawing.Size(257, 21)
         Me.ComboBox1.TabIndex = 3
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(12, 72)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(257, 21)
+        Me.ComboBox2.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 56)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(97, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Pilih Ukuran Kertas"
+        '
         'Printer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 84)
+        Me.ClientSize = New System.Drawing.Size(284, 137)
+        Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -76,4 +98,6 @@ Partial Class Printer
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label2 As Label
 End Class

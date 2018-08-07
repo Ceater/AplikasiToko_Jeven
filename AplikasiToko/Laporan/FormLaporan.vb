@@ -38,6 +38,8 @@ Public Class FormLaporan
             adapt.SelectCommand = cmd
             dataset.Clear()
             Dim rep As New ReportDocument
+            rep.PrintOptions.PrinterName = getPrinter()
+            rep.PrintOptions.PaperSize = getPaperSize()
             If Jenis = "NotaPenjualan" Then
                 cmd.CommandText = "SELECT H.NoNotaJual, H.TglNota, H.GrandTotal, H.NamaPelanggan, H.IDStaff, D.IDBarang, D.NamaBarang, D.Satuan, D.HargaSatuan, D.Jumlah, D.Diskon, D.Subtotal from HJual H, DJual D where H.NoNotaJual=D.NoNotaJual and H.NoNotaJual=@a"
                 cmd.Parameters.AddWithValue("@a", LaporanNoNota)
@@ -46,6 +48,7 @@ Public Class FormLaporan
                 rep.SetDataSource(dataset)
                 rep.SetParameterValue("copyNota", copyNota)
                 rep.PrintOptions.PrinterName = getPrinter()
+                rep.PrintOptions.PaperSize = getPaperSize()
                 rep.PrintToPrinter(1, False, 0, 0)
             ElseIf Jenis = "SuratJalan" Then
                 cmd.CommandText = "SELECT H.NoNotaJual, H.TglNota, H.GrandTotal, H.NamaPelanggan, H.IDStaff, D.IDBarang, D.NamaBarang, D.Satuan, D.HargaSatuan, D.Jumlah, D.Diskon, D.Subtotal from HJual H, DJual D where H.NoNotaJual=D.NoNotaJual and H.NoNotaJual=@a"
@@ -54,6 +57,7 @@ Public Class FormLaporan
                 rep = New SuratJalan
                 rep.SetDataSource(dataset)
                 rep.PrintOptions.PrinterName = getPrinter()
+                rep.PrintOptions.PaperSize = getPaperSize()
                 rep.PrintToPrinter(1, False, 0, 0)
             ElseIf Jenis = "NotaPembayaran" Then
                 cmd.CommandText = "SELECT H.NoNotaJual, T.NoNotaPembayaran, H.TglNota,H.NamaPelanggan, H.GrandTotal, T.TglBayar, T.UangBayar from HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual and H.NoNotaJual=@a"
@@ -62,6 +66,7 @@ Public Class FormLaporan
                 rep = New NotaPembayaran
                 rep.SetDataSource(dataset)
                 rep.PrintOptions.PrinterName = getPrinter()
+                rep.PrintOptions.PaperSize = getPaperSize()
                 rep.PrintToPrinter(1, False, 0, 0)
             ElseIf Jenis = "LaporanPenjualan" Then
                 If mode = "1" Then
@@ -208,6 +213,7 @@ Public Class FormLaporan
                 rep.SetParameterValue("JumlahBarang", detailNotaLuarKota(4))
                 rep.SetParameterValue("DeskripsiBarang", detailNotaLuarKota(5))
                 rep.PrintOptions.PrinterName = getPrinter()
+                rep.PrintOptions.PaperSize = getPaperSize()
                 rep.PrintToPrinter(1, False, 0, 0)
             End If
             con.Close()
@@ -226,5 +232,21 @@ Public Class FormLaporan
         x1 = sr.ReadLine()
         sr.Dispose()
         Return x1
+    End Function
+
+    Function getPaperSize()
+        Dim path As String = "C:\AplikasiToko\printer.txt"
+        Dim x1 As String
+        Dim result As PaperSize
+        Dim sr As StreamReader = New StreamReader(path)
+        sr.ReadLine()
+        x1 = sr.ReadLine()
+        sr.Dispose()
+        If x1 = "A4" Then
+            result = PaperSize.PaperA4
+        ElseIf x1 = "A5" Then
+            result = PaperSize.PaperA5
+        End If
+        Return result
     End Function
 End Class

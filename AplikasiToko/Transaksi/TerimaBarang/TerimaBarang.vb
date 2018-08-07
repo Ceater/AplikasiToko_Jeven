@@ -100,10 +100,11 @@
                     Next
                 End If
                 If addorappend Then
+                    Dim result As Dictionary(Of String, String) = getDetailbarang(ComboBox1.Text)
                     DRow = DTable.NewRow
                     DRow("Kode Barang") = ComboBox1.Text
                     DRow("Nama Barang") = ComboBox1.SelectedValue
-                    DRow("Satuan") = DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(3).ToString
+                    DRow("Satuan") = result("SatuanBarang")
                     DRow("Jumlah") = JumlahBarang
                     DTable.Rows.Add(DRow)
                 End If

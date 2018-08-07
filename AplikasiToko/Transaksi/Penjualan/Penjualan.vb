@@ -9,7 +9,7 @@ Public Class Penjualan
     Dim TotJumBarang As Double 'Total Jumlah Barang
     Dim Pembayaran As Double
     Dim staff As String = ""
-    Dim PilihanHarga As Integer = 4
+    Dim PilihanHarga As String = ""
     Dim KodeBarang As String = ""
     'Variable Label
     Dim pembayarantxt1 As Label
@@ -52,15 +52,15 @@ Public Class Penjualan
         If R1.Checked Then
             ComboBox2.Enabled = False
             ComboBox3.Enabled = False
-            PilihanHarga = 4
+            PilihanHarga = "HargaNormal"
         ElseIf R2.Checked Then
             ComboBox2.Enabled = True
             ComboBox3.Enabled = False
-            PilihanHarga = 5
+            PilihanHarga = "HargaToko"
         ElseIf R3.Checked Then
             ComboBox2.Enabled = False
             ComboBox3.Enabled = True
-            PilihanHarga = 6
+            PilihanHarga = "HargaSales"
         End If
         clear()
     End Sub
@@ -135,11 +135,12 @@ Public Class Penjualan
                     Next
                 End If
                 If addorappend Then
+                    Dim result As Dictionary(Of String, String) = getDetailbarang(KodeBarang)
                     DRow = DTable.NewRow
                     DRow("Kode Barang") = KodeBarang
                     DRow("Nama Barang") = ComboBox1.SelectedValue
-                    DRow("Satuan") = DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(3).ToString
-                    DRow("Harga Satuan") = FormatCurrency(DSet.Tables("DataBarang").Rows(ComboBox1.SelectedIndex).Item(PilihanHarga).ToString)
+                    DRow("Satuan") = result("SatuanBarang")
+                    DRow("Harga Satuan") = FormatCurrency(result(PilihanHarga))
                     DRow("Jumlah") = JumlahBarang
                     DRow("Diskon") = 0
                     DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan") * JumlahBarang)

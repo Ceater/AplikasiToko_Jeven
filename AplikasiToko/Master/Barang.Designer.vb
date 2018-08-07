@@ -44,9 +44,12 @@ Partial Class Barang
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -89,9 +92,9 @@ Partial Class Barang
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Location = New System.Drawing.Point(766, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(766, 65)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(236, 492)
+        Me.GroupBox1.Size = New System.Drawing.Size(236, 303)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Data Barang"
@@ -268,11 +271,29 @@ Partial Class Barang
         Me.TextBox1.Size = New System.Drawing.Size(134, 20)
         Me.TextBox1.TabIndex = 1
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.TextBox6)
+        Me.GroupBox2.Location = New System.Drawing.Point(766, 12)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(236, 47)
+        Me.GroupBox2.TabIndex = 12
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Pencarian"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(8, 19)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(220, 20)
+        Me.TextBox6.TabIndex = 0
+        '
         'Barang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1010, 515)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.DataGridView1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -285,6 +306,8 @@ Partial Class Barang
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -310,4 +333,6 @@ Partial Class Barang
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents TextBox6 As TextBox
 End Class

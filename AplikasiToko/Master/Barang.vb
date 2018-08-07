@@ -1,7 +1,8 @@
 ﻿Public Class Barang
     Dim scrollIdx As Integer = 0
     Private Sub Barang_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        DataGridView1.DataSource = DSet.Tables("DataBarang")
+        'DataGridView1.DataSource = DSet.Tables("DataBarang")
+        loadDGV()
         setGV()
         Try
             ComboBox1.DataSource = DSet.Tables("DataSatuan")
@@ -49,6 +50,7 @@
                 MsgBox("Penambahan berhasil")
             End If
             LoadDataSet()
+            loadDGV()
             clearall()
         Else
             MsgBox("Cek kelengkapan pengisian")
@@ -65,6 +67,7 @@
                 MsgBox("Belum ada barang yang dipilih")
             End If
             LoadDataSet()
+            loadDGV()
             clearall()
         ElseIf result = DialogResult.No Then
         End If
@@ -88,6 +91,11 @@
             End If
         End If
         sender.select(sender.text.length, 0)
+    End Sub
+
+    Private Sub TextBox6_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBox6.KeyUp
+        Dim temp As String = SqlSafe(TextBox6.Text)
+        DataGridView1.DataSource = getDataTB("KodeBarang, NamaBarang, Stok, NamaSatuan, HargaNormal, HargaToko, HargaSales, StokPengingat", "TbBarang tb INNER JOIN TbSatuan ts ON tb.SatuanBarang=ts.KodeSatuan", "(KodeBarang LIKE '%" & temp & "%' OR NamaBarang LIKE '%" & temp & "%')")
     End Sub
 
     'Function and Procedure
@@ -135,4 +143,8 @@
         End If
         Return s
     End Function
+
+    Sub loadDGV()
+        DataGridView1.DataSource = getDataTB("KodeBarang, NamaBarang, Stok, NamaSatuan, HargaNormal, HargaToko, HargaSales, StokPengingat", "TbBarang tb INNER JOIN TbSatuan ts ON tb.SatuanBarang=ts.KodeSatuan")
+    End Sub
 End Class
