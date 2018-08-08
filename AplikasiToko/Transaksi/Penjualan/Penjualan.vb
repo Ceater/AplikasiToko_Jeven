@@ -195,7 +195,11 @@ Public Class Penjualan
             Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
             Dim temp As String = ""
             If R1.Checked Then
-                temp = "Tamu"
+                If TamuTxt.Text <> "" Then
+                    temp = TamuTxt.Text
+                Else
+                    temp = "Tamu"
+                End If
             ElseIf R2.Checked Then
                 temp = ComboBox2.Text
             ElseIf R3.Checked Then

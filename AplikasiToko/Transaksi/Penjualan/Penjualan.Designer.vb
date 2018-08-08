@@ -59,13 +59,14 @@ Partial Class Penjualan
         Me.R2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.R3 = New System.Windows.Forms.RadioButton()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.JmlBarang = New System.Windows.Forms.TextBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.TamuTxt = New System.Windows.Forms.TextBox()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -430,6 +431,7 @@ Partial Class Penjualan
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.TamuTxt)
         Me.GroupBox5.Controls.Add(Me.R3)
         Me.GroupBox5.Controls.Add(Me.ComboBox3)
         Me.GroupBox5.Controls.Add(Me.ComboBox2)
@@ -452,6 +454,17 @@ Partial Class Penjualan
         Me.R3.TabStop = True
         Me.R3.Text = "Sales"
         Me.R3.UseVisualStyleBackColor = True
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBox3.Enabled = False
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(124, 72)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(188, 21)
+        Me.ComboBox3.TabIndex = 8
         '
         'ComboBox2
         '
@@ -513,16 +526,12 @@ Partial Class Penjualan
         Me.JmlBarang.TabIndex = 4
         Me.JmlBarang.Text = "0"
         '
-        'ComboBox3
+        'TamuTxt
         '
-        Me.ComboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.ComboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBox3.Enabled = False
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(124, 72)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(188, 21)
-        Me.ComboBox3.TabIndex = 8
+        Me.TamuTxt.Location = New System.Drawing.Point(124, 19)
+        Me.TamuTxt.Name = "TamuTxt"
+        Me.TamuTxt.Size = New System.Drawing.Size(188, 20)
+        Me.TamuTxt.TabIndex = 10
         '
         'Penjualan
         '
@@ -610,4 +619,5 @@ Partial Class Penjualan
     Friend WithEvents CheckBox3 As CheckBox
     Friend WithEvents JmlBarang As TextBox
     Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents TamuTxt As TextBox
 End Class

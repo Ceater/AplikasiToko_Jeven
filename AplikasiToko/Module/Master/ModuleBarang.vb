@@ -87,7 +87,7 @@ Module ModuleBarang
         Dim result = New Dictionary(Of String, String)
         constring.Open()
         Try
-            cmd = New SqlCommand("SELECT * FROM TbBarang WHERE KodeBarang=@a", constring)
+            cmd = New SqlCommand("SELECT KodeBarang, NamaBarang, Stok, NamaSatuan, HargaNormal, HargaToko, HargaSales, StokPengingat FROM TbBarang tb INNER JOIN TbSatuan ts ON tb.SatuanBarang=ts.KodeSatuan WHERE tb.KodeBarang=@a", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", kdBarang))
             End With
