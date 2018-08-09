@@ -106,4 +106,6 @@ Module ModuleBarang
         constring.Close()
         Return result
     End Function
+
+
 End Module

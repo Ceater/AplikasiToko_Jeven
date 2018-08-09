@@ -95,4 +95,18 @@ Module GlobalModule
         constring.Close()
         Return result.Tables("DataBarang")
     End Function
+
+    Function getDataTBDSet(FieldName As String, TableName As String, Optional WhereKey As String = "", Optional OrderBy As String = "", Optional GroupBy As String = "")
+        Dim result As New DataSet
+        Dim query As String = "SELECT " & FieldName & " FROM " & TableName
+        If WhereKey <> "" Then
+            query &= " WHERE " & WhereKey
+        End If
+        If OrderBy <> "" Then
+            query &= " OrderBy " & OrderBy
+        End If
+        SqlAdapter = New SqlDataAdapter(query, constring)
+        SqlAdapter.Fill(result, "result")
+        Return result
+    End Function
 End Module

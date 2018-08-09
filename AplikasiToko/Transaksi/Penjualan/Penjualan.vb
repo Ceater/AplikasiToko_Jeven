@@ -30,10 +30,10 @@ Public Class Penjualan
         ComboBox1.DataSource = DSet.Tables("DataBarang")
         ComboBox1.ValueMember = "NamaBarang"
         ComboBox1.DisplayMember = "KodeBarang"
-        ComboBox2.DataSource = DSet.Tables("DataPelangganToko")
+        ComboBox2.DataSource = getDataTBDSet("*", "TbPelanggan", "TipePelanggan='Toko'").Tables("result")
         ComboBox2.ValueMember = "NamaPelanggan"
         ComboBox2.DisplayMember = "NamaPelanggan"
-        ComboBox3.DataSource = DSet.Tables("DataPelangganSales")
+        ComboBox3.DataSource = getDataTBDSet("*", "TbPelanggan", "TipePelanggan='Toko'").Tables("result")
         ComboBox3.ValueMember = "NamaPelanggan"
         ComboBox3.DisplayMember = "NamaPelanggan"
     End Sub
