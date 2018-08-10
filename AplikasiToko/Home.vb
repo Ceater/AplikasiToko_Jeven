@@ -1,6 +1,6 @@
 ﻿Public Class Home
     Public hakAkses As String = ""
-    Public MenuStrip(19) As ToolStripMenuItem
+    Public MenuStrip(20) As ToolStripMenuItem
     Dim isec As Integer = 0
 
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -26,9 +26,14 @@
         MenuStrip(17) = L7
         MenuStrip(18) = L8
         MenuStrip(19) = L9
+        MenuStrip(20) = Setting
         Dim temp(MenuStrip.Count - 1) As String
         For i = 0 To MenuStrip.Count - 1
-            temp(i) = hakAkses.Substring(i, 1)
+            Try
+                temp(i) = hakAkses.Substring(i, 1)
+            Catch ex As Exception
+                temp(i) = 0
+            End Try
             If temp(i) = "1" Then
                 MenuStrip(i).Enabled = True
             Else
@@ -54,12 +59,7 @@
     End Sub
 
     Private Sub BarangToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles M1.Click
-        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
-        Else
-            Dim f As New Barang
-            f.MdiParent = Me
-            f.Show()
-        End If
+
     End Sub
 
     Private Sub StaffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles M2.Click
@@ -252,5 +252,29 @@
         Dim f As New ResetData
         f.MdiParent = Me
         f.Show()
+    End Sub
+
+    Private Sub DaftarBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DaftarBarangToolStripMenuItem.Click
+        Dim f As New ListBarang
+        f.MdiParent = Me
+        f.Show()
+    End Sub
+
+    Private Sub EditBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditBarangToolStripMenuItem.Click
+        If Application.OpenForms().OfType(Of Barang).Any Then
+        Else
+            Dim f As New Barang
+            f.MdiParent = Me
+            f.Show()
+        End If
+    End Sub
+
+    Private Sub HargaAmbilanToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles HargaAmbilanToolStripMenuItem1.Click
+        If Application.OpenForms().OfType(Of HargaAmbilan).Any Then
+        Else
+            Dim f As New HargaAmbilan
+            f.MdiParent = Me
+            f.Show()
+        End If
     End Sub
 End Class

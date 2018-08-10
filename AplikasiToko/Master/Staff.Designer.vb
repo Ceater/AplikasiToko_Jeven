@@ -25,6 +25,7 @@ Partial Class Staff
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.L9 = New System.Windows.Forms.CheckBox()
         Me.L8 = New System.Windows.Forms.CheckBox()
         Me.L7 = New System.Windows.Forms.CheckBox()
         Me.T8 = New System.Windows.Forms.CheckBox()
@@ -60,7 +61,8 @@ Partial Class Staff
         Me.Tambah = New System.Windows.Forms.Button()
         Me.Hapus = New System.Windows.Forms.Button()
         Me.Reset = New System.Windows.Forms.Button()
-        Me.L9 = New System.Windows.Forms.CheckBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.S1 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -110,6 +112,8 @@ Partial Class Staff
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.S1)
+        Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.L9)
         Me.GroupBox2.Controls.Add(Me.L8)
         Me.GroupBox2.Controls.Add(Me.L7)
@@ -139,6 +143,16 @@ Partial Class Staff
         Me.GroupBox2.TabIndex = 99
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Hak Akses"
+        '
+        'L9
+        '
+        Me.L9.AutoSize = True
+        Me.L9.Location = New System.Drawing.Point(6, 318)
+        Me.L9.Name = "L9"
+        Me.L9.Size = New System.Drawing.Size(126, 17)
+        Me.L9.TabIndex = 23
+        Me.L9.Text = "Laporan Pendapatan"
+        Me.L9.UseVisualStyleBackColor = True
         '
         'L8
         '
@@ -465,15 +479,24 @@ Partial Class Staff
         Me.Reset.Text = "Reset"
         Me.Reset.UseVisualStyleBackColor = True
         '
-        'L9
+        'Label9
         '
-        Me.L9.AutoSize = True
-        Me.L9.Location = New System.Drawing.Point(6, 318)
-        Me.L9.Name = "L9"
-        Me.L9.Size = New System.Drawing.Size(126, 17)
-        Me.L9.TabIndex = 23
-        Me.L9.Text = "Laporan Pendapatan"
-        Me.L9.UseVisualStyleBackColor = True
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(143, 229)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(40, 13)
+        Me.Label9.TabIndex = 24
+        Me.Label9.Text = "Setting"
+        '
+        'S1
+        '
+        Me.S1.AutoSize = True
+        Me.S1.Location = New System.Drawing.Point(143, 249)
+        Me.S1.Name = "S1"
+        Me.S1.Size = New System.Drawing.Size(73, 17)
+        Me.S1.TabIndex = 25
+        Me.S1.Text = "All Setting"
+        Me.S1.UseVisualStyleBackColor = True
         '
         'Staff
         '
@@ -536,4 +559,6 @@ Partial Class Staff
     Friend WithEvents L8 As CheckBox
     Friend WithEvents T8 As CheckBox
     Friend WithEvents L9 As CheckBox
+    Friend WithEvents S1 As CheckBox
+    Friend WithEvents Label9 As Label
 End Class

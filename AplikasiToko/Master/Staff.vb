@@ -1,5 +1,5 @@
 ﻿Public Class Staff
-    Dim chkbox(19) As CheckBox
+    Dim chkbox(20) As CheckBox
     Dim scrollIdx As Integer = 0
     Private Sub Staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.DataSource = DSet.Tables("DataStaff")
@@ -24,6 +24,7 @@
         chkbox(17) = L7
         chkbox(18) = L8
         chkbox(19) = L9
+        chkbox(20) = S1
     End Sub
 
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
@@ -38,7 +39,11 @@
             scrollIdx = e.RowIndex
             Dim x(chkbox.Count - 1) As String
             For i = 0 To chkbox.Count - 1
-                x(i) = DataGridView1.Rows(e.RowIndex).Cells(5).Value.substring(i, 1)
+                Try
+                    x(i) = DataGridView1.Rows(e.RowIndex).Cells(5).Value.substring(i, 1)
+                Catch ex As Exception
+                    x(i) = 0
+                End Try
                 If x(i) = "1" Then
                     chkbox(i).Checked = True
                 Else

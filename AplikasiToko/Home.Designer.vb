@@ -34,8 +34,11 @@ Partial Class Home
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.M1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HargaAmbilanToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.M2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.M3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DaftarBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.T1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.T2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,7 +59,7 @@ Partial Class Home
         Me.L8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L9 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Setting = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetPersediaanAwalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateVersiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -93,14 +96,14 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(473, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(482, 17)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel7
         '
         Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
-        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(68, 17)
-        Me.ToolStripStatusLabel7.Text = "Versi 1.1.3.1"
+        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(59, 17)
+        Me.ToolStripStatusLabel7.Text = "Versi 1.1.4"
         '
         'ToolStripStatusLabel4
         '
@@ -123,7 +126,7 @@ Partial Class Home
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.SettingToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.Setting})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(829, 24)
@@ -132,31 +135,51 @@ Partial Class Home
         '
         'MasterToolStripMenuItem
         '
-        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.M1, Me.M2, Me.M3})
+        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.M1, Me.M2, Me.M3, Me.DaftarBarangToolStripMenuItem})
         Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
         Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
         Me.MasterToolStripMenuItem.Text = "Master"
         '
         'M1
         '
+        Me.M1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditBarangToolStripMenuItem, Me.HargaAmbilanToolStripMenuItem1})
         Me.M1.Name = "M1"
         Me.M1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
-        Me.M1.Size = New System.Drawing.Size(172, 22)
+        Me.M1.Size = New System.Drawing.Size(186, 22)
         Me.M1.Text = "Barang"
+        '
+        'EditBarangToolStripMenuItem
+        '
+        Me.EditBarangToolStripMenuItem.Name = "EditBarangToolStripMenuItem"
+        Me.EditBarangToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.EditBarangToolStripMenuItem.Text = "Edit Barang"
+        '
+        'HargaAmbilanToolStripMenuItem1
+        '
+        Me.HargaAmbilanToolStripMenuItem1.Name = "HargaAmbilanToolStripMenuItem1"
+        Me.HargaAmbilanToolStripMenuItem1.Size = New System.Drawing.Size(154, 22)
+        Me.HargaAmbilanToolStripMenuItem1.Text = "Harga Ambilan"
         '
         'M2
         '
         Me.M2.Name = "M2"
         Me.M2.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.M2.Size = New System.Drawing.Size(172, 22)
+        Me.M2.Size = New System.Drawing.Size(186, 22)
         Me.M2.Text = "Staff"
         '
         'M3
         '
         Me.M3.Name = "M3"
         Me.M3.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.M3.Size = New System.Drawing.Size(172, 22)
+        Me.M3.Size = New System.Drawing.Size(186, 22)
         Me.M3.Text = "Pelanggan"
+        '
+        'DaftarBarangToolStripMenuItem
+        '
+        Me.DaftarBarangToolStripMenuItem.Name = "DaftarBarangToolStripMenuItem"
+        Me.DaftarBarangToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
+        Me.DaftarBarangToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.DaftarBarangToolStripMenuItem.Text = "Daftar Barang"
         '
         'TransaksiToolStripMenuItem
         '
@@ -288,12 +311,12 @@ Partial Class Home
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'SettingToolStripMenuItem
+        'Setting
         '
-        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrinterToolStripMenuItem, Me.SetPersediaanAwalToolStripMenuItem, Me.UpdateVersiToolStripMenuItem, Me.BackupDatabaseToolStripMenuItem, Me.FormResetDataToolStripMenuItem})
-        Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
-        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
-        Me.SettingToolStripMenuItem.Text = "Setting"
+        Me.Setting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrinterToolStripMenuItem, Me.SetPersediaanAwalToolStripMenuItem, Me.UpdateVersiToolStripMenuItem, Me.BackupDatabaseToolStripMenuItem, Me.FormResetDataToolStripMenuItem})
+        Me.Setting.Name = "Setting"
+        Me.Setting.Size = New System.Drawing.Size(56, 20)
+        Me.Setting.Text = "Setting"
         '
         'PrinterToolStripMenuItem
         '
@@ -389,7 +412,7 @@ Partial Class Home
     Friend WithEvents L3 As ToolStripMenuItem
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents T6 As ToolStripMenuItem
-    Friend WithEvents SettingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Setting As ToolStripMenuItem
     Friend WithEvents PrinterToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents L4 As ToolStripMenuItem
     Friend WithEvents L6 As ToolStripMenuItem
@@ -404,4 +427,7 @@ Partial Class Home
     Friend WithEvents UpdateVersiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackupDatabaseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FormResetDataToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DaftarBarangToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EditBarangToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HargaAmbilanToolStripMenuItem1 As ToolStripMenuItem
 End Class

@@ -38,8 +38,6 @@ Public Class FormLaporan
             adapt.SelectCommand = cmd
             dataset.Clear()
             Dim rep As New ReportDocument
-            rep.PrintOptions.PrinterName = getPrinter()
-            rep.PrintOptions.PaperSize = getPaperSize()
             If Jenis = "NotaPenjualan" Then
                 cmd.CommandText = "SELECT H.NoNotaJual, H.TglNota, H.GrandTotal, H.NamaPelanggan, H.IDStaff, D.IDBarang, D.NamaBarang, D.Satuan, D.HargaSatuan, D.Jumlah, D.Diskon, D.Subtotal from HJual H, DJual D where H.NoNotaJual=D.NoNotaJual and H.NoNotaJual=@a"
                 cmd.Parameters.AddWithValue("@a", LaporanNoNota)
@@ -48,7 +46,7 @@ Public Class FormLaporan
                 rep.SetDataSource(dataset)
                 rep.SetParameterValue("copyNota", copyNota)
                 rep.PrintOptions.PrinterName = getPrinter()
-                rep.PrintOptions.PaperSize = getPaperSize()
+                'rep.PrintOptions.PaperSize = getPaperSize()
                 rep.PrintToPrinter(1, False, 0, 10)
             ElseIf Jenis = "SuratJalan" Then
                 cmd.CommandText = "SELECT H.NoNotaJual, H.TglNota, H.GrandTotal, H.NamaPelanggan, H.IDStaff, D.IDBarang, D.NamaBarang, D.Satuan, D.HargaSatuan, D.Jumlah, D.Diskon, D.Subtotal from HJual H, DJual D where H.NoNotaJual=D.NoNotaJual and H.NoNotaJual=@a"
@@ -245,7 +243,7 @@ Public Class FormLaporan
         If x1 = "A4" Then
             result = PaperSize.PaperA4
         ElseIf x1 = "A5" Then
-            result = PaperSize.PaperB5
+            result = PaperSize.PaperA5
         End If
         Return result
     End Function
