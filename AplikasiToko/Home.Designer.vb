@@ -96,14 +96,14 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(482, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(473, 17)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel7
         '
         Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
-        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(59, 17)
-        Me.ToolStripStatusLabel7.Text = "Versi 1.1.4"
+        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(68, 17)
+        Me.ToolStripStatusLabel7.Text = "Versi 1.1.4.1"
         '
         'ToolStripStatusLabel4
         '
