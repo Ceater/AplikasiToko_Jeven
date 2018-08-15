@@ -103,7 +103,7 @@ Partial Class Home
         '
         Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
         Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(68, 17)
-        Me.ToolStripStatusLabel7.Text = "Versi 1.1.4.1"
+        Me.ToolStripStatusLabel7.Text = "Versi 1.1.4.2"
         '
         'ToolStripStatusLabel4
         '
