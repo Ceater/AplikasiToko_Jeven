@@ -72,7 +72,7 @@ Public Class Penjualan
     End Sub
 
     Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
-        Dim sat As Double = CDbl(Val(dgv.Rows(e.RowIndex).Cells(4).Value))
+        Dim sat As Double = CDbl(Val(dgv.Rows(e.RowIndex).Cells(4).Value.text.Replace(",", ".")))
         Dim tot As Double = dgv.Rows(e.RowIndex).Cells(3).Value * sat
         Dim disc As Double = dgv.Rows(e.RowIndex).Cells(5).Value
         disc = disc * sat
@@ -119,7 +119,7 @@ Public Class Penjualan
         End If
 
         If e.KeyCode = Keys.Enter Then
-            Dim JumlahBarang As Double = CDbl(Val(JmlBarang.Text))
+            Dim JumlahBarang As Double = CDbl(Val(sender.text.Replace(",", ".")))
             Try
                 KodeBarang = ComboBox1.Text
                 Dim sisaStok As Integer = 0
@@ -235,68 +235,72 @@ Public Class Penjualan
                 If cekNotaJual(NotaTxt.Text) Then
                     MsgBox("Nota sudah terdaftar")
                 Else
-                    If CheckBox2.Checked Then
-                        Dim f As New InfoSuratJalanLuarKota
-                        Dim dr As DialogResult
-                        dr = f.ShowDialog()
-                        If dr = DialogResult.OK Then
-                            Dim xz(5) As String
-                            xz = f.x
-                            xz(0) = NotaTxt.Text
-                            xz(1) = tgl
-                            xz(2) = temp
-                            Dim h As New FormLaporan("SuratJalanLuarKota")
-                            h.Width = 0
-                            h.Height = 0
-                            h.detailNotaLuarKota = xz
-                            h.Show()
-                            If printPreview Then
-                            Else
-                                h.Close()
-                            End If
-                        End If
-                    End If
                     insertHJual(NotaTxt.Text, tgl, GTotal, temp, staff)
                     For Each f In dgv.Rows
                         insertDJual(NotaTxt.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, f.Cells(4).Value, f.Cells(5).Value, f.Cells(6).Value)
                         updateStok(-f.Cells(4).Value, f.Cells(0).Value)
                     Next
                     insertPembayaran(NotaTxt.Text, tgl, Pembayaran)
-                    Dim g As New FormLaporan("NotaPenjualan")
-                    g.Width = 0
-                    g.Height = 0
-                    g.LaporanNoNota = NotaTxt.Text
-                    g.copyNota = "Asli"
-                    g.Show()
-                    If printPreview Then
-                    Else
-                        g.Close()
-                    End If
-                    g = New FormLaporan("NotaPenjualan")
-                    g.LaporanNoNota = NotaTxt.Text
-                    g.copyNota = "Copy 1"
-                    g.Show()
-                    If printPreview Then
-                    Else
-                        g.Close()
-                    End If
-                    g = New FormLaporan("NotaPenjualan")
-                    g.LaporanNoNota = NotaTxt.Text
-                    g.copyNota = "Copy 2"
-                    g.Show()
-                    If printPreview Then
-                    Else
-                        g.Close()
-                    End If
-                    If CheckBox1.Checked Then
-                        g = New FormLaporan("SuratJalan")
+                    'Print Semua Nota Start
+                    If CheckBox4.Checked = False Then
+                        Dim g As New FormLaporan("NotaPenjualan")
+                        g.Width = 0
+                        g.Height = 0
                         g.LaporanNoNota = NotaTxt.Text
+                        g.copyNota = "Asli"
                         g.Show()
                         If printPreview Then
                         Else
                             g.Close()
                         End If
+                        g = New FormLaporan("NotaPenjualan")
+                        g.LaporanNoNota = NotaTxt.Text
+                        g.copyNota = "Copy 1"
+                        g.Show()
+                        If printPreview Then
+                        Else
+                            g.Close()
+                        End If
+                        g = New FormLaporan("NotaPenjualan")
+                        g.LaporanNoNota = NotaTxt.Text
+                        g.copyNota = "Copy 2"
+                        g.Show()
+                        If printPreview Then
+                        Else
+                            g.Close()
+                        End If
+                        If CheckBox1.Checked Then
+                            g = New FormLaporan("SuratJalan")
+                            g.LaporanNoNota = NotaTxt.Text
+                            g.Show()
+                            If printPreview Then
+                            Else
+                                g.Close()
+                            End If
+                        End If
+                        If CheckBox2.Checked Then
+                            Dim f As New InfoSuratJalanLuarKota
+                            Dim dr As DialogResult
+                            dr = f.ShowDialog()
+                            If dr = DialogResult.OK Then
+                                Dim xz(5) As String
+                                xz = f.x
+                                xz(0) = NotaTxt.Text
+                                xz(1) = tgl
+                                xz(2) = temp
+                                Dim h As New FormLaporan("SuratJalanLuarKota")
+                                h.Width = 0
+                                h.Height = 0
+                                h.detailNotaLuarKota = xz
+                                h.Show()
+                                If printPreview Then
+                                Else
+                                    h.Close()
+                                End If
+                            End If
+                        End If
                     End If
+                    'Print Semua Nota End
                     LoadDataSet()
                     clear()
                 End If

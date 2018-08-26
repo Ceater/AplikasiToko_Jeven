@@ -81,7 +81,7 @@
 
     'JmlBarang
     Private Sub JmlBarang_KeyUp(sender As Object, e As KeyEventArgs) Handles JmlBarang.KeyUp
-        Dim JumlahBarang As Double = CDbl(Val(sender.text))
+        Dim JumlahBarang As Double = CDbl(Val(sender.text.Replace(",", ".")))
         If sender.text = "" Then
             sender.text = "0"
         End If

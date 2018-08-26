@@ -127,7 +127,7 @@ Public Class UpdateVersi
             constring.Close()
             MsgBox("Pembaharuan Versi Berhasil, Silahkan restart program")
             Me.Close()
-        ElseIf VSekarang = "1.1.4.3" Then
+        ElseIf VSekarang = "1.1.4.4" Then
             constring.Open()
             cmd = New SqlCommand("
                 IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'TbConfig' AND type = 'U')

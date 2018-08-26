@@ -104,7 +104,7 @@ Partial Class Home
         '
         Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
         Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(86, 20)
-        Me.ToolStripStatusLabel7.Text = "Versi 1.1.4.3"
+        Me.ToolStripStatusLabel7.Text = "Versi 1.1.4.4"
         '
         'ToolStripStatusLabel4
         '
@@ -361,7 +361,7 @@ Partial Class Home
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 25
         Me.ListBox1.Location = New System.Drawing.Point(804, 28)
-        Me.ListBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ListBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(301, 607)
         Me.ListBox1.TabIndex = 4
@@ -377,7 +377,7 @@ Partial Class Home
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Home"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Home"
