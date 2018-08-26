@@ -122,6 +122,9 @@ Public Class Penjualan
             Dim JumlahBarang As Double = CDbl(Val(JmlBarang.Text))
             Try
                 KodeBarang = ComboBox1.Text
+                Dim sisaStok As Integer = 0
+                Dim stokOk As Boolean = True
+
                 Dim addorappend As Boolean = True 'Digunakan untuk menentukan apakah tambah baru atau tambah jumlah
                 If dgv.RowCount = 0 Then
                     addorappend = True
@@ -129,22 +132,37 @@ Public Class Penjualan
                     addorappend = True
                     For Each f In dgv.Rows
                         If f.cells(0).value = KodeBarang Then
-                            f.Cells(4).Value += JumlahBarang
+                            sisaStok = getCurrentStok(KodeBarang) - (Math.Abs(CDbl(f.Cells(4).Value)) + Math.Abs(JumlahBarang))
+                            If sisaStok <= -1 Then
+                                stokOk = False
+                            End If
+                            If stokOk Then
+                                f.Cells(4).Value += JumlahBarang
+                            End If
                             addorappend = False
                         End If
                     Next
                 End If
                 If addorappend Then
-                    Dim result As Dictionary(Of String, String) = getDetailbarang(KodeBarang)
-                    DRow = DTable.NewRow
-                    DRow("Kode Barang") = KodeBarang
-                    DRow("Nama Barang") = ComboBox1.SelectedValue
-                    DRow("Satuan") = result("SatuanBarang")
-                    DRow("Harga Satuan") = FormatCurrency(result(PilihanHarga))
-                    DRow("Jumlah") = JumlahBarang
-                    DRow("Diskon") = 0
-                    DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan") * JumlahBarang)
-                    DTable.Rows.Add(DRow)
+                    sisaStok = getCurrentStok(KodeBarang) - Math.Abs(JumlahBarang)
+                    If sisaStok <= -1 Then
+                        stokOk = False
+                    End If
+                    If stokOk Then
+                        Dim result As Dictionary(Of String, String) = getDetailbarang(KodeBarang)
+                        DRow = DTable.NewRow
+                        DRow("Kode Barang") = KodeBarang
+                        DRow("Nama Barang") = ComboBox1.SelectedValue
+                        DRow("Satuan") = result("SatuanBarang")
+                        DRow("Harga Satuan") = FormatCurrency(result(PilihanHarga))
+                        DRow("Jumlah") = JumlahBarang
+                        DRow("Diskon") = 0
+                        DRow("Sub Total") = FormatCurrency(DRow("Harga Satuan") * JumlahBarang)
+                        DTable.Rows.Add(DRow)
+                    End If
+                End If
+                If stokOk = False Then
+                    MsgBox("Stok Kurang")
                 End If
                 cekTotal()
             Catch ex As Exception
@@ -186,12 +204,19 @@ Public Class Penjualan
 
     'ButtonEvent
     Private Sub Proses_btn_Click(sender As Object, e As EventArgs) Handles Proses_btn.Click
-        Dim printPreview As Boolean = False
+        Dim printPreview = False, stokOk As Boolean = True
         If CheckBox3.Checked Then
             printPreview = True
         End If
         NotaTxt.Text = getNotaJual()
-        If NotaTxt.Text <> "" And dgv.RowCount <> 0 Then
+        For Each f In dgv.Rows
+            Dim sisaStok As Integer = 0
+            sisaStok = getCurrentStok(f.Cells(0).Value) - Math.Abs(CDbl(f.Cells(4).Value))
+            If sisaStok <= -1 Then
+                stokOk = False
+            End If
+        Next
+        If NotaTxt.Text <> "" And dgv.RowCount <> 0 And stokOk Then
             Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
             Dim temp As String = ""
             If R1.Checked Then
@@ -278,7 +303,7 @@ Public Class Penjualan
             ElseIf result = DialogResult.No Then
             End If
         Else
-            MsgBox("Cek nomer nota atau data barang")
+            MsgBox("Cek nomer nota atau data barang atau jumlah barang")
         End If
     End Sub
 

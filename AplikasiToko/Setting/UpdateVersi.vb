@@ -127,6 +127,34 @@ Public Class UpdateVersi
             constring.Close()
             MsgBox("Pembaharuan Versi Berhasil, Silahkan restart program")
             Me.Close()
+        ElseIf VSekarang = "1.1.4.3" Then
+            constring.Open()
+            cmd = New SqlCommand("
+                IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'TbConfig' AND type = 'U')
+                BEGIN
+	                CREATE TABLE [dbo].[TbConfig](
+	                [no_urut] [int] IDENTITY(1,1) NOT NULL,
+	                [keynote] [varchar](max) NOT NULL,
+	                [value1] [varchar](max) NULL,
+	                [value2] [varchar](max) NULL,
+	                PRIMARY KEY CLUSTERED 
+	                (
+		                [no_urut] ASC
+	                )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	                ) ON [PRIMARY]
+	                INSERT INTO Config(keynote, value1, value2) VALUES('Versi', '1.1.4.3', '')
+	                ALTER TABLE TbBarang ADD Date_i datetime;
+	                ALTER TABLE TbBarang ADD Date_u datetime;
+	                ALTER TABLE TbBarang ADD User_i varchar(100);
+	                ALTER TABLE TbBarang ADD User_u varchar(100);
+                    ALTER TABLE TbLabaRugi ADD Date_i datetime;
+	                ALTER TABLE TbLabaRugi ADD User_i varchar(100);
+                END
+            ", constring)
+            cmd.ExecuteNonQuery()
+            constring.Close()
+            MsgBox("Pembaharuan Versi Berhasil, Silahkan restart program")
+            Me.Close()
         End If
     End Sub
 End Class

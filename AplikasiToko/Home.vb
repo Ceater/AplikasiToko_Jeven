@@ -4,6 +4,7 @@
     Dim isec As Integer = 0
 
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        userLogin = ToolStripStatusLabel2.Text
         Timer1.Start()
         LoadDataSet()
         MenuStrip(0) = M1
@@ -76,7 +77,7 @@
         Else
             Dim f As New Penjualan
             f.MdiParent = Me
-            f.setStaff(ToolStripStatusLabel2.Text)
+            f.setStaff(userLogin)
             f.Show()
         End If
     End Sub
@@ -95,7 +96,7 @@
         Else
             Dim f As New TerimaBarang
             f.MdiParent = Me
-            f.setStaff(ToolStripStatusLabel2.Text)
+            f.setStaff(userLogin)
             f.Show()
         End If
     End Sub
@@ -105,7 +106,7 @@
         Else
             Dim f As New Pembayaran
             f.MdiParent = Me
-            f.setStaff(ToolStripStatusLabel2.Text)
+            f.setStaff(userLogin)
             f.Show()
         End If
     End Sub
@@ -132,7 +133,7 @@
     Private Sub ReturBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T6.Click
         If Application.OpenForms().OfType(Of ReturTerima).Any Then
         Else
-            Dim f As New ReturTerima(ToolStripStatusLabel2.Text)
+            Dim f As New ReturTerima(userLogin)
             f.MdiParent = Me
             f.Show()
         End If
@@ -141,7 +142,7 @@
     Private Sub T7_Click(sender As Object, e As EventArgs) Handles T7.Click
         If Application.OpenForms().OfType(Of ReturJual).Any Then
         Else
-            Dim f As New ReturJual(ToolStripStatusLabel2.Text)
+            Dim f As New ReturJual(userLogin)
             f.MdiParent = Me
             f.Show()
         End If

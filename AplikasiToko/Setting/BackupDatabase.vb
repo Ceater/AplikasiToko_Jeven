@@ -24,8 +24,9 @@ Public Class BackupDatabase
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim s As String = Now.Day & Now.Month & Now.Year
+        Dim s As String = Now.Day.ToString().PadLeft(2, "0") & Now.Month.ToString().PadLeft(2, "0") & Now.Year
         query("backup database " & ComboBox2.Text & " to disk='C:\AplikasiToko\Backup " & s & ".bak'")
+        MsgBox("Backup sukses" & vbCrLf & "File: C:\AplikasiToko\Backup " & s & ".bak'")
     End Sub
 
     Sub query(ByVal que As String)

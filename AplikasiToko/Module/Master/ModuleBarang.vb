@@ -18,7 +18,7 @@ Module ModuleBarang
     Sub insertBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal Stok As Double, ByVal KDSatuan As String, ByVal HNormal As Double, ByVal HToko As Double, ByVal HSales As Double, ByVal Spengingat As Double)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into TbBarang values(@aa,@ab,@ac,@ad,@ae,@af,@ag,@ah)", constring)
+            cmd = New SqlCommand("insert into TbBarang([KodeBarang] ,[NamaBarang] ,[Stok] ,[SatuanBarang] ,[HargaNormal] ,[HargaToko] ,[HargaSales] ,[StokPengingat] ,[date_i] ,[user_i]) values(@aa,@ab,@ac,@ad,@ae,@af,@ag,@ah,@ai,@aj)", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@aa", KDBarang))
                 .Add(New SqlParameter("@ab", NMBarang))
@@ -28,12 +28,13 @@ Module ModuleBarang
                 .Add(New SqlParameter("@af", HToko))
                 .Add(New SqlParameter("@ag", HSales))
                 .Add(New SqlParameter("@ah", Spengingat))
+                .Add(New SqlParameter("@ai", DateTime.Now))
+                .Add(New SqlParameter("@aj", userLogin))
             End With
             cmd.ExecuteNonQuery()
             cmd.Dispose()
             constring.Close()
         Catch ex As Exception
-            'MsgBox(ex.ToString)
             MsgBox("Barang sudah teregistrasi")
             constring.Close()
         End Try
@@ -41,7 +42,7 @@ Module ModuleBarang
 
     Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal KDSatuan As String, ByVal HNormal As Double, ByVal HToko As Double, ByVal HSales As Double, ByVal Spengingat As Double)
         constring.Open()
-        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8 where KodeBarang=@a1", constring)
+        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8, Date_u=@a9, User_u=@a10 where KodeBarang=@a1", constring)
         With cmd.Parameters
             .Add(New SqlParameter("@a1", KDBarang))
             .Add(New SqlParameter("@a2", NMBarang))
@@ -50,6 +51,8 @@ Module ModuleBarang
             .Add(New SqlParameter("@a6", HToko))
             .Add(New SqlParameter("@a7", HSales))
             .Add(New SqlParameter("@a8", Spengingat))
+            .Add(New SqlParameter("@a9", DateTime.Now))
+            .Add(New SqlParameter("@a10", userLogin))
         End With
         cmd.ExecuteNonQuery()
         cmd.Dispose()
@@ -70,10 +73,12 @@ Module ModuleBarang
     Sub updateStok(stok As Double, KDBarang As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("update TbBarang set stok=stok+@a where KodeBarang=@b", constring)
+            cmd = New SqlCommand("update TbBarang set stok=stok+@a, Date_u=@b, User_u=@c where KodeBarang=@d", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", stok))
-                .Add(New SqlParameter("@b", KDBarang))
+                .Add(New SqlParameter("@b", DateTime.Now))
+                .Add(New SqlParameter("@c", userLogin))
+                .Add(New SqlParameter("@d", KDBarang))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()
@@ -107,5 +112,19 @@ Module ModuleBarang
         Return result
     End Function
 
-
+    Function getCurrentStok(KDBarang As String)
+        Dim result As Integer = 0
+        constring.Open()
+        Try
+            cmd = New SqlCommand("Select stok from TbBarang where KodeBarang=@kb", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@kb", KDBarang))
+            End With
+            result = cmd.ExecuteScalar
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        constring.Close()
+        Return result
+    End Function
 End Module
