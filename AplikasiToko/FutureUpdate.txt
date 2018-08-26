@@ -16,7 +16,6 @@
 -> Nomer nota digenerate dengan kode "J-Hari-Bulan-Tahun-NoUrut" 1.1.2.3
 -> Bisa melakukan search di master barang 1.1.3.0
 -> Bisa melakukan ganti kertas di settingan printer 1.1.3.0
--> Perbaikan Database 1.1.4.3
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1
@@ -57,5 +56,3 @@ New Feature
 -> Tambah form harga ambilan -> Done 1.1.4.0
 -> Tambah form daftar barang -> Done 1.1.4.0
 -> Rubah ukuran kertas nota ke A5 -> Done 1.1.4.1
--> Stok tidak bisa minus -> Done 1.1.4.3
--> Informasi backup sukses -> Done 1.1.4.3

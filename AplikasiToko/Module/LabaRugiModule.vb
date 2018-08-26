@@ -46,11 +46,8 @@ Module LabaRugiModule
         Dim Tgl As Date = "01/" & Now.Month & "/" & Now.Year
         constring.Open()
         Try
-            cmd = New SqlCommand("insert into TbLabaRugi([PersediaanAwal],[TglPersediaan],[Date_i],[User_i]) 
-                values(ISNULL((select SUM(HargaBeli) from HargaBeliSetiapBarang),0),@a,@b,@c)", constring)
+            cmd = New SqlCommand("insert into TbLabaRugi values(ISNULL((select SUM(HargaBeli) from HargaBeliSetiapBarang),0),@a)", constring)
             cmd.Parameters.AddWithValue("@a", Tgl.ToString("MM/dd/yyyy") & " 00:00:00")
-            cmd.Parameters.AddWithValue("@b", DateTime.Now)
-            cmd.Parameters.AddWithValue("@c", userLogin)
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.ToString)

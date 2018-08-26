@@ -6,7 +6,6 @@ Imports System.IO
 Module GlobalModule
     Public DSet As New DataSet
     Public SqlAdapter As SqlDataAdapter
-    Public userLogin As String
 
     Sub LoadSetting(TipeServer As Integer)
         Dim filepath As String = "C:\AplikasiToko\setting.txt"
