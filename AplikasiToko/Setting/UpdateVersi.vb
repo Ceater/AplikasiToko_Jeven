@@ -130,6 +130,10 @@ Public Class UpdateVersi
         ElseIf VSekarang = "1.1.4.4" Then
             constring.Open()
             cmd = New SqlCommand("
+                IF EXISTS (SELECT * FROM sys.tables WHERE name = 'TbConfig' AND type = 'U')
+                BEGIN
+                    DROP TABLE[dbo].[TbConfig];
+                END;
                 IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'TbConfig' AND type = 'U')
                 BEGIN
 	                CREATE TABLE [dbo].[TbConfig](
@@ -142,7 +146,7 @@ Public Class UpdateVersi
 		                [no_urut] ASC
 	                )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 	                ) ON [PRIMARY]
-	                INSERT INTO Config(keynote, value1, value2) VALUES('Versi', '1.1.4.3', '')
+	                INSERT INTO TbConfig(keynote, value1, value2) VALUES('Versi', '1.1.4.3', '')
 	                ALTER TABLE TbBarang ADD Date_i datetime;
 	                ALTER TABLE TbBarang ADD Date_u datetime;
 	                ALTER TABLE TbBarang ADD User_i varchar(100);
