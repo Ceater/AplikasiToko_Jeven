@@ -77,7 +77,9 @@ Public Class Penjualan
     End Sub
 
     Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
-        Dim sat As Double = CDbl(Val(dgv.Rows(e.RowIndex).Cells(4).Value.text.Replace(",", ".")))
+        Dim temp As String = dgv.Rows(e.RowIndex).Cells(4).Value
+        Dim temp2 As String = temp.Replace(",", ".")
+        Dim sat As Double = CDbl(Val(temp2))
         Dim tot As Double = dgv.Rows(e.RowIndex).Cells(3).Value * sat
         Dim disc As Double = dgv.Rows(e.RowIndex).Cells(5).Value
         disc = disc * sat
@@ -127,7 +129,7 @@ Public Class Penjualan
             Dim JumlahBarang As Double = CDbl(Val(sender.text.Replace(",", ".")))
             Try
                 KodeBarang = ComboBox1.Text
-                Dim sisaStok As Integer = 0
+                Dim sisaStok = 0, Qty As Double = 0
                 Dim stokOk As Boolean = True
 
                 Dim addorappend As Boolean = True 'Digunakan untuk menentukan apakah tambah baru atau tambah jumlah
@@ -137,19 +139,20 @@ Public Class Penjualan
                     addorappend = True
                     For Each f In dgv.Rows
                         If f.cells(0).value = KodeBarang Then
-                            sisaStok = getCurrentStok(KodeBarang) - (Math.Abs(CDbl(f.Cells(4).Value)) + Math.Abs(JumlahBarang))
+                            Qty = CDbl(Val(f.Cells(4).Value.Replace(",", ".")))
+                            sisaStok = CDbl(getCurrentStok(KodeBarang)) - (Math.Abs(Qty) + Math.Abs(JumlahBarang))
                             If sisaStok <= -1 Then
                                 stokOk = False
                             End If
                             If stokOk Then
-                                f.Cells(4).Value += JumlahBarang
+                                f.Cells(4).Value = Qty + JumlahBarang
                             End If
                             addorappend = False
                         End If
                     Next
                 End If
                 If addorappend Then
-                    sisaStok = getCurrentStok(KodeBarang) - Math.Abs(JumlahBarang)
+                    sisaStok = CDbl(getCurrentStok(KodeBarang)) - Math.Abs(JumlahBarang)
                     If sisaStok <= -1 Then
                         stokOk = False
                     End If
@@ -215,8 +218,9 @@ Public Class Penjualan
         End If
         NotaTxt.Text = getNotaJual()
         For Each f In dgv.Rows
-            Dim sisaStok As Integer = 0
-            sisaStok = getCurrentStok(f.Cells(0).Value) - Math.Abs(CDbl(f.Cells(4).Value))
+            Dim sisaStok = 0, Qty As Double = 0
+            Qty = CDbl(Val(f.Cells(4).Value))
+            sisaStok = CDbl(getCurrentStok(KodeBarang)) - Math.Abs(Qty)
             If sisaStok <= -1 Then
                 stokOk = False
             End If
@@ -242,8 +246,10 @@ Public Class Penjualan
                 Else
                     insertHJual(NotaTxt.Text, tgl, GTotal, temp, staff)
                     For Each f In dgv.Rows
-                        insertDJual(NotaTxt.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, f.Cells(4).Value, f.Cells(5).Value, f.Cells(6).Value)
-                        updateStok(-f.Cells(4).Value, f.Cells(0).Value)
+                        Dim Qty As Double = 0
+                        Qty = CDbl(Val(f.Cells(4).Value.Replace(",", ".")))
+                        insertDJual(NotaTxt.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, Qty, f.Cells(5).Value, f.Cells(6).Value)
+                        updateStok(-Qty, f.Cells(0).Value)
                     Next
                     insertPembayaran(NotaTxt.Text, tgl, Pembayaran)
                     'Print Semua Nota Start
@@ -341,6 +347,7 @@ Public Class Penjualan
         DTable.Columns.Add("Diskon")
         DTable.Columns.Add("Sub Total")
         dgv.DataSource = DTable
+        dgv.Columns(4).ValueType = GetType(System.Double)
         Dim temp As Double = dgv.Size.Width
         dgv.Columns(0).Width = temp * 0.15
         dgv.Columns(1).Width = temp * 0.245
