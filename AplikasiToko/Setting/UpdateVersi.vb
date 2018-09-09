@@ -159,6 +159,36 @@ Public Class UpdateVersi
             constring.Close()
             MsgBox("Pembaharuan Versi Berhasil, Silahkan restart program")
             Me.Close()
+        ElseIf VSekarang = "1.1.4.6" Then
+            constring.Open()
+            cmd = New SqlCommand("
+                ALTER TABLE [TbPembayaran] ADD Date_i datetime;
+                ALTER TABLE [TbPembayaran] ADD Date_u datetime;
+                ALTER TABLE [TbPembayaran] ADD User_i varchar(100);
+                ALTER TABLE [TbPembayaran] ADD User_u varchar(100);
+                CREATE TABLE [dbo].[TbPiutang](
+	                [NotaPiutang] [varchar](25) NOT NULL,
+	                [NoNotaJual] [varchar](25) NULL,
+	                [GrandTotal] [float] NULL,
+	                [SisaPiutang] [float] NULL,
+	                [Date_i] [datetime] NULL,
+	                [Date_u] [datetime] NULL,
+	                [User_i] [varchar](100) NULL,
+	                [User_u] [varchar](100) NULL,
+                 CONSTRAINT [PK_TbPiutang] PRIMARY KEY CLUSTERED 
+                (
+	                [NotaPiutang] ASC
+                )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+                ) ON [PRIMARY]
+                UPDATE TbConfig Set value1=@a1 WHERE keynote='Versi';
+            ", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a1", VSekarang))
+            End With
+            cmd.ExecuteNonQuery()
+            constring.Close()
+            MsgBox("Pembaharuan Versi Berhasil, Silahkan restart program")
+            Me.Close()
         End If
     End Sub
 End Class

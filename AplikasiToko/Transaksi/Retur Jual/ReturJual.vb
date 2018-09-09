@@ -1,6 +1,7 @@
 ﻿Public Class ReturJual
     Dim ReturTotal As Boolean = False 'True jika ternyata pembelian batal, False jika retur sebagian.
     Dim staff As String = ""
+    Dim maxQty As ArrayList
     Public Sub New(ByVal id As String)
         InitializeComponent()
         staff = id
@@ -15,8 +16,10 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim count As Integer = 0
+        TextBox1.Text = getNotaReturJual()
+        Dim count = 0, totalHargaBarang As Integer = 0
         Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
+        Dim msg As String = ""
         TextBox1.Text = getNotaReturJual()
         If result = DialogResult.Yes Then
             For Each f In dgv.Rows
@@ -25,15 +28,35 @@
             If cekNotaReturJual(TextBox1.Text) Then
                 MsgBox("Nomer Nota Sudah Pernah Digunakan")
             Else
-                If count <> 0 Then
+                Dim qtyOk As Boolean = True
+                Dim counter As Integer = 0
+                For Each f As DataGridViewRow In Me.dgv.Rows
+                    Dim temp2 As String = CStr(f.Cells(4).Value).Replace(",", ".")
+                    Dim sat As Double = CDbl(Val(temp2))
+                    If CDbl(maxQty(counter)) < CDbl(sat) Then
+                        qtyOk = False
+                        msg &= "Kode: " & f.Cells(0).Value & " Maksimal: " & maxQty(counter) & vbCrLf
+                    End If
+                    counter += 1
+                Next
+                If count <> 0 And qtyOk Then
                     Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
                     insertHReturJual(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff)
                     For Each f As DataGridViewRow In Me.dgv.Rows
                         If f.Cells(4).Value <> 0 Then
-                            insertDReturJual(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, f.Cells(4).Value, f.Cells(5).Value, f.Cells(6).Value)
-                            updateStok(f.Cells(4).Value, f.Cells(0).Value)
+                            Dim fHarga = 0, fDiskon = 0, fSubtotal As Integer = 0
+                            fHarga = f.Cells(3).Value
+                            fDiskon = f.Cells(5).Value
+                            fDiskon = f.Cells(6).Value
+                            Dim temp As String = f.Cells(4).Value
+                            Dim temp2 As String = temp.Replace(",", ".")
+                            Dim fJumlah As Double = CDbl(Val(temp2))
+                            insertDReturJual(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, fHarga, fJumlah, fDiskon, fDiskon)
+                            totalHargaBarang += fDiskon
+                            updateStok(fJumlah, f.Cells(0).Value)
                         End If
                     Next
+                    updatePiutang(ComboBox1.SelectedValue, tgl, 0, staff, totalHargaBarang)
                     If lb_FullRetur.Visible = True And CInt(lb_Kekurangan.Text) <> 0 Then
                         MsgBox("Insert Pembayaran")
                     End If
@@ -41,27 +64,46 @@
                     MsgBox("Sukses melakukan retur Jual barang")
                     clear()
                 Else
-                    MsgBox("Pastikan sudah ada barang yang dipilih")
+                    MsgBox("Pastikan sudah ada barang yang dipilih atau jumlah barang tidak melebihi batas" & vbCrLf & "===================================" & vbCrLf & msg)
                 End If
             End If
         End If
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim totalRetur As Integer = 0
+        maxQty = New ArrayList
         Try
             If ComboBox1.SelectedIndex <> -1 Then
-                dgv.DataSource = getDetailBarangJual(ComboBox1.SelectedValue)
+                Dim TbSet As DataTable = getDetailBarangJual(ComboBox1.SelectedValue)
+
+                Dim clonedDT As DataTable = TbSet.Clone()
+                clonedDT.Columns("Jumlah").DataType = GetType(String)
+                For Each row As DataRow In TbSet.Rows
+                    clonedDT.ImportRow(row)
+                Next
+
+                dgv.DataSource = clonedDT
+                For Each f As DataGridViewRow In Me.dgv.Rows
+                    maxQty.Add(f.Cells(4).Value)
+                Next
                 Label4.Text = getNamaPelanggan(ComboBox1.SelectedValue)
                 Dim AL As String = getDetailTagihan(ComboBox1.SelectedValue)
                 Dim x() As String = AL.Split("-")
                 lb_TotalTagihan.Text = FormatCurrency(x(3))
                 lb_PembayaranDiterima.Text = FormatCurrency(x(4))
                 lb_Kekurangan.Text = FormatCurrency(x(5))
+                If (x(7) < x(6)) Then
+                    totalRetur = x(7)
+                Else
+                    totalRetur = x(6)
+                End If
+                lb_totalretur.Text = FormatCurrency(totalRetur)
                 setGv()
                 cekTotal()
             End If
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
     End Sub
 
@@ -76,7 +118,10 @@
     'dgv
     Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
         Try
-            dgv.Rows(e.RowIndex).Cells(6).Value = (dgv.Rows(e.RowIndex).Cells(3).Value - dgv.Rows(e.RowIndex).Cells(5).Value) * dgv.Rows(e.RowIndex).Cells(4).Value
+            Dim temp As String = dgv.Rows(e.RowIndex).Cells(4).Value
+            Dim temp2 As String = temp.Replace(",", ".")
+            Dim fJumlah As Double = CDbl(Val(temp2))
+            dgv.Rows(e.RowIndex).Cells(6).Value = (dgv.Rows(e.RowIndex).Cells(3).Value - dgv.Rows(e.RowIndex).Cells(5).Value) * fJumlah
             cekTotal()
         Catch ex As Exception
 
@@ -99,20 +144,31 @@
 
     'Function and Procedure
     Sub cekTotal()
-        Dim JumlahUangRetur = 0, BnykJenisBarang = 0, BnykBarang As Integer = 0
+        Dim JumlahUangRetur = 0, BnykJenisBarang = 0, BnykBarang As Double = 0
         For Each f In dgv.Rows
+            Dim temp As String = f.Cells(4).Value
+            Dim temp2 As String = temp.Replace(",", ".")
+            Dim fJumlah As Double = CDbl(Val(temp2))
+
             BnykJenisBarang += 1
-            BnykBarang += f.cells(4).value
+            BnykBarang += fJumlah
             JumlahUangRetur += f.cells(6).value
         Next
         lb_TotalUangyangSudahDiretur.Text = FormatCurrency(TotalUangSudahDiRetur(ComboBox1.SelectedValue))
-        lb_BanyakJenisBarang.Text = FormatCurrency(BnykJenisBarang)
-        lb_TotalJumlahBarang.Text = FormatCurrency(BnykBarang)
-        If ((CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)) - JumlahUangRetur) <= 0 Then
-            lb_TotalUangYangDikembalikan.Text = FormatCurrency((CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)))
+        lb_BanyakJenisBarang.Text = BnykJenisBarang
+        lb_TotalJumlahBarang.Text = BnykBarang
+
+        If (CInt(lb_Kekurangan.Text) - JumlahUangRetur >= 1) Then
+            lb_TotalUangYangDikembalikan.Text = 0
         Else
-            lb_TotalUangYangDikembalikan.Text = FormatCurrency(JumlahUangRetur)
+            lb_TotalUangYangDikembalikan.Text = FormatCurrency(CStr(JumlahUangRetur - CInt(lb_Kekurangan.Text)))
         End If
+
+        'If ((CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)) - JumlahUangRetur) <= 0 Then
+        '    lb_TotalUangYangDikembalikan.Text = FormatCurrency((CInt(lb_PembayaranDiterima.Text) - CInt(lb_TotalUangyangSudahDiretur.Text)))
+        'Else
+        '    lb_TotalUangYangDikembalikan.Text = FormatCurrency(JumlahUangRetur)
+        'End If
         If (JumlahUangRetur + CInt(lb_TotalUangyangSudahDiretur.Text) = CInt(lb_TotalTagihan.Text)) Then
             lb_FullRetur.Visible = True
         Else
@@ -147,7 +203,7 @@
 
     Sub clear()
         Try
-            ComboBox1.DataSource = DSet.Tables("ReturJualDataNotaJual")
+            ComboBox1.DataSource = getDataTB("HJx.NoNotaJual", "HJual HJx, DJual DJx", "HJx.NoNotaJual=DJx.NoNotaJual and DJx.Jumlah <> ISNULL((select sum(DRJ.Jumlah) From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0)", "HJx.TglNota DESC", "HJx.NoNotaJual, HJx.TglNota")
             ComboBox1.ValueMember = "NoNotaJual"
             ComboBox1.SelectedIndex = -1
             DateTimePicker1.MaxDate = Now

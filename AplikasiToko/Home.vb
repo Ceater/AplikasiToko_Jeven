@@ -5,6 +5,7 @@
 
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         userLogin = ToolStripStatusLabel2.Text
+        ToolStripStatusLabel7.Text = "Versi " & VersiSekarang
         Timer1.Start()
         LoadDataSet()
         MenuStrip(0) = M1
@@ -43,6 +44,7 @@
         Next
         AutoUpdatePersediaanAwal()
         cekStokMinimum()
+        cekUpdate()
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick

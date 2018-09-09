@@ -86,7 +86,7 @@ Module ModuleReturJual
             constring.Open()
             notaFormat = "%" & tglSkr & "%"
             'cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
-            cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaReturJual, 8, 4) as Nota FROM HReturJual WHERE SUBSTRING(NoNotaReturJual, 1, 7) LIKE '" & notaFormat & "' ORDER BY NoNotaReturJual DESC;", constring)
+            cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaReturJual, 9, 4) as Nota FROM HReturJual WHERE SUBSTRING(NoNotaReturJual, 1, 8) LIKE '" & notaFormat & "' ORDER BY NoNotaReturJual DESC;", constring)
             Dim reader As SqlDataReader = cmd.ExecuteReader
             If reader.HasRows Then
                 reader.Read()
@@ -105,6 +105,7 @@ Module ModuleReturJual
             End If
             constring.Close()
         Catch ex As Exception
+            MsgBox(ex.ToString)
             temp = "RJ" & tglSkr & "0001"
             constring.Close()
         End Try
@@ -131,7 +132,7 @@ Module ModuleReturJual
         Dim x As Integer = 0
         constring.Open()
         Try
-            cmd = New SqlCommand("select ISNULL(sum(DRJ.Subtotal),0) from HReturJual HRJ, DReturJual DRJ where HRJ.NoNotaReturJual = DRJ.NoNotaReturJual and HRJ.NoNotaJual = '" & KodeNota & "'", constring)
+            cmd = New SqlCommand("SELECT CASE WHEN (ISNULL(sum(DRJ.Subtotal) - SisaPiutang, 0)) <= -1 THEN 0 ELSE ISNULL(sum(DRJ.Subtotal) - SisaPiutang, 0) END AS UangSudahRetur FROM HReturJual HRJ INNER JOIN DReturJual DRJ ON HRJ.NoNotaReturJual = DRJ.NoNotaReturJual  INNER JOIN TbPiutang Tb ON HRJ.NoNotaJual=Tb.NoNotaJual WHERE HRJ.NoNotaJual = '" & KodeNota & "' GROUP BY HRJ.NoNotaJual, SisaPiutang;", constring)
             x = cmd.ExecuteScalar
         Catch ex As Exception
 

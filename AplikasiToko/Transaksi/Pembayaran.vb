@@ -2,6 +2,7 @@
     Dim Pembayaran As Integer
     Dim lblArr(8) As Label
     Dim staff As String = ""
+    Dim formReady As Boolean = False
 
     Private Sub Awalan(sender As Object, e As EventArgs) Handles MyBase.Shown
         lblArr(0) = NNota
@@ -14,15 +15,23 @@
         lblArr(7) = HAkhir
         lblArr(8) = NNotaPembayaran
         clear()
-        loadTagihan()
+        ComboBox1.SelectedIndex = 0
+        ComboBox2.SelectedIndex = 0
+        loadTagihan(1, 2018)
         loadListBox()
+        formReady = True
     End Sub
 
-
-
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+        Dim bln = 1, thn As Integer = 2018
         Try
-            Dim temp() As String = Split(loadTagihan.Item(sender.selectedindex), "---")
+            bln = ComboBox1.SelectedIndex + 1
+            thn = ComboBox2.SelectedIndex + 2018
+        Catch ex As Exception
+
+        End Try
+        Try
+            Dim temp() As String = Split(loadTagihan(bln, thn).Item(sender.selectedindex), "---")
             lblArr(0).Text = temp(0)
             lblArr(1).Text = temp(2)
             lblArr(2).Text = FormatCurrency(temp(3))
@@ -67,7 +76,8 @@
         Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
         Dim result As Integer = MessageBox.Show("Apakah data sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
-            insertPembayaran(lblArr(0).Text, tgl, CInt(lblArr(6).Text))
+            insertPembayaran(lblArr(0).Text, tgl, CInt(lblArr(6).Text), staff)
+            updatePiutang(lblArr(0).Text, tgl, CInt(lblArr(6).Text), staff)
             MsgBox("Pembayaran berhasil")
             Dim f As New FormLaporan("NotaPembayaran")
             f.LaporanNoNota = lblArr(0).Text
@@ -107,17 +117,20 @@
     End Sub
 
     Sub loadListBox()
-        If loadTagihan.Count <> 0 Then
-            ListBox1.Items.Clear()
-            For i = 0 To loadTagihan.Count - 1
+        Dim bln = 0, thn As Integer = 0
+        bln = ComboBox1.SelectedIndex + 1
+        thn = ComboBox2.SelectedIndex + 2018
+        Dim hasil As ArrayList = loadTagihan(bln, thn)
+        ListBox1.Items.Clear()
+        If hasil.Count <> 0 Then
+            For i = 0 To hasil.Count - 1
                 Dim temp() As String
-                temp = Split(loadTagihan.Item(i), "-")
+                temp = Split(hasil.Item(i), "-")
                 ListBox1.Items.Add(temp(0))
             Next
             ListBox1.SelectedIndex = 0
         Else
-            MsgBox("Tidak ada tagihan yang belum lunas")
-            Me.Close()
+
         End If
     End Sub
 
@@ -134,4 +147,10 @@
         End If
         Return s
     End Function
+
+    Private Sub searchNota(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged, ComboBox2.SelectedIndexChanged
+        If formReady Then
+            loadListBox()
+        End If
+    End Sub
 End Class

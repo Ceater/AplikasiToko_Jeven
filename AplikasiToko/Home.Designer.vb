@@ -65,6 +65,8 @@ Partial Class Home
         Me.UpdateVersiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackupDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormResetDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdminToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HapusTransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.StatusStrip1.SuspendLayout()
@@ -97,14 +99,14 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(656, 20)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(679, 20)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel7
         '
         Me.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7"
-        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(86, 20)
-        Me.ToolStripStatusLabel7.Text = "Versi 1.1.4.5"
+        Me.ToolStripStatusLabel7.Size = New System.Drawing.Size(102, 20)
+        Me.ToolStripStatusLabel7.Text = "Versi Program"
         '
         'ToolStripStatusLabel4
         '
@@ -127,7 +129,7 @@ Partial Class Home
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.Setting})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.Setting, Me.AdminToolsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
@@ -335,6 +337,7 @@ Partial Class Home
         '
         'UpdateVersiToolStripMenuItem
         '
+        Me.UpdateVersiToolStripMenuItem.Enabled = False
         Me.UpdateVersiToolStripMenuItem.Name = "UpdateVersiToolStripMenuItem"
         Me.UpdateVersiToolStripMenuItem.Size = New System.Drawing.Size(218, 26)
         Me.UpdateVersiToolStripMenuItem.Text = "Update Versi"
@@ -350,6 +353,20 @@ Partial Class Home
         Me.FormResetDataToolStripMenuItem.Name = "FormResetDataToolStripMenuItem"
         Me.FormResetDataToolStripMenuItem.Size = New System.Drawing.Size(218, 26)
         Me.FormResetDataToolStripMenuItem.Text = "Form Reset Data"
+        '
+        'AdminToolsToolStripMenuItem
+        '
+        Me.AdminToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HapusTransaksiToolStripMenuItem})
+        Me.AdminToolsToolStripMenuItem.Name = "AdminToolsToolStripMenuItem"
+        Me.AdminToolsToolStripMenuItem.Size = New System.Drawing.Size(105, 24)
+        Me.AdminToolsToolStripMenuItem.Text = "Admin Tools"
+        Me.AdminToolsToolStripMenuItem.Visible = False
+        '
+        'HapusTransaksiToolStripMenuItem
+        '
+        Me.HapusTransaksiToolStripMenuItem.Name = "HapusTransaksiToolStripMenuItem"
+        Me.HapusTransaksiToolStripMenuItem.Size = New System.Drawing.Size(190, 26)
+        Me.HapusTransaksiToolStripMenuItem.Text = "Hapus Transaksi"
         '
         'Timer1
         '
@@ -434,4 +451,6 @@ Partial Class Home
     Friend WithEvents DaftarBarangToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditBarangToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HargaAmbilanToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AdminToolsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HapusTransaksiToolStripMenuItem As ToolStripMenuItem
 End Class

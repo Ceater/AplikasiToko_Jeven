@@ -127,6 +127,7 @@ Public Class Penjualan
 
         If e.KeyCode = Keys.Enter Then
             Dim JumlahBarang As Double = CDbl(Val(sender.text.Replace(",", ".")))
+            Dim msg As String = ""
             Try
                 KodeBarang = ComboBox1.Text
                 Dim sisaStok = 0, Qty As Double = 0
@@ -142,6 +143,7 @@ Public Class Penjualan
                             Qty = CDbl(Val(f.Cells(4).Value.Replace(",", ".")))
                             sisaStok = CDbl(getCurrentStok(KodeBarang)) - (Math.Abs(Qty) + Math.Abs(JumlahBarang))
                             If sisaStok <= -1 Then
+                                msg = msg & "Barang: " & KodeBarang & " | Stok Sekarang: " & getCurrentStok(KodeBarang) & vbCrLf
                                 stokOk = False
                             End If
                             If stokOk Then
@@ -154,6 +156,7 @@ Public Class Penjualan
                 If addorappend Then
                     sisaStok = CDbl(getCurrentStok(KodeBarang)) - Math.Abs(JumlahBarang)
                     If sisaStok <= -1 Then
+                        msg = msg & "Barang: " & KodeBarang & " | Stok Sekarang: " & getCurrentStok(KodeBarang) & vbCrLf
                         stokOk = False
                     End If
                     If stokOk Then
@@ -170,7 +173,7 @@ Public Class Penjualan
                     End If
                 End If
                 If stokOk = False Then
-                    MsgBox("Stok Kurang")
+                    MsgBox("Stok Kurang | " & msg)
                 End If
                 cekTotal()
             Catch ex As Exception
@@ -213,15 +216,18 @@ Public Class Penjualan
     'ButtonEvent
     Private Sub Proses_btn_Click(sender As Object, e As EventArgs) Handles Proses_btn.Click
         Dim printPreview = False, stokOk As Boolean = True
+        Dim msg As String = ""
         If CheckBox3.Checked Then
             printPreview = True
         End If
         NotaTxt.Text = getNotaJual()
         For Each f In dgv.Rows
             Dim sisaStok = 0, Qty As Double = 0
+            KodeBarang = f.Cells(0).Value
             Qty = CDbl(Val(f.Cells(4).Value))
             sisaStok = CDbl(getCurrentStok(KodeBarang)) - Math.Abs(Qty)
             If sisaStok <= -1 Then
+                msg = msg & "Barang: " & f.Cells(0).Value & " | Stok Sekarang: " & getCurrentStok(KodeBarang) & " | Dijual: " & Qty & vbCrLf
                 stokOk = False
             End If
         Next
@@ -251,7 +257,8 @@ Public Class Penjualan
                         insertDJual(NotaTxt.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value, Qty, f.Cells(5).Value, f.Cells(6).Value)
                         updateStok(-Qty, f.Cells(0).Value)
                     Next
-                    insertPembayaran(NotaTxt.Text, tgl, Pembayaran)
+                    insertPembayaran(NotaTxt.Text, tgl, Pembayaran, staff)
+                    insertPiutang(NotaTxt.Text, tgl, GTotal, Pembayaran, staff)
                     'Print Semua Nota Start
                     If CheckBox4.Checked = False Then
                         Dim g As New FormLaporan("NotaPenjualan")
@@ -317,8 +324,13 @@ Public Class Penjualan
                 End If
             ElseIf result = DialogResult.No Then
             End If
+        ElseIf stokOk = False Then
+            MsgBox("Silahkan cek jumlah barang / stok barang " & vbCrLf &
+                   "==========================================" & vbCrLf &
+                   msg &
+                   "==========================================")
         Else
-            MsgBox("Cek nomer nota atau data barang atau jumlah barang")
+            MsgBox("Cek nomer nota atau data barang")
         End If
     End Sub
 

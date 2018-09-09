@@ -7,7 +7,7 @@ Module GlobalModule
     Public DSet As New DataSet
     Public SqlAdapter As SqlDataAdapter
     Public userLogin As String
-
+    Public VersiSekarang As String = "1.1.4.6"
     Sub LoadSetting(TipeServer As Integer)
         Dim filepath As String = "C:\AplikasiToko\setting.txt"
         Dim x1, x2, x3, x4, x5 As String
@@ -81,10 +81,11 @@ Module GlobalModule
             query &= " WHERE " & WhereKey
         End If
         If OrderBy <> "" Then
-            query &= " OrderBy " & OrderBy
+            query &= " GROUP By " & GroupBy
         End If
-
-
+        If OrderBy <> "" Then
+            query &= " ORDER By " & OrderBy
+        End If
         constring.Open()
         Dim result As New DataSet
         Try

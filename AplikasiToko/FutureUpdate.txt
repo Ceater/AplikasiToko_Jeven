@@ -17,6 +17,8 @@
 -> Bisa melakukan search di master barang 1.1.3.0
 -> Bisa melakukan ganti kertas di settingan printer 1.1.3.0
 -> Perbaikan Database 1.1.4.3
+-> Versi program dipindahkan ke global module 1.1.4.6
+-> Penambahan tabel database TbPiutang yang berfungsi mencatat total hutang dan harga barang 1.1.4.6
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1
@@ -34,9 +36,11 @@ Bug Fix
 -> Ketika buka 2 form transaksi, nomer nota sering tabrakan Form Penjualan, Form Terima, Form ReturJual, Form ReturBeli. -> Done 1.1.2.3
 -> Error pengambilan data, karena ambil dari dataset, ganti jadi ambil data dari MSSQL. Form Penjualan, Form Terima Barang -> Done 1.1.3.0
 -> Fix nota penjualan kolom jumlah, jika di isi ribuan tidak bisa terbaca -> Done 1.1.3.1
+-> Orang Belum Bayar Tapi Barang Mau Di Retur, Nanti error dipembayaran karena uang akan berkurang pada saat retur tapi tidak nambah pada saat pembayaran.
+-> Nota Retur Penjualan Tabrakan -> Done 1.1.4.6
+-> Bisa melakukan retur lebih dari jumlah yang seharusnya -> Done 1.1.4.6
 
 Bug Found
--> Orang Belum Bayar Tapi Barang Mau Di Retur, Nanti error dipembayaran karena uang akan berkurang pada saat retur tapi tidak nambah pada saat pembayaran.
 -> Error yang sama apakah muncul di retur beli?
 -> Bisa ganti kertas, tapi tidak bisa ganti ukuran crystal report mengikuti panjang kertas.
 
@@ -59,3 +63,4 @@ New Feature
 -> Rubah ukuran kertas nota ke A5 -> Done 1.1.4.1
 -> Stok tidak bisa minus -> Done 1.1.4.3
 -> Informasi backup sukses -> Done 1.1.4.3
+-> Format nota surat jalan berubah -> Done 1.1.4.6

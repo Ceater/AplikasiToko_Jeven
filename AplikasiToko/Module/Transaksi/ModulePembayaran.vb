@@ -3,11 +3,15 @@ Imports System.Data.SqlClient
 
 Module ModulePembayaran
     Dim cmd As SqlCommand
-    Function loadTagihan() As ArrayList
+    Function loadTagihan(searchMonth As Integer, searchYear As Integer) As ArrayList
         Dim x As New ArrayList
         Try
             constring.Open()
-            cmd = New SqlCommand("select T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, H.GrandTotal - sum(T.UangBayar) as Kekurangan from HJual H, TbPembayaran T where H.NoNotaJual = T.NoNotaJual group by T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal HAVING  (H.GrandTotal - sum(T.UangBayar)) <> 0", constring)
+            cmd = New SqlCommand("SELECT T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, H.GrandTotal - sum(T.UangBayar) as Kekurangan FROM HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual AND MONTH(H.TglNota) = @a AND YEAR(H.TglNota) = @b GROUP BY T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal HAVING  (H.GrandTotal - sum(T.UangBayar)) <> 0 ORDER BY H.TglNota DESC;", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a", searchMonth))
+                .Add(New SqlParameter("@b", searchYear))
+            End With
             Dim reader As SqlDataReader = cmd.ExecuteReader
             While reader.Read
                 x.Add(reader.GetValue(0) & "---" & reader.GetValue(1) & "---" & reader.GetValue(2) & "---" & reader.GetValue(3) & "---" & reader.GetValue(4))
@@ -39,10 +43,10 @@ Module ModulePembayaran
         Dim x As String = ""
         Try
             constring.Open()
-            cmd = New SqlCommand("select T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, sum(T.UangBayar) as 'Pembayaran Diterima', H.GrandTotal - sum(T.UangBayar) as Kekurangan from HJual H, TbPembayaran T where H.NoNotaJual = T.NoNotaJual and H.NoNotaJual = '" & NomerNota & "' group by T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal", constring)
+            cmd = New SqlCommand("SELECT T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, sum(T.UangBayar) as 'Pembayaran Diterima', ISNULL(CASE WHEN (Tp.SisaPiutang - TotalRetur) <= 0 THEN 0 ELSE Tp.SisaPiutang - TotalRetur END, 0) as Kekurangan, ISNULL(Tp.TotalRetur,0) as TotalRetur, Tp.SisaPiutang FROM  HJual H INNER JOIN TbPembayaran T ON H.NoNotaJual=T.NoNotaJual INNER JOIN TbPiutang Tp ON T.NoNotaJual=Tp.NoNotaJual WHERE H.NoNotaJual = '" & NomerNota & "' GROUP BY T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, Tp.TotalRetur, Tp.SisaPiutang;", constring)
             Dim reader As SqlDataReader = cmd.ExecuteReader
             reader.Read()
-            x = reader.GetValue(0) & "-" & reader.GetValue(1) & "-" & reader.GetValue(2) & "-" & reader.GetValue(3) & "-" & reader.GetValue(4) & "-" & reader.GetValue(5)
+            x = reader.GetValue(0) & "-" & reader.GetValue(1) & "-" & reader.GetValue(2) & "-" & reader.GetValue(3) & "-" & reader.GetValue(4) & "-" & reader.GetValue(5) & "-" & reader.GetValue(6) & "-" & reader.GetValue(7)
             constring.Close()
         Catch ex As Exception
             MsgBox(ex.ToString)
