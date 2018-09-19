@@ -1,6 +1,6 @@
 ﻿Public Class Pembayaran
     Dim Pembayaran As Integer
-    Dim lblArr(8) As Label
+    Dim lblArr(11) As Label
     Dim staff As String = ""
     Dim formReady As Boolean = False
 
@@ -8,46 +8,58 @@
         lblArr(0) = NNota
         lblArr(1) = NToko
         lblArr(2) = TotTag1
-        lblArr(3) = Kekurangan1
+        lblArr(3) = SPiutang
         lblArr(4) = TotTag2
         lblArr(5) = Kekurangan2
         lblArr(6) = Bayar
         lblArr(7) = HAkhir
         lblArr(8) = NNotaPembayaran
+        lblArr(9) = TotTerbayar
+        lblArr(10) = SPiutang
+        lblArr(11) = PHutang
         clear()
-        ComboBox1.SelectedIndex = 0
-        ComboBox2.SelectedIndex = 0
         loadTagihan(1, 2018)
         loadListBox()
         formReady = True
+        ComboBox1.SelectedIndex = 0
+        ComboBox2.SelectedIndex = 0
+        ListBox1.SelectedIndex = -1
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-        Dim bln = 1, thn As Integer = 2018
-        Try
-            bln = ComboBox1.SelectedIndex + 1
-            thn = ComboBox2.SelectedIndex + 2018
-        Catch ex As Exception
+        If formReady Then
+            Dim bln = 1, thn As Integer = 2018
+            Try
+                bln = ComboBox1.SelectedIndex + 1
+                thn = ComboBox2.SelectedIndex + 2018
+            Catch ex As Exception
 
-        End Try
-        Try
-            Dim temp() As String = Split(loadTagihan(bln, thn).Item(sender.selectedindex), "---")
-            lblArr(0).Text = temp(0)
-            lblArr(1).Text = temp(2)
-            lblArr(2).Text = FormatCurrency(temp(3))
-            lblArr(3).Text = FormatCurrency(temp(4))
-            lblArr(4).Text = FormatCurrency(temp(3))
-            lblArr(5).Text = FormatCurrency(temp(4))
-            lblArr(6).Text = "0"
-            lblArr(7).Text = FormatCurrency(lblArr(6).Text - temp(4))
-            HitungUang()
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+            End Try
+            Try
+                Dim temp2 As String = getDetailTagihan(ListBox1.SelectedItem)
+                Dim temp() As String = Split(temp2, "-")
+                lblArr(0).Text = temp(0)
+                lblArr(1).Text = temp(2)
+                lblArr(2).Text = FormatCurrency(temp(3))
+                lblArr(3).Text = FormatCurrency(temp(7))
+                lblArr(4).Text = FormatCurrency(temp(3))
+                lblArr(5).Text = FormatCurrency(temp(5))
+                lblArr(6).Text = "0"
+                lblArr(7).Text = FormatCurrency(lblArr(6).Text - temp(4))
+                lblArr(9).Text = FormatCurrency(temp(4))
+                lblArr(10).Text = FormatCurrency(temp(5))
+                lblArr(11).Text = FormatCurrency(temp(6))
+                HitungUang()
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+        End If
     End Sub
 
     Private Sub CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged, RadioButton2.CheckedChanged
-        HitungUang()
+        If formReady Then
+            HitungUang()
+        End If
     End Sub
 
     Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
@@ -76,6 +88,7 @@
         Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
         Dim result As Integer = MessageBox.Show("Apakah data sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
+            lblArr(8).Text = cekNotaPembayaran()
             insertPembayaran(lblArr(0).Text, tgl, CInt(lblArr(6).Text), staff)
             updatePiutang(lblArr(0).Text, tgl, CInt(lblArr(6).Text), staff)
             MsgBox("Pembayaran berhasil")
@@ -113,6 +126,9 @@
         lblArr(6).Text = "0"
         lblArr(7).Text = "0"
         lblArr(8).Text = cekNotaPembayaran()
+        lblArr(9).Text = "0"
+        lblArr(10).Text = "0"
+        lblArr(11).Text = "0"
         RadioButton1.Checked = True
     End Sub
 

@@ -249,9 +249,9 @@ Partial Class ReturJual
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(8, 120)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(233, 17)
+        Me.Label11.Size = New System.Drawing.Size(235, 17)
         Me.Label11.TabIndex = 9
-        Me.Label11.Text = "Pengurangan Hutang Karena Retur"
+        Me.Label11.Text = "Pengurangan Piutang Karena Retur"
         '
         'lb_FullRetur
         '
@@ -300,9 +300,9 @@ Partial Class ReturJual
         Me.Label12.Location = New System.Drawing.Point(8, 70)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(143, 17)
+        Me.Label12.Size = New System.Drawing.Size(145, 17)
         Me.Label12.TabIndex = 4
-        Me.Label12.Text = "Kekurangan / Hutang"
+        Me.Label12.Text = "Kekurangan / Piutang"
         '
         'Label9
         '

@@ -126,6 +126,9 @@
     <Compile Include="DataSet\DSetDataBarang.vb">
       <DependentUpon>DSetDataBarang.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DSetLaporan.vb">
+      <DependentUpon>DSetLaporan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DSetPembayaran.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

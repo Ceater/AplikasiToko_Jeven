@@ -2,6 +2,7 @@
     Dim ReturTotal As Boolean = False 'True jika ternyata pembelian batal, False jika retur sebagian.
     Dim staff As String = ""
     Dim maxQty As ArrayList
+    Dim formReady As Boolean = False
     Public Sub New(ByVal id As String)
         InitializeComponent()
         staff = id
@@ -10,6 +11,8 @@
     Private Sub Form_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Try
             clear()
+            formReady = True
+            ComboBox1.SelectedIndex = 0
         Catch ex As Exception
 
         End Try
@@ -74,7 +77,7 @@
         Dim totalRetur As Integer = 0
         maxQty = New ArrayList
         Try
-            If ComboBox1.SelectedIndex <> -1 Then
+            If ComboBox1.SelectedIndex <> -1 And formReady Then
                 Dim TbSet As DataTable = getDetailBarangJual(ComboBox1.SelectedValue)
 
                 Dim clonedDT As DataTable = TbSet.Clone()
@@ -93,7 +96,7 @@
                 lb_TotalTagihan.Text = FormatCurrency(x(3))
                 lb_PembayaranDiterima.Text = FormatCurrency(x(4))
                 lb_Kekurangan.Text = FormatCurrency(x(5))
-                If (x(7) < x(6)) Then
+                If (CInt(x(7)) < CInt(x(6))) Then
                     totalRetur = x(7)
                 Else
                     totalRetur = x(6)
@@ -103,7 +106,11 @@
                 cekTotal()
             End If
         Catch ex As Exception
+#If DEBUG Then
             MsgBox(ex.ToString)
+#Else
+        CheckBox4.Enabled = False
+#End If
         End Try
     End Sub
 

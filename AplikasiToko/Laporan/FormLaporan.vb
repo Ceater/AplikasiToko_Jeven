@@ -56,7 +56,7 @@ Public Class FormLaporan
                 rep.PrintOptions.PrinterName = getPrinter()
                 rep.PrintToPrinter(1, False, 0, 10)
             ElseIf Jenis = "NotaPembayaran" Then
-                cmd.CommandText = "SELECT H.NoNotaJual, T.NoNotaPembayaran, H.TglNota,H.NamaPelanggan, H.GrandTotal, T.TglBayar, T.UangBayar from HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual and H.NoNotaJual=@a"
+                cmd.CommandText = "SELECT H.NoNotaJual, T.NoNotaPembayaran, H.TglNota,H.NamaPelanggan, H.GrandTotal, T.TglBayar, T.UangBayar from HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual and H.NoNotaJual=@a and T.UangBayar <> 0"
                 cmd.Parameters.AddWithValue("@a", LaporanNoNota)
                 adapt.Fill(dataset, "Detailpembayaran")
                 rep = New NotaPembayaran
