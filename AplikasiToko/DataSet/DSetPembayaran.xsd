@@ -128,7 +128,7 @@ SELECT NoNotaJual, TglNota, GrandTotal, NamaPelanggan, IDStaff FROM HJual WHERE 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DetailPembayaranTableAdapter" GeneratorDataComponentClassName="DetailPembayaranTableAdapter" Name="DetailPembayaran" UserDataComponentName="DetailPembayaranTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT H.NoNotaJual, T.NoNotaPembayaran, H.TglNota,H.NamaPelanggan, H.GrandTotal, T.TglBayar, T.UangBayar from HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual</CommandText>
@@ -148,6 +148,31 @@ SELECT NoNotaJual, TglNota, GrandTotal, NamaPelanggan, IDStaff FROM HJual WHERE 
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DetailTagihanTableAdapter" GeneratorDataComponentClassName="DetailTagihanTableAdapter" Name="DetailTagihan" UserDataComponentName="DetailTagihanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, sum(T.UangBayar) as 'Pembayaran Diterima', ISNULL(CASE WHEN (Tp.SisaPiutang - TotalRetur) &lt;= 0 THEN 0 ELSE Tp.SisaPiutang - TotalRetur END, 0) as Kekurangan, ISNULL(Tp.TotalRetur,0) as TotalRetur, Tp.SisaPiutang 
+FROM  HJual H INNER JOIN TbPembayaran T ON H.NoNotaJual=T.NoNotaJual INNER JOIN TbPiutang Tp ON T.NoNotaJual=Tp.NoNotaJual 
+GROUP BY T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, Tp.TotalRetur, Tp.SisaPiutang;</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NoNotaJual" DataSetColumn="NoNotaJual" />
+              <Mapping SourceColumn="TglNota" DataSetColumn="TglNota" />
+              <Mapping SourceColumn="NamaPelanggan" DataSetColumn="NamaPelanggan" />
+              <Mapping SourceColumn="GrandTotal" DataSetColumn="GrandTotal" />
+              <Mapping SourceColumn="Pembayaran Diterima" DataSetColumn="Pembayaran Diterima" />
+              <Mapping SourceColumn="Kekurangan" DataSetColumn="Kekurangan" />
+              <Mapping SourceColumn="TotalRetur" DataSetColumn="TotalRetur" />
+              <Mapping SourceColumn="SisaPiutang" DataSetColumn="SisaPiutang" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -156,7 +181,7 @@ SELECT NoNotaJual, TglNota, GrandTotal, NamaPelanggan, IDStaff FROM HJual WHERE 
   <xs:element name="DSetPembayaran" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetPembayaran" msprop:Generator_UserDSName="DSetPembayaran">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TbPembayaran" msprop:Generator_TableClassName="TbPembayaranDataTable" msprop:Generator_TableVarName="tableTbPembayaran" msprop:Generator_RowChangedName="TbPembayaranRowChanged" msprop:Generator_TablePropName="TbPembayaran" msprop:Generator_RowDeletingName="TbPembayaranRowDeleting" msprop:Generator_RowChangingName="TbPembayaranRowChanging" msprop:Generator_RowEvHandlerName="TbPembayaranRowChangeEventHandler" msprop:Generator_RowDeletedName="TbPembayaranRowDeleted" msprop:Generator_RowClassName="TbPembayaranRow" msprop:Generator_UserTableName="TbPembayaran" msprop:Generator_RowEvArgName="TbPembayaranRowChangeEvent">
+        <xs:element name="TbPembayaran" msprop:Generator_TableClassName="TbPembayaranDataTable" msprop:Generator_TableVarName="tableTbPembayaran" msprop:Generator_TablePropName="TbPembayaran" msprop:Generator_RowDeletingName="TbPembayaranRowDeleting" msprop:Generator_RowChangingName="TbPembayaranRowChanging" msprop:Generator_RowEvHandlerName="TbPembayaranRowChangeEventHandler" msprop:Generator_RowDeletedName="TbPembayaranRowDeleted" msprop:Generator_UserTableName="TbPembayaran" msprop:Generator_RowChangedName="TbPembayaranRowChanged" msprop:Generator_RowEvArgName="TbPembayaranRowChangeEvent" msprop:Generator_RowClassName="TbPembayaranRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaPembayaran" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoNotaPembayaran" msprop:Generator_ColumnPropNameInRow="NoNotaPembayaran" msprop:Generator_ColumnPropNameInTable="NoNotaPembayaranColumn" msprop:Generator_UserColumnName="NoNotaPembayaran" type="xs:int" />
@@ -172,7 +197,7 @@ SELECT NoNotaJual, TglNota, GrandTotal, NamaPelanggan, IDStaff FROM HJual WHERE 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HJual" msprop:Generator_TableClassName="HJualDataTable" msprop:Generator_TableVarName="tableHJual" msprop:Generator_RowChangedName="HJualRowChanged" msprop:Generator_TablePropName="HJual" msprop:Generator_RowDeletingName="HJualRowDeleting" msprop:Generator_RowChangingName="HJualRowChanging" msprop:Generator_RowEvHandlerName="HJualRowChangeEventHandler" msprop:Generator_RowDeletedName="HJualRowDeleted" msprop:Generator_RowClassName="HJualRow" msprop:Generator_UserTableName="HJual" msprop:Generator_RowEvArgName="HJualRowChangeEvent">
+        <xs:element name="HJual" msprop:Generator_TableClassName="HJualDataTable" msprop:Generator_TableVarName="tableHJual" msprop:Generator_TablePropName="HJual" msprop:Generator_RowDeletingName="HJualRowDeleting" msprop:Generator_RowChangingName="HJualRowChanging" msprop:Generator_RowEvHandlerName="HJualRowChangeEventHandler" msprop:Generator_RowDeletedName="HJualRowDeleted" msprop:Generator_UserTableName="HJual" msprop:Generator_RowChangedName="HJualRowChanged" msprop:Generator_RowEvArgName="HJualRowChangeEvent" msprop:Generator_RowClassName="HJualRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaJual" msprop:Generator_ColumnPropNameInRow="NoNotaJual" msprop:Generator_ColumnPropNameInTable="NoNotaJualColumn" msprop:Generator_UserColumnName="NoNotaJual">
@@ -201,7 +226,7 @@ SELECT NoNotaJual, TglNota, GrandTotal, NamaPelanggan, IDStaff FROM HJual WHERE 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DetailPembayaran" msprop:Generator_TableClassName="DetailPembayaranDataTable" msprop:Generator_TableVarName="tableDetailPembayaran" msprop:Generator_RowChangedName="DetailPembayaranRowChanged" msprop:Generator_TablePropName="DetailPembayaran" msprop:Generator_RowDeletingName="DetailPembayaranRowDeleting" msprop:Generator_RowChangingName="DetailPembayaranRowChanging" msprop:Generator_RowEvHandlerName="DetailPembayaranRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailPembayaranRowDeleted" msprop:Generator_RowClassName="DetailPembayaranRow" msprop:Generator_UserTableName="DetailPembayaran" msprop:Generator_RowEvArgName="DetailPembayaranRowChangeEvent">
+        <xs:element name="DetailPembayaran" msprop:Generator_TableClassName="DetailPembayaranDataTable" msprop:Generator_TableVarName="tableDetailPembayaran" msprop:Generator_TablePropName="DetailPembayaran" msprop:Generator_RowDeletingName="DetailPembayaranRowDeleting" msprop:Generator_RowChangingName="DetailPembayaranRowChanging" msprop:Generator_RowEvHandlerName="DetailPembayaranRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailPembayaranRowDeleted" msprop:Generator_UserTableName="DetailPembayaran" msprop:Generator_RowChangedName="DetailPembayaranRowChanged" msprop:Generator_RowEvArgName="DetailPembayaranRowChangeEvent" msprop:Generator_RowClassName="DetailPembayaranRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaJual" msprop:Generator_ColumnPropNameInRow="NoNotaJual" msprop:Generator_ColumnPropNameInTable="NoNotaJualColumn" msprop:Generator_UserColumnName="NoNotaJual">
@@ -223,6 +248,32 @@ SELECT NoNotaJual, TglNota, GrandTotal, NamaPelanggan, IDStaff FROM HJual WHERE 
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DetailTagihan" msprop:Generator_TableClassName="DetailTagihanDataTable" msprop:Generator_TableVarName="tableDetailTagihan" msprop:Generator_TablePropName="DetailTagihan" msprop:Generator_RowDeletingName="DetailTagihanRowDeleting" msprop:Generator_RowChangingName="DetailTagihanRowChanging" msprop:Generator_RowEvHandlerName="DetailTagihanRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailTagihanRowDeleted" msprop:Generator_UserTableName="DetailTagihan" msprop:Generator_RowChangedName="DetailTagihanRowChanged" msprop:Generator_RowEvArgName="DetailTagihanRowChangeEvent" msprop:Generator_RowClassName="DetailTagihanRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NoNotaJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaJual" msprop:Generator_ColumnPropNameInRow="NoNotaJual" msprop:Generator_ColumnPropNameInTable="NoNotaJualColumn" msprop:Generator_UserColumnName="NoNotaJual">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TglNota" msprop:Generator_ColumnVarNameInTable="columnTglNota" msprop:Generator_ColumnPropNameInRow="TglNota" msprop:Generator_ColumnPropNameInTable="TglNotaColumn" msprop:Generator_UserColumnName="TglNota" type="xs:dateTime" />
+              <xs:element name="NamaPelanggan" msprop:Generator_ColumnVarNameInTable="columnNamaPelanggan" msprop:Generator_ColumnPropNameInRow="NamaPelanggan" msprop:Generator_ColumnPropNameInTable="NamaPelangganColumn" msprop:Generator_UserColumnName="NamaPelanggan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GrandTotal" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_UserColumnName="GrandTotal" type="xs:double" />
+              <xs:element name="Pembayaran_x0020_Diterima" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPembayaran_Diterima" msprop:Generator_ColumnPropNameInRow="Pembayaran_Diterima" msprop:Generator_ColumnPropNameInTable="Pembayaran_DiterimaColumn" msprop:Generator_UserColumnName="Pembayaran Diterima" type="xs:int" minOccurs="0" />
+              <xs:element name="Kekurangan" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKekurangan" msprop:Generator_ColumnPropNameInRow="Kekurangan" msprop:Generator_ColumnPropNameInTable="KekuranganColumn" msprop:Generator_UserColumnName="Kekurangan" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalRetur" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalRetur" msprop:Generator_ColumnPropNameInRow="TotalRetur" msprop:Generator_ColumnPropNameInTable="TotalReturColumn" msprop:Generator_UserColumnName="TotalRetur" type="xs:double" minOccurs="0" />
+              <xs:element name="SisaPiutang" msprop:Generator_ColumnVarNameInTable="columnSisaPiutang" msprop:Generator_ColumnPropNameInRow="SisaPiutang" msprop:Generator_ColumnPropNameInTable="SisaPiutangColumn" msprop:Generator_UserColumnName="SisaPiutang" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

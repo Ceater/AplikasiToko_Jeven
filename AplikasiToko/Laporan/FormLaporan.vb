@@ -59,6 +59,9 @@ Public Class FormLaporan
                 cmd.CommandText = "SELECT H.NoNotaJual, T.NoNotaPembayaran, H.TglNota,H.NamaPelanggan, H.GrandTotal, T.TglBayar, T.UangBayar from HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual and H.NoNotaJual=@a and T.UangBayar <> 0"
                 cmd.Parameters.AddWithValue("@a", LaporanNoNota)
                 adapt.Fill(dataset, "Detailpembayaran")
+                cmd.CommandText = "SELECT T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, sum(T.UangBayar) as 'Pembayaran Diterima', ISNULL(CASE WHEN (Tp.SisaPiutang - TotalRetur) <= 0 THEN 0 ELSE Tp.SisaPiutang - TotalRetur END, 0) as Kekurangan, ISNULL(Tp.TotalRetur,0) as TotalRetur, Tp.SisaPiutang FROM  HJual H INNER JOIN TbPembayaran T ON H.NoNotaJual=T.NoNotaJual INNER JOIN TbPiutang Tp ON T.NoNotaJual=Tp.NoNotaJual WHERE H.NoNotaJual = @b GROUP BY T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, Tp.TotalRetur, Tp.SisaPiutang;"
+                cmd.Parameters.AddWithValue("@b", LaporanNoNota)
+                adapt.Fill(dataset, "DetailTagihan")
                 rep = New NotaPembayaran
                 rep.SetDataSource(dataset)
                 rep.PrintOptions.PrinterName = getPrinter()

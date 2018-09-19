@@ -101,6 +101,18 @@
         End If
     End Sub
 
+    Private Sub searchNota(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged, ComboBox2.SelectedIndexChanged
+        If formReady Then
+            loadListBox()
+        End If
+    End Sub
+
+    Private Sub TextBox2_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBox2.KeyUp
+        If formReady Then
+            loadListBox()
+        End If
+    End Sub
+
     Sub HitungUang()
         Try
             If RadioButton1.Checked Then
@@ -136,7 +148,7 @@
         Dim bln = 0, thn As Integer = 0
         bln = ComboBox1.SelectedIndex + 1
         thn = ComboBox2.SelectedIndex + 2018
-        Dim hasil As ArrayList = loadTagihan(bln, thn)
+        Dim hasil As ArrayList = loadTagihan(bln, thn, TextBox2.Text)
         ListBox1.Items.Clear()
         If hasil.Count <> 0 Then
             For i = 0 To hasil.Count - 1
@@ -164,9 +176,5 @@
         Return s
     End Function
 
-    Private Sub searchNota(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged, ComboBox2.SelectedIndexChanged
-        If formReady Then
-            loadListBox()
-        End If
-    End Sub
+
 End Class

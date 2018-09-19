@@ -350,6 +350,7 @@ Partial Class Home
         '
         'FormResetDataToolStripMenuItem
         '
+        Me.FormResetDataToolStripMenuItem.Enabled = False
         Me.FormResetDataToolStripMenuItem.Name = "FormResetDataToolStripMenuItem"
         Me.FormResetDataToolStripMenuItem.Size = New System.Drawing.Size(218, 26)
         Me.FormResetDataToolStripMenuItem.Text = "Form Reset Data"

@@ -3,14 +3,19 @@ Imports System.Data.SqlClient
 
 Module ModulePembayaran
     Dim cmd As SqlCommand
-    Function loadTagihan(searchMonth As Integer, searchYear As Integer) As ArrayList
+    Function loadTagihan(searchMonth As Integer, searchYear As Integer, Optional keyword As String = "%") As ArrayList
+        If keyword = "" Then
+            keyword = "%"
+        End If
+        keyword = "%" & keyword & "%"
         Dim x As New ArrayList
         Try
             constring.Open()
-            cmd = New SqlCommand("SELECT T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, H.GrandTotal - sum(T.UangBayar) as Kekurangan FROM HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual AND MONTH(H.TglNota) = @a AND YEAR(H.TglNota) = @b GROUP BY T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal HAVING  (H.GrandTotal - sum(T.UangBayar)) <> 0 ORDER BY H.TglNota DESC;", constring)
+            cmd = New SqlCommand("SELECT T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal, H.GrandTotal - sum(T.UangBayar) as Kekurangan FROM HJual H, TbPembayaran T WHERE H.NoNotaJual = T.NoNotaJual AND MONTH(H.TglNota) = @a AND YEAR(H.TglNota) = @b AND T.NoNotaJual LIKE @c GROUP BY T.NoNotaJual, H.TglNota, H.NamaPelanggan, H.GrandTotal HAVING  (H.GrandTotal - sum(T.UangBayar)) <> 0 ORDER BY H.TglNota DESC;", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", searchMonth))
                 .Add(New SqlParameter("@b", searchYear))
+                .Add(New SqlParameter("@c", keyword))
             End With
             Dim reader As SqlDataReader = cmd.ExecuteReader
             While reader.Read
