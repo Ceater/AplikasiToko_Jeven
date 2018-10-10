@@ -382,8 +382,12 @@ Public Class Penjualan
             GTotal = 0
             Pembayaran = 0
             For Each f In dgv.Rows
+                Dim temp As String = f.Cells(4).Value
+                Dim temp2 As String = temp.Replace(",", ".")
+                Dim sat As Double = CDbl(Val(temp2))
+
                 TotBarang += 1
-                TotJumBarang += f.Cells(4).Value
+                TotJumBarang += sat
                 GTotal += f.Cells(6).Value
             Next
             If CashRB.Checked Then

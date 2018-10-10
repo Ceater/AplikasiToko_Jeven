@@ -19,6 +19,8 @@
 -> Perbaikan Database 1.1.4.3
 -> Versi program dipindahkan ke global module 1.1.4.6
 -> Penambahan tabel database TbPiutang yang berfungsi mencatat total hutang dan harga barang 1.1.4.6
+-> Nota penjualan, ganti tampilan 1.1.4.7
+-> Tombol manual refresh menggantikan auto refresh 1.1.4.8
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1
@@ -39,10 +41,10 @@ Bug Fix
 -> Orang Belum Bayar Tapi Barang Mau Di Retur, Nanti error dipembayaran karena uang akan berkurang pada saat retur tapi tidak nambah pada saat pembayaran.
 -> Nota Retur Penjualan Tabrakan -> Done 1.1.4.6
 -> Bisa melakukan retur lebih dari jumlah yang seharusnya -> Done 1.1.4.6
+-> Laporan stok barang tidak urut -> Done 1.1.4.7
+-> Penjualan dan Terima, perhitungan total jumlah barang salah. -> Done 1.1.4.8
 
 Bug Found
--> Error yang sama apakah muncul di retur beli?
--> Bisa ganti kertas, tapi tidak bisa ganti ukuran crystal report mengikuti panjang kertas.
 
 New Feature
 -> Pencetakan Nota diberikan opsi untuk cetak atau tidak -> Done 1.1

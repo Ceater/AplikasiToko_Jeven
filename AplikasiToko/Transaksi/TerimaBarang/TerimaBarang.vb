@@ -28,8 +28,10 @@
                 Else
                     insertHTerima(NotaTxt.Text, tgl, staff)
                     For Each f In dgv.Rows
-                        insertDTerima(NotaTxt.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value)
-                        updateStok(f.Cells(3).Value, f.Cells(0).Value)
+                        Dim Qty As Double = 0
+                        Qty = CDbl(Val(f.Cells(3).Value.Replace(",", ".")))
+                        insertDTerima(NotaTxt.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, Qty)
+                        updateStok(Qty, f.Cells(0).Value)
                     Next
                     MsgBox("Transaksi Berhasil")
                     clear()
@@ -57,7 +59,7 @@
 
     Private Sub ValidateKeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         DRow = DTable.Rows(dgv.CurrentCell.RowIndex)
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Asc(e.KeyChar) <> 45 AndAlso Asc(e.KeyChar) <> 46 AndAlso Not IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
@@ -81,7 +83,8 @@
 
     'JmlBarang
     Private Sub JmlBarang_KeyUp(sender As Object, e As KeyEventArgs) Handles JmlBarang.KeyUp
-        Dim JumlahBarang As Double = CDbl(Val(sender.text.Replace(",", ".")))
+        Dim Qty, JumlahBarang As Double
+        JumlahBarang = CDbl(Val(sender.text.Replace(",", ".")))
         If sender.text = "" Then
             sender.text = "0"
         End If
@@ -94,7 +97,8 @@
                     addorappend = True
                     For Each f In dgv.Rows
                         If f.cells(0).value = ComboBox1.Text Then
-                            f.Cells(3).Value += JumlahBarang
+                            Qty = CDbl(Val(f.Cells(3).Value.Replace(",", ".")))
+                            f.Cells(3).Value = Qty + JumlahBarang
                             addorappend = False
                         End If
                     Next
@@ -124,6 +128,7 @@
         DTable.Columns.Add("Satuan")
         DTable.Columns.Add("Jumlah")
         dgv.DataSource = DTable
+        dgv.Columns(3).ValueType = GetType(System.Double)
         Dim temp As Double = dgv.Size.Width
         dgv.Columns(0).Width = temp * 0.34
         dgv.Columns(1).Width = temp * 0.3
@@ -139,8 +144,12 @@
             TotBarang = 0
             TotJumBarang = 0
             For Each f In dgv.Rows
+                Dim temp As String = f.Cells(3).Value
+                Dim temp2 As String = temp.Replace(",", ".")
+                Dim sat As Double = CDbl(Val(temp2))
+
                 TotBarang += 1
-                TotJumBarang += f.Cells(3).Value
+                TotJumBarang += sat
             Next
             Label8.Text = TotJumBarang
             Label4.Text = TotBarang

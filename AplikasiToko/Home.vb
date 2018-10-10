@@ -52,8 +52,12 @@
         ToolStripStatusLabel6.Text = TimeOfDay.ToString("h:mm:ss tt")
         isec = DateTime.Now.Second
         If isec = 0 Then
-            cekStokMinimum()
+            'cekStokMinimum()
         End If
+    End Sub
+
+    Private Sub RefreshStokMinimumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshStokMinimumToolStripMenuItem.Click
+        cekStokMinimum()
     End Sub
 
     Private Sub LogoutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogoutToolStripMenuItem.Click

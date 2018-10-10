@@ -158,7 +158,7 @@ Public Class FormLaporan
                     rep.SetDataSource(dataset)
                 End If
             ElseIf Jenis = "LaporanStokBarang" Then
-                cmd.CommandText = "select b.kodebarang, b.namabarang, b.stok, s.namasatuan, b.harganormal, b.hargatoko, b.hargasales from tbbarang b, tbsatuan s where b.satuanbarang = s.kodesatuan"
+                cmd.CommandText = "select b.kodebarang, b.namabarang, b.stok, s.namasatuan, b.harganormal, b.hargatoko, b.hargasales from tbbarang b, tbsatuan s where b.satuanbarang = s.kodesatuan ORDER BY b.namabarang, b.stok"
                 adapt.Fill(dataset, "DetailStokBarang")
                 rep = New LaporanBarang
                 rep.SetDataSource(dataset)
