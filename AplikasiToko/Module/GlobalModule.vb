@@ -7,7 +7,7 @@ Module GlobalModule
     Public DSet As New DataSet
     Public SqlAdapter As SqlDataAdapter
     Public userLogin As String
-    Public VersiSekarang As String = "1.1.4.9"
+    Public VersiSekarang As String = "1.1.5.0"
     Sub LoadSetting(TipeServer As Integer)
         Dim filepath As String = "C:\AplikasiToko\setting.txt"
         Dim x1, x2, x3, x4, x5 As String
@@ -73,6 +73,20 @@ Module GlobalModule
     Function SqlSafe(strInput As String) As String
         SqlSafe = Replace(strInput, "'", "''")
         SqlSafe = Replace(SqlSafe, """", """""")
+    End Function
+
+    Function dblConvertToVB(value As String)
+        Dim x As String = value
+        Dim res As Double = 0
+        x = x.Replace(",", ".")
+        res = CDbl(Val(x))
+        Return x
+    End Function
+
+    Function dblConvertToSQL(value As String)
+        Dim x As String = value
+        x = x.Replace(",", ".")
+        Return x
     End Function
 
     Function getDataTB(FieldName As String, TableName As String, Optional WhereKey As String = "", Optional OrderBy As String = "", Optional GroupBy As String = "")
