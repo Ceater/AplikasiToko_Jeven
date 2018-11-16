@@ -37,19 +37,11 @@ Module ModuleTransaksi
                 .Add(New SqlParameter("@h", subtot))
             End With
             cmd.ExecuteNonQuery()
-
-            cmd = New SqlCommand("Insert into TbMutasi(NoNota,Deskripsi,Keluar,Masuk,Date_i,User_i) VALUES(@a,@b,@c,@d,@e,@f,@g)", constring)
-            Dim deskripsi As String = "Jual-" & idbarang & "-" & namabarang
-            With cmd.Parameters
-                .Add(New SqlParameter("@a", nota))
-                .Add(New SqlParameter("@b", deskripsi))
-                .Add(New SqlParameter("@c", jumlah))
-                .Add(New SqlParameter("@d", 0))
-                .Add(New SqlParameter("@e", DateTime.Now))
-                .Add(New SqlParameter("@f", userLogin))
-            End With
-            cmd.ExecuteNonQuery()
             constring.Close()
+
+            Dim deskripsi As String = "Jual-" & idbarang & "-" & namabarang
+            Dim stok As Double = getCurrentStok(idbarang) - jumlah
+            ins_mutasi(nota, deskripsi, jumlah, 0, stok, userLogin)
         Catch ex As Exception
             MsgBox(ex.ToString)
             constring.Close()

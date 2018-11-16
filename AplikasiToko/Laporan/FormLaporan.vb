@@ -107,9 +107,10 @@ Public Class FormLaporan
                     rep.SetDataSource(dataset)
                 End If
             ElseIf Jenis = "StokOpname" Then
-                cmd.CommandText = "SELECT H.TglNota, H.NoNotaJual AS 'Nomer Nota', D.IDBarang, D.NamaBarang, D.Jumlah FROM HJual AS H INNER JOIN DJual AS D ON H.NoNotaJual = D.NoNotaJual where D.IDBarang = @a UNION SELECT HT.TglNota, HT.NoNotaTerima AS 'Nomer Nota', DT.IDBarang, DT.NamaBarang, DT.Jumlah FROM HTerima AS HT INNER JOIN DTerima AS DT ON HT.NoNotaTerima = DT.NoNotaTerima where DT.IDBarang = @a UNION SELECT HRT.TglReturTerima, HRT.NoNotaReturTerima AS 'Nomer Nota', DRT.IDBarang, DRT.NamaBarang, DRT.Jumlah FROM HReturTerima AS HRT INNER JOIN DReturTerima AS DRT ON HRT.NoNotaReturTerima = DRT.NoNotaReturTerima where DRT.IDBarang = @a"
+                kodebarang = "%" & kodebarang & "%"
+                cmd.CommandText = "SELECT * FROM TbMutasi WHERE deskripsi LIKE @a ORDER BY NoMutasi DESC"
                 cmd.Parameters.AddWithValue("@a", kodebarang)
-                adapt.Fill(dataset, "StokOpName")
+                adapt.Fill(dataset, "TbMutasi")
                 rep = New LaporanStokOpname
                 rep.SetDataSource(dataset)
             ElseIf Jenis = "LaporanPembayaran" Then

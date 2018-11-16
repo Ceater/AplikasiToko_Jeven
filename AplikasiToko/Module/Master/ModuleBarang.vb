@@ -42,7 +42,7 @@ Module ModuleBarang
 
     Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal KDSatuan As String, ByVal HNormal As Double, ByVal HToko As Double, ByVal HSales As Double, ByVal Spengingat As Double)
         constring.Open()
-        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8, Date_u=@a9, User_u=@a10 where KodeBarang=@a1", constring)
+        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8, Date_u=GETDATE(), User_u=@a9 where KodeBarang=@a1", constring)
         With cmd.Parameters
             .Add(New SqlParameter("@a1", KDBarang))
             .Add(New SqlParameter("@a2", NMBarang))
@@ -51,8 +51,7 @@ Module ModuleBarang
             .Add(New SqlParameter("@a6", HToko))
             .Add(New SqlParameter("@a7", HSales))
             .Add(New SqlParameter("@a8", Spengingat))
-            .Add(New SqlParameter("@a9", DateTime.Now))
-            .Add(New SqlParameter("@a10", userLogin))
+            .Add(New SqlParameter("@a9", userLogin))
         End With
         cmd.ExecuteNonQuery()
         cmd.Dispose()
@@ -113,7 +112,7 @@ Module ModuleBarang
     End Function
 
     Function getCurrentStok(KDBarang As String)
-        Dim result As Integer = 0
+        Dim result As Double = 0
         constring.Open()
         Try
             cmd = New SqlCommand("Select stok from TbBarang where KodeBarang=@kb", constring)
@@ -122,7 +121,7 @@ Module ModuleBarang
             End With
             result = cmd.ExecuteScalar
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox(ex.ToString)
         End Try
         constring.Close()
         Return result

@@ -293,6 +293,8 @@ Partial Public Class DSetStokOpname
         
         Private columnMasuk As Global.System.Data.DataColumn
         
+        Private columnStok As Global.System.Data.DataColumn
+        
         Private columnDate_i As Global.System.Data.DataColumn
         
         Private columnUser_i As Global.System.Data.DataColumn
@@ -374,6 +376,14 @@ Partial Public Class DSetStokOpname
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property StokColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnStok
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Date_iColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDate_i
@@ -425,9 +435,9 @@ Partial Public Class DSetStokOpname
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddTbMutasiRow(ByVal NoNota As String, ByVal Deskripsi As String, ByVal Keluar As Double, ByVal Masuk As Double, ByVal Date_i As Date, ByVal User_i As String) As TbMutasiRow
+        Public Overloads Function AddTbMutasiRow(ByVal NoNota As String, ByVal Deskripsi As String, ByVal Keluar As Double, ByVal Masuk As Double, ByVal Stok As Double, ByVal Date_i As Date, ByVal User_i As String) As TbMutasiRow
             Dim rowTbMutasiRow As TbMutasiRow = CType(Me.NewRow,TbMutasiRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, NoNota, Deskripsi, Keluar, Masuk, Date_i, User_i}
+            Dim columnValuesArray() As Object = New Object() {Nothing, NoNota, Deskripsi, Keluar, Masuk, Stok, Date_i, User_i}
             rowTbMutasiRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTbMutasiRow)
             Return rowTbMutasiRow
@@ -461,6 +471,7 @@ Partial Public Class DSetStokOpname
             Me.columnDeskripsi = MyBase.Columns("Deskripsi")
             Me.columnKeluar = MyBase.Columns("Keluar")
             Me.columnMasuk = MyBase.Columns("Masuk")
+            Me.columnStok = MyBase.Columns("Stok")
             Me.columnDate_i = MyBase.Columns("Date_i")
             Me.columnUser_i = MyBase.Columns("User_i")
         End Sub
@@ -478,6 +489,8 @@ Partial Public Class DSetStokOpname
             MyBase.Columns.Add(Me.columnKeluar)
             Me.columnMasuk = New Global.System.Data.DataColumn("Masuk", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMasuk)
+            Me.columnStok = New Global.System.Data.DataColumn("Stok", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStok)
             Me.columnDate_i = New Global.System.Data.DataColumn("Date_i", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDate_i)
             Me.columnUser_i = New Global.System.Data.DataColumn("User_i", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -709,6 +722,21 @@ Partial Public Class DSetStokOpname
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Stok() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableTbMutasi.StokColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Stok' in table 'TbMutasi' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTbMutasi.StokColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Date_i() As Date
             Get
                 Try 
@@ -783,6 +811,18 @@ Partial Public Class DSetStokOpname
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetMasukNull()
             Me(Me.tableTbMutasi.MasukColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsStokNull() As Boolean
+            Return Me.IsNull(Me.tableTbMutasi.StokColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetStokNull()
+            Me(Me.tableTbMutasi.StokColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -981,6 +1021,7 @@ Namespace DSetStokOpnameTableAdapters
             tableMapping.ColumnMappings.Add("Deskripsi", "Deskripsi")
             tableMapping.ColumnMappings.Add("Keluar", "Keluar")
             tableMapping.ColumnMappings.Add("Masuk", "Masuk")
+            tableMapping.ColumnMappings.Add("Stok", "Stok")
             tableMapping.ColumnMappings.Add("Date_i", "Date_i")
             tableMapping.ColumnMappings.Add("User_i", "User_i")
             Me._adapter.TableMappings.Add(tableMapping)
@@ -989,8 +1030,9 @@ Namespace DSetStokOpnameTableAdapters
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [TbMutasi] WHERE (([NoMutasi] = @Original_NoMutasi) AND ((@IsNull_NoN"& _ 
                 "ota = 1 AND [NoNota] IS NULL) OR ([NoNota] = @Original_NoNota)) AND ((@IsNull_Ke"& _ 
                 "luar = 1 AND [Keluar] IS NULL) OR ([Keluar] = @Original_Keluar)) AND ((@IsNull_M"& _ 
-                "asuk = 1 AND [Masuk] IS NULL) OR ([Masuk] = @Original_Masuk)) AND ((@IsNull_Date"& _ 
-                "_i = 1 AND [Date_i] IS NULL) OR ([Date_i] = @Original_Date_i)))"
+                "asuk = 1 AND [Masuk] IS NULL) OR ([Masuk] = @Original_Masuk)) AND ((@IsNull_Stok"& _ 
+                " = 1 AND [Stok] IS NULL) OR ([Stok] = @Original_Stok)) AND ((@IsNull_Date_i = 1 "& _ 
+                "AND [Date_i] IS NULL) OR ([Date_i] = @Original_Date_i)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NoMutasi", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NoMutasi", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_NoNota", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NoNota", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -999,36 +1041,41 @@ Namespace DSetStokOpnameTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Keluar", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Keluar", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Masuk", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Masuk", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Masuk", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Masuk", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Stok", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stok", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_i", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date_i", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_i", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date_i", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [TbMutasi] ([NoNota], [Deskripsi], [Keluar], [Masuk], [Date_i], [User"& _ 
-                "_i]) VALUES (@NoNota, @Deskripsi, @Keluar, @Masuk, @Date_i, @User_i);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT No"& _ 
-                "Mutasi, NoNota, Deskripsi, Keluar, Masuk, Date_i, User_i FROM TbMutasi WHERE (No"& _ 
-                "Mutasi = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [TbMutasi] ([NoNota], [Deskripsi], [Keluar], [Masuk], [Stok], [Date_i"& _ 
+                "], [User_i]) VALUES (@NoNota, @Deskripsi, @Keluar, @Masuk, @Stok, @Date_i, @User"& _ 
+                "_i);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NoMutasi, NoNota, Deskripsi, Keluar, Masuk, Stok, Date_i, User_i FR"& _ 
+                "OM TbMutasi WHERE (NoMutasi = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NoNota", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NoNota", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Deskripsi", Global.System.Data.SqlDbType.Text, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Deskripsi", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keluar", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Keluar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Masuk", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Masuk", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stok", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_i", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date_i", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User_i", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "User_i", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [TbMutasi] SET [NoNota] = @NoNota, [Deskripsi] = @Deskripsi, [Keluar] = @K"& _ 
-                "eluar, [Masuk] = @Masuk, [Date_i] = @Date_i, [User_i] = @User_i WHERE (([NoMutas"& _ 
-                "i] = @Original_NoMutasi) AND ((@IsNull_NoNota = 1 AND [NoNota] IS NULL) OR ([NoN"& _ 
-                "ota] = @Original_NoNota)) AND ((@IsNull_Keluar = 1 AND [Keluar] IS NULL) OR ([Ke"& _ 
-                "luar] = @Original_Keluar)) AND ((@IsNull_Masuk = 1 AND [Masuk] IS NULL) OR ([Mas"& _ 
-                "uk] = @Original_Masuk)) AND ((@IsNull_Date_i = 1 AND [Date_i] IS NULL) OR ([Date"& _ 
-                "_i] = @Original_Date_i)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NoMutasi, NoNota, Deskripsi, Keluar, Masuk, D"& _ 
-                "ate_i, User_i FROM TbMutasi WHERE (NoMutasi = @NoMutasi)"
+                "eluar, [Masuk] = @Masuk, [Stok] = @Stok, [Date_i] = @Date_i, [User_i] = @User_i "& _ 
+                "WHERE (([NoMutasi] = @Original_NoMutasi) AND ((@IsNull_NoNota = 1 AND [NoNota] I"& _ 
+                "S NULL) OR ([NoNota] = @Original_NoNota)) AND ((@IsNull_Keluar = 1 AND [Keluar] "& _ 
+                "IS NULL) OR ([Keluar] = @Original_Keluar)) AND ((@IsNull_Masuk = 1 AND [Masuk] I"& _ 
+                "S NULL) OR ([Masuk] = @Original_Masuk)) AND ((@IsNull_Stok = 1 AND [Stok] IS NUL"& _ 
+                "L) OR ([Stok] = @Original_Stok)) AND ((@IsNull_Date_i = 1 AND [Date_i] IS NULL) "& _ 
+                "OR ([Date_i] = @Original_Date_i)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NoMutasi, NoNota, Deskripsi, Keluar,"& _ 
+                " Masuk, Stok, Date_i, User_i FROM TbMutasi WHERE (NoMutasi = @NoMutasi)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NoNota", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NoNota", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Deskripsi", Global.System.Data.SqlDbType.Text, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Deskripsi", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keluar", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Keluar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Masuk", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Masuk", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stok", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_i", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date_i", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@User_i", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "User_i", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NoMutasi", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NoMutasi", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -1038,6 +1085,8 @@ Namespace DSetStokOpnameTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Keluar", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Keluar", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Masuk", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Masuk", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Masuk", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Masuk", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Stok", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stok", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stok", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_i", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date_i", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_i", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date_i", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NoMutasi", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "NoMutasi", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1116,7 +1165,7 @@ Namespace DSetStokOpnameTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_NoMutasi As Integer, ByVal Original_NoNota As String, ByVal Original_Keluar As Global.System.Nullable(Of Double), ByVal Original_Masuk As Global.System.Nullable(Of Double), ByVal Original_Date_i As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_NoMutasi As Integer, ByVal Original_NoNota As String, ByVal Original_Keluar As Global.System.Nullable(Of Double), ByVal Original_Masuk As Global.System.Nullable(Of Double), ByVal Original_Stok As Global.System.Nullable(Of Double), ByVal Original_Date_i As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_NoMutasi,Integer)
             If (Original_NoNota Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -1139,12 +1188,19 @@ Namespace DSetStokOpnameTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (Original_Date_i.HasValue = true) Then
+            If (Original_Stok.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Date_i.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Stok.Value,Double)
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Date_i.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Date_i.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1165,7 +1221,7 @@ Namespace DSetStokOpnameTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal NoNota As String, ByVal Deskripsi As String, ByVal Keluar As Global.System.Nullable(Of Double), ByVal Masuk As Global.System.Nullable(Of Double), ByVal Date_i As Global.System.Nullable(Of Date), ByVal User_i As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal NoNota As String, ByVal Deskripsi As String, ByVal Keluar As Global.System.Nullable(Of Double), ByVal Masuk As Global.System.Nullable(Of Double), ByVal Stok As Global.System.Nullable(Of Double), ByVal Date_i As Global.System.Nullable(Of Date), ByVal User_i As String) As Integer
             If (NoNota Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -1186,15 +1242,20 @@ Namespace DSetStokOpnameTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (Date_i.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Date_i.Value,Date)
+            If (Stok.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Stok.Value,Double)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (User_i Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            If (Date_i.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Date_i.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(User_i,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (User_i Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(User_i,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1215,7 +1276,7 @@ Namespace DSetStokOpnameTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NoNota As String, ByVal Deskripsi As String, ByVal Keluar As Global.System.Nullable(Of Double), ByVal Masuk As Global.System.Nullable(Of Double), ByVal Date_i As Global.System.Nullable(Of Date), ByVal User_i As String, ByVal Original_NoMutasi As Integer, ByVal Original_NoNota As String, ByVal Original_Keluar As Global.System.Nullable(Of Double), ByVal Original_Masuk As Global.System.Nullable(Of Double), ByVal Original_Date_i As Global.System.Nullable(Of Date), ByVal NoMutasi As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal NoNota As String, ByVal Deskripsi As String, ByVal Keluar As Global.System.Nullable(Of Double), ByVal Masuk As Global.System.Nullable(Of Double), ByVal Stok As Global.System.Nullable(Of Double), ByVal Date_i As Global.System.Nullable(Of Date), ByVal User_i As String, ByVal Original_NoMutasi As Integer, ByVal Original_NoNota As String, ByVal Original_Keluar As Global.System.Nullable(Of Double), ByVal Original_Masuk As Global.System.Nullable(Of Double), ByVal Original_Stok As Global.System.Nullable(Of Double), ByVal Original_Date_i As Global.System.Nullable(Of Date), ByVal NoMutasi As Integer) As Integer
             If (NoNota Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -1236,46 +1297,58 @@ Namespace DSetStokOpnameTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (Date_i.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Date_i.Value,Date)
+            If (Stok.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Stok.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (User_i Is Nothing) Then
+            If (Date_i.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Date_i.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(User_i,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_NoMutasi,Integer)
-            If (Original_NoNota Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            If (User_i Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_NoNota,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(User_i,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_NoMutasi,Integer)
+            If (Original_NoNota Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_NoNota,String)
             End If
             If (Original_Keluar.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Keluar.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Keluar.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
             If (Original_Masuk.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Masuk.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Masuk.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Stok.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Stok.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             If (Original_Date_i.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Date_i.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Date_i.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(NoMutasi,Integer)
+            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(NoMutasi,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1295,8 +1368,8 @@ Namespace DSetStokOpnameTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NoNota As String, ByVal Deskripsi As String, ByVal Keluar As Global.System.Nullable(Of Double), ByVal Masuk As Global.System.Nullable(Of Double), ByVal Date_i As Global.System.Nullable(Of Date), ByVal User_i As String, ByVal Original_NoMutasi As Integer, ByVal Original_NoNota As String, ByVal Original_Keluar As Global.System.Nullable(Of Double), ByVal Original_Masuk As Global.System.Nullable(Of Double), ByVal Original_Date_i As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(NoNota, Deskripsi, Keluar, Masuk, Date_i, User_i, Original_NoMutasi, Original_NoNota, Original_Keluar, Original_Masuk, Original_Date_i, Original_NoMutasi)
+        Public Overloads Overridable Function Update(ByVal NoNota As String, ByVal Deskripsi As String, ByVal Keluar As Global.System.Nullable(Of Double), ByVal Masuk As Global.System.Nullable(Of Double), ByVal Stok As Global.System.Nullable(Of Double), ByVal Date_i As Global.System.Nullable(Of Date), ByVal User_i As String, ByVal Original_NoMutasi As Integer, ByVal Original_NoNota As String, ByVal Original_Keluar As Global.System.Nullable(Of Double), ByVal Original_Masuk As Global.System.Nullable(Of Double), ByVal Original_Stok As Global.System.Nullable(Of Double), ByVal Original_Date_i As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(NoNota, Deskripsi, Keluar, Masuk, Stok, Date_i, User_i, Original_NoMutasi, Original_NoNota, Original_Keluar, Original_Masuk, Original_Stok, Original_Date_i, Original_NoMutasi)
         End Function
     End Class
     

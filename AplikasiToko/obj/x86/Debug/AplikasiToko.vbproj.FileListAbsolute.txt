@@ -359,3 +359,4 @@ C:\Users\User\Source\Repos\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\Aplikas
 C:\Users\User\Source\Repos\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.pdb
 C:\Users\User\Source\Repos\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.HargaAmbilan.resources
 C:\Users\User\Source\Repos\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.ListBarang.resources
+C:\Users\User\Source\Repos\AplikasiToko_Jeven\AplikasiToko\obj\x86\Debug\AplikasiToko.GrafikLaporan.resources

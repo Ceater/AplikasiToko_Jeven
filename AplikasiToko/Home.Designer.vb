@@ -67,9 +67,10 @@ Partial Class Home
         Me.FormResetDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdminToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HapusTransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RefreshStokMinimumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.RefreshStokMinimumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -100,7 +101,7 @@ Partial Class Home
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(679, 20)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(791, 20)
         Me.ToolStripStatusLabel3.Spring = True
         '
         'ToolStripStatusLabel7
@@ -130,7 +131,7 @@ Partial Class Home
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.Setting, Me.AdminToolsToolStripMenuItem, Me.RefreshStokMinimumToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.Setting, Me.AdminToolsToolStripMenuItem, Me.RefreshStokMinimumToolStripMenuItem, Me.TestToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
@@ -370,6 +371,12 @@ Partial Class Home
         Me.HapusTransaksiToolStripMenuItem.Size = New System.Drawing.Size(190, 26)
         Me.HapusTransaksiToolStripMenuItem.Text = "Hapus Transaksi"
         '
+        'RefreshStokMinimumToolStripMenuItem
+        '
+        Me.RefreshStokMinimumToolStripMenuItem.Name = "RefreshStokMinimumToolStripMenuItem"
+        Me.RefreshStokMinimumToolStripMenuItem.Size = New System.Drawing.Size(170, 24)
+        Me.RefreshStokMinimumToolStripMenuItem.Text = "Refresh Stok Minimum"
+        '
         'Timer1
         '
         '
@@ -385,11 +392,11 @@ Partial Class Home
         Me.ListBox1.Size = New System.Drawing.Size(301, 681)
         Me.ListBox1.TabIndex = 4
         '
-        'RefreshStokMinimumToolStripMenuItem
+        'TestToolStripMenuItem
         '
-        Me.RefreshStokMinimumToolStripMenuItem.Name = "RefreshStokMinimumToolStripMenuItem"
-        Me.RefreshStokMinimumToolStripMenuItem.Size = New System.Drawing.Size(170, 24)
-        Me.RefreshStokMinimumToolStripMenuItem.Text = "Refresh Stok Minimum"
+        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
+        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(48, 24)
+        Me.TestToolStripMenuItem.Text = "Test"
         '
         'Home
         '
@@ -462,4 +469,5 @@ Partial Class Home
     Friend WithEvents AdminToolsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HapusTransaksiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RefreshStokMinimumToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TestToolStripMenuItem As ToolStripMenuItem
 End Class

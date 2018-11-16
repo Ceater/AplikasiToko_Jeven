@@ -284,4 +284,10 @@
             f.Show()
         End If
     End Sub
+
+    Private Sub TestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TestToolStripMenuItem.Click
+        Dim f As New GrafikLaporan
+        f.MdiParent = Me
+        f.Show()
+    End Sub
 End Class

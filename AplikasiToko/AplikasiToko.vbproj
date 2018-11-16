@@ -139,6 +139,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSetReturBarang.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Laporan\GrafikLaporan.Designer.vb">
+      <DependentUpon>GrafikLaporan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\GrafikLaporan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laporan\GrafikRpt\LaporanGrafik.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanGrafik.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Laporan\Rpt\SuratJalanRetur.vb">
       <DependentUpon>SuratJalanRetur.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -348,6 +360,7 @@
     <Compile Include="Module\Master\ModuleStaff.vb" />
     <Compile Include="Module\Master\ModuleSupplier.vb" />
     <Compile Include="Module\QueryModule.vb" />
+    <Compile Include="Module\Transaksi\ModuleMutasi.vb" />
     <Compile Include="Module\Transaksi\ModulePembayaran.vb" />
     <Compile Include="Module\Transaksi\ModuleReturBeli.vb" />
     <Compile Include="Module\Transaksi\ModuleReturJual.vb" />
@@ -520,6 +533,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Laporan\FormLaporanTerima.resx">
       <DependentUpon>FormLaporanTerima.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\GrafikLaporan.resx">
+      <DependentUpon>GrafikLaporan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laporan\GrafikRpt\LaporanGrafik.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanGrafik.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Laporan\Rpt\LaporanBarang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
