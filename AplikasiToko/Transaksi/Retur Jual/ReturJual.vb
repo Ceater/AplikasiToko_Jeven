@@ -50,11 +50,11 @@
                             Dim fHarga = 0, fDiskon = 0, fSubtotal As Integer = 0
                             fHarga = f.Cells(3).Value
                             fDiskon = f.Cells(5).Value
-                            fDiskon = f.Cells(6).Value
+                            fSubtotal = f.Cells(6).Value
                             Dim temp As String = f.Cells(4).Value
                             Dim temp2 As String = temp.Replace(",", ".")
                             Dim fJumlah As Double = CDbl(Val(temp2))
-                            insertDReturJual(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, fHarga, fJumlah, fDiskon, fDiskon)
+                            insertDReturJual(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, fHarga, fJumlah, fDiskon, fSubtotal)
                             totalHargaBarang += fDiskon
                             updateStok(fJumlah, f.Cells(0).Value)
                         End If

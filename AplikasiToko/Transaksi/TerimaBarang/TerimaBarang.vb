@@ -113,6 +113,7 @@
                     DTable.Rows.Add(DRow)
                 End If
                 cekTotal()
+                sender.text = "0"
             Catch ex As Exception
                 MsgBox("Kode barang tidak ditemukan")
                 dgv.Focus()

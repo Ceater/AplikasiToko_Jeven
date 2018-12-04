@@ -1,9 +1,13 @@
 ﻿Public Class Home
     Public hakAkses As String = ""
-    Public MenuStrip(20) As ToolStripMenuItem
+    Public MenuStrip(21) As ToolStripMenuItem
     Dim isec As Integer = 0
 
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+#If DEBUG Then
+#Else
+        L10.Visible = False
+#End If
         userLogin = ToolStripStatusLabel2.Text
         ToolStripStatusLabel7.Text = "Versi " & VersiSekarang
         Timer1.Start()
@@ -28,7 +32,8 @@
         MenuStrip(17) = L7
         MenuStrip(18) = L8
         MenuStrip(19) = L9
-        MenuStrip(20) = Setting
+        MenuStrip(20) = L10
+        MenuStrip(21) = Setting
         Dim temp(MenuStrip.Count - 1) As String
         For i = 0 To MenuStrip.Count - 1
             Try
@@ -181,13 +186,13 @@
         End If
     End Sub
 
-    Private Sub PenjualanToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles L1.Click
+    Private Sub L1_Click(sender As Object, e As EventArgs) Handles L1.Click
         Dim f As New FormLaporanPenjualan
         f.MdiParent = Me
         f.Show()
     End Sub
 
-    Private Sub PembelianToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles L2.Click
+    Private Sub L2_Click(sender As Object, e As EventArgs) Handles L2.Click
         Dim f As New FormLaporanTerima
         f.MdiParent = Me
         f.Show()
@@ -229,6 +234,12 @@
 
     Private Sub L9_Click(sender As Object, e As EventArgs) Handles L9.Click
         Dim f As New FormLaporanPendapatan
+        f.MdiParent = Me
+        f.Show()
+    End Sub
+
+    Private Sub L10_Click(sender As Object, e As EventArgs) Handles L10.Click
+        Dim f As New GrafikLaporan
         f.MdiParent = Me
         f.Show()
     End Sub
@@ -283,11 +294,5 @@
             f.MdiParent = Me
             f.Show()
         End If
-    End Sub
-
-    Private Sub TestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TestToolStripMenuItem.Click
-        Dim f As New GrafikLaporan
-        f.MdiParent = Me
-        f.Show()
     End Sub
 End Class

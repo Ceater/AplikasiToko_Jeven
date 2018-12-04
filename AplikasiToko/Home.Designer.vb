@@ -58,6 +58,7 @@ Partial Class Home
         Me.L7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.L9 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.L10 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Setting = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,7 +71,6 @@ Partial Class Home
         Me.RefreshStokMinimumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -131,7 +131,7 @@ Partial Class Home
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.Setting, Me.AdminToolsToolStripMenuItem, Me.RefreshStokMinimumToolStripMenuItem, Me.TestToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.Setting, Me.AdminToolsToolStripMenuItem, Me.RefreshStokMinimumToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
@@ -220,7 +220,7 @@ Partial Class Home
         Me.T4.Name = "T4"
         Me.T4.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D4), System.Windows.Forms.Keys)
         Me.T4.Size = New System.Drawing.Size(244, 26)
-        Me.T4.Text = "Stok Opname"
+        Me.T4.Text = "Mutasi Barang"
         '
         'T5
         '
@@ -252,7 +252,7 @@ Partial Class Home
         '
         'LaporanToolStripMenuItem
         '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.L1, Me.L2, Me.L3, Me.L4, Me.L5, Me.L6, Me.L7, Me.L8, Me.L9})
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.L1, Me.L2, Me.L3, Me.L4, Me.L5, Me.L6, Me.L7, Me.L8, Me.L9, Me.L10})
         Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(75, 24)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
@@ -260,56 +260,62 @@ Partial Class Home
         'L1
         '
         Me.L1.Name = "L1"
-        Me.L1.Size = New System.Drawing.Size(177, 26)
+        Me.L1.Size = New System.Drawing.Size(191, 26)
         Me.L1.Text = "Penjualan"
         '
         'L2
         '
         Me.L2.Name = "L2"
-        Me.L2.Size = New System.Drawing.Size(177, 26)
+        Me.L2.Size = New System.Drawing.Size(191, 26)
         Me.L2.Text = "Barang Masuk"
         '
         'L3
         '
         Me.L3.Name = "L3"
-        Me.L3.Size = New System.Drawing.Size(177, 26)
+        Me.L3.Size = New System.Drawing.Size(191, 26)
         Me.L3.Text = "Pembayaran"
         '
         'L4
         '
         Me.L4.Name = "L4"
-        Me.L4.Size = New System.Drawing.Size(177, 26)
+        Me.L4.Size = New System.Drawing.Size(191, 26)
         Me.L4.Text = "Retur Terima"
         '
         'L5
         '
         Me.L5.Name = "L5"
-        Me.L5.Size = New System.Drawing.Size(177, 26)
+        Me.L5.Size = New System.Drawing.Size(191, 26)
         Me.L5.Text = "Retur Jual"
         '
         'L6
         '
         Me.L6.Name = "L6"
-        Me.L6.Size = New System.Drawing.Size(177, 26)
+        Me.L6.Size = New System.Drawing.Size(191, 26)
         Me.L6.Text = "Stok Barang"
         '
         'L7
         '
         Me.L7.Name = "L7"
-        Me.L7.Size = New System.Drawing.Size(177, 26)
+        Me.L7.Size = New System.Drawing.Size(191, 26)
         Me.L7.Text = "Pembelian"
         '
         'L8
         '
         Me.L8.Name = "L8"
-        Me.L8.Size = New System.Drawing.Size(177, 26)
+        Me.L8.Size = New System.Drawing.Size(191, 26)
         Me.L8.Text = "Laba Rugi"
         '
         'L9
         '
         Me.L9.Name = "L9"
-        Me.L9.Size = New System.Drawing.Size(177, 26)
+        Me.L9.Size = New System.Drawing.Size(191, 26)
         Me.L9.Text = "Pendapatan"
+        '
+        'L10
+        '
+        Me.L10.Name = "L10"
+        Me.L10.Size = New System.Drawing.Size(191, 26)
+        Me.L10.Text = "Grafik Penjualan"
         '
         'LogoutToolStripMenuItem
         '
@@ -392,12 +398,6 @@ Partial Class Home
         Me.ListBox1.Size = New System.Drawing.Size(301, 681)
         Me.ListBox1.TabIndex = 4
         '
-        'TestToolStripMenuItem
-        '
-        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
-        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(48, 24)
-        Me.TestToolStripMenuItem.Text = "Test"
-        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -469,5 +469,5 @@ Partial Class Home
     Friend WithEvents AdminToolsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HapusTransaksiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RefreshStokMinimumToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TestToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents L10 As ToolStripMenuItem
 End Class

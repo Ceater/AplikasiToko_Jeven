@@ -21,8 +21,8 @@
         loadTagihan(1, 2018)
         loadListBox()
         formReady = True
-        ComboBox1.SelectedIndex = 0
-        ComboBox2.SelectedIndex = 0
+        ComboBox1.SelectedIndex = IntMonth - 1
+        ComboBox2.SelectedIndex = IntYear - 2018
         ListBox1.SelectedIndex = -1
     End Sub
 
@@ -51,7 +51,9 @@
                 lblArr(11).Text = FormatCurrency(temp(6))
                 HitungUang()
             Catch ex As Exception
+#If DEBUG Then
                 MsgBox(ex.ToString)
+#End If
             End Try
         End If
     End Sub
@@ -104,6 +106,7 @@
     Private Sub searchNota(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged, ComboBox2.SelectedIndexChanged
         If formReady Then
             loadListBox()
+            TextBox2.Text = ""
         End If
     End Sub
 
@@ -175,6 +178,4 @@
         End If
         Return s
     End Function
-
-
 End Class

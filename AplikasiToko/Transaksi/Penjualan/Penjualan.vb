@@ -131,7 +131,7 @@ Public Class Penjualan
             Try
                 KodeBarang = ComboBox1.Text
                 Dim sisaStok = 0, Qty As Double = 0
-                Dim stokOk As Boolean = True
+                Dim stokOk = True, qtyOk As Boolean = True
 
                 Dim addorappend As Boolean = True 'Digunakan untuk menentukan apakah tambah baru atau tambah jumlah
                 If dgv.RowCount = 0 Then
@@ -145,8 +145,11 @@ Public Class Penjualan
                             If sisaStok <= -1 Then
                                 msg = msg & "Barang: " & KodeBarang & " | Stok Sekarang: " & getCurrentStok(KodeBarang) & vbCrLf
                                 stokOk = False
+                            ElseIf Qty <= 0 Then
+                                msg = msg & "Barang: " & KodeBarang & " | Tidak boleh diisi 0 atau kurang dari 0" & vbCrLf
+                                qtyOk = False
                             End If
-                            If stokOk Then
+                            If (stokOk And qtyOk) Then
                                 f.Cells(4).Value = Qty + JumlahBarang
                             End If
                             addorappend = False
@@ -158,8 +161,11 @@ Public Class Penjualan
                     If sisaStok <= -1 Then
                         msg = msg & "Barang: " & KodeBarang & " | Stok Sekarang: " & getCurrentStok(KodeBarang) & vbCrLf
                         stokOk = False
+                    ElseIf JumlahBarang <= 0 Then
+                        msg = msg & "Barang: " & KodeBarang & " | Tidak boleh diisi 0 atau kurang dari 0" & vbCrLf
+                        qtyOk = False
                     End If
-                    If stokOk Then
+                    If (stokOk And qtyOk) Then
                         Dim result As Dictionary(Of String, String) = getDetailbarang(KodeBarang)
                         DRow = DTable.NewRow
                         DRow("Kode Barang") = KodeBarang
@@ -174,6 +180,8 @@ Public Class Penjualan
                 End If
                 If stokOk = False Then
                     MsgBox("Stok Kurang | " & msg)
+                ElseIf qtyOk = False Then
+                    MsgBox("Jumlah Salah | " & msg)
                 End If
                 cekTotal()
             Catch ex As Exception
@@ -215,7 +223,7 @@ Public Class Penjualan
 
     'ButtonEvent
     Private Sub Proses_btn_Click(sender As Object, e As EventArgs) Handles Proses_btn.Click
-        Dim printPreview = False, stokOk As Boolean = True
+        Dim printPreview = False, stokOk = True, qtyOk As Boolean = True
         Dim msg As String = ""
         If CheckBox3.Checked Then
             printPreview = True
@@ -229,9 +237,12 @@ Public Class Penjualan
             If sisaStok <= -1 Then
                 msg = msg & "Barang: " & f.Cells(0).Value & " | Stok Sekarang: " & getCurrentStok(KodeBarang) & " | Dijual: " & Qty & vbCrLf
                 stokOk = False
+            ElseIf Qty <= 0 Then
+                msg = msg & "Barang: " & KodeBarang & " | Tidak boleh diisi 0 atau kurang dari 0" & vbCrLf
+                qtyOk = False
             End If
         Next
-        If NotaTxt.Text <> "" And dgv.RowCount <> 0 And stokOk Then
+        If NotaTxt.Text <> "" And dgv.RowCount <> 0 And stokOk And qtyOk Then
             Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
             Dim temp As String = ""
             If R1.Checked Then
@@ -324,8 +335,8 @@ Public Class Penjualan
                 End If
             ElseIf result = DialogResult.No Then
             End If
-        ElseIf stokOk = False Then
-            MsgBox("Silahkan cek jumlah barang / stok barang " & vbCrLf &
+        ElseIf stokOk = False Or qtyOk = False Then
+            MsgBox("Silahkan cek jumlah barang / stok barang / jumlah keluar tidak boleh <=0" & vbCrLf &
                    "==========================================" & vbCrLf &
                    msg &
                    "==========================================")

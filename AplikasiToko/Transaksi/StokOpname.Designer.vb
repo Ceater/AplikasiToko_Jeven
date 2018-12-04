@@ -32,43 +32,47 @@ Partial Class StokOpname
         Me.ComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
         Me.ComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(93, 12)
+        Me.ComboBox1.Location = New System.Drawing.Point(124, 15)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(182, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(241, 24)
         Me.ComboBox1.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 15)
+        Me.Label1.Location = New System.Drawing.Point(16, 18)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(75, 13)
+        Me.Label1.Size = New System.Drawing.Size(99, 17)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Kode Barang: "
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(281, 10)
+        Me.Button1.Location = New System.Drawing.Point(375, 12)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(127, 23)
+        Me.Button1.Size = New System.Drawing.Size(169, 28)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Periksa"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'StokOpname
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(418, 48)
+        Me.ClientSize = New System.Drawing.Size(557, 59)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "StokOpname"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Stok Opname"
+        Me.Text = "Mutasi Barang"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

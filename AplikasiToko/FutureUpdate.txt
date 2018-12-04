@@ -21,12 +21,13 @@
 -> Penambahan tabel database TbPiutang yang berfungsi mencatat total hutang dan harga barang 1.1.4.6
 -> Nota penjualan, ganti tampilan 1.1.4.7
 -> Tombol manual refresh menggantikan auto refresh 1.1.4.8
+-> Transaksi barang tidak dapat input <= 0 1.1.5.0
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1
 -> Form pembelian tidak dapat menampilkan detail pembelian karena view Pembelian hilang dari database. 1.1.1
 -> Diskon tidak bisa minus. 1.1.2
--> Jumlah barang tidak bisa di koma di bagian gridview. 1.1.2
+-> Jumlah barang tidak bisa di koma di bagian gridview. c1.1.2
 -> Ketik menambah barang di form penjualan, terjadi kejanggalan di bagian penambaan barang. 1.1.2
 -> Nota surat jalan luar kota tidak dapat muncul. 1.1.2
 -> Ketika nama pelanggan ada karakter spesial, maka akan terjadi error di Pembayaran. 1.1.2
@@ -43,6 +44,9 @@ Bug Fix
 -> Bisa melakukan retur lebih dari jumlah yang seharusnya -> Done 1.1.4.6
 -> Laporan stok barang tidak urut -> Done 1.1.4.7
 -> Penjualan dan Terima, perhitungan total jumlah barang salah. -> Done 1.1.4.8
+-> Bug harga subtotal = diskon untuk retur jual -> Done 1.1.5.0
+-> Nota yang sudah lunas karena retur kelaur dibagian pembayaran -> Done 1.1.5.0
+-> Abis tambah barang dari terima barang, qty tidak balik 0 -> Done 1.1.5.0
 
 Bug Found
 

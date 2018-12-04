@@ -93,7 +93,7 @@ Partial Class GrafikLaporan
         '
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"January", "Febuary", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "November", "Desember"})
+        Me.ComboBox3.Items.AddRange(New Object() {"January", "Febuary", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"})
         Me.ComboBox3.Location = New System.Drawing.Point(648, 12)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(168, 24)
@@ -103,7 +103,7 @@ Partial Class GrafikLaporan
         '
         Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023"})
+        Me.ComboBox4.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
         Me.ComboBox4.Location = New System.Drawing.Point(822, 12)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(81, 24)

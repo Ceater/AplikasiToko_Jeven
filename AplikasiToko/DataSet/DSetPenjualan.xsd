@@ -184,6 +184,28 @@ FROM            HJual AS H INNER JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GrafikPenjualanTableAdapter" GeneratorDataComponentClassName="GrafikPenjualanTableAdapter" Name="GrafikPenjualan" UserDataComponentName="GrafikPenjualanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TestServer (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DAY(H.TglNota) AS 'TglNota', SUM(D.Jumlah) AS 'Jumlah QTY', ROUND(SUM((H.GrandTotal/1000)),0) AS 'GrandTotal'
+FROM     HJual AS H INNER JOIN
+                  DJual AS D ON H.NoNotaJual = D.NoNotaJual
+GROUP BY DAY(H.TglNota)
+ORDER BY 'TglNota'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TglNota" DataSetColumn="TglNota" />
+              <Mapping SourceColumn="Jumlah QTY" DataSetColumn="Jumlah QTY" />
+              <Mapping SourceColumn="GrandTotal" DataSetColumn="GrandTotal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -192,7 +214,7 @@ FROM            HJual AS H INNER JOIN
   <xs:element name="DSetPenjualan" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetPenjualan" msprop:Generator_UserDSName="DSetPenjualan">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="HJual" msprop:Generator_TableClassName="HJualDataTable" msprop:Generator_TableVarName="tableHJual" msprop:Generator_RowChangedName="HJualRowChanged" msprop:Generator_TablePropName="HJual" msprop:Generator_RowDeletingName="HJualRowDeleting" msprop:Generator_RowChangingName="HJualRowChanging" msprop:Generator_RowEvHandlerName="HJualRowChangeEventHandler" msprop:Generator_RowDeletedName="HJualRowDeleted" msprop:Generator_RowClassName="HJualRow" msprop:Generator_UserTableName="HJual" msprop:Generator_RowEvArgName="HJualRowChangeEvent">
+        <xs:element name="HJual" msprop:Generator_TableClassName="HJualDataTable" msprop:Generator_TableVarName="tableHJual" msprop:Generator_TablePropName="HJual" msprop:Generator_RowDeletingName="HJualRowDeleting" msprop:Generator_RowChangingName="HJualRowChanging" msprop:Generator_RowEvHandlerName="HJualRowChangeEventHandler" msprop:Generator_RowDeletedName="HJualRowDeleted" msprop:Generator_UserTableName="HJual" msprop:Generator_RowChangedName="HJualRowChanged" msprop:Generator_RowEvArgName="HJualRowChangeEvent" msprop:Generator_RowClassName="HJualRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaJual" msprop:Generator_ColumnPropNameInRow="NoNotaJual" msprop:Generator_ColumnPropNameInTable="NoNotaJualColumn" msprop:Generator_UserColumnName="NoNotaJual">
@@ -221,7 +243,7 @@ FROM            HJual AS H INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DJual" msprop:Generator_TableClassName="DJualDataTable" msprop:Generator_TableVarName="tableDJual" msprop:Generator_RowChangedName="DJualRowChanged" msprop:Generator_TablePropName="DJual" msprop:Generator_RowDeletingName="DJualRowDeleting" msprop:Generator_RowChangingName="DJualRowChanging" msprop:Generator_RowEvHandlerName="DJualRowChangeEventHandler" msprop:Generator_RowDeletedName="DJualRowDeleted" msprop:Generator_RowClassName="DJualRow" msprop:Generator_UserTableName="DJual" msprop:Generator_RowEvArgName="DJualRowChangeEvent">
+        <xs:element name="DJual" msprop:Generator_TableClassName="DJualDataTable" msprop:Generator_TableVarName="tableDJual" msprop:Generator_TablePropName="DJual" msprop:Generator_RowDeletingName="DJualRowDeleting" msprop:Generator_RowChangingName="DJualRowChanging" msprop:Generator_RowEvHandlerName="DJualRowChangeEventHandler" msprop:Generator_RowDeletedName="DJualRowDeleted" msprop:Generator_UserTableName="DJual" msprop:Generator_RowChangedName="DJualRowChanged" msprop:Generator_RowEvArgName="DJualRowChangeEvent" msprop:Generator_RowClassName="DJualRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoDJual" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoDJual" msprop:Generator_ColumnPropNameInRow="NoDJual" msprop:Generator_ColumnPropNameInTable="NoDJualColumn" msprop:Generator_UserColumnName="NoDJual" type="xs:int" />
@@ -266,7 +288,7 @@ FROM            HJual AS H INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Penjualan" msprop:Generator_TableClassName="PenjualanDataTable" msprop:Generator_TableVarName="tablePenjualan" msprop:Generator_RowChangedName="PenjualanRowChanged" msprop:Generator_TablePropName="Penjualan" msprop:Generator_RowDeletingName="PenjualanRowDeleting" msprop:Generator_RowChangingName="PenjualanRowChanging" msprop:Generator_RowEvHandlerName="PenjualanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenjualanRowDeleted" msprop:Generator_RowClassName="PenjualanRow" msprop:Generator_UserTableName="Penjualan" msprop:Generator_RowEvArgName="PenjualanRowChangeEvent">
+        <xs:element name="Penjualan" msprop:Generator_TableClassName="PenjualanDataTable" msprop:Generator_TableVarName="tablePenjualan" msprop:Generator_TablePropName="Penjualan" msprop:Generator_RowDeletingName="PenjualanRowDeleting" msprop:Generator_RowChangingName="PenjualanRowChanging" msprop:Generator_RowEvHandlerName="PenjualanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenjualanRowDeleted" msprop:Generator_UserTableName="Penjualan" msprop:Generator_RowChangedName="PenjualanRowChanged" msprop:Generator_RowEvArgName="PenjualanRowChangeEvent" msprop:Generator_RowClassName="PenjualanRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaJual" msprop:Generator_ColumnVarNameInTable="columnNoNotaJual" msprop:Generator_ColumnPropNameInRow="NoNotaJual" msprop:Generator_ColumnPropNameInTable="NoNotaJualColumn" msprop:Generator_UserColumnName="NoNotaJual">
@@ -317,6 +339,15 @@ FROM            HJual AS H INNER JOIN
               <xs:element name="Jumlah" msprop:Generator_ColumnVarNameInTable="columnJumlah" msprop:Generator_ColumnPropNameInRow="Jumlah" msprop:Generator_ColumnPropNameInTable="JumlahColumn" msprop:Generator_UserColumnName="Jumlah" type="xs:double" />
               <xs:element name="Diskon" msprop:Generator_ColumnVarNameInTable="columnDiskon" msprop:Generator_ColumnPropNameInRow="Diskon" msprop:Generator_ColumnPropNameInTable="DiskonColumn" msprop:Generator_UserColumnName="Diskon" type="xs:double" />
               <xs:element name="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal" msprop:Generator_ColumnPropNameInRow="Subtotal" msprop:Generator_ColumnPropNameInTable="SubtotalColumn" msprop:Generator_UserColumnName="Subtotal" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GrafikPenjualan" msprop:Generator_TableClassName="GrafikPenjualanDataTable" msprop:Generator_TableVarName="tableGrafikPenjualan" msprop:Generator_TablePropName="GrafikPenjualan" msprop:Generator_RowDeletingName="GrafikPenjualanRowDeleting" msprop:Generator_RowChangingName="GrafikPenjualanRowChanging" msprop:Generator_RowEvHandlerName="GrafikPenjualanRowChangeEventHandler" msprop:Generator_RowDeletedName="GrafikPenjualanRowDeleted" msprop:Generator_UserTableName="GrafikPenjualan" msprop:Generator_RowChangedName="GrafikPenjualanRowChanged" msprop:Generator_RowEvArgName="GrafikPenjualanRowChangeEvent" msprop:Generator_RowClassName="GrafikPenjualanRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TglNota" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTglNota" msprop:Generator_ColumnPropNameInRow="TglNota" msprop:Generator_ColumnPropNameInTable="TglNotaColumn" msprop:Generator_UserColumnName="TglNota" type="xs:int" minOccurs="0" />
+              <xs:element name="Jumlah_x0020_QTY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJumlah_QTY" msprop:Generator_ColumnPropNameInRow="Jumlah_QTY" msprop:Generator_ColumnPropNameInTable="Jumlah_QTYColumn" msprop:Generator_UserColumnName="Jumlah QTY" type="xs:double" minOccurs="0" />
+              <xs:element name="GrandTotal" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_UserColumnName="GrandTotal" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

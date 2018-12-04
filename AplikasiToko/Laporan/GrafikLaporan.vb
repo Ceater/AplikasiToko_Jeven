@@ -11,11 +11,11 @@ Public Class GrafikLaporan
     Private Sub GrafikLaporan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.Items.Add("Penjualan")
         ComboBox2.Items.Add("Tahunan")
-        ComboBox2.Items.Add("Bulanan")
+        'ComboBox2.Items.Add("Bulanan")
         ComboBox1.SelectedIndex = 0
         ComboBox2.SelectedIndex = 0
-        ComboBox3.SelectedIndex = 0
-        ComboBox4.SelectedIndex = 0
+        ComboBox3.SelectedIndex = IntMonth - 1
+        ComboBox4.SelectedIndex = IntYear - 2018
     End Sub
 
     Private Sub GrafikLaporan_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
@@ -50,10 +50,14 @@ Public Class GrafikLaporan
             cmd.Parameters.Clear()
             adapt.SelectCommand = cmd
             dataset.Clear()
-            cmd.CommandText = "SELECT H.NoNotaJual, DAY(H.TglNota) as 'TglNota', (H.GrandTotal/1000) as 'GrandTotal', H.NamaPelanggan, H.IDStaff, D.IDBarang, D.NamaBarang, D.Satuan, D.HargaSatuan, D.Jumlah, D.Diskon, D.Subtotal from HJual H, DJual D where H.NoNotaJual=D.NoNotaJual AND MONTH(tglNota) = @a AND YEAR(tglnota) = @b"
+            cmd.CommandText = "SELECT DAY(H.TglNota) as 'TglNota', SUM(D.Jumlah) as 'Jumlah QTY', ROUND(SUM((H.GrandTotal/1000)),0) as 'GrandTotal'
+                                FROM HJual H, DJual D
+                                WHERE H.NoNotaJual=D.NoNotaJual AND MONTH(tglNota) = @a AND YEAR(tglnota) = @b
+                                GROUP BY DAY(H.TglNota)
+                                ORDER BY DAY(H.TglNota);"
             cmd.Parameters.AddWithValue("@a", bln)
             cmd.Parameters.AddWithValue("@b", thn)
-            adapt.Fill(dataset, "Penjualan")
+            adapt.Fill(dataset, "GrafikPenjualan")
             rep = New LaporanGrafik
             rep.SetDataSource(dataset)
             rep.SetParameterValue("Periode", periode)
