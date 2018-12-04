@@ -4,10 +4,6 @@
     Dim isec As Integer = 0
 
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-#If DEBUG Then
-#Else
-        L10.Visible = False
-#End If
         userLogin = ToolStripStatusLabel2.Text
         ToolStripStatusLabel7.Text = "Versi " & VersiSekarang
         Timer1.Start()
