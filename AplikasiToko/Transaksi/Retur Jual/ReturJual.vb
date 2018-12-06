@@ -108,8 +108,6 @@
         Catch ex As Exception
 #If DEBUG Then
             MsgBox(ex.ToString)
-#Else
-        CheckBox4.Enabled = False
 #End If
         End Try
     End Sub

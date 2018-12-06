@@ -1,41 +1,17 @@
 ﻿Imports System.Data.Sql
 Imports System.Data.SqlClient
 
-Module LoginModule
-    Function cekLogin(ByVal id As String, ByVal pw As String) As Boolean
-        Dim x As Boolean = False
-        constring.Open()
-        cmd = New SqlCommand("select IDStaff from TbStaff where Lower(IDStaff)=@user and Password =@pw", constring)
-        With cmd.Parameters
-            .Add(New SqlParameter("@user", id.ToLower))
-            .Add(New SqlParameter("@pw", pw))
-        End With
-        Dim reader As SqlDataReader = cmd.ExecuteReader
-        If reader.HasRows Then
-            x = True
-        End If
-        constring.Close()
-        Return x
-    End Function
+Public Class AutoUpdate
+    Dim username As String = ""
+    Dim errorCode As String = ""
 
-    Function getHAkses(ByVal id As String) As String
-        Dim temp As String = ""
-        Try
-            constring.Open()
-            cmd = New SqlCommand("select HakAkses from TbStaff where Lower(IDStaff)=@user", constring)
-            With cmd.Parameters
-                .Add(New SqlParameter("@user", id.ToLower))
-            End With
-            temp = cmd.ExecuteScalar
-            constring.Close()
-        Catch ex As Exception
-            constring.Close()
-        End Try
-        Return temp
-    End Function
+    Public Sub New(ByVal x As String)
+        InitializeComponent()
+        username = x
+    End Sub
 
-    Sub cekUpdate()
-        Dim temp As String = ""
+    Private Sub AutoUpdate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim temp = "", versiDB As String = ""
         Try
             constring.Open()
             'cek tabel HistoryExist
@@ -55,10 +31,15 @@ Module LoginModule
             ", constring)
             cmd.ExecuteNonQuery()
             'Cek versi saat ini
-            cmd = New SqlCommand("SELECT Versi FROM HistoryVersi WHERE Versi='" & VersiSekarang & "'", constring)
+            cmd = New SqlCommand("Select versi FROM HistoryVersi HV WHERE HV.Versi='" & VersiSekarang & "'", constring)
             temp = cmd.ExecuteScalar
+            cmd = New SqlCommand("Select value1 FROM TbConfig TC WHERE TC.keynote = 'Versi'", constring)
+            versiDB = cmd.ExecuteScalar
             If temp = Nothing Then
-                cmd = New SqlCommand("INSERT INTO HistoryVersi(Versi) VALUES(@a1);", constring)
+                cmd = New SqlCommand("
+                            INSERT INTO HistoryVersi(Versi) VALUES(@a1);
+                            UPDATE TbConfig Set value1=@a1 WHERE keynote='Versi'
+                        ", constring)
                 With cmd.Parameters
                     .Add(New SqlParameter("@a1", VersiSekarang))
                 End With
@@ -67,14 +48,35 @@ Module LoginModule
             End If
             constring.Close()
             If temp = Nothing Then
-                doUpdate()
+                updateBWorker.RunWorkerAsync()
+            ElseIf temp <> Nothing And versiDB <> VersiSekarang Then
+                MsgBox("Anda tidak menggunakan versi terbaru, silahkan update aplikasi")
+                Me.Dispose()
+            Else
+                openHome()
             End If
         Catch ex As Exception
-            constring.Close()
+            MsgBox("Terjadi kesalahan pada autoupdate, error: " & errorCode)
         End Try
     End Sub
 
-    Sub doUpdate()
+    Private Sub AutoUpdate_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            e.Cancel = True
+            MsgBox("Tunggu Sampai Update Selesai")
+        End If
+    End Sub
+
+    Private Sub updateBWorker_ProgressChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ProgressChangedEventArgs) Handles updateBWorker.ProgressChanged
+        Me.ProgressBar1.Value = e.ProgressPercentage
+    End Sub
+
+    Private Sub updateBWorker_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles updateBWorker.RunWorkerCompleted
+        MsgBox("Update Selesai")
+        openHome()
+    End Sub
+
+    Private Sub updateBWorker_DoWork(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles updateBWorker.DoWork
         constring.Open()
         cmd = New SqlCommand("
             DROP TABLE[dbo].[TbMutasi];
@@ -96,6 +98,9 @@ Module LoginModule
             DELETE FROM HTerima WHERE NoNotaTerima = 'T2408180001';
             DELETE FROM DTerima WHERE NoNotaTerima = 'T2408180001';", constring)
         cmd.ExecuteNonQuery()
+        updateBWorker.ReportProgress(10)
+        'Step 1
+        errorCode = "101"
         Dim stokAwal As New Dictionary(Of String, Double)
         cmd = New SqlCommand("SELECT 
 	            KodeBarang, 
@@ -108,6 +113,9 @@ Module LoginModule
             stokAwal.Add(reader.GetValue(0), 0)
         End While
         reader.Close()
+        updateBWorker.ReportProgress(20)
+        'Step 2
+        errorCode = "102"
         cmd = New SqlCommand("SELECT H.TglNota, H.NoNotaJual AS 'Nomer Nota', D.IDBarang, D.NamaBarang, D.Jumlah 
         FROM HJual AS H INNER JOIN DJual AS D ON H.NoNotaJual = D.NoNotaJual
         UNION 
@@ -157,23 +165,38 @@ Module LoginModule
             sqlBatch.Enqueue("Insert into TbMutasi(NoNota,Deskripsi,Keluar,Masuk,Stok,Date_i,User_i) VALUES('" & nonota & "', '" & deskripsi & "', " & jKeluar & ", " & jMasuk & ", " & stokMut & ",  Convert(DateTime,'" & DateTime.Now.ToString("dd-MM-yy") & "',5), 'System');")
         End While
         reader.Close()
+        updateBWorker.ReportProgress(30)
+        'Step 3
+        errorCode = "103"
+        Dim totalData As Double = sqlBatch.Count
+        Dim progresData As Double = 0
+        Dim progresPercentage As Double = 70 / totalData
         Dim counter As Integer = 0
         Dim batch As String = ""
         For Each r As String In sqlBatch
             counter += 1
-            Try
-                If counter = 50 Then
-                    counter = 0
-                    cmd = New SqlCommand(batch, constring)
-                    cmd.ExecuteNonQuery()
-                    batch = ""
-                Else
-                    batch &= r
-                End If
-            Catch ex As Exception
-
-            End Try
+            progresData += 1
+            If counter = 50 Then
+                updateBWorker.ReportProgress(30 + CInt((progresPercentage * progresData)))
+                counter = 0
+                cmd = New SqlCommand(batch, constring)
+                cmd.ExecuteNonQuery()
+                batch = ""
+            Else
+                batch &= r
+            End If
         Next
         constring.Close()
+        'step end
+        errorCode = "104"
+        updateBWorker.ReportProgress(100)
     End Sub
-End Module
+
+    Sub openHome()
+        Dim f As New Home
+        f.ToolStripStatusLabel2.Text = username
+        f.hakAkses = getHAkses(username)
+        f.Show()
+        Me.Dispose()
+    End Sub
+End Class
