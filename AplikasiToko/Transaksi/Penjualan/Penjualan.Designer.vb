@@ -82,7 +82,7 @@ Partial Class Penjualan
         Me.ComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(148, 130)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(309, 24)
         Me.ComboBox1.TabIndex = 3
@@ -107,7 +107,7 @@ Partial Class Penjualan
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.dgv.Location = New System.Drawing.Point(16, 192)
-        Me.dgv.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv.MultiSelect = False
         Me.dgv.Name = "dgv"
         Me.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -124,9 +124,9 @@ Partial Class Penjualan
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 528)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(268, 129)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
@@ -209,9 +209,9 @@ Partial Class Penjualan
         Me.GroupBox2.Controls.Add(Me.KreditRB)
         Me.GroupBox2.Controls.Add(Me.CashRB)
         Me.GroupBox2.Location = New System.Drawing.Point(292, 528)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(228, 129)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
@@ -220,7 +220,7 @@ Partial Class Penjualan
         'JmlBayar
         '
         Me.JmlBayar.Location = New System.Drawing.Point(48, 94)
-        Me.JmlBayar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.JmlBayar.Margin = New System.Windows.Forms.Padding(4)
         Me.JmlBayar.Name = "JmlBayar"
         Me.JmlBayar.Size = New System.Drawing.Size(171, 22)
         Me.JmlBayar.TabIndex = 14
@@ -240,7 +240,7 @@ Partial Class Penjualan
         '
         Me.KreditRB.AutoSize = True
         Me.KreditRB.Location = New System.Drawing.Point(8, 63)
-        Me.KreditRB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.KreditRB.Margin = New System.Windows.Forms.Padding(4)
         Me.KreditRB.Name = "KreditRB"
         Me.KreditRB.Size = New System.Drawing.Size(66, 21)
         Me.KreditRB.TabIndex = 13
@@ -253,7 +253,7 @@ Partial Class Penjualan
         Me.CashRB.AutoSize = True
         Me.CashRB.Checked = True
         Me.CashRB.Location = New System.Drawing.Point(8, 28)
-        Me.CashRB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CashRB.Margin = New System.Windows.Forms.Padding(4)
         Me.CashRB.Name = "CashRB"
         Me.CashRB.Size = New System.Drawing.Size(109, 21)
         Me.CashRB.TabIndex = 12
@@ -273,9 +273,9 @@ Partial Class Penjualan
         Me.GroupBox3.Controls.Add(Me.Label14)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Location = New System.Drawing.Point(528, 528)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Size = New System.Drawing.Size(267, 123)
         Me.GroupBox3.TabIndex = 5
         Me.GroupBox3.TabStop = False
@@ -374,7 +374,7 @@ Partial Class Penjualan
         'Proses_btn
         '
         Me.Proses_btn.Location = New System.Drawing.Point(803, 581)
-        Me.Proses_btn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proses_btn.Margin = New System.Windows.Forms.Padding(4)
         Me.Proses_btn.Name = "Proses_btn"
         Me.Proses_btn.Size = New System.Drawing.Size(231, 31)
         Me.Proses_btn.TabIndex = 17
@@ -384,7 +384,7 @@ Partial Class Penjualan
         'Batal_btn
         '
         Me.Batal_btn.Location = New System.Drawing.Point(803, 619)
-        Me.Batal_btn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Batal_btn.Margin = New System.Windows.Forms.Padding(4)
         Me.Batal_btn.Name = "Batal_btn"
         Me.Batal_btn.Size = New System.Drawing.Size(231, 28)
         Me.Batal_btn.TabIndex = 18
@@ -398,9 +398,9 @@ Partial Class Penjualan
         Me.GroupBox4.Controls.Add(Me.Label20)
         Me.GroupBox4.Controls.Add(Me.NotaTxt)
         Me.GroupBox4.Location = New System.Drawing.Point(16, 15)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Size = New System.Drawing.Size(443, 108)
         Me.GroupBox4.TabIndex = 7
         Me.GroupBox4.TabStop = False
@@ -411,7 +411,7 @@ Partial Class Penjualan
         Me.DateTimePicker1.CustomFormat = "dddd, d - MMMM - yyyy"
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker1.Location = New System.Drawing.Point(105, 55)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(293, 22)
         Me.DateTimePicker1.TabIndex = 2
@@ -440,7 +440,7 @@ Partial Class Penjualan
         '
         Me.NotaTxt.Enabled = False
         Me.NotaTxt.Location = New System.Drawing.Point(105, 23)
-        Me.NotaTxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NotaTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.NotaTxt.Name = "NotaTxt"
         Me.NotaTxt.Size = New System.Drawing.Size(269, 22)
         Me.NotaTxt.TabIndex = 1
@@ -450,7 +450,7 @@ Partial Class Penjualan
         Me.R1.AutoSize = True
         Me.R1.Checked = True
         Me.R1.Location = New System.Drawing.Point(8, 27)
-        Me.R1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.R1.Margin = New System.Windows.Forms.Padding(4)
         Me.R1.Name = "R1"
         Me.R1.Size = New System.Drawing.Size(65, 21)
         Me.R1.TabIndex = 6
@@ -462,7 +462,7 @@ Partial Class Penjualan
         '
         Me.R2.AutoSize = True
         Me.R2.Location = New System.Drawing.Point(8, 57)
-        Me.R2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.R2.Margin = New System.Windows.Forms.Padding(4)
         Me.R2.Name = "R2"
         Me.R2.Size = New System.Drawing.Size(141, 21)
         Me.R2.TabIndex = 7
@@ -478,9 +478,9 @@ Partial Class Penjualan
         Me.GroupBox5.Controls.Add(Me.R1)
         Me.GroupBox5.Controls.Add(Me.R2)
         Me.GroupBox5.Location = New System.Drawing.Point(467, 15)
-        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Size = New System.Drawing.Size(563, 142)
         Me.GroupBox5.TabIndex = 8
         Me.GroupBox5.TabStop = False
@@ -489,7 +489,7 @@ Partial Class Penjualan
         'TamuTxt
         '
         Me.TamuTxt.Location = New System.Drawing.Point(165, 23)
-        Me.TamuTxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TamuTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.TamuTxt.Name = "TamuTxt"
         Me.TamuTxt.Size = New System.Drawing.Size(249, 22)
         Me.TamuTxt.TabIndex = 10
@@ -498,7 +498,7 @@ Partial Class Penjualan
         '
         Me.R3.AutoSize = True
         Me.R3.Location = New System.Drawing.Point(8, 90)
-        Me.R3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.R3.Margin = New System.Windows.Forms.Padding(4)
         Me.R3.Name = "R3"
         Me.R3.Size = New System.Drawing.Size(64, 21)
         Me.R3.TabIndex = 9
@@ -513,7 +513,7 @@ Partial Class Penjualan
         Me.ComboBox3.Enabled = False
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Location = New System.Drawing.Point(165, 89)
-        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(249, 24)
         Me.ComboBox3.TabIndex = 8
@@ -525,7 +525,7 @@ Partial Class Penjualan
         Me.ComboBox2.Enabled = False
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(165, 55)
-        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(249, 24)
         Me.ComboBox2.TabIndex = 8
@@ -536,7 +536,7 @@ Partial Class Penjualan
         Me.CheckBox1.Checked = True
         Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox1.Location = New System.Drawing.Point(803, 528)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(150, 21)
         Me.CheckBox1.TabIndex = 15
@@ -557,7 +557,7 @@ Partial Class Penjualan
         '
         Me.CheckBox2.AutoSize = True
         Me.CheckBox2.Location = New System.Drawing.Point(803, 553)
-        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(176, 21)
         Me.CheckBox2.TabIndex = 16
@@ -568,7 +568,7 @@ Partial Class Penjualan
         '
         Me.CheckBox3.AutoSize = True
         Me.CheckBox3.Location = New System.Drawing.Point(912, 162)
-        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(112, 21)
         Me.CheckBox3.TabIndex = 11
@@ -578,7 +578,7 @@ Partial Class Penjualan
         'JmlBarang
         '
         Me.JmlBarang.Location = New System.Drawing.Point(148, 164)
-        Me.JmlBarang.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.JmlBarang.Margin = New System.Windows.Forms.Padding(4)
         Me.JmlBarang.Name = "JmlBarang"
         Me.JmlBarang.Size = New System.Drawing.Size(132, 22)
         Me.JmlBarang.TabIndex = 4
@@ -587,7 +587,6 @@ Partial Class Penjualan
         'CheckBox4
         '
         Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Enabled = False
         Me.CheckBox4.Location = New System.Drawing.Point(799, 162)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(106, 21)
@@ -617,7 +616,7 @@ Partial Class Penjualan
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Penjualan"

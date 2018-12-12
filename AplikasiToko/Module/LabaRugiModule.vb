@@ -4,8 +4,8 @@ Imports System.Data.SqlClient
 Module LabaRugiModule
     Function getBulanTerakhir()
         Dim hsl As String = ""
-        constring.Open()
         Try
+            constring.Open()
             cmd = New SqlCommand("select TOP 1 Month(TglPersediaan) from TbLabaRugi order by TglPersediaan Desc", constring)
             Dim int As Integer = cmd.ExecuteScalar
             If int = 1 Then
@@ -35,52 +35,55 @@ Module LabaRugiModule
             Else
                 hsl = "Belum Pernah Dilakukan Setting"
             End If
+            constring.Close()
         Catch ex As Exception
             hsl = "Belum Pernah Dilakukan Setting"
+            constring.Close()
         End Try
-        constring.Close()
         Return hsl
     End Function
 
     Sub setBulanBaru()
         Dim Tgl As Date = "01/" & Now.Month & "/" & Now.Year
-        constring.Open()
         Try
+            constring.Open()
             cmd = New SqlCommand("insert into TbLabaRugi([PersediaanAwal],[TglPersediaan],[Date_i],[User_i]) 
                 values(ISNULL((select SUM(HargaBeli) from HargaBeliSetiapBarang),0),@a,@b,@c)", constring)
             cmd.Parameters.AddWithValue("@a", Tgl.ToString("MM/dd/yyyy") & " 00:00:00")
             cmd.Parameters.AddWithValue("@b", DateTime.Now)
             cmd.Parameters.AddWithValue("@c", userLogin)
             cmd.ExecuteNonQuery()
+            constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            constring.Close()
         End Try
-        constring.Close()
     End Sub
 
     Function getPersediaanAwal()
         Dim int As Integer
-        constring.Open()
         Try
+            constring.Open()
             cmd = New SqlCommand("select isnull((select TOP 1 PersediaanAwal from TbLabaRugi order by No Desc),0)", constring)
             int = cmd.ExecuteScalar
+            constring.Close()
         Catch ex As Exception
+            constring.Close()
             int = 0
         End Try
-        constring.Close()
         Return int
     End Function
 
     Function getBulanTerakhirNumeric()
         Dim hsl As Integer = 0
-        constring.Open()
         Try
+            constring.Open()
             cmd = New SqlCommand("select TOP 1 Month(TglPersediaan) from TbLabaRugi order by TglPersediaan Desc", constring)
             Dim int As Integer = cmd.ExecuteScalar
             hsl = int
+            constring.Close()
         Catch ex As Exception
+            constring.Close()
         End Try
-        constring.Close()
         Return hsl
     End Function
 End Module

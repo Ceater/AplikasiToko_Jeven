@@ -5,13 +5,15 @@ Module ModuleReturBeli
 
     Function getDetailBarangRetur(ByVal NoNota As String) As DataTable
         Dim result As New DataSet
-        'Dim cmd As String = "select DT.IDBarang, DT.NamaBarang, DT.Satuan, ISNULL((select sum(DRT.Jumlah) from HReturTerima HRT, DReturTerima DRT where HRT.NoNotaReturTerima = DRT.NoNotaReturTerima and HRT.NoNotaTerima = HT.NoNotaTerima and DRT.IDBarang = DT.IDBarang),0) as 'Kembali', (DT.Jumlah - ISNULL((select sum(DRT.Jumlah) from HReturTerima HRT, DReturTerima DRT where HRT.NoNotaReturTerima = DRT.NoNotaReturTerima and HRT.NoNotaTerima = HT.NoNotaTerima and DRT.IDBarang = DT.IDBarang),0)) as 'Sisa' from HTerima HT, DTerima DT where HT.NoNotaTerima = DT.NoNotaTerima and HT.NoNotaTerima = '" & NoNota & "'"
-        'Dim cmd As String = "select DT.IDBarang, DT.NamaBarang, DT.Satuan from HTerima HT, DTerima DT where HT.NoNotaTerima = DT.NoNotaTerima and HT.NoNotaTerima = 'T001' EXCEPT select DRT.IDBarang, DRT.NamaBarang, DRT.Satuan from HReturTerima HRT, DReturTerima DRT where HRT.NoNotaReturTerima = DRT.NoNotaReturTerima and HRT.NoNotaTerima = 'T001'"
-        constring.Open()
-        Dim cmd As String = "select DT.IDBarang, DT.NamaBarang, DT.Satuan, DT.Jumlah from HTerima HT, DTerima DT where HT.NoNotaTerima = DT.NoNotaTerima and HT.NoNotaTerima = '" & NoNota & "' EXCEPT select DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.Jumlah  from HReturTerima HRT, DReturTerima DRT where HRT.NoNotaReturTerima = DRT.NoNotaReturTerima and HRT.NoNotaTerima = '" & NoNota & "'"
-        SqlAdapter = New SqlDataAdapter(cmd, constring)
-        SqlAdapter.Fill(result, "Hasil")
-        constring.Close()
+        Try
+            constring.Open()
+            Dim cmd As String = "select DT.IDBarang, DT.NamaBarang, DT.Satuan, DT.Jumlah from HTerima HT, DTerima DT where HT.NoNotaTerima = DT.NoNotaTerima and HT.NoNotaTerima = '" & NoNota & "' EXCEPT select DRT.IDBarang, DRT.NamaBarang, DRT.Satuan, DRT.Jumlah  from HReturTerima HRT, DReturTerima DRT where HRT.NoNotaReturTerima = DRT.NoNotaReturTerima and HRT.NoNotaTerima = '" & NoNota & "'"
+            SqlAdapter = New SqlDataAdapter(cmd, constring)
+            SqlAdapter.Fill(result, "Hasil")
+            constring.Close()
+        Catch ex As Exception
+            constring.Close()
+        End Try
         Return result.Tables("Hasil")
     End Function
 
@@ -28,7 +30,6 @@ Module ModuleReturBeli
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -51,7 +52,6 @@ Module ModuleReturBeli
             Dim stok As Double = getCurrentStok(idbarang) - jumlah
             ins_mutasi(NoReturTerima, deskripsi, jumlah, 0, stok, userLogin)
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub

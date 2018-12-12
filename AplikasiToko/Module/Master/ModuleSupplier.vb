@@ -5,13 +5,17 @@ Module ModuleSupplier
     Dim cmd As SqlCommand
     Function getKodeSupplier(ByVal s As String)
         Dim x As Double = 0
-        constring.Open()
-        cmd = New SqlCommand("Select IDSupplier from TbSupplier where NamaSupplier=@ns", constring)
-        With cmd.Parameters
-            .Add(New SqlParameter("@ns", s))
-        End With
-        x = cmd.ExecuteScalar
-        constring.Close()
+        Try
+            constring.Open()
+            cmd = New SqlCommand("Select IDSupplier from TbSupplier where NamaSupplier=@ns", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@ns", s))
+            End With
+            x = cmd.ExecuteScalar
+            constring.Close()
+        Catch ex As Exception
+            constring.Close()
+        End Try
         Return x
     End Function
 
@@ -26,7 +30,6 @@ Module ModuleSupplier
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -43,7 +46,6 @@ Module ModuleSupplier
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -60,7 +62,6 @@ Module ModuleSupplier
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -78,7 +79,6 @@ Module ModuleSupplier
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -93,7 +93,6 @@ Module ModuleSupplier
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -108,7 +107,6 @@ Module ModuleSupplier
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub

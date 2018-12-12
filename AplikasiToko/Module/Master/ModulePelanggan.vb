@@ -17,7 +17,6 @@ Module ModulePelanggan
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -36,7 +35,6 @@ Module ModulePelanggan
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -51,7 +49,6 @@ Module ModulePelanggan
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub

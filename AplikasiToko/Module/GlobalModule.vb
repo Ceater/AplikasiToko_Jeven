@@ -7,7 +7,7 @@ Module GlobalModule
     Public DSet As New DataSet
     Public SqlAdapter As SqlDataAdapter
     Public userLogin As String
-    Public VersiSekarang As String = "1.1.5.1"
+    Public VersiSekarang As String = "1.1.5.2"
     Public IntMonth = Month(Now), IntYear As Integer = Year(Now)
     Sub LoadSetting(TipeServer As Integer)
         Dim filepath As String = "C:\AplikasiToko\setting.txt"
@@ -59,7 +59,6 @@ Module GlobalModule
             SqlAdapter.Fill(DSet, "ReturJualDataNotaJual")
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -101,15 +100,15 @@ Module GlobalModule
         If OrderBy <> "" Then
             query &= " ORDER By " & OrderBy
         End If
-        constring.Open()
         Dim result As New DataSet
         Try
+            constring.Open()
             SqlAdapter = New SqlDataAdapter(query, constring)
             SqlAdapter.Fill(result, "DataBarang")
+            constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            constring.Close()
         End Try
-        constring.Close()
         Return result.Tables("DataBarang")
     End Function
 

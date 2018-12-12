@@ -5,13 +5,17 @@ Module ModuleBarang
     Dim cmd As SqlCommand
     Function getKodeSatuan(ByVal s As String)
         Dim x As Double = 0
-        constring.Open()
-        cmd = New SqlCommand("Select KodeSatuan from TbSatuan where NamaSatuan=@ns", constring)
-        With cmd.Parameters
-            .Add(New SqlParameter("@ns", s))
-        End With
-        x = cmd.ExecuteScalar
-        constring.Close()
+        Try
+            constring.Open()
+            cmd = New SqlCommand("Select KodeSatuan from TbSatuan where NamaSatuan=@ns", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@ns", s))
+            End With
+            x = cmd.ExecuteScalar
+            constring.Close()
+        Catch ex As Exception
+            constring.Close()
+        End Try
         Return x
     End Function
 
@@ -41,32 +45,40 @@ Module ModuleBarang
     End Sub
 
     Sub updateBarang(ByVal KDBarang As String, ByVal NMBarang As String, ByVal KDSatuan As String, ByVal HNormal As Double, ByVal HToko As Double, ByVal HSales As Double, ByVal Spengingat As Double)
-        constring.Open()
-        cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8, Date_u=GETDATE(), User_u=@a9 where KodeBarang=@a1", constring)
-        With cmd.Parameters
-            .Add(New SqlParameter("@a1", KDBarang))
-            .Add(New SqlParameter("@a2", NMBarang))
-            .Add(New SqlParameter("@a4", KDSatuan))
-            .Add(New SqlParameter("@a5", HNormal))
-            .Add(New SqlParameter("@a6", HToko))
-            .Add(New SqlParameter("@a7", HSales))
-            .Add(New SqlParameter("@a8", Spengingat))
-            .Add(New SqlParameter("@a9", userLogin))
-        End With
-        cmd.ExecuteNonQuery()
-        cmd.Dispose()
-        constring.Close()
+        Try
+            constring.Open()
+            cmd = New SqlCommand("update TbBarang set NamaBarang=@a2, SatuanBarang=@a4, HargaNormal=@a5, HargaToko=@a6, HargaSales=@a7, StokPengingat=@a8, Date_u=GETDATE(), User_u=@a9 where KodeBarang=@a1", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a1", KDBarang))
+                .Add(New SqlParameter("@a2", NMBarang))
+                .Add(New SqlParameter("@a4", KDSatuan))
+                .Add(New SqlParameter("@a5", HNormal))
+                .Add(New SqlParameter("@a6", HToko))
+                .Add(New SqlParameter("@a7", HSales))
+                .Add(New SqlParameter("@a8", Spengingat))
+                .Add(New SqlParameter("@a9", userLogin))
+            End With
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            constring.Close()
+        Catch ex As Exception
+            constring.Close()
+        End Try
     End Sub
 
     Sub deleteBarang(ByVal KDBarang As String)
-        constring.Open()
-        cmd = New SqlCommand("delete TbBarang where KodeBarang=@a1", constring)
-        With cmd.Parameters
-            .Add(New SqlParameter("@a1", KDBarang))
-        End With
-        cmd.ExecuteNonQuery()
-        cmd.Dispose()
-        constring.Close()
+        Try
+            constring.Open()
+            cmd = New SqlCommand("delete TbBarang where KodeBarang=@a1", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a1", KDBarang))
+            End With
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            constring.Close()
+        Catch ex As Exception
+            constring.Close()
+        End Try
     End Sub
 
     Sub updateStok(stok As Double, KDBarang As String)
@@ -82,15 +94,14 @@ Module ModuleBarang
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
 
     Function getDetailbarang(kdBarang As String)
         Dim result = New Dictionary(Of String, String)
-        constring.Open()
         Try
+            constring.Open()
             cmd = New SqlCommand("SELECT KodeBarang, NamaBarang, Stok, NamaSatuan, HargaNormal, HargaToko, HargaSales, StokPengingat FROM TbBarang tb INNER JOIN TbSatuan ts ON tb.SatuanBarang=ts.KodeSatuan WHERE tb.KodeBarang=@a", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", kdBarang))
@@ -104,24 +115,25 @@ Module ModuleBarang
             result.Add("HargaNormal", reader.GetValue(4))
             result.Add("HargaToko", reader.GetValue(5))
             result.Add("HargaSales", reader.GetValue(6))
+            constring.Close()
         Catch ex As Exception
-
+            constring.Close()
         End Try
-        constring.Close()
         Return result
     End Function
 
     Function getCurrentStok(KDBarang As String)
         Dim result As Double = 0
-        constring.Open()
         Try
+            constring.Open()
             cmd = New SqlCommand("Select stok from TbBarang where KodeBarang=@kb", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@kb", KDBarang))
             End With
             result = cmd.ExecuteScalar
+            constring.Close()
         Catch ex As Exception
-            'MsgBox(ex.ToString)
+            constring.Close()
         End Try
         constring.Close()
         Return result

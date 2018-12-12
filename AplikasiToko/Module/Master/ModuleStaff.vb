@@ -40,7 +40,6 @@ Module ModuleStaff
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -60,7 +59,6 @@ Module ModuleStaff
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -75,7 +73,6 @@ Module ModuleStaff
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub

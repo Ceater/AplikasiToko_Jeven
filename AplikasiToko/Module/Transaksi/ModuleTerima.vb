@@ -38,7 +38,6 @@ Module ModuleTerima
             Dim stok As Double = getCurrentStok(idbarang) + jumlah
             ins_mutasi(nota, deskripsi, 0, jumlah, stok, userLogin)
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub

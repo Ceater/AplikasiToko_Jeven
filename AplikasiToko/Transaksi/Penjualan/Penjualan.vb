@@ -18,11 +18,6 @@ Public Class Penjualan
 
 
     Private Sub Penjualan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-#If DEBUG Then
-        CheckBox4.Enabled = True
-#Else
-        CheckBox4.Enabled = False
-#End If
         grandtotaltxt1 = Label6
         grandtotaltxt2 = Label12
         pembayarantxt1 = Label15

@@ -28,7 +28,6 @@ Module ModulePembayaran
             End While
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
         Return x
@@ -63,9 +62,6 @@ Module ModulePembayaran
             End If
             constring.Close()
         Catch ex As Exception
-#If DEBUG Then
-            MsgBox(ex.ToString)
-#End If
             constring.Close()
         End Try
         Return x

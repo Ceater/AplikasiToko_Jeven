@@ -4,15 +4,15 @@ Imports System.Data.SqlClient
 Module ModuleReturJual
     Function getDetailBarangJual(ByVal NoNota As String) As DataTable
         Dim result As New DataSet
-        constring.Open()
         Try
+            constring.Open()
             Dim cmd As String = "select DJx.IDBarang, DJx.NamaBarang, DJx.Satuan, DJx.HargaSatuan, DJx.Jumlah - ISNULL((select sum(DRJ.Jumlah) From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0) as Jumlah, DJx.Diskon, ((DJx.Jumlah - ISNULL((select sum(DRJ.Jumlah) From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0))*(DJx.HargaSatuan-Diskon)) as Subtotal From HJual HJx, DJual DJx Where HJx.NoNotaJual=DJx.NoNotaJual and DJx.Jumlah <> ISNULL((select sum(DRJ.Jumlah) From HJual HJ, DJual DJ, HReturJual HRJ, DReturJual DRJ where HJ.NoNotaJual=DJ.NoNotaJual and HRJ.NoNotaReturJual=DRJ.NoNotaReturJual and HJ.NoNotaJual=HRJ.NoNotaJual and DJ.IDBarang=DRJ.IDBarang and DJ.IDBarang = DJx.IDBarang and HJ.NoNotaJual=HJx.NoNotaJual),0) and HJx.NoNotaJual='" & NoNota & "'"
             SqlAdapter = New SqlDataAdapter(cmd, constring)
             SqlAdapter.Fill(result, "Hasil")
+            constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            constring.Close()
         End Try
-        constring.Close()
         Return result.Tables("Hasil")
     End Function
 
@@ -29,7 +29,6 @@ Module ModuleReturJual
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -55,7 +54,6 @@ Module ModuleReturJual
             Dim stok As Double = getCurrentStok(idbarang) + jumlah
             ins_mutasi(NoReturJual, deskripsi, 0, jumlah, stok, userLogin)
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -109,7 +107,6 @@ Module ModuleReturJual
             End If
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             temp = "RJ" & tglSkr & "0001"
             constring.Close()
         End Try
@@ -118,30 +115,31 @@ Module ModuleReturJual
 
     Function getNamaPelanggan(kodenota As String)
         Dim hsl As String
-        constring.Open()
         Try
+            constring.Open()
             cmd = New SqlCommand("select NamaPelanggan from HJual where NoNotaJual=@a", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", kodenota))
             End With
             hsl = cmd.ExecuteScalar
+            constring.Close()
         Catch ex As Exception
             hsl = "-"
+            constring.Close()
         End Try
-        constring.Close()
         Return hsl
     End Function
 
     Function TotalUangSudahDiRetur(KodeNota As String)
         Dim x As Integer = 0
-        constring.Open()
         Try
+            constring.Open()
             cmd = New SqlCommand("SELECT CASE WHEN (ISNULL(sum(DRJ.Subtotal) - SisaPiutang, 0)) <= -1 THEN 0 ELSE ISNULL(sum(DRJ.Subtotal) - SisaPiutang, 0) END AS UangSudahRetur FROM HReturJual HRJ INNER JOIN DReturJual DRJ ON HRJ.NoNotaReturJual = DRJ.NoNotaReturJual  INNER JOIN TbPiutang Tb ON HRJ.NoNotaJual=Tb.NoNotaJual WHERE HRJ.NoNotaJual = '" & KodeNota & "' GROUP BY HRJ.NoNotaJual, SisaPiutang;", constring)
             x = cmd.ExecuteScalar
+            constring.Close()
         Catch ex As Exception
-
+            constring.Close()
         End Try
-        constring.Close()
         Return x
     End Function
 End Module

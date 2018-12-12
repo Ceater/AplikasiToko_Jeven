@@ -43,7 +43,6 @@ Module ModuleTransaksi
             Dim stok As Double = getCurrentStok(idbarang) - jumlah
             ins_mutasi(nota, deskripsi, jumlah, 0, stok, userLogin)
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -63,7 +62,6 @@ Module ModuleTransaksi
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -86,24 +84,27 @@ Module ModuleTransaksi
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
 
     Sub updatePiutang(nota As String, tgl As String, uangbayar As Double, idstaff As String, Optional returbarang As Double = 0)
-        constring.Open()
-        cmd = New SqlCommand("UPDATE TbPiutang SET SisaPiutang = SisaPiutang - @a, TotalRetur = TotalRetur + @b, Date_u = @c, User_u = @d WHERE NoNotaJual = @e", constring)
-        With cmd.Parameters
-            .Add(New SqlParameter("@a", uangbayar))
-            .Add(New SqlParameter("@b", returbarang))
-            .Add(New SqlParameter("@c", tgl))
-            .Add(New SqlParameter("@d", idstaff))
-            .Add(New SqlParameter("@e", nota))
-        End With
-        cmd.ExecuteNonQuery()
-        cmd.Dispose()
-        constring.Close()
+        Try
+            constring.Open()
+            cmd = New SqlCommand("UPDATE TbPiutang SET SisaPiutang = SisaPiutang - @a, TotalRetur = TotalRetur + @b, Date_u = @c, User_u = @d WHERE NoNotaJual = @e", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a", uangbayar))
+                .Add(New SqlParameter("@b", returbarang))
+                .Add(New SqlParameter("@c", tgl))
+                .Add(New SqlParameter("@d", idstaff))
+                .Add(New SqlParameter("@e", nota))
+            End With
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            constring.Close()
+        Catch ex As Exception
+            constring.Close()
+        End Try
     End Sub
 
     Function cekNotaJual(nota As String) As Boolean
@@ -120,7 +121,7 @@ Module ModuleTransaksi
             End If
             constring.Close()
         Catch ex As Exception
-
+            constring.Close()
         End Try
         Return temp
     End Function
@@ -152,7 +153,6 @@ Module ModuleTransaksi
             End If
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             temp = "J" & tglSkr & "0001"
             constring.Close()
         End Try
@@ -185,7 +185,6 @@ Module ModuleTransaksi
             End If
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
             temp = "PT" & tglSkr & "0001"
             constring.Close()
         End Try
