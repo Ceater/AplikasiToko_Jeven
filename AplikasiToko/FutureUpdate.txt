@@ -50,6 +50,7 @@ Bug Fix
 -> Abis tambah barang dari terima barang, qty tidak balik 0 -> Done 1.1.5.0
 -> Auto login gk bisa logout ->  Done 1.1.5.1
 -> Constring open dan close dimasukkan ke try catch -> Done 1.1.5.2
+-> Tidak bisa menuliskan angka 0.5 di penjualan -> Done 1.1.5.3
 
 Bug Found
 

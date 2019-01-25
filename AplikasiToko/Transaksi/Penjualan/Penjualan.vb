@@ -227,7 +227,7 @@ Public Class Penjualan
         For Each f In dgv.Rows
             Dim sisaStok = 0, Qty As Double = 0
             KodeBarang = f.Cells(0).Value
-            Qty = CDbl(Val(f.Cells(4).Value))
+            Qty = CDbl(Val(f.Cells(4).Value.Replace(",", ".")))
             sisaStok = CDbl(getCurrentStok(KodeBarang)) - Math.Abs(Qty)
             If sisaStok <= -1 Then
                 msg = msg & "Barang: " & f.Cells(0).Value & " | Stok Sekarang: " & getCurrentStok(KodeBarang) & " | Dijual: " & Qty & vbCrLf
