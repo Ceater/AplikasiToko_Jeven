@@ -32,8 +32,8 @@
     <PublisherName>HanZ Software</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.1.5.3</ApplicationVersion>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.1.5.4</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -179,6 +179,12 @@
       <DependentUpon>ListBarang.vb</DependentUpon>
     </Compile>
     <Compile Include="Master\ListBarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\Supplier.Designer.vb">
+      <DependentUpon>Supplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Supplier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\ConnectionModule.vb" />
@@ -622,6 +628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\Staff.resx">
       <DependentUpon>Staff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Supplier.resx">
+      <DependentUpon>Supplier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

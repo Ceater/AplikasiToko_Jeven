@@ -85,7 +85,6 @@ Module ModuleReturBeli
         Try
             constring.Open()
             notaFormat = "%" & tglSkr & "%"
-            'cmd = New SqlCommand("select TOP 1 NoNotaJual from HJual order by NoNotaJual desc", constring)
             cmd = New SqlCommand("SELECT TOP 1 SUBSTRING(NoNotaReturTerima , 9, 4) as Nota FROM HReturTerima WHERE SUBSTRING(NoNotaReturTerima , 1, 8) LIKE '" & notaFormat & "' ORDER BY NoNotaReturTerima DESC;", constring)
             Dim reader As SqlDataReader = cmd.ExecuteReader
             If reader.HasRows Then
@@ -109,5 +108,12 @@ Module ModuleReturBeli
             constring.Close()
         End Try
         Return temp
+    End Function
+
+    Function getListNotaBisaRetur()
+        Dim res1 As New DataTable
+        Dim str1 As String = ""
+        res1 = getDataTB("NoNotaTerima", "DTerima", "Jumlah - SuksesRetur >= 1", "", "NoNotaTerima")
+        Return res1
     End Function
 End Module

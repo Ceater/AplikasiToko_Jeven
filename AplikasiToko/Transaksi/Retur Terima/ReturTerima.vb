@@ -9,7 +9,8 @@
         Try
             DateTimePicker1.MaxDate = Now
             TextBox1.Text = getNotaReturTerima()
-            ComboBox1.DataSource = DSet.Tables("DataNotaTerima")
+            'ComboBox1.DataSource = DSet.Tables("DataNotaTerima")
+            ComboBox1.DataSource = getListNotaBisaRetur()
             ComboBox1.ValueMember = "NoNotaTerima"
             ComboBox1.SelectedIndex = 1
             ComboBox1.SelectedIndex = 0
