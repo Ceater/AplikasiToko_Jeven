@@ -70,7 +70,6 @@
         clear()
     End Sub
 
-    'Procedure and Function
     Sub setGV()
         DataGridView1.Columns(0).Visible = False
         DataGridView1.Columns(1).HeaderText = "Nama"

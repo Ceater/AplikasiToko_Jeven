@@ -45,6 +45,8 @@ Module GlobalModule
             SqlAdapter.Fill(DSet, "DataPelangganToko")
             SqlAdapter = New SqlDataAdapter("select * from TbPelanggan where TipePelanggan='Sales'", constring)
             SqlAdapter.Fill(DSet, "DataPelangganSales")
+            SqlAdapter = New SqlDataAdapter("select * from TbSupplier", constring)
+            SqlAdapter.Fill(DSet, "DataSupplier")
             SqlAdapter = New SqlDataAdapter("select NoNotaJual from HJual", constring)
             SqlAdapter.Fill(DSet, "DataNotaPenjualan")
             SqlAdapter = New SqlDataAdapter("select NoNotaTerima from HTerima except select HT.NoNotaTerima from HTerima HT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima UNION select Dr.NoNotaTerima from (select HT.NoNotaTerima, DT.IDBarang from HTerima HT, DTerima DT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima and HT.NoNotaTerima = DT.NoNOtaTerima Except select HTR.NoNotaTerima, DTR.IdBarang from HReturTerima HTR, DReturTerima DTR where HTR.NoNotaReturTerima = DTR.NoNotaReturTerima) DR group by Dr.NoNotaTerima except select NoNotaTerima from HPembelian", constring)
@@ -94,7 +96,7 @@ Module GlobalModule
         If WhereKey <> "" Then
             query &= " WHERE " & WhereKey
         End If
-        If OrderBy <> "" Then
+        If GroupBy <> "" Then
             query &= " GROUP By " & GroupBy
         End If
         If OrderBy <> "" Then
@@ -107,6 +109,7 @@ Module GlobalModule
             SqlAdapter.Fill(result, "DataBarang")
             constring.Close()
         Catch ex As Exception
+            MsgBox(query)
             constring.Close()
         End Try
         Return result.Tables("DataBarang")

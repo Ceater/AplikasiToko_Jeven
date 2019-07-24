@@ -1,5 +1,5 @@
 ﻿Public Class Staff
-    Dim chkbox(21) As CheckBox
+    Dim chkbox(22) As CheckBox
     Dim scrollIdx As Integer = 0
     Private Sub Staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.DataSource = DSet.Tables("DataStaff")
@@ -7,25 +7,26 @@
         chkbox(0) = M1
         chkbox(1) = M2
         chkbox(2) = M3
-        chkbox(3) = T1
-        chkbox(4) = T2
-        chkbox(5) = T3
-        chkbox(6) = T4
-        chkbox(7) = T5
-        chkbox(8) = T6
-        chkbox(9) = T7
-        chkbox(10) = T8
-        chkbox(11) = L1
-        chkbox(12) = L2
-        chkbox(13) = L3
-        chkbox(14) = L4
-        chkbox(15) = L5
-        chkbox(16) = L6
-        chkbox(17) = L7
-        chkbox(18) = L8
-        chkbox(19) = L9
-        chkbox(20) = L10
-        chkbox(21) = S1
+        chkbox(3) = M4
+        chkbox(4) = T1
+        chkbox(5) = T2
+        chkbox(6) = T3
+        chkbox(7) = T4
+        chkbox(8) = T5
+        chkbox(9) = T6
+        chkbox(10) = T7
+        chkbox(11) = T8
+        chkbox(12) = L1
+        chkbox(13) = L2
+        chkbox(14) = L3
+        chkbox(15) = L4
+        chkbox(16) = L5
+        chkbox(17) = L6
+        chkbox(18) = L7
+        chkbox(19) = L8
+        chkbox(20) = L9
+        chkbox(21) = L10
+        chkbox(22) = S1
     End Sub
 
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick

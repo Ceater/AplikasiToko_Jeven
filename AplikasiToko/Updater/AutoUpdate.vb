@@ -79,34 +79,47 @@ Public Class AutoUpdate
 
     Sub updateStart()
         Try
+            updateBWorker.ReportProgress(20)
             cmd = New SqlCommand("
-            CREATE TABLE TbSupplier
-	            (
+            CREATE TABLE TbSupplier(
 	            IDSupplier int NOT NULL IDENTITY (1, 1),
 	            NamaSupplier varchar(MAX) NOT NULL,
 	            AlamatSupplier varchar(MAX) NOT NULL,
-	            TlpSupplier varchar(MAX) NOT NULL,
 	            Date_i datetime NULL,
 	            Date_u datetime NULL,
 	            User_i varchar(100) NULL,
-	            User_u varchar(100) NULL
-	            )  ON [PRIMARY]
-	             TEXTIMAGE_ON [PRIMARY];
+	            User_u varchar(100) NULL) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
             ALTER TABLE dbo.TbSupplier ADD CONSTRAINT
-	            PK_TbSupplier PRIMARY KEY CLUSTERED 
-	            (
-	            IDSupplier
-	            ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY];
+	            PK_TbSupplier PRIMARY KEY CLUSTERED (IDSupplier) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY];
+            CREATE TABLE TbKontakSupplier(
+	            IDKontakSupplier int NOT NULL IDENTITY (1, 1),
+	            IDSupplier int NOT NULL,
+	            NamaSales varchar(MAX) NOT NULL,
+	            TlpSales varchar(MAX) NOT NULL,
+	            Date_i datetime NULL,
+	            Date_u datetime NULL,
+	            User_i varchar(100) NULL,
+	            User_u varchar(100) NULL) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
+            ALTER TABLE dbo.TbKontakSupplier ADD CONSTRAINT
+	            PK_TbKontakSupplier PRIMARY KEY CLUSTERED (IDKontakSupplier) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY];
+
             ALTER TABLE HTerima ADD NoNotaPenjual varchar(25) NULL;
             ALTER TABLE HTerima ADD NamaSupplier varchar(25) NULL;
             ALTER TABLE HPembelian ADD NoNotaPenjual varchar(25) NULL;
             ALTER TABLE HPembelian ADD NamaSupplier varchar(25) NULL;
             ALTER TABLE HReturTerima ADD NoNotaPenjual varchar(25) NULL;
             ALTER TABLE HReturTerima ADD NamaSupplier varchar(25) NULL;
-            ALTER TABLE dbo.DTerima ADD SuksesRetur float(53) NULL;
-            UPDATE DTerima SET SuksesRetur = (ISNULL((SELECT Jumlah FROM HReturTerima HRT INNER JOIN DReturTerima DRT ON HRT.NoNotaReturTerima = DRT.NoNotaReturTerima WHERE NoNotaTerima = DTerima.NoNotaTerima AND DRT.IDBarang = DTerima.IDBarang),0));
-            ", constring)
+            ALTER TABLE DTerima ADD SuksesRetur float(53) NULL;", constring)
             cmd.ExecuteNonQuery()
+            updateBWorker.ReportProgress(40)
+            cmd = New SqlCommand("
+                UPDATE HTerima SET NoNotaPenjual = 'NoInfo', NamaSupplier = 'NoInfo';
+                UPDATE HPembelian SET NoNotaPenjual = 'NoInfo', NamaSupplier = 'NoInfo';
+                UPDATE HReturTerima SET NoNotaPenjual = 'NoInfo', NamaSupplier = 'NoInfo';
+                Update DTerima Set SuksesRetur = (ISNULL((Select SUM(Jumlah) FROM HReturTerima HRT INNER JOIN DReturTerima DRT On HRT.NoNotaReturTerima = DRT.NoNotaReturTerima WHERE NoNotaTerima = DTerima.NoNotaTerima And DRT.IDBarang = DTerima.IDBarang),0));
+                ", constring)
+            cmd.ExecuteNonQuery()
+            updateBWorker.ReportProgress(100)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try

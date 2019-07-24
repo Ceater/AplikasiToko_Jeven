@@ -1,5 +1,6 @@
 ﻿Public Class ReturTerima
     Dim staff As String = ""
+    Dim DataBarang(99) As Integer
     Public Sub New(ByVal id As String)
         InitializeComponent()
         staff = id
@@ -9,7 +10,6 @@
         Try
             DateTimePicker1.MaxDate = Now
             TextBox1.Text = getNotaReturTerima()
-            'ComboBox1.DataSource = DSet.Tables("DataNotaTerima")
             ComboBox1.DataSource = getListNotaBisaRetur()
             ComboBox1.ValueMember = "NoNotaTerima"
             ComboBox1.SelectedIndex = 1
@@ -21,8 +21,11 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim count As Integer = 0
+        Dim count = 0, idx As Integer = 0
         Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
+        Dim msg = "", errmsg As String = ""
+        Dim QtyOk As Boolean = True
+
         TextBox1.Text = getNotaReturTerima()
         If result = DialogResult.Yes Then
             For Each selectedItem As DataGridViewRow In DataGridView1.SelectedRows
@@ -32,17 +35,39 @@
                 MsgBox("Nomer Nota Sudah Pernah Digunakan")
             Else
                 If count <> 0 Then
-                    Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
-                    insertHReturTerima(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff)
+                    msg = "Berikut Adalah Barang Diretur" & vbCrLf & "================================" & vbCrLf
                     For Each f As DataGridViewRow In Me.DataGridView1.Rows
-                        If f.Selected Then
-                            insertDReturTerima(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value)
-                            updateStok(-f.Cells(3).Value, f.Cells(0).Value)
+                        If f.Cells(3).Value >= 1 Then
+                            If (DataBarang(idx) < f.Cells(3).Value) Then
+                                QtyOk = False
+                                errmsg = "Error, Cek Max Retur Barang Berikut" & vbCrLf & "================================" & vbCrLf
+                                errmsg &= "Kode: " & f.Cells(0).Value & " |  Nama: " & f.Cells(1).Value & " | Jumlah: " & f.Cells(3).Value & " | Max Retur: " & DataBarang(idx) & vbCrLf
+                            Else
+                                msg &= "Kode: " & f.Cells(0).Value & " |  Nama: " & f.Cells(1).Value & " | Jumlah: " & f.Cells(3).Value & vbCrLf
+                            End If
+                            idx += 1
                         End If
                     Next
-                    LoadDataSet()
-                    MsgBox("Sukses melakukan retur terima barang")
-                    clear()
+                    msg &= "================================" & vbCrLf & "Apakah Barang Diatas Sudah Benar?"
+                    result = DialogResult.No
+                    If (QtyOk) Then
+                        result = MessageBox.Show(msg, "Konfirmasi", MessageBoxButtons.YesNo)
+                    Else
+                        MsgBox(errmsg)
+                    End If
+                    If result = DialogResult.Yes Then
+                        Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
+                        insertHReturTerima(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff)
+                        For Each f As DataGridViewRow In Me.DataGridView1.Rows
+                            If f.Cells(3).Value >= 1 Then
+                                insertDReturTerima(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value)
+                                updateStok(-f.Cells(3).Value, f.Cells(0).Value)
+                            End If
+                        Next
+                        LoadDataSet()
+                        MsgBox("Sukses melakukan retur terima barang")
+                        clear()
+                    End If
                 Else
                     MsgBox("Pastikan sudah ada barang yang dipilih")
                 End If
@@ -52,23 +77,38 @@
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Try
-            DataGridView1.DataSource = getDetailBarangRetur(ComboBox1.SelectedValue)
+            Dim counter As Integer = 0
+            Dim DT As DataTable = getDetailBarangRetur(ComboBox1.SelectedValue)
+            Dim DetailNota As Array = getDetailNotaRetur(ComboBox1.SelectedValue)
+
+            Label6.Text = DetailNota(0)
+            Label11.Text = DetailNota(1)
+            Label7.Text = DetailNota(2)
+            Label10.Text = DetailNota(3)
+
+            DataGridView1.DataSource = DT
             setGv()
+            For Each f As DataRow In DT.Rows
+                DataBarang(counter) = f("jumlah")
+                counter += 1
+            Next
         Catch ex As Exception
         End Try
     End Sub
 
     Sub setGv()
         Dim temp As Double = DataGridView1.Size.Width
-        DataGridView1.Columns(0).Width = temp * 0.18
-        DataGridView1.Columns(1).Width = temp * 0.35
-        DataGridView1.Columns(2).Width = temp * 0.25
+        DataGridView1.Columns(0).Width = temp * 0.2
+        DataGridView1.Columns(1).Width = temp * 0.45
+        DataGridView1.Columns(2).Width = temp * 0.15
+        DataGridView1.Columns(3).Width = temp * 0.15
         DataGridView1.Columns(0).ReadOnly = True
         DataGridView1.Columns(1).ReadOnly = True
         DataGridView1.Columns(2).ReadOnly = True
         DataGridView1.Columns(0).HeaderText = "Kode Barang"
         DataGridView1.Columns(1).HeaderText = "Nama Barang"
         DataGridView1.Columns(2).HeaderText = "Satuan"
+        DataGridView1.Columns(3).HeaderText = "Jumlah"
     End Sub
 
     Sub clear()

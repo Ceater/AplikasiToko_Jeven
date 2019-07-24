@@ -17,6 +17,24 @@ Module ModuleReturBeli
         Return result.Tables("Hasil")
     End Function
 
+    Function getDetailNotaRetur(ByVal NoNota As String) As Array
+        Dim result(5) As String
+        Try
+            constring.Open()
+            Dim cmd As New SqlCommand("SELECT NoNotaPenjual, TglNota, NamaSupplier, IDStaff  FROM HTerima WHERE NoNotaTerima = '" & NoNota & "';", constring)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            reader.Read()
+            result(0) = reader.GetValue(0)
+            result(1) = reader.GetValue(1)
+            result(2) = reader.GetValue(2)
+            result(3) = reader.GetValue(3)
+            constring.Close()
+        Catch ex As Exception
+            constring.Close()
+        End Try
+        Return result
+    End Function
+
     Sub insertHReturTerima(NoReturTerima As String, NoNotaTerima As String, Tgl As String, id As String)
         Try
             constring.Open()
@@ -113,7 +131,7 @@ Module ModuleReturBeli
     Function getListNotaBisaRetur()
         Dim res1 As New DataTable
         Dim str1 As String = ""
-        res1 = getDataTB("NoNotaTerima", "DTerima", "Jumlah - SuksesRetur >= 1", "", "NoNotaTerima")
+        res1 = getDataTB("NoNotaTerima", "DTerima", "Jumlah - SuksesRetur >= 1", "NoTerima DESC", "NoTerima, NoNotaTerima")
         Return res1
     End Function
 End Module

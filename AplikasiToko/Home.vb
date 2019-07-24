@@ -1,6 +1,6 @@
 ﻿Public Class Home
     Public hakAkses As String = ""
-    Public MenuStrip(21) As ToolStripMenuItem
+    Public MenuStrip(22) As ToolStripMenuItem
     Dim isec As Integer = 0
 
     Private Sub Home_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -11,25 +11,26 @@
         MenuStrip(0) = M1
         MenuStrip(1) = M2
         MenuStrip(2) = M3
-        MenuStrip(3) = T1
-        MenuStrip(4) = T2
-        MenuStrip(5) = T3
-        MenuStrip(6) = T4
-        MenuStrip(7) = T5
-        MenuStrip(8) = T6
-        MenuStrip(9) = T7
-        MenuStrip(10) = T8
-        MenuStrip(11) = L1
-        MenuStrip(12) = L2
-        MenuStrip(13) = L3
-        MenuStrip(14) = L4
-        MenuStrip(15) = L5
-        MenuStrip(16) = L6
-        MenuStrip(17) = L7
-        MenuStrip(18) = L8
-        MenuStrip(19) = L9
-        MenuStrip(20) = L10
-        MenuStrip(21) = Setting
+        MenuStrip(3) = M4
+        MenuStrip(4) = T1
+        MenuStrip(5) = T2
+        MenuStrip(6) = T3
+        MenuStrip(7) = T4
+        MenuStrip(8) = T5
+        MenuStrip(9) = T6
+        MenuStrip(10) = T7
+        MenuStrip(11) = T8
+        MenuStrip(12) = L1
+        MenuStrip(13) = L2
+        MenuStrip(14) = L3
+        MenuStrip(15) = L4
+        MenuStrip(16) = L5
+        MenuStrip(17) = L6
+        MenuStrip(18) = L7
+        MenuStrip(19) = L8
+        MenuStrip(20) = L9
+        MenuStrip(21) = L10
+        MenuStrip(22) = Setting
         Dim temp(MenuStrip.Count - 1) As String
         For i = 0 To MenuStrip.Count - 1
             Try
@@ -70,7 +71,7 @@
     End Sub
 
     Private Sub StaffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles M2.Click
-        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        If Application.OpenForms().OfType(Of Staff).Any Then
         Else
             Dim f As New Staff
             f.MdiParent = Me
@@ -78,8 +79,26 @@
         End If
     End Sub
 
+    Private Sub PelangganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles M3.Click
+        If Application.OpenForms().OfType(Of Pelanggan).Any Then
+        Else
+            Dim f As New Pelanggan
+            f.MdiParent = Me
+            f.Show()
+        End If
+    End Sub
+
+    Private Sub SupplierToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles M4.Click
+        If Application.OpenForms().OfType(Of Supplier).Any Then
+        Else
+            Dim f As New Supplier
+            f.MdiParent = Me
+            f.Show()
+        End If
+    End Sub
+
     Private Sub PenjualanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T1.Click
-        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        If Application.OpenForms().OfType(Of Penjualan).Any Then
         Else
             Dim f As New Penjualan
             f.MdiParent = Me
@@ -88,17 +107,8 @@
         End If
     End Sub
 
-    Private Sub PelangganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles M3.Click
-        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
-        Else
-            Dim f As New Pelanggan
-            f.MdiParent = Me
-            f.Show()
-        End If
-    End Sub
-
     Private Sub PembelianToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T2.Click
-        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        If Application.OpenForms().OfType(Of TerimaBarang).Any Then
         Else
             Dim f As New TerimaBarang
             f.MdiParent = Me
@@ -108,7 +118,7 @@
     End Sub
 
     Private Sub PembayaranToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T3.Click
-        If Application.OpenForms().OfType(Of FormLaporanPenjualan).Any Then
+        If Application.OpenForms().OfType(Of Pembayaran).Any Then
         Else
             Dim f As New Pembayaran
             f.MdiParent = Me

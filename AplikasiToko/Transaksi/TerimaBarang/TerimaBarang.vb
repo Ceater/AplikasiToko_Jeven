@@ -14,6 +14,9 @@
         ComboBox1.DataSource = DSet.Tables("DataBarang")
         ComboBox1.ValueMember = "NamaBarang"
         ComboBox1.DisplayMember = "KodeBarang"
+        ComboBox2.DataSource = DSet.Tables("DataSupplier")
+        ComboBox2.ValueMember = "IDSupplier"
+        ComboBox2.DisplayMember = "NamaSupplier"
         NotaTxt.Text = getNotaTerima()
     End Sub
 
@@ -23,10 +26,12 @@
             Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
                 Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
+                Dim nonotapenjual As String = TextBox1.Text
+                Dim namatoko As String = ComboBox2.SelectedValue
                 If cekNotaTerima(NotaTxt.Text) Then
                     MsgBox("Nota sudah terdaftar")
                 Else
-                    insertHTerima(NotaTxt.Text, tgl, staff)
+                    insertHTerima(NotaTxt.Text, tgl, staff, nonotapenjual, namatoko)
                     For Each f In dgv.Rows
                         Dim Qty As Double = 0
                         Qty = CDbl(Val(f.Cells(3).Value.Replace(",", ".")))
@@ -47,6 +52,10 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim f As New PenerimaanTambahBarang
         f.ShowDialog()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     'Dgv

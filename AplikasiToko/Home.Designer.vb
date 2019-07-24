@@ -39,6 +39,7 @@ Partial Class Home
         Me.M2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.M3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DaftarBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.M4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.T1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.T2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -141,7 +142,7 @@ Partial Class Home
         '
         'MasterToolStripMenuItem
         '
-        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.M1, Me.M2, Me.M3, Me.DaftarBarangToolStripMenuItem})
+        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.M1, Me.M2, Me.M3, Me.DaftarBarangToolStripMenuItem, Me.M4})
         Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
         Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(66, 24)
         Me.MasterToolStripMenuItem.Text = "Master"
@@ -186,6 +187,12 @@ Partial Class Home
         Me.DaftarBarangToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
         Me.DaftarBarangToolStripMenuItem.Size = New System.Drawing.Size(227, 26)
         Me.DaftarBarangToolStripMenuItem.Text = "Daftar Barang"
+        '
+        'M4
+        '
+        Me.M4.Name = "M4"
+        Me.M4.Size = New System.Drawing.Size(227, 26)
+        Me.M4.Text = "Supplier"
         '
         'TransaksiToolStripMenuItem
         '
@@ -470,4 +477,5 @@ Partial Class Home
     Friend WithEvents HapusTransaksiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RefreshStokMinimumToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents L10 As ToolStripMenuItem
+    Friend WithEvents M4 As ToolStripMenuItem
 End Class

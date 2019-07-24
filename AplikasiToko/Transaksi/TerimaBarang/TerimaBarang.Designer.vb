@@ -27,6 +27,10 @@ Partial Class TerimaBarang
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.dgv = New System.Windows.Forms.DataGridView()
@@ -40,11 +44,6 @@ Partial Class TerimaBarang
         Me.Button1 = New System.Windows.Forms.Button()
         Me.JmlBarang = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -64,7 +63,7 @@ Partial Class TerimaBarang
         '
         Me.NotaTxt.Enabled = False
         Me.NotaTxt.Location = New System.Drawing.Point(133, 23)
-        Me.NotaTxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NotaTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.NotaTxt.Name = "NotaTxt"
         Me.NotaTxt.Size = New System.Drawing.Size(201, 22)
         Me.NotaTxt.TabIndex = 1
@@ -72,7 +71,7 @@ Partial Class TerimaBarang
         'DateTimePicker1
         '
         Me.DateTimePicker1.Location = New System.Drawing.Point(133, 63)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(265, 22)
         Me.DateTimePicker1.TabIndex = 2
@@ -89,7 +88,6 @@ Partial Class TerimaBarang
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.ComboBox2)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
@@ -99,13 +97,51 @@ Partial Class TerimaBarang
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(1013, 108)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Nota Transaksi"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.ComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(569, 60)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(250, 24)
+        Me.ComboBox2.TabIndex = 104
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(449, 66)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(81, 17)
+        Me.Label7.TabIndex = 103
+        Me.Label7.Text = "Nama Toko"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(569, 23)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(250, 22)
+        Me.TextBox1.TabIndex = 100
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(449, 27)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(89, 17)
+        Me.Label6.TabIndex = 101
+        Me.Label6.Text = "Nota Penjual"
         '
         'Label3
         '
@@ -123,7 +159,7 @@ Partial Class TerimaBarang
         Me.ComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(149, 130)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(309, 24)
         Me.ComboBox1.TabIndex = 3
@@ -138,7 +174,7 @@ Partial Class TerimaBarang
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.dgv.Location = New System.Drawing.Point(16, 196)
-        Me.dgv.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv.MultiSelect = False
         Me.dgv.Name = "dgv"
         Me.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -152,9 +188,9 @@ Partial Class TerimaBarang
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Location = New System.Drawing.Point(16, 528)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(268, 129)
         Me.GroupBox2.TabIndex = 99
         Me.GroupBox2.TabStop = False
@@ -203,7 +239,7 @@ Partial Class TerimaBarang
         'Proses
         '
         Me.Proses.Location = New System.Drawing.Point(841, 528)
-        Me.Proses.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proses.Margin = New System.Windows.Forms.Padding(4)
         Me.Proses.Name = "Proses"
         Me.Proses.Size = New System.Drawing.Size(188, 81)
         Me.Proses.TabIndex = 6
@@ -213,7 +249,7 @@ Partial Class TerimaBarang
         'Batal
         '
         Me.Batal.Location = New System.Drawing.Point(841, 619)
-        Me.Batal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Batal.Margin = New System.Windows.Forms.Padding(4)
         Me.Batal.Name = "Batal"
         Me.Batal.Size = New System.Drawing.Size(188, 28)
         Me.Batal.TabIndex = 7
@@ -223,7 +259,7 @@ Partial Class TerimaBarang
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(468, 130)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(187, 28)
         Me.Button1.TabIndex = 4
@@ -233,7 +269,7 @@ Partial Class TerimaBarang
         'JmlBarang
         '
         Me.JmlBarang.Location = New System.Drawing.Point(149, 164)
-        Me.JmlBarang.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.JmlBarang.Margin = New System.Windows.Forms.Padding(4)
         Me.JmlBarang.Name = "JmlBarang"
         Me.JmlBarang.Size = New System.Drawing.Size(132, 22)
         Me.JmlBarang.TabIndex = 5
@@ -248,54 +284,6 @@ Partial Class TerimaBarang
         Me.Label5.Size = New System.Drawing.Size(53, 17)
         Me.Label5.TabIndex = 99
         Me.Label5.Text = "Jumlah"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(569, 23)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(250, 22)
-        Me.TextBox1.TabIndex = 100
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(449, 27)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(89, 17)
-        Me.Label6.TabIndex = 101
-        Me.Label6.Text = "Nota Penjual"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(449, 66)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(81, 17)
-        Me.Label7.TabIndex = 103
-        Me.Label7.Text = "Nama Toko"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
-        Me.ComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(569, 60)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(250, 24)
-        Me.ComboBox2.TabIndex = 104
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(826, 22)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(92, 61)
-        Me.Button2.TabIndex = 105
-        Me.Button2.Text = "Toko Baru"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'TerimaBarang
         '
@@ -313,7 +301,7 @@ Partial Class TerimaBarang
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "TerimaBarang"
@@ -347,7 +335,6 @@ Partial Class TerimaBarang
     Friend WithEvents Button1 As Button
     Friend WithEvents JmlBarang As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Button2 As Button
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox1 As TextBox

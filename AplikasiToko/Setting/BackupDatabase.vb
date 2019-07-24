@@ -15,10 +15,11 @@ Public Class BackupDatabase
         cmd = New SqlCommand("SELECT * FROM sys.databases", constring)
         reader = cmd.ExecuteReader
         While reader.Read
-            ComboBox2.Items.Add(reader(0))
+            If reader(0).ToString.ToLower <> "master" Or reader(0).ToString.ToLower <> "model" Or reader(0).ToString.ToLower <> "msdb" Or reader(0).ToString.ToLower <> "tempdb" Then
+                ComboBox2.Items.Add(reader(0))
+            End If
         End While
         constring.Close()
-
         ComboBox1.SelectedIndex = 0
         ComboBox2.SelectedIndex = 0
         ComboBox2.SelectedValue = "DatabaseToko"

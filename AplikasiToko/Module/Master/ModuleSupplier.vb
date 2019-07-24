@@ -22,14 +22,17 @@ Module ModuleSupplier
     Sub insertSupplier(ByVal NSupplier As String, ASupplier As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into TbSupplier Values(@a,@b)", constring)
+            cmd = New SqlCommand("insert into TbSupplier(NamaSupplier, AlamatSupplier, Date_i, User_i) Values(@a,@b,@d,@e)", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", NSupplier))
                 .Add(New SqlParameter("@b", ASupplier))
+                .Add(New SqlParameter("@d", DateTime.Now))
+                .Add(New SqlParameter("@e", userLogin))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
+            MsgBox(ex.ToString)
             constring.Close()
         End Try
     End Sub
@@ -37,11 +40,13 @@ Module ModuleSupplier
     Sub insertSales(ByVal NSupplier As String, ByVal NSales As String, TSales As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into TbKontakSupplier Values(@a,@b,@c)", constring)
+            cmd = New SqlCommand("insert into TbKontakSupplier(IDSupplier, NamaSales, TlpSales, Date_i, User_i) Values(@a,@b,@c,@d,@e)", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", NSupplier))
                 .Add(New SqlParameter("@b", NSales))
                 .Add(New SqlParameter("@c", TSales))
+                .Add(New SqlParameter("@d", DateTime.Now))
+                .Add(New SqlParameter("@e", userLogin))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()
@@ -53,11 +58,13 @@ Module ModuleSupplier
     Sub updateSupplier(ByVal KSupplier As String, ByVal NSupplier As String, ASupplier As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("update TbSupplier set NamaSupplier=@a, AlamatSupplier=@b where IDSupplier=@c", constring)
+            cmd = New SqlCommand("update TbSupplier set NamaSupplier=@a, AlamatSupplier=@b, Date_U=@d, User_U=@e where IDSupplier=@f", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", NSupplier))
                 .Add(New SqlParameter("@b", ASupplier))
-                .Add(New SqlParameter("@c", KSupplier))
+                .Add(New SqlParameter("@d", DateTime.Now))
+                .Add(New SqlParameter("@e", userLogin))
+                .Add(New SqlParameter("@f", KSupplier))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()
@@ -69,12 +76,14 @@ Module ModuleSupplier
     Sub updateSales(ByVal KSupplier As String, ByVal NSales As String, TSales As String, ByVal id As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("update TbKontakSupplier set IDSupplier=@a, NamaSales=@b, TlpSales=@c where IDKontakSupplier=@d", constring)
+            cmd = New SqlCommand("update TbKontakSupplier set IDSupplier=@a, NamaSales=@b, TlpSales=@c, date_u=@e, user_u=@f where IDKontakSupplier=@d", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", KSupplier))
                 .Add(New SqlParameter("@b", NSales))
                 .Add(New SqlParameter("@c", TSales))
                 .Add(New SqlParameter("@d", id))
+                .Add(New SqlParameter("@e", DateTime.Now))
+                .Add(New SqlParameter("@f", userLogin))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()

@@ -3,14 +3,16 @@ Imports System.Data.SqlClient
 
 Module ModuleTerima
     Dim cmd As SqlCommand
-    Sub insertHTerima(nota As String, tgl As String, idstaff As String)
+    Sub insertHTerima(nota As String, tgl As String, idstaff As String, notapenjual As String, toko As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into HTerima Values(@a,@b,@c)", constring)
+            cmd = New SqlCommand("insert into HTerima Values(@a,@b,@c,@d,@e)", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", nota))
                 .Add(New SqlParameter("@b", tgl))
                 .Add(New SqlParameter("@c", idstaff))
+                .Add(New SqlParameter("@d", notapenjual))
+                .Add(New SqlParameter("@e", toko))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()

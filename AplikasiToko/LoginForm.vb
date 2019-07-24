@@ -6,9 +6,9 @@ Public Class LoginForm
         Thread.CurrentThread.CurrentCulture = New CultureInfo("id-ID")
         Thread.CurrentThread.CurrentUICulture = New CultureInfo("id-ID")
 #If DEBUG Then
-        'TextBox1.Text = "admin"
-        'TextBox2.Text = "admin"
-        'Login()
+        TextBox1.Text = "admin"
+        TextBox2.Text = "admin"
+        Login()
 #End If
     End Sub
 
