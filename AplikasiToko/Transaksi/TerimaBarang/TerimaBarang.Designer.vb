@@ -44,6 +44,8 @@ Partial Class TerimaBarang
         Me.Button1 = New System.Windows.Forms.Button()
         Me.JmlBarang = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -73,7 +75,7 @@ Partial Class TerimaBarang
         Me.DateTimePicker1.Location = New System.Drawing.Point(133, 63)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(265, 22)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(243, 22)
         Me.DateTimePicker1.TabIndex = 2
         '
         'Label2
@@ -88,6 +90,8 @@ Partial Class TerimaBarang
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.ComboBox2)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
@@ -110,15 +114,15 @@ Partial Class TerimaBarang
         Me.ComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
         Me.ComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(569, 60)
+        Me.ComboBox2.Location = New System.Drawing.Point(515, 60)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(250, 24)
+        Me.ComboBox2.Size = New System.Drawing.Size(254, 24)
         Me.ComboBox2.TabIndex = 104
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(449, 66)
+        Me.Label7.Location = New System.Drawing.Point(395, 66)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(81, 17)
@@ -127,16 +131,16 @@ Partial Class TerimaBarang
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(569, 23)
+        Me.TextBox1.Location = New System.Drawing.Point(515, 23)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(250, 22)
+        Me.TextBox1.Size = New System.Drawing.Size(151, 22)
         Me.TextBox1.TabIndex = 100
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(449, 27)
+        Me.Label6.Location = New System.Drawing.Point(395, 27)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(89, 17)
@@ -285,6 +289,23 @@ Partial Class TerimaBarang
         Me.Label5.TabIndex = 99
         Me.Label5.Text = "Jumlah"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(678, 26)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(91, 17)
+        Me.Label11.TabIndex = 105
+        Me.Label11.Text = "Jatuh Tempo"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(776, 23)
+        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(4)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(229, 22)
+        Me.DateTimePicker2.TabIndex = 106
+        '
         'TerimaBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -339,4 +360,6 @@ Partial Class TerimaBarang
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label11 As Label
 End Class

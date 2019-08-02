@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:DPembelian" ZOrder="2" X="372" Y="145" Height="229" Width="215" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
     <Shape ID="DesignTable:HPembelian" ZOrder="3" X="102" Y="117" Height="134" Width="215" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:Pembelian" ZOrder="1" X="101" Y="298" Height="248" Width="210" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
+    <Shape ID="DesignTable:Pembelian" ZOrder="1" X="101" Y="298" Height="319" Width="241" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="260" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

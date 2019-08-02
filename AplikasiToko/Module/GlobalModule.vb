@@ -8,6 +8,7 @@ Module GlobalModule
     Public SqlAdapter As SqlDataAdapter
     Public userLogin As String
     Public VersiSekarang As String = "1.1.5.5"
+    Public stage = 1 '1=Development 2=Production
     Public IntMonth = Month(Now), IntYear As Integer = Year(Now)
     Sub LoadSetting(TipeServer As Integer)
         Dim filepath As String = "C:\AplikasiToko\setting.txt"
@@ -53,7 +54,9 @@ Module GlobalModule
             SqlAdapter.Fill(DSet, "DataNotaTerima")
             SqlAdapter = New SqlDataAdapter("select tb.KodeBarang, NamaBarang from TbBarang tb, TbSatuan ts where tb.SatuanBarang = ts.KodeSatuan and Stok<=StokPengingat", constring)
             SqlAdapter.Fill(DSet, "DataStokMinim")
-            SqlAdapter = New SqlDataAdapter("select NoNotaTerima from HTerima except select HT.NoNotaTerima from HTerima HT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima UNION select Dr.NoNotaTerima from (select HT.NoNotaTerima, DT.IDBarang from HTerima HT, DTerima DT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima and HT.NoNotaTerima = DT.NoNOtaTerima Except select HTR.NoNotaTerima, DTR.IdBarang from HReturTerima HTR, DReturTerima DTR where HTR.NoNotaReturTerima = DTR.NoNotaReturTerima) DR group by Dr.NoNotaTerima except select NoNotaTerima from HPembelian", constring)
+            'SqlAdapter = New SqlDataAdapter("select NoNotaTerima from HTerima except select HT.NoNotaTerima from HTerima HT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima UNION select Dr.NoNotaTerima from (select HT.NoNotaTerima, DT.IDBarang from HTerima HT, DTerima DT, HReturTerima HTR where HT.NoNotaTerima = HTR.NoNotaTerima and HT.NoNotaTerima = DT.NoNOtaTerima Except select HTR.NoNotaTerima, DTR.IdBarang from HReturTerima HTR, DReturTerima DTR where HTR.NoNotaReturTerima = DTR.NoNotaReturTerima) DR group by Dr.NoNotaTerima except select NoNotaTerima from HPembelian", constring)
+            'SqlAdapter.Fill(DSet, "DataPembelian")
+            SqlAdapter = New SqlDataAdapter("SELECT HT.NoNotaTerima FROM HTerima HT INNER JOIN DTerima DT ON HT.NoNotaTerima = DT.NoNotaTerima WHERE Jumlah-SuksesRetur <> 0 GROUP BY HT.NoNotaTerima, HT.date_i ORDER BY HT.date_i DESC", constring)
             SqlAdapter.Fill(DSet, "DataPembelian")
             SqlAdapter = New SqlDataAdapter("select NoNotaJual, NamaPelanggan  from HJual except select HJ.NoNotaJual, HJ.NamaPelanggan from HJual HJ, HReturJual HTJ where HJ.NoNotaJual = HTJ.NoNotaJual", constring)
             SqlAdapter.Fill(DSet, "DataNotaSiapReturJual")

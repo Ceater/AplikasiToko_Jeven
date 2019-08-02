@@ -3,21 +3,26 @@ Imports System.Data.SqlClient
 
 Module ModuleTerima
     Dim cmd As SqlCommand
-    Sub insertHTerima(nota As String, tgl As String, idstaff As String, notapenjual As String, toko As String)
+    Sub insertHTerima(nota As String, tgl As String, idstaff As String, notapenjual As String, toko As String, duedate As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into HTerima Values(@a,@b,@c,@d,@e)", constring)
+            cmd = New SqlCommand("INSERT INTO HTerima(NoNotaTerima, TglNota, IDStaff, NoNotaPenjual, NamaSupplier, TglJatuhTempo, Date_i, User_i) VALUES(@a,@b,@c,@d,@e,@f,@g,@h)", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", nota))
                 .Add(New SqlParameter("@b", tgl))
                 .Add(New SqlParameter("@c", idstaff))
                 .Add(New SqlParameter("@d", notapenjual))
                 .Add(New SqlParameter("@e", toko))
+                .Add(New SqlParameter("@f", duedate))
+                .Add(New SqlParameter("@g", DateTime.Now))
+                .Add(New SqlParameter("@h", userLogin))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            If stage = 1 Then
+                MsgBox(ex.ToString)
+            End If
             constring.Close()
         End Try
     End Sub
@@ -25,13 +30,14 @@ Module ModuleTerima
     Sub insertDTerima(nota As String, idbarang As String, namabarang As String, satuan As String, jumlah As Double)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into DTerima Values(@a,@b,@c,@d,@e)", constring)
+            cmd = New SqlCommand("INSERT INTO DTerima(NoNotaTerima, IDBarang, NamaBarang, Satuan, Jumlah, SuksesRetur) VALUES(@a,@b,@c,@d,@e,@f)", constring)
             With cmd.Parameters
                 .Add(New SqlParameter("@a", nota))
                 .Add(New SqlParameter("@b", idbarang))
                 .Add(New SqlParameter("@c", namabarang))
                 .Add(New SqlParameter("@d", satuan))
                 .Add(New SqlParameter("@e", jumlah))
+                .Add(New SqlParameter("@f", "0"))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()
@@ -40,6 +46,9 @@ Module ModuleTerima
             Dim stok As Double = getCurrentStok(idbarang) + jumlah
             ins_mutasi(nota, deskripsi, 0, jumlah, stok, userLogin)
         Catch ex As Exception
+            If stage = 1 Then
+                MsgBox(ex.ToString)
+            End If
             constring.Close()
         End Try
     End Sub
@@ -58,6 +67,9 @@ Module ModuleTerima
             End If
             constring.Close()
         Catch ex As Exception
+            If stage = 1 Then
+                MsgBox(ex.ToString)
+            End If
             constring.Close()
         End Try
         Return temp
@@ -95,4 +107,22 @@ Module ModuleTerima
         End Try
         Return temp
     End Function
+
+    Sub updateSuksesRetur(NoNotaTerima As String, IDBarang As String)
+        Try
+            constring.Open()
+            cmd = New SqlCommand("UPDATE DTerima SET SuksesRetur = SuksesRetur + @a WHERE IDBarang = @b", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a", NoNotaTerima))
+                .Add(New SqlParameter("@b", IDBarang))
+            End With
+            cmd.ExecuteNonQuery()
+            constring.Close()
+        Catch ex As Exception
+            If stage = 1 Then
+                MsgBox(ex.ToString)
+            End If
+            constring.Close()
+        End Try
+    End Sub
 End Module

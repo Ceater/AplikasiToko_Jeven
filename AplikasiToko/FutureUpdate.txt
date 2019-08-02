@@ -23,6 +23,7 @@
 -> Tombol manual refresh menggantikan auto refresh 1.1.4.8
 -> Transaksi barang tidak dapat input <= 0 1.1.5.0
 -> Tambah form update progress 1.1.5.1
+-> Laporan Perbagus Ordering LaporanPembelian -> 1.1.5.5 
 
 Bug Fix
 -> Perhitungan subtotal salah, dimana ketika menambahkan langsung dari combobox maka tidak terhitung rumus subtotalnya. 1.1.1
@@ -51,6 +52,7 @@ Bug Fix
 -> Auto login gk bisa logout ->  Done 1.1.5.1
 -> Constring open dan close dimasukkan ke try catch -> Done 1.1.5.2
 -> Tidak bisa menuliskan angka 0.5 di penjualan -> Done 1.1.5.3
+-> Retur jual tidak bisa cari berdasarkan nama -> Done 1.1.5.4
 
 Bug Found
 
@@ -74,3 +76,5 @@ New Feature
 -> Stok tidak bisa minus -> Done 1.1.4.3
 -> Informasi backup sukses -> Done 1.1.4.3
 -> Format nota surat jalan berubah -> Done 1.1.4.6
+-> Tambah form supplier -> Done 1.1.5.5
+-> Nota terima, returterima, pembelian ditambahkan nomor nota dari supplier + nama supplier -> 1.1.5.5

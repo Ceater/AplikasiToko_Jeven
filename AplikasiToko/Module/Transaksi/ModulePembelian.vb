@@ -44,4 +44,17 @@ Module ModulePembelian
         End Try
         Return hsl
     End Function
+
+    Function getTglJatuhTempo(kode As String)
+        Dim tgl As String = ""
+        Try
+            constring.Open()
+            cmd = New SqlCommand("select TglJatuhTempo from HTerima WHERE NoNotaTerima = '" & kode & "'", constring)
+            tgl = cmd.ExecuteScalar
+            constring.Close()
+        Catch ex As Exception
+            constring.Close()
+        End Try
+        Return tgl
+    End Function
 End Module

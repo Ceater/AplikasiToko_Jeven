@@ -103,18 +103,19 @@ Public Class AutoUpdate
             ALTER TABLE dbo.TbKontakSupplier ADD CONSTRAINT
 	            PK_TbKontakSupplier PRIMARY KEY CLUSTERED (IDKontakSupplier) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY];
 
+            ALTER TABLE HTerima ADD TglJatuhTempo date NULL;
+	        ALTER TABLE HTerima ADD Date_i datetime NULL;
+	        ALTER TABLE HTerima ADD User_i varchar(25) NULL;
             ALTER TABLE HTerima ADD NoNotaPenjual varchar(25) NULL;
             ALTER TABLE HTerima ADD NamaSupplier varchar(25) NULL;
-            ALTER TABLE HPembelian ADD NoNotaPenjual varchar(25) NULL;
-            ALTER TABLE HPembelian ADD NamaSupplier varchar(25) NULL;
             ALTER TABLE HReturTerima ADD NoNotaPenjual varchar(25) NULL;
             ALTER TABLE HReturTerima ADD NamaSupplier varchar(25) NULL;
             ALTER TABLE DTerima ADD SuksesRetur float(53) NULL;", constring)
             cmd.ExecuteNonQuery()
             updateBWorker.ReportProgress(40)
             cmd = New SqlCommand("
+                UPDATE HTerima SET Date_i = TglNota;
                 UPDATE HTerima SET NoNotaPenjual = 'NoInfo', NamaSupplier = 'NoInfo';
-                UPDATE HPembelian SET NoNotaPenjual = 'NoInfo', NamaSupplier = 'NoInfo';
                 UPDATE HReturTerima SET NoNotaPenjual = 'NoInfo', NamaSupplier = 'NoInfo';
                 Update DTerima Set SuksesRetur = (ISNULL((Select SUM(Jumlah) FROM HReturTerima HRT INNER JOIN DReturTerima DRT On HRT.NoNotaReturTerima = DRT.NoNotaReturTerima WHERE NoNotaTerima = DTerima.NoNotaTerima And DRT.IDBarang = DTerima.IDBarang),0));
                 ", constring)

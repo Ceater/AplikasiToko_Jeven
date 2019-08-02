@@ -140,10 +140,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSetPembayaran.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet\DSetReturBarang.Designer.vb">
+    <Compile Include="DataSet\DSetPenerimaanBarang.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DSetReturBarang.xsd</DependentUpon>
+      <DependentUpon>DSetPenerimaanBarang.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DSetPenerimaanBarang.vb">
+      <DependentUpon>DSetPenerimaanBarang.xsd</DependentUpon>
     </Compile>
     <Compile Include="Laporan\GrafikLaporan.Designer.vb">
       <DependentUpon>GrafikLaporan.vb</DependentUpon>
@@ -203,11 +206,6 @@
     </Compile>
     <Compile Include="DataSet\DSetPembelian.vb">
       <DependentUpon>DSetPembelian.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet\DSetPenerimaanBarang.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSetPenerimaanBarang.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\DSetPenjualan.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -781,7 +779,6 @@
     <None Include="DataSet\DSetReturBarang.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSetReturBarang.Designer.vb</LastGenOutput>
     </None>
     <None Include="DataSet\DSetReturBarang.xss">
       <DependentUpon>DSetReturBarang.xsd</DependentUpon>

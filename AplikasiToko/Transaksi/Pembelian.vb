@@ -1,44 +1,59 @@
 ﻿Public Class Pembelian
     Dim dtable As DataTable
     Dim drow As DataRow
+    Dim formReady As Boolean = False
+
     Private Sub Pembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            loadNotaTerima()
+            loadNotaTerima(1, 2018)
+            loadListBox()
+            formReady = True
+
+            ComboBox1.SelectedIndex = IntMonth - 1
+            ComboBox2.SelectedIndex = IntYear - 2018
             ListBox1.SelectedIndex = -1
-            ListBox1.SelectedIndex = 0
         Catch ex As Exception
+            If stage = 1 Then
+                MsgBox(ex.ToString)
+            End If
         End Try
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         Try
-            'IDBarang, NamaBarang, Satuan, Jumlah
-            dtable = getDetailBarangTerima(ListBox1.SelectedValue).Tables("DataPembelian")
-            dtable.Columns(0).ColumnName = "Kode Barang"
-            dtable.Columns(1).ColumnName = "Nama Barang"
-            dtable.Columns(2).ColumnName = "Satuan"
-            dtable.Columns(3).ColumnName = "Jumlah"
-            dtable.Columns.Add("Harga Satuan")
-            dtable.Columns.Add("Subtotal")
-            'Max size 600
-            DataGridView1.DataSource = dtable
-            DataGridView1.Columns(0).Width = 90
-            DataGridView1.Columns(1).Width = 200
-            DataGridView1.Columns(2).Width = 60
-            DataGridView1.Columns(3).Width = 50
-            DataGridView1.Columns(4).Width = 100
-            DataGridView1.Columns(5).Width = 100
-            DataGridView1.Columns(0).ReadOnly = True
-            DataGridView1.Columns(1).ReadOnly = True
-            DataGridView1.Columns(2).ReadOnly = True
-            DataGridView1.Columns(3).ReadOnly = True
-            DataGridView1.Columns(5).ReadOnly = True
-            For Each f In DataGridView1.Rows
-                f.cells(4).value = 0
-            Next
-            hitungTotalBarang()
+            If formReady Then
+                'IDBarang, NamaBarang, Satuan, Jumlah
+                dtable = getDetailBarangTerima(ListBox1.SelectedItem).Tables("DataPembelian")
+                dtable.Columns(0).ColumnName = "Kode Barang"
+                dtable.Columns(1).ColumnName = "Nama Barang"
+                dtable.Columns(2).ColumnName = "Satuan"
+                dtable.Columns(3).ColumnName = "Jumlah"
+                dtable.Columns.Add("Harga Satuan")
+                dtable.Columns.Add("Subtotal")
+                'Max size 600
+                DataGridView1.DataSource = dtable
+                Dim temp As Double = DataGridView1.Size.Width
+                DataGridView1.Columns(0).Width = temp * 0.15
+                DataGridView1.Columns(1).Width = temp * 0.29
+                DataGridView1.Columns(2).Width = temp * 0.1
+                DataGridView1.Columns(3).Width = temp * 0.1
+                DataGridView1.Columns(4).Width = temp * 0.15
+                DataGridView1.Columns(5).Width = temp * 0.15
+                DataGridView1.Columns(0).ReadOnly = True
+                DataGridView1.Columns(1).ReadOnly = True
+                DataGridView1.Columns(2).ReadOnly = True
+                DataGridView1.Columns(3).ReadOnly = True
+                DataGridView1.Columns(5).ReadOnly = True
+                For Each f In DataGridView1.Rows
+                    f.cells(4).value = 0
+                Next
+                hitungTotalBarang()
+                Label7.Text = getTglJatuhTempo(ListBox1.SelectedItem)
+            End If
         Catch ex As Exception
-
+            If stage = 1 Then
+                MsgBox(ex.ToString)
+            End If
         End Try
     End Sub
 
@@ -69,7 +84,7 @@
         Dim noPembelian As Integer = getLastNoPembelian()
         Dim tanggalan As String = DateTimePicker1.Value.Year & "/" & DateTimePicker1.Value.Month & "/" & DateTimePicker1.Value.Day
         If MsgBox("Apakah Kamu Yakin?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            insertHPembelian(noPembelian, ListBox1.SelectedValue, Label2.Text, tanggalan)
+            insertHPembelian(noPembelian, ListBox1.SelectedItem, Label2.Text, tanggalan)
             Dim rows As Integer = 0
             For Each f In DataGridView1.Rows
                 insertDPembelian(noPembelian, f.cells(0).Value, f.cells(1).Value, f.cells(2).Value, f.cells(4).Value, f.cells(3).Value, f.cells(5).Value)
@@ -77,6 +92,19 @@
             Next
             LoadDataSet()
             MsgBox("Transaksi Berhasil")
+        End If
+    End Sub
+
+    Private Sub searchNota(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged, ComboBox2.SelectedIndexChanged
+        If formReady Then
+            loadListBox()
+            TextBox2.Text = ""
+        End If
+    End Sub
+
+    Private Sub TextBox2_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBox2.KeyUp
+        If formReady Then
+            loadListBox()
         End If
     End Sub
 
@@ -89,12 +117,6 @@
         End If
         Return s
     End Function
-
-    Sub loadNotaTerima()
-        ListBox1.DataSource = DSet.Tables("DataPembelian")
-        ListBox1.DisplayMember = "NoNotaTerima"
-        ListBox1.ValueMember = "NoNotaTerima"
-    End Sub
 
     Sub hitungTotalBayar()
         Try
@@ -118,5 +140,20 @@
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Sub loadListBox()
+        Dim bln = 0, thn As Integer = 0
+        bln = ComboBox1.SelectedIndex + 1
+        thn = ComboBox2.SelectedIndex + 2018
+        Dim hasil As ArrayList = loadNotaTerima(bln, thn, TextBox2.Text)
+        ListBox1.Items.Clear()
+        If hasil.Count <> 0 Then
+            For i = 0 To hasil.Count - 1
+                ListBox1.Items.Add(hasil.Item(i))
+            Next
+            ListBox1.SelectedIndex = 0
+        Else
+        End If
     End Sub
 End Class

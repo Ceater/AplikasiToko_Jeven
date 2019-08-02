@@ -1,6 +1,8 @@
 ﻿Public Class ReturTerima
     Dim staff As String = ""
     Dim DataBarang(99) As Integer
+    Dim nomorNotaTerima As String = ""
+
     Public Sub New(ByVal id As String)
         InitializeComponent()
         staff = id
@@ -57,10 +59,11 @@
                     End If
                     If result = DialogResult.Yes Then
                         Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
-                        insertHReturTerima(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff)
+                        insertHReturTerima(TextBox1.Text, ComboBox1.SelectedValue, tgl, staff, Label6.Text, Label7.Text)
                         For Each f As DataGridViewRow In Me.DataGridView1.Rows
                             If f.Cells(3).Value >= 1 Then
                                 insertDReturTerima(TextBox1.Text, f.Cells(0).Value, f.Cells(1).Value, f.Cells(2).Value, f.Cells(3).Value)
+                                updateSuksesRetur(nomorNotaTerima, f.Cells(0).Value)
                                 updateStok(-f.Cells(3).Value, f.Cells(0).Value)
                             End If
                         Next
@@ -86,6 +89,7 @@
             Label7.Text = DetailNota(2)
             Label10.Text = DetailNota(3)
 
+            nomorNotaTerima = DetailNota(0)
             DataGridView1.DataSource = DT
             setGv()
             For Each f As DataRow In DT.Rows

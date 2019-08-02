@@ -54,6 +54,8 @@ Partial Class Supplier
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.Control
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
@@ -64,7 +66,7 @@ Partial Class Supplier
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(507, 240)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridView1.TabIndex = 11
         '
         'Label1
         '
@@ -80,7 +82,7 @@ Partial Class Supplier
         Me.TextBox1.Location = New System.Drawing.Point(128, 32)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(207, 22)
-        Me.TextBox1.TabIndex = 2
+        Me.TextBox1.TabIndex = 0
         '
         'GroupBox1
         '
@@ -103,7 +105,7 @@ Partial Class Supplier
         Me.Button2.Location = New System.Drawing.Point(416, 97)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 40)
-        Me.Button2.TabIndex = 6
+        Me.Button2.TabIndex = 4
         Me.Button2.Text = "Hapus"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -121,7 +123,7 @@ Partial Class Supplier
         Me.Button1.Location = New System.Drawing.Point(341, 51)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(150, 40)
-        Me.Button1.TabIndex = 6
+        Me.Button1.TabIndex = 2
         Me.Button1.Text = "Tambah"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -131,14 +133,14 @@ Partial Class Supplier
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(207, 89)
-        Me.TextBox2.TabIndex = 2
+        Me.TextBox2.TabIndex = 1
         '
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(341, 97)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 40)
-        Me.Button3.TabIndex = 6
+        Me.Button3.TabIndex = 3
         Me.Button3.Text = "Reset"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -156,7 +158,7 @@ Partial Class Supplier
         Me.TextBox5.Location = New System.Drawing.Point(113, 81)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(191, 22)
-        Me.TextBox5.TabIndex = 5
+        Me.TextBox5.TabIndex = 7
         '
         'DataGridView2
         '
@@ -175,7 +177,7 @@ Partial Class Supplier
         Me.DataGridView2.RowTemplate.Height = 24
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView2.Size = New System.Drawing.Size(494, 240)
-        Me.DataGridView2.TabIndex = 4
+        Me.DataGridView2.TabIndex = 12
         '
         'Label4
         '
@@ -227,7 +229,7 @@ Partial Class Supplier
         Me.Button5.Location = New System.Drawing.Point(329, 47)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(150, 40)
-        Me.Button5.TabIndex = 11
+        Me.Button5.TabIndex = 8
         Me.Button5.Text = "Tambah"
         Me.Button5.UseVisualStyleBackColor = True
         '
@@ -236,7 +238,7 @@ Partial Class Supplier
         Me.Button6.Location = New System.Drawing.Point(329, 93)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 40)
-        Me.Button6.TabIndex = 12
+        Me.Button6.TabIndex = 9
         Me.Button6.Text = "Reset"
         Me.Button6.UseVisualStyleBackColor = True
         '
@@ -254,7 +256,7 @@ Partial Class Supplier
         Me.TextBox4.Location = New System.Drawing.Point(113, 53)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(191, 22)
-        Me.TextBox4.TabIndex = 8
+        Me.TextBox4.TabIndex = 6
         '
         'Label6
         '
@@ -271,7 +273,7 @@ Partial Class Supplier
         Me.TextBox3.Location = New System.Drawing.Point(113, 25)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(191, 22)
-        Me.TextBox3.TabIndex = 7
+        Me.TextBox3.TabIndex = 5
         '
         'Supplier
         '

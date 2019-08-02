@@ -7,6 +7,7 @@
 
     Private Sub TerimaBarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DateTimePicker1.CustomFormat = Application.CurrentCulture.DateTimeFormat.LongDatePattern
+        DateTimePicker2.CustomFormat = Application.CurrentCulture.DateTimeFormat.LongDatePattern
     End Sub
 
     Private Sub Penjualan_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
@@ -23,15 +24,19 @@
     Private Sub Proses_Click(sender As Object, e As EventArgs) Handles Proses.Click
         If NotaTxt.Text <> "" And dgv.RowCount <> 0 Then
             NotaTxt.Text = getNotaTerima()
-            Dim result As Integer = MessageBox.Show("Apakah semua barang sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
+            If TextBox1.Text = "" Then
+                MsgBox("Nota Penjual Apakah Kosong?")
+            End If
+            Dim result As Integer = MessageBox.Show("Apakah semua barang dan nota sudah benar?", "Peringatan", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
                 Dim tgl As String = DateTimePicker1.Value.Year & "-" & DateTimePicker1.Value.Month & "-" & DateTimePicker1.Value.Day
+                Dim duedate As String = DateTimePicker2.Value.Year & "-" & DateTimePicker2.Value.Month & "-" & DateTimePicker2.Value.Day
                 Dim nonotapenjual As String = TextBox1.Text
-                Dim namatoko As String = ComboBox2.SelectedValue
+                Dim namatoko As String = ComboBox2.Text
                 If cekNotaTerima(NotaTxt.Text) Then
                     MsgBox("Nota sudah terdaftar")
                 Else
-                    insertHTerima(NotaTxt.Text, tgl, staff, nonotapenjual, namatoko)
+                    insertHTerima(NotaTxt.Text, tgl, staff, nonotapenjual, namatoko, duedate)
                     For Each f In dgv.Rows
                         Dim Qty As Double = 0
                         Qty = CDbl(Val(f.Cells(3).Value.Replace(",", ".")))

@@ -144,7 +144,8 @@ SELECT NoPembelian, NoNotaTerima, GrandTotal FROM HPembelian WHERE (NoPembelian 
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        HP.NoPembelian, HP.NoNotaTerima, HP.GrandTotal, HP.TglBayar, DP.IDBarang, DP.NamaBarang, DP.Satuan, DP.HargaSatuan, DP.Jumlah, DP.Subtotal
 FROM            HPembelian AS HP INNER JOIN
-                         DPembelian AS DP ON HP.NoPembelian = DP.NoPembelian</CommandText>
+                         DPembelian AS DP ON HP.NoPembelian = DP.NoPembelian
+ORDER BY HP.TglBayar DESC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -172,7 +173,7 @@ FROM            HPembelian AS HP INNER JOIN
   <xs:element name="DSetPembelian" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetPembelian" msprop:Generator_UserDSName="DSetPembelian">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DPembelian" msprop:Generator_TableClassName="DPembelianDataTable" msprop:Generator_TableVarName="tableDPembelian" msprop:Generator_TablePropName="DPembelian" msprop:Generator_RowDeletingName="DPembelianRowDeleting" msprop:Generator_RowChangingName="DPembelianRowChanging" msprop:Generator_RowEvHandlerName="DPembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="DPembelianRowDeleted" msprop:Generator_UserTableName="DPembelian" msprop:Generator_RowChangedName="DPembelianRowChanged" msprop:Generator_RowEvArgName="DPembelianRowChangeEvent" msprop:Generator_RowClassName="DPembelianRow">
+        <xs:element name="DPembelian" msprop:Generator_TableClassName="DPembelianDataTable" msprop:Generator_TableVarName="tableDPembelian" msprop:Generator_RowChangedName="DPembelianRowChanged" msprop:Generator_TablePropName="DPembelian" msprop:Generator_RowDeletingName="DPembelianRowDeleting" msprop:Generator_RowChangingName="DPembelianRowChanging" msprop:Generator_RowEvHandlerName="DPembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="DPembelianRowDeleted" msprop:Generator_RowClassName="DPembelianRow" msprop:Generator_UserTableName="DPembelian" msprop:Generator_RowEvArgName="DPembelianRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoDPembelian" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoDPembelian" msprop:Generator_ColumnPropNameInRow="NoDPembelian" msprop:Generator_ColumnPropNameInTable="NoDPembelianColumn" msprop:Generator_UserColumnName="NoDPembelian" type="xs:int" />
@@ -204,7 +205,7 @@ FROM            HPembelian AS HP INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HPembelian" msprop:Generator_TableClassName="HPembelianDataTable" msprop:Generator_TableVarName="tableHPembelian" msprop:Generator_TablePropName="HPembelian" msprop:Generator_RowDeletingName="HPembelianRowDeleting" msprop:Generator_RowChangingName="HPembelianRowChanging" msprop:Generator_RowEvHandlerName="HPembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="HPembelianRowDeleted" msprop:Generator_UserTableName="HPembelian" msprop:Generator_RowChangedName="HPembelianRowChanged" msprop:Generator_RowEvArgName="HPembelianRowChangeEvent" msprop:Generator_RowClassName="HPembelianRow">
+        <xs:element name="HPembelian" msprop:Generator_TableClassName="HPembelianDataTable" msprop:Generator_TableVarName="tableHPembelian" msprop:Generator_RowChangedName="HPembelianRowChanged" msprop:Generator_TablePropName="HPembelian" msprop:Generator_RowDeletingName="HPembelianRowDeleting" msprop:Generator_RowChangingName="HPembelianRowChanging" msprop:Generator_RowEvHandlerName="HPembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="HPembelianRowDeleted" msprop:Generator_RowClassName="HPembelianRow" msprop:Generator_UserTableName="HPembelian" msprop:Generator_RowEvArgName="HPembelianRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoPembelian" msprop:Generator_ColumnVarNameInTable="columnNoPembelian" msprop:Generator_ColumnPropNameInRow="NoPembelian" msprop:Generator_ColumnPropNameInTable="NoPembelianColumn" msprop:Generator_UserColumnName="NoPembelian" type="xs:int" />
@@ -219,7 +220,7 @@ FROM            HPembelian AS HP INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pembelian" msprop:Generator_TableClassName="PembelianDataTable" msprop:Generator_TableVarName="tablePembelian" msprop:Generator_TablePropName="Pembelian" msprop:Generator_RowDeletingName="PembelianRowDeleting" msprop:Generator_RowChangingName="PembelianRowChanging" msprop:Generator_RowEvHandlerName="PembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="PembelianRowDeleted" msprop:Generator_UserTableName="Pembelian" msprop:Generator_RowChangedName="PembelianRowChanged" msprop:Generator_RowEvArgName="PembelianRowChangeEvent" msprop:Generator_RowClassName="PembelianRow">
+        <xs:element name="Pembelian" msprop:Generator_TableClassName="PembelianDataTable" msprop:Generator_TableVarName="tablePembelian" msprop:Generator_RowChangedName="PembelianRowChanged" msprop:Generator_TablePropName="Pembelian" msprop:Generator_RowDeletingName="PembelianRowDeleting" msprop:Generator_RowChangingName="PembelianRowChanging" msprop:Generator_RowEvHandlerName="PembelianRowChangeEventHandler" msprop:Generator_RowDeletedName="PembelianRowDeleted" msprop:Generator_RowClassName="PembelianRow" msprop:Generator_UserTableName="Pembelian" msprop:Generator_RowEvArgName="PembelianRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoPembelian" msprop:Generator_ColumnVarNameInTable="columnNoPembelian" msprop:Generator_ColumnPropNameInRow="NoPembelian" msprop:Generator_ColumnPropNameInTable="NoPembelianColumn" msprop:Generator_UserColumnName="NoPembelian" type="xs:int" />

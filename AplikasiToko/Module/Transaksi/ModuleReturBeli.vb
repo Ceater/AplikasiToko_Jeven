@@ -35,15 +35,17 @@ Module ModuleReturBeli
         Return result
     End Function
 
-    Sub insertHReturTerima(NoReturTerima As String, NoNotaTerima As String, Tgl As String, id As String)
+    Sub insertHReturTerima(NoReturTerima As String, NoNotaTerima As String, Tgl As String, id As String, notapenjual As String, supname As String)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into HReturTerima values(@a,@b,@c,@d)", constring)
+            cmd = New SqlCommand("insert into HReturTerima(NoNotaReturTerima, NoNotaTerima, TglReturTerima, IDStaff, NoNotaPenjual, NamaSupplier) values(@a,@b,@c,@d,@e,@f)", constring)
             With cmd.Parameters
                 cmd.Parameters.Add(New SqlParameter("@a", NoReturTerima))
                 cmd.Parameters.Add(New SqlParameter("@b", NoNotaTerima))
                 cmd.Parameters.Add(New SqlParameter("@c", Tgl))
                 cmd.Parameters.Add(New SqlParameter("@d", id))
+                cmd.Parameters.Add(New SqlParameter("@e", notapenjual))
+                cmd.Parameters.Add(New SqlParameter("@f", supname))
             End With
             cmd.ExecuteNonQuery()
             constring.Close()
@@ -55,7 +57,7 @@ Module ModuleReturBeli
     Sub insertDReturTerima(NoReturTerima As String, idbarang As String, nama As String, satuan As String, jumlah As Double)
         Try
             constring.Open()
-            cmd = New SqlCommand("insert into DReturTerima values(@a,@b,@c,@d,@e)", constring)
+            cmd = New SqlCommand("INSERT INTO DReturTerima(NoNotaReturTerima, IDBarang, NamaBarang, Satuan, Jumlah) values(@a,@b,@c,@d,@e)", constring)
             With cmd.Parameters
                 cmd.Parameters.Add(New SqlParameter("@a", NoReturTerima))
                 cmd.Parameters.Add(New SqlParameter("@b", idbarang))
@@ -133,5 +135,36 @@ Module ModuleReturBeli
         Dim str1 As String = ""
         res1 = getDataTB("NoNotaTerima", "DTerima", "Jumlah - SuksesRetur >= 1", "NoTerima DESC", "NoTerima, NoNotaTerima")
         Return res1
+    End Function
+
+    Function loadNotaTerima(searchMonth As Integer, searchYear As Integer, Optional keyword As String = "%") As ArrayList
+        If keyword = "" Then
+            keyword = "%"
+        End If
+        keyword = "%" & keyword & "%"
+        Dim x As New ArrayList
+        Try
+            constring.Open()
+            cmd = New SqlCommand("SELECT HT.NoNotaTerima FROM HTerima HT INNER JOIN DTerima DT ON HT.NoNotaTerima = DT.NoNotaTerima 
+	                            WHERE Jumlah-SuksesRetur <> 0 AND MONTH(HT.TglNota) = @a AND YEAR(HT.TglNota) = @b AND HT.NoNotaTerima LIKE @c
+	                            GROUP BY HT.NoNotaTerima, HT.date_i 
+	                            ORDER BY HT.date_i DESC;", constring)
+            With cmd.Parameters
+                .Add(New SqlParameter("@a", searchMonth))
+                .Add(New SqlParameter("@b", searchYear))
+                .Add(New SqlParameter("@c", keyword))
+            End With
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            While reader.Read
+                x.Add(reader.GetValue(0))
+            End While
+            constring.Close()
+        Catch ex As Exception
+            If stage = 1 Then
+                MsgBox(ex.ToString)
+            End If
+            constring.Close()
+        End Try
+        Return x
     End Function
 End Module
