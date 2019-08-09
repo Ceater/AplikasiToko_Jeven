@@ -137,22 +137,25 @@ Module ModuleReturBeli
         Return res1
     End Function
 
-    Function loadNotaTerima(searchMonth As Integer, searchYear As Integer, Optional keyword As String = "%") As ArrayList
+    Function loadNotaTerima(Optional jenis As String = "", Optional keyword As String = "%") As ArrayList
         If keyword = "" Then
             keyword = "%"
+        End If
+        If jenis = "Nama Supplier" Or jenis = "" Then
+            jenis = "HT.NamaSupplier"
+        ElseIf jenis = "Kode Nota" Then
+            jenis = "HT.NoNotaTerima"
         End If
         keyword = "%" & keyword & "%"
         Dim x As New ArrayList
         Try
             constring.Open()
             cmd = New SqlCommand("SELECT HT.NoNotaTerima FROM HTerima HT INNER JOIN DTerima DT ON HT.NoNotaTerima = DT.NoNotaTerima 
-	                            WHERE Jumlah-SuksesRetur <> 0 AND MONTH(HT.TglNota) = @a AND YEAR(HT.TglNota) = @b AND HT.NoNotaTerima LIKE @c
+	                            WHERE Jumlah-SuksesRetur <> 0 AND " & jenis & " LIKE @a
 	                            GROUP BY HT.NoNotaTerima, HT.date_i 
 	                            ORDER BY HT.date_i DESC;", constring)
             With cmd.Parameters
-                .Add(New SqlParameter("@a", searchMonth))
-                .Add(New SqlParameter("@b", searchYear))
-                .Add(New SqlParameter("@c", keyword))
+                .Add(New SqlParameter("@a", keyword))
             End With
             Dim reader As SqlDataReader = cmd.ExecuteReader
             While reader.Read

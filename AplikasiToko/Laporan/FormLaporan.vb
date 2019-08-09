@@ -88,19 +88,19 @@ Public Class FormLaporan
                 End If
             ElseIf Jenis = "LaporanTerimaBarang" Then
                 If mode = "1" Then
-                    cmd.CommandText = "SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.IDBarang, D.NamaBarang, D.Satuan, D.Jumlah, CONVERT(date, H.Date_i) AS Date_i From HTerima H, DTerima D Where H.NoNotaTerima = D.NoNotaTerima"
+                    cmd.CommandText = "SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.IDBarang, D.NamaBarang, D.Satuan, D.Jumlah, CONVERT(date, H.Date_i) AS Date_i, H.TglJatuhTempo From HTerima H, DTerima D Where H.NoNotaTerima = D.NoNotaTerima"
                     adapt.Fill(dataset, "Penerimaan")
                     rep = New LaporanPenerimaan
                     rep.SetDataSource(dataset)
                 ElseIf mode = "2" Then
-                    cmd.CommandText = "SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.IDBarang, D.NamaBarang, D.Satuan, D.Jumlah From HTerima H, DTerima D Where H.NoNotaTerima = D.NoNotaTerima and H.TglNota BETWEEN @tglAwal AND @tglAkhir ORDER BY H.TglNota DESC"
+                    cmd.CommandText = "SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.IDBarang, D.NamaBarang, D.Satuan, D.Jumlah, CONVERT(date, H.Date_i) AS Date_i, H.TglJatuhTempo From HTerima H, DTerima D Where H.NoNotaTerima = D.NoNotaTerima and H.TglNota BETWEEN @tglAwal AND @tglAkhir ORDER BY H.TglNota DESC"
                     cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM/dd/yyyy") & " 00:00:00")
                     cmd.Parameters.AddWithValue("@tglakhir", tglAkhir.ToString("MM/dd/yyyy") & " 23:59:59")
                     adapt.Fill(dataset, "Penerimaan")
                     rep = New LaporanPenerimaan
                     rep.SetDataSource(dataset)
                 ElseIf mode = "3" Then
-                    cmd.CommandText = "SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.IDBarang, D.NamaBarang, D.Satuan, D.Jumlah From HTerima H, DTerima D Where H.NoNotaTerima = D.NoNotaTerima and month(H.TglNota) = @tglawal ORDER BY H.TglNota DESC"
+                    cmd.CommandText = "SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.IDBarang, D.NamaBarang, D.Satuan, D.Jumlah, CONVERT(date, H.Date_i) AS Date_i, H.TglJatuhTempo From HTerima H, DTerima D Where H.NoNotaTerima = D.NoNotaTerima and month(H.TglNota) = @tglawal ORDER BY H.TglNota DESC"
                     cmd.Parameters.AddWithValue("@tglawal", tglAwal.ToString("MM"))
                     adapt.Fill(dataset, "Penerimaan")
                     rep = New LaporanPenerimaan

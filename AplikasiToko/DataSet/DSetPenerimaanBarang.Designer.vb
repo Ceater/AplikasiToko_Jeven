@@ -1084,6 +1084,8 @@ Partial Public Class DSetPenerimaanBarang
         
         Private columnJumlah As Global.System.Data.DataColumn
         
+        Private columnTglJatuhTempo As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1200,6 +1202,14 @@ Partial Public Class DSetPenerimaanBarang
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TglJatuhTempoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTglJatuhTempo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1236,9 +1246,9 @@ Partial Public Class DSetPenerimaanBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddPenerimaanRow(ByVal NoNotaTerima As String, ByVal TglNota As Date, ByVal IDStaff As String, ByVal IDBarang As String, ByVal Satuan As String, ByVal NoNotaPenjual As String, ByVal NamaSupplier As String, ByVal NamaBarang As String, ByVal Date_i As Date, ByVal Jumlah As Double) As PenerimaanRow
+        Public Overloads Function AddPenerimaanRow(ByVal NoNotaTerima As String, ByVal TglNota As Date, ByVal IDStaff As String, ByVal IDBarang As String, ByVal Satuan As String, ByVal NoNotaPenjual As String, ByVal NamaSupplier As String, ByVal NamaBarang As String, ByVal Date_i As Date, ByVal Jumlah As Double, ByVal TglJatuhTempo As Date) As PenerimaanRow
             Dim rowPenerimaanRow As PenerimaanRow = CType(Me.NewRow,PenerimaanRow)
-            Dim columnValuesArray() As Object = New Object() {NoNotaTerima, TglNota, IDStaff, IDBarang, Satuan, NoNotaPenjual, NamaSupplier, NamaBarang, Date_i, Jumlah}
+            Dim columnValuesArray() As Object = New Object() {NoNotaTerima, TglNota, IDStaff, IDBarang, Satuan, NoNotaPenjual, NamaSupplier, NamaBarang, Date_i, Jumlah, TglJatuhTempo}
             rowPenerimaanRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPenerimaanRow)
             Return rowPenerimaanRow
@@ -1277,6 +1287,7 @@ Partial Public Class DSetPenerimaanBarang
             Me.columnNamaBarang = MyBase.Columns("NamaBarang")
             Me.columnDate_i = MyBase.Columns("Date_i")
             Me.columnJumlah = MyBase.Columns("Jumlah")
+            Me.columnTglJatuhTempo = MyBase.Columns("TglJatuhTempo")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1302,6 +1313,8 @@ Partial Public Class DSetPenerimaanBarang
             MyBase.Columns.Add(Me.columnDate_i)
             Me.columnJumlah = New Global.System.Data.DataColumn("Jumlah", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnJumlah)
+            Me.columnTglJatuhTempo = New Global.System.Data.DataColumn("TglJatuhTempo", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTglJatuhTempo)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNoNotaTerima}, true))
             Me.columnNoNotaTerima.AllowDBNull = false
             Me.columnNoNotaTerima.Unique = true
@@ -1879,6 +1892,21 @@ Partial Public Class DSetPenerimaanBarang
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property TglJatuhTempo() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablePenerimaan.TglJatuhTempoColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TglJatuhTempo' in table 'Penerimaan' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePenerimaan.TglJatuhTempoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsNoNotaPenjualNull() As Boolean
             Return Me.IsNull(Me.tablePenerimaan.NoNotaPenjualColumn)
         End Function
@@ -1911,6 +1939,18 @@ Partial Public Class DSetPenerimaanBarang
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetDate_iNull()
             Me(Me.tablePenerimaan.Date_iColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTglJatuhTempoNull() As Boolean
+            Return Me.IsNull(Me.tablePenerimaan.TglJatuhTempoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTglJatuhTempoNull()
+            Me(Me.tablePenerimaan.TglJatuhTempoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3104,6 +3144,7 @@ Namespace DSetPenerimaanBarangTableAdapters
             tableMapping.ColumnMappings.Add("NamaBarang", "NamaBarang")
             tableMapping.ColumnMappings.Add("Date_i", "Date_i")
             tableMapping.ColumnMappings.Add("Jumlah", "Jumlah")
+            tableMapping.ColumnMappings.Add("TglJatuhTempo", "TglJatuhTempo")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -3121,9 +3162,9 @@ Namespace DSetPenerimaanBarangTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.I"& _ 
-                "DBarang, D.NamaBarang, D.Satuan, D.Jumlah, CONVERT(date, H.Date_i) AS Date_i"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
-                "OM     HTerima AS H INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  DTerima AS D ON H.NoNotaTerima"& _ 
-                " = D.NoNotaTerima"
+                "DBarang, D.NamaBarang, D.Satuan, D.Jumlah, CONVERT(date, H.Date_i) AS Date_i, H."& _ 
+                "TglJatuhTempo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     HTerima AS H INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  DTerima AS D "& _ 
+                "ON H.NoNotaTerima = D.NoNotaTerima"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

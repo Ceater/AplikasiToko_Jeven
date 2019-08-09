@@ -8,7 +8,7 @@ Module GlobalModule
     Public SqlAdapter As SqlDataAdapter
     Public userLogin As String
     Public VersiSekarang As String = "1.1.5.5"
-    Public stage = 1 '1=Development 2=Production
+    Public stage = 2 '1=Development 2=Production
     Public IntMonth = Month(Now), IntYear As Integer = Year(Now)
     Sub LoadSetting(TipeServer As Integer)
         Dim filepath As String = "C:\AplikasiToko\setting.txt"

@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:DTerima" ZOrder="3" X="70" Y="70" Height="250" Width="227" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
     <Shape ID="DesignTable:HTerima" ZOrder="2" X="367" Y="69" Height="273" Width="227" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="214" />
-    <Shape ID="DesignTable:Penerimaan" ZOrder="1" X="664" Y="70" Height="319" Width="251" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="260" />
+    <Shape ID="DesignTable:Penerimaan" ZOrder="1" X="664" Y="70" Height="342" Width="251" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="283" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

@@ -166,7 +166,7 @@ SELECT NoNotaTerima, TglNota, IDStaff, TglJatuhTempo, Date_i, User_i, NoNotaPenj
               <DbSource ConnectionRef="TestServer (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.IDBarang, D.NamaBarang, D.Satuan, D.Jumlah, CONVERT(date, H.Date_i) AS Date_i
+                    <CommandText>SELECT H.NoNotaTerima, H.TglNota, H.IDStaff, H.NoNotaPenjual, H.NamaSupplier, D.IDBarang, D.NamaBarang, D.Satuan, D.Jumlah, CONVERT(date, H.Date_i) AS Date_i, H.TglJatuhTempo
 FROM     HTerima AS H INNER JOIN
                   DTerima AS D ON H.NoNotaTerima = D.NoNotaTerima</CommandText>
                     <Parameters />
@@ -185,6 +185,7 @@ FROM     HTerima AS H INNER JOIN
               <Mapping SourceColumn="NamaBarang" DataSetColumn="NamaBarang" />
               <Mapping SourceColumn="Date_i" DataSetColumn="Date_i" />
               <Mapping SourceColumn="Jumlah" DataSetColumn="Jumlah" />
+              <Mapping SourceColumn="TglJatuhTempo" DataSetColumn="TglJatuhTempo" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -196,7 +197,7 @@ FROM     HTerima AS H INNER JOIN
   <xs:element name="DSetPenerimaanBarang" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSetPenerimaanBarang" msprop:Generator_UserDSName="DSetPenerimaanBarang">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTerima" msprop:Generator_TableClassName="DTerimaDataTable" msprop:Generator_TableVarName="tableDTerima" msprop:Generator_RowChangedName="DTerimaRowChanged" msprop:Generator_TablePropName="DTerima" msprop:Generator_RowDeletingName="DTerimaRowDeleting" msprop:Generator_RowChangingName="DTerimaRowChanging" msprop:Generator_RowEvHandlerName="DTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTerimaRowDeleted" msprop:Generator_RowClassName="DTerimaRow" msprop:Generator_UserTableName="DTerima" msprop:Generator_RowEvArgName="DTerimaRowChangeEvent">
+        <xs:element name="DTerima" msprop:Generator_TableClassName="DTerimaDataTable" msprop:Generator_TableVarName="tableDTerima" msprop:Generator_TablePropName="DTerima" msprop:Generator_RowDeletingName="DTerimaRowDeleting" msprop:Generator_RowChangingName="DTerimaRowChanging" msprop:Generator_RowEvHandlerName="DTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTerimaRowDeleted" msprop:Generator_UserTableName="DTerima" msprop:Generator_RowChangedName="DTerimaRowChanged" msprop:Generator_RowEvArgName="DTerimaRowChangeEvent" msprop:Generator_RowClassName="DTerimaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoTerima" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNoTerima" msprop:Generator_ColumnPropNameInRow="NoTerima" msprop:Generator_ColumnPropNameInTable="NoTerimaColumn" msprop:Generator_UserColumnName="NoTerima" type="xs:int" />
@@ -233,7 +234,7 @@ FROM     HTerima AS H INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HTerima" msprop:Generator_TableClassName="HTerimaDataTable" msprop:Generator_TableVarName="tableHTerima" msprop:Generator_RowChangedName="HTerimaRowChanged" msprop:Generator_TablePropName="HTerima" msprop:Generator_RowDeletingName="HTerimaRowDeleting" msprop:Generator_RowChangingName="HTerimaRowChanging" msprop:Generator_RowEvHandlerName="HTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="HTerimaRowDeleted" msprop:Generator_RowClassName="HTerimaRow" msprop:Generator_UserTableName="HTerima" msprop:Generator_RowEvArgName="HTerimaRowChangeEvent">
+        <xs:element name="HTerima" msprop:Generator_TableClassName="HTerimaDataTable" msprop:Generator_TableVarName="tableHTerima" msprop:Generator_TablePropName="HTerima" msprop:Generator_RowDeletingName="HTerimaRowDeleting" msprop:Generator_RowChangingName="HTerimaRowChanging" msprop:Generator_RowEvHandlerName="HTerimaRowChangeEventHandler" msprop:Generator_RowDeletedName="HTerimaRowDeleted" msprop:Generator_UserTableName="HTerima" msprop:Generator_RowChangedName="HTerimaRowChanged" msprop:Generator_RowEvArgName="HTerimaRowChangeEvent" msprop:Generator_RowClassName="HTerimaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaTerima" msprop:Generator_ColumnVarNameInTable="columnNoNotaTerima" msprop:Generator_ColumnPropNameInRow="NoNotaTerima" msprop:Generator_ColumnPropNameInTable="NoNotaTerimaColumn" msprop:Generator_UserColumnName="NoNotaTerima">
@@ -277,7 +278,7 @@ FROM     HTerima AS H INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Penerimaan" msprop:Generator_TableClassName="PenerimaanDataTable" msprop:Generator_TableVarName="tablePenerimaan" msprop:Generator_RowChangedName="PenerimaanRowChanged" msprop:Generator_TablePropName="Penerimaan" msprop:Generator_RowDeletingName="PenerimaanRowDeleting" msprop:Generator_RowChangingName="PenerimaanRowChanging" msprop:Generator_RowEvHandlerName="PenerimaanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenerimaanRowDeleted" msprop:Generator_RowClassName="PenerimaanRow" msprop:Generator_UserTableName="Penerimaan" msprop:Generator_RowEvArgName="PenerimaanRowChangeEvent">
+        <xs:element name="Penerimaan" msprop:Generator_TableClassName="PenerimaanDataTable" msprop:Generator_TableVarName="tablePenerimaan" msprop:Generator_TablePropName="Penerimaan" msprop:Generator_RowDeletingName="PenerimaanRowDeleting" msprop:Generator_RowChangingName="PenerimaanRowChanging" msprop:Generator_RowEvHandlerName="PenerimaanRowChangeEventHandler" msprop:Generator_RowDeletedName="PenerimaanRowDeleted" msprop:Generator_UserTableName="Penerimaan" msprop:Generator_RowChangedName="PenerimaanRowChanged" msprop:Generator_RowEvArgName="PenerimaanRowChangeEvent" msprop:Generator_RowClassName="PenerimaanRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoNotaTerima" msprop:Generator_ColumnVarNameInTable="columnNoNotaTerima" msprop:Generator_ColumnPropNameInRow="NoNotaTerima" msprop:Generator_ColumnPropNameInTable="NoNotaTerimaColumn" msprop:Generator_UserColumnName="NoNotaTerima">
@@ -332,6 +333,7 @@ FROM     HTerima AS H INNER JOIN
               </xs:element>
               <xs:element name="Date_i" msprop:Generator_ColumnVarNameInTable="columnDate_i" msprop:Generator_ColumnPropNameInRow="Date_i" msprop:Generator_ColumnPropNameInTable="Date_iColumn" msprop:Generator_UserColumnName="Date_i" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Jumlah" msprop:Generator_ColumnVarNameInTable="columnJumlah" msprop:Generator_ColumnPropNameInRow="Jumlah" msprop:Generator_ColumnPropNameInTable="JumlahColumn" msprop:Generator_UserColumnName="Jumlah" type="xs:double" />
+              <xs:element name="TglJatuhTempo" msprop:Generator_ColumnVarNameInTable="columnTglJatuhTempo" msprop:Generator_ColumnPropNameInRow="TglJatuhTempo" msprop:Generator_ColumnPropNameInTable="TglJatuhTempoColumn" msprop:Generator_UserColumnName="TglJatuhTempo" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

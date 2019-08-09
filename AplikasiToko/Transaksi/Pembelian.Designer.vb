@@ -38,7 +38,6 @@ Partial Class Pembelian
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -209,7 +208,6 @@ Partial Class Pembelian
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.TextBox2)
-        Me.GroupBox5.Controls.Add(Me.ComboBox2)
         Me.GroupBox5.Controls.Add(Me.ComboBox1)
         Me.GroupBox5.Location = New System.Drawing.Point(24, 15)
         Me.GroupBox5.Name = "GroupBox5"
@@ -225,24 +223,14 @@ Partial Class Pembelian
         Me.TextBox2.Size = New System.Drawing.Size(241, 22)
         Me.TextBox2.TabIndex = 2
         '
-        'ComboBox2
-        '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
-        Me.ComboBox2.Location = New System.Drawing.Point(153, 25)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(96, 24)
-        Me.ComboBox2.TabIndex = 1
-        '
         'ComboBox1
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"January", "Febuary", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Nama Supplier", "Kode Nota"})
         Me.ComboBox1.Location = New System.Drawing.Point(8, 25)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(139, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(241, 24)
         Me.ComboBox1.TabIndex = 0
         '
         'Pembelian
@@ -289,6 +277,5 @@ Partial Class Pembelian
     Friend WithEvents Label6 As Label
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents ComboBox1 As ComboBox
 End Class

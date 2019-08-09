@@ -5,12 +5,11 @@
 
     Private Sub Pembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            loadNotaTerima(1, 2018)
+            loadNotaTerima("Nama Supplier")
             loadListBox()
             formReady = True
 
-            ComboBox1.SelectedIndex = IntMonth - 1
-            ComboBox2.SelectedIndex = IntYear - 2018
+            ComboBox1.SelectedIndex = 0
             ListBox1.SelectedIndex = -1
         Catch ex As Exception
             If stage = 1 Then
@@ -95,7 +94,7 @@
         End If
     End Sub
 
-    Private Sub searchNota(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged, ComboBox2.SelectedIndexChanged
+    Private Sub searchNota(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         If formReady Then
             loadListBox()
             TextBox2.Text = ""
@@ -143,10 +142,7 @@
     End Sub
 
     Sub loadListBox()
-        Dim bln = 0, thn As Integer = 0
-        bln = ComboBox1.SelectedIndex + 1
-        thn = ComboBox2.SelectedIndex + 2018
-        Dim hasil As ArrayList = loadNotaTerima(bln, thn, TextBox2.Text)
+        Dim hasil As ArrayList = loadNotaTerima(ComboBox1.SelectedItem, TextBox2.Text)
         ListBox1.Items.Clear()
         If hasil.Count <> 0 Then
             For i = 0 To hasil.Count - 1
