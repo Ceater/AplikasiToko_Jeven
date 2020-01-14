@@ -98,13 +98,10 @@
     End Sub
 
     Private Sub PenjualanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T1.Click
-        If Application.OpenForms().OfType(Of Penjualan).Any Then
-        Else
-            Dim f As New Penjualan
-            f.MdiParent = Me
-            f.setStaff(userLogin)
-            f.Show()
-        End If
+        Dim f As New Penjualan
+        f.MdiParent = Me
+        f.setStaff(userLogin)
+        f.Show()
     End Sub
 
     Private Sub PembelianToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles T2.Click
